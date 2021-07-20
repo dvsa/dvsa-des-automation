@@ -1,0 +1,118 @@
+{
+    "smc-general": [
+        {
+            "db-spinner": "//*[contains(text(), 'Refreshing databases')]",
+            "pt-vehicle": "#appDvsaSearchTitle",
+            "pt-driver": "#driver_pagetitle",
+            "pt-encountersearch": "#searchCopy_pagetitle",
+            "pt-incompleteencounters": "#incompleteEncounters_pagetitle",
+            "pt-currentencounter": "#currentEncounter_pagetitle",
+            "pt-operatorvisits": "#operatorVisits_pageTitle"
+        }
+    ],
+    "smc-sidemenu": [
+        {
+            "sidemenubutton": "#menuButton",
+            "menutitle": "#appDvsaSearchTitle",
+            "logout": "#logOut"
+        }
+    ],
+    "smc-login": [
+        {
+            "ms-continue": "//XCUIElementTypeButton[@name='Continue']",
+            "ms-signinbutton": "//XCUIElementTypeButton[@name='Sign in']",
+            "ms-nextbutton": "(//XCUIElementTypeButton[@name='Next'])[1]",
+            "ms-password": "//XCUIElementTypeSecureTextField",
+            "ms-email": "~Enter your email, phone, or Skype."
+        }
+    ],
+    "smc-search": [
+        {
+            "searchinput": "//*[@id='searchbar']/div/input",
+            "ukbutton": "//ion-alert//button[normalize-space(.)='UK']",
+            "foreignbutton": "//ion-alert//button[normalize-space(.)='FOREIGN']",
+            "operatordetailsbutton": "#operatorDetailsButton",
+            "vehicledetailsbutton": "#vehicleDetailsButton",
+            "testhistorybutton": "#testHistoryButton",
+            "driversearchbutton": "#driverSearchOption",
+            "searchcopyencounterbutton": "#searchCopyEncounterOption",
+            "incompleteencountersbutton": "#incompleteEncountersOption",
+            "textinsidevehicleresult": "#vehicleDetailsAlert"
+        }
+    ],
+    "ionicapp-general": [
+        {
+            "home": "#tab-button-tab1",
+            "pizza": "#tab-button-tab2",
+            "gin": "#tab-button-tab3",
+            "options": "#tab-button-tab4",
+            "search": "#tab-button-tab5",
+            "other": "#tab-button-tab6",
+            "pagetitle": "//ion-tabs//*[starts-with(name(), 'app-tab') and normalize-space(@class)='ion-page' and not(contains(@class,'ion-page-hidden'))]//ion-title"
+        }
+    ],
+    "ionicapp-sidemenu": [
+        {
+            "burgerbutton": "#burgerMenu",
+            "menutitle": "#popoutMenuTitle"
+        }
+    ],
+    "ionicapp-homepage": [
+        {
+            "firstname": "#firstNameTextbox input",
+            "lastname": "#lastNameTextbox input",
+            "email": "#emailTextbox input",
+            "age": "#ageTextbox input",
+            "dateofbirth": "#dateOfBirth",
+            "aboutme": "#aboutmeTextBox div textarea",
+            "submitbutton": "#submitButton",
+            "iconslist": "#iconList ion-list",
+            "iconslist-note": "//*[@id='iconList']",
+            "selectedchip": "#selectedChip ion-label",
+            "selectedchiplabel": "#selectedChipLabel",
+            "ginlist": "#ginList ion-item ",
+            "grapetoggle": "#ginList ion-item ion-toggle[name='grape']",
+            "notifications": "#notificationsSelector",
+            "gaming": "#gamingSelector",
+            "operatingsystem": "#operatingsystemSelector",
+            "starttime": "#startTime",
+            "starttimetext": "#startTime",
+            "startdate": "#startDate",
+            "enddate": "#endDate"
+        }
+    ],
+    "ionicapp-pizzapage": [
+        {
+            "toastybutton": "#toastyButton"
+        }
+    ],
+    "ionicapp-ginpage": [
+        {
+            "ginlist": "//ion-list[@id='ginList']",
+            "ginlistitem": "//ion-list[@id='ginList']",
+            "grapetoggle": "#ginList ion-item ion-toggle[name='grape']",
+            "kiwitoggle": "#ginList ion-item ion-toggle[name='kiwi']",
+            "ginactions": "//*[@id='actionSheet']",
+            "showmeaction": "#actionButton",
+            "actionSheet": "#actionSheet",
+            "ginactionsheet": "//*[@id='actionSheet']",
+            "actionresultlabel": "#actionResultLabel"
+        }
+    ],
+    "ionicapp-optionspage": [
+        {
+            "dangerrange": "//*[@id='dangerRangeSelector']",
+            "segmentbuttons": "//*[@id='segmentButtons']",
+            "segmentbuttons-catsndogs": "//*[@id='segmentButtons']//ion-segment-button[contains(normalize-space(.), 'Cats and Dogs')]",
+            "segmentbuttons-friends": "//*[@id='segmentButtons']//ion-segment-button[contains(normalize-space(.), 'Friends')]",
+            "segmentbuttons-enemies": "//*[@id='segmentButtons']//ion-segment-button[contains(normalize-space(.), 'Enemies')]",
+            "segmentresultlabel": "#segmentResult",
+            "castmemberlist": "//*[@id='castmemberList']"
+        }
+    ],
+    "ionicapp-otherpage":[
+        {
+            "newtextbox": "#newTextBox input"
+        }
+    ]
+}
