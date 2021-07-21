@@ -29,7 +29,9 @@ export const config: WebdriverIO.Config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    //
+    reporters: ['dot', 'spec'],
+    logLevel: "info",
+//
     // ============
     // Capabilities
     // ============
@@ -152,7 +154,7 @@ export const config: WebdriverIO.Config = {
         //     outputDir: './reports/json-results'
         // }],
 
-   
+
     ],
 
     // If you are using Cucumber you need to specify the location of your step definitions.

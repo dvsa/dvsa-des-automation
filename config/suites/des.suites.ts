@@ -1,9 +1,5 @@
 export const DesSuites = {
     login: [
-        './src/features/search/login.feature',
+        './src/features/des/cat-b/login.feature',
     ],
-    logout: [
-        './src/features/search/logout.feature',
-    ],
-   
-}
+};

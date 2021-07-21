@@ -12,11 +12,11 @@ class DesInfo {
     }
 
     get localDeviceName() {
-        return 'iPad';
+        return 'iPad Pro (10.5-inch)';
     }
 
     get platFormVersion() {
-        return '14.4'; // pass the platform version
+        return '12.4'; // pass the platform version
     }
 
     get platformName(){
@@ -26,9 +26,9 @@ class DesInfo {
     get appName() {
         return "bs://<TODO>" || process.env.BROWSERSTACK_APP_ID;
     }
-    
+
     get localAppPath() {
-        return './apps/DES.app';
+        return './apps/App.app';
     }
 }
 export default new DesInfo()
