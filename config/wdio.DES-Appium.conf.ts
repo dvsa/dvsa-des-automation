@@ -36,6 +36,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat
 
 //Appium port
 buildConfig.port = 4723;
+buildConfig.logLevel = "debug";
 
 exports.config = {
     ...buildConfig,
@@ -44,7 +45,7 @@ exports.config = {
             ...appiumbase,
             platformName: DesInfo.platformName,
             platformVersion: DesInfo.platFormVersion,
-            deviceName: '<change me>',
+            deviceName: DesInfo.localDeviceName,
             // app: '/Users/lee/IonicProjects/dvsa-automation-boilerplate/apps/SearchMobile.app',
             app: DesInfo.localAppPath,
             disableAnimations: true,
