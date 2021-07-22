@@ -23,7 +23,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat
 
 buildConfig.onPrepare = async () => {
     // browser.setTimeout({ 'pageLoad': 10000 });
-}
+};
 
 exports.config = {
     ...buildConfig,
@@ -40,7 +40,7 @@ exports.config = {
             name: bsconfig.user,
         }
     ]
-}
+};
 
 // exports.config = {
 //     ...buildConfig,
@@ -62,7 +62,7 @@ exports.config = {
 //             "browserstack.deviceLogs": "false",
 //             "disableAnimations": "true",
 //             "real_mobile" : "true",
-//             autoAcceptAlerts: true, 
+//             autoAcceptAlerts: true,
 //             fullContextList: true,
 //             autoWebview: true,
 //         }
