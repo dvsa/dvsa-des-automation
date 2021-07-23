@@ -13,7 +13,8 @@ buildConfig.specs = [
 ];
 
 buildConfig.cucumberOpts!.require!.push(
-    './src/steps/des/*.ts'
+    './src/steps/des/*.ts',
+    './src/steps/**/*.ts'
 );
 
 buildConfig.cucumberOpts!.timeout = 150000 // Allow for the application to install
