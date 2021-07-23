@@ -10,18 +10,19 @@
             "pt-operatorvisits": "#operatorVisits_pageTitle"
         }
     ],
-    "smc-sidemenu": [
+    "sidemenu": [
         {
             "sidemenubutton": "#menuButton",
             "menutitle": "#appDvsaSearchTitle",
             "logout": "#logOut"
         }
     ],
-    "smc-login": [
+    "login": [
         {
             "ms-continue": "//XCUIElementTypeButton[@name='Continue']",
             "ms-signinbutton": "//XCUIElementTypeButton[@name='Sign in']",
             "ms-nextbutton": "(//XCUIElementTypeButton[@name='Next'])[1]",
+            "ms-backbutton": "(//XCUIElementTypeButton[@name='Back'])[1]",
             "ms-password": "//XCUIElementTypeSecureTextField",
             "ms-email": "~Enter your email, phone, or Skype."
         }
