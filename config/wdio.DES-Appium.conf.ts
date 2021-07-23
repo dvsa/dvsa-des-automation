@@ -13,6 +13,7 @@ buildConfig.specs = [
 ];
 
 buildConfig.cucumberOpts!.require!.push(
+    './src/steps/des/*.ts',
     './src/steps/**/*.ts'
 );
 
