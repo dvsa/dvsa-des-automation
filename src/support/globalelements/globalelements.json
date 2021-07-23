@@ -19,12 +19,14 @@
     ],
     "login": [
         {
-            "ms-continue": "//XCUIElementTypeButton[@name='Continue']",
-            "ms-signinbutton": "//XCUIElementTypeButton[@name='Sign in']",
-            "ms-nextbutton": "(//XCUIElementTypeButton[@name='Next'])[1]",
-            "ms-backbutton": "(//XCUIElementTypeButton[@name='Back'])[1]",
-            "ms-password": "//XCUIElementTypeSecureTextField",
-            "ms-email": "~Enter your email, phone, or Skype."
+            "ms-continue": "///button[contains(text(), 'Continue')]",
+            "ms-nextbutton": "//button[contains(text(), 'Next')]",
+            "ms-backbutton": "//button[contains(text(), 'Back')]",
+            "ms-signinSubmitBtn":"input[type='submit']",
+            "ms-cancelBtn":"//input[id='idBtn_Back']",
+            "ms-email": "~Enter your email, phone, or Skype.",
+            "organisationConfirmTitleMessage":"#appConfirmTitle"
+
         }
     ],
     "smc-search": [
