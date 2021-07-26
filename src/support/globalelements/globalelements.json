@@ -31,7 +31,7 @@
 
         }
     ],
-    "dashboard": [
+    "des-dashboard": [
         {
             "my-journal-btn": "//ion-button//button[contains(text(), 'Go to my journal')]",
             "centre-journal-btn": "//ion-button//button(text(), 'Go to test centre journal')]",
