@@ -1,5 +1,5 @@
 export const DesSuites = {
-    login: [
-        './src/features/des/cat-b/login.feature',
+    example: [
+        './src/features/des/cat-b/example.feature',
     ],
 };

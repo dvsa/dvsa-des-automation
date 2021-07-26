@@ -8,7 +8,7 @@ class DesInfo {
     }
 
     get deviceName() {
-        return ['iPad','iPad'][Number.parseInt(faker.datatype.number({min: 0, max: 4, precision: 1}))]
+        return 'iPad 8th'
     }
 
     get localDeviceName() {
@@ -16,7 +16,7 @@ class DesInfo {
     }
 
     get platFormVersion() {
-        return '12.4'; // pass the platform version
+        return '14'; // pass the platform version
     }
 
     get platformName(){
@@ -24,7 +24,7 @@ class DesInfo {
     }
 
     get appName() {
-        return "bs://<TODO>" || process.env.BROWSERSTACK_APP_ID;
+        return "bs://d10b79bc894dc53c0f533bf0e73130561e00914e" || process.env.BROWSERSTACK_APP_ID;
     }
 
     get localAppPath() {
