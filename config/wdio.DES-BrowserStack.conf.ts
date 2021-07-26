@@ -41,30 +41,3 @@ exports.config = {
         }
     ]
 };
-
-// exports.config = {
-//     ...buildConfig,
-//     ...bsconfig,
-//     capabilities: [
-//         {
-//             "os_version": "14.3",
-//             "device": DesInfo.deviceName,
-//             "platformName": "iOS",
-//             "app": DesInfo.appName,
-//             "project": DesInfo.projectName,
-//             "build": "DES WDIO Browserstack",
-//             "name": bsconfig.user,
-//             "browserstack.appium_version": '1.20.2',
-//             "browserstack.acceptInsecureCerts": "true",
-//             "browserstack.debug": "true",
-//             "browserstack.networkLogs": "false",
-//             "browserstack.appiumLogs": "false",
-//             "browserstack.deviceLogs": "false",
-//             "disableAnimations": "true",
-//             "real_mobile" : "true",
-//             autoAcceptAlerts: true,
-//             fullContextList: true,
-//             autoWebview: true,
-//         }
-//     ]
-// }
