@@ -14,7 +14,9 @@
         {
             "sidemenubutton": "#menuButton",
             "menutitle": "#appDvsaSearchTitle",
-            "logout": "#logOut"
+            "logout": "#logOut",
+            "version-number":".version-number",
+            "app-title":"//ion-title[@class='title-default']"
         }
     ],
     "login": [
@@ -27,6 +29,21 @@
             "ms-email": "~Enter your email, phone, or Skype.",
             "organisationConfirmTitleMessage":"#appConfirmTitle"
 
+        }
+    ],
+    "des-dashboard": [
+        {
+            "my-journal-btn": "//ion-button//button[contains(text(), 'Go to my journal')]",
+            "centre-journal-btn": "//ion-button//button(text(), 'Go to test centre journal')]",
+            "search-completed-tests-btn":"//ion-button//button(text(), 'Search for completed tests')]",
+            "rekey-test-btn":"//ion-button//button(text(), 'Search test bookings to rekey')]",
+            "date": ".date",
+            "staff-number-container":"//ion-col[@class='staff-number']",
+            "employee-id":".employee-id",
+            "username-header":"//ion-row/h2[@class='name']",
+            "user-classification":"//ion-row/ion-col[@class='role']/span",
+            "user-profile-icon":"//ion-icon[@id='contact-icon']",
+            "test-practise-mode-container":"#testReportPracticeMode"
         }
     ],
     "smc-search": [
