@@ -75,7 +75,7 @@ class LoginPageObject extends Page {
             this.switchContextByTitle('Sign in to your account');
 
             this.msEmailTextbox.waitForExist();
-            this.msEmailTextbox.setValue(user.UserPrincipalName);
+            this.msEmailTextbox.setValue(user.UserEmail);
             this.msSubmitButton.click();
             this.msPasswordTextBox.waitForExist();
             this.msPasswordTextBox.setValue(user.Password);
