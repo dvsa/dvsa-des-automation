@@ -71,7 +71,7 @@
             "show-examiner-journal-btn":"//ion-button[contains(text(), 'Show journal')]",
             "examiner-selectio-modal":".alert-wrapper ion-overlay-wrapper",
             "cancel-btn-examiner-select":".alert-button-role-cancel",
-            "select-btn-examiner-select":""
+            "select-btn-examiner-select": "button[contains(text(), 'Select')]"
         }
     ],
     "smc-search": [
