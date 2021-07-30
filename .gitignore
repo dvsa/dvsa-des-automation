@@ -19,5 +19,7 @@ yarn.lock
 #Creds
 
 creds/bscreds.ts
+creds/credentials.json
+
 
 .DS_Store

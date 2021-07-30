@@ -65,9 +65,13 @@
         {
             "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
             "show-candidate-booking":"//ion-button[contains(text(), 'Show booking')]",
-            "view-journal-tab":"h3[contains(text(), 'View Journals')]"
-
-
+            "candidate-search-input":"typeahead-dropdown input[id='typeahead-prevent-manual-entry']",
+            "view-journal-tab":"h3[contains(text(), 'View Journals')]",
+            "examiner-select-dropdown":"//ion-select[aria-label='Select examiner]",
+            "show-examiner-journal-btn":"//ion-button[contains(text(), 'Show journal')]",
+            "examiner-selectio-modal":".alert-wrapper ion-overlay-wrapper",
+            "cancel-btn-examiner-select":".alert-button-role-cancel",
+            "select-btn-examiner-select":""
         }
     ],
     "smc-search": [
