@@ -46,6 +46,34 @@
             "test-practise-mode-container":"#testReportPracticeMode"
         }
     ],
+    "des-my-journal": [
+        {
+            "todays-date-container":"#date-container",
+            "next-day-btn":"#next-day-container",
+            "previous-day-btn":"#previous-day-container",
+            "rekey-test-btn":"//ion-button[contains(text(), 'Rekey')]",
+            "start-test-btn":"//ion-button[contains(text(), 'Start test')]",
+            "candidate-name":".candidate-name",
+            "test-time":".time-test-complete-text",
+            "test-category-container":"test-category",
+            "vehicle-details":".vehicle-details-row",
+            "test-centre-name":"//ion-icon[name='location'] h3",
+            "click-through-to-candidate-info":"//ion-icon[name='chevron-forward']"
+        }
+    ],
+    "des-test-centre-journal": [
+        {
+            "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
+            "show-candidate-booking":"//ion-button[contains(text(), 'Show booking')]",
+            "candidate-search-input":"typeahead-dropdown input[id='typeahead-prevent-manual-entry']",
+            "view-journal-tab":"h3[contains(text(), 'View Journals')]",
+            "examiner-select-dropdown":"//ion-select[aria-label='Select examiner]",
+            "show-examiner-journal-btn":"//ion-button[contains(text(), 'Show journal')]",
+            "examiner-selectio-modal":".alert-wrapper ion-overlay-wrapper",
+            "cancel-btn-examiner-select":".alert-button-role-cancel",
+            "select-btn-examiner-select": "button[contains(text(), 'Select')]"
+        }
+    ],
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
