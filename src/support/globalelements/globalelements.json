@@ -74,6 +74,21 @@
             "select-btn-examiner-select": "button[contains(text(), 'Select')]"
         }
     ],
+    "des-candidate-details": [
+        {
+            "test-category":"data-row[ng-reflect-label='Test category']",
+            "candidate-name":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
+            "slot-type":"data-row[ng-reflect-label='Slot type']",
+            "test-timeslot":".test-start-time",
+            "driver-number":"data-row[ng-reflect-label='Driver number']",
+            "application-number":"data-row[ng-reflect-label='Application number']",
+            "special-requirements":"data-row-custom[ng-reflect-label='Special requirements']",
+            "additional-information":"data-row-custom[ng-reflect-label='Additional information']",
+            "candidate-phone-number":"data-row[ng-reflect-label='Phone number']",
+            "candidate-email":"data-row[ng-reflect-label='Email']",
+            "candidate-address":"data-row-custom[ng-reflect-label='Address']"
+        }
+    ],
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
