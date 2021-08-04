@@ -113,10 +113,11 @@
             "vrn-modal-reg-number-input":"input[formcontrolname='vehicleRegistration']",
             "vrn-modal-cancel-btn":".cancel-button",
             "vrn-modal-save-btn":".save-button",
-            "enter-signature-err-msg":"#waiting-room-signature-validation-text"      
+            "enter-signature-err-msg":"#waiting-room-signature-validation-text",
+            "insurance-declaration-unchecked-validation-error":"#waiting-room-insurance-validation-text",
+            "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
         }
     ],
-
     
     "smc-search": [
         {
