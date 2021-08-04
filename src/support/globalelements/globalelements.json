@@ -52,13 +52,19 @@
             "next-day-btn":"#next-day-container",
             "previous-day-btn":"#previous-day-container",
             "rekey-test-btn":"//ion-button[contains(text(), 'Rekey')]",
-            "start-test-btn":"//ion-button[contains(text(), 'Start test')]",
             "candidate-name":".candidate-name",
             "test-time":".time-test-complete-text",
             "test-category-container":"test-category",
             "vehicle-details":".vehicle-details-row",
             "test-centre-name":"//ion-icon[name='location'] h3",
-            "click-through-to-candidate-info":"//ion-icon[name='chevron-forward']"
+            "click-through-to-candidate-info":"//ion-icon[name='chevron-forward']",
+            "rekey-test-modal":"journal-rekey-modal",
+            "start-test-btn":"//ion-button[contains(text(), 'Start test')]",
+            "start-test-modal":"ion-card[class='modal-alert']",
+            "start-test-modal-start-test-btn":"#rekey-start-test-button",
+            "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
+            "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
+            "cancel-start-test-modal":"#rekey-cancel-button"
         }
     ],
     "des-test-centre-journal": [
@@ -69,7 +75,7 @@
             "view-journal-tab":"h3[contains(text(), 'View Journals')]",
             "examiner-select-dropdown":"//ion-select[aria-label='Select examiner]",
             "show-examiner-journal-btn":"//ion-button[contains(text(), 'Show journal')]",
-            "examiner-selectio-modal":".alert-wrapper ion-overlay-wrapper",
+            "examiner-selection-modal":".alert-wrapper ion-overlay-wrapper",
             "cancel-btn-examiner-select":".alert-button-role-cancel",
             "select-btn-examiner-select": "button[contains(text(), 'Select')]"
         }
@@ -89,6 +95,30 @@
             "candidate-address":"data-row-custom[ng-reflect-label='Address']"
         }
     ],
+    "des-exam-waiting-room": [
+        {
+            "continue-btn":"#continue-button",
+            "candidate-name":"#candidate-name",
+            "candidate-number":"#candidate-driver-number",
+            "declaration-section":"#declaration-section",
+            "insurance-declaration-checkbox":"input[formcontrolname='insuranceCheckbox']",
+            "residency-declaration-checkbox":"input[formcontrolname='residencyCheckbox']",
+            "signature-area":".signature-area",
+            "signature-pad-area":"#signature-pad",
+            "retry-signature-icon":"button[class='retry-button']",
+            "signed-pad-area":".ng-touched ng-dirty ng-valid",
+            "end-test-btn":".end-test-link-button",
+            "vrn-btn":"#vrn-button",
+            "vrn-modal":"#vrn-capture-modal-card",
+            "vrn-modal-reg-number-input":"input[formcontrolname='vehicleRegistration']",
+            "vrn-modal-cancel-btn":".cancel-button",
+            "vrn-modal-save-btn":".save-button",
+            "enter-signature-err-msg":"#waiting-room-signature-validation-text",
+            "insurance-declaration-unchecked-validation-error":"#waiting-room-insurance-validation-text",
+            "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
+        }
+    ],
+    
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
