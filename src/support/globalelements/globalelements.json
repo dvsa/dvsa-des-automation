@@ -31,6 +31,12 @@
 
         }
     ],
+    "des-general": [
+        {
+            "continue-btn":"#continue-button",
+            "vrn-btn":"#vrn-button"
+        }
+    ],
     "des-dashboard": [
         {
             "my-journal-btn": "//ion-button//button[contains(text(), 'Go to my journal')]",
@@ -97,7 +103,6 @@
     ],
     "des-exam-waiting-room": [
         {
-            "continue-btn":"#continue-button",
             "candidate-name":"#candidate-name",
             "candidate-number":"#candidate-driver-number",
             "declaration-section":"#declaration-section",
@@ -108,7 +113,6 @@
             "retry-signature-icon":"button[class='retry-button']",
             "signed-pad-area":".ng-touched ng-dirty ng-valid",
             "end-test-btn":".end-test-link-button",
-            "vrn-btn":"#vrn-button",
             "vrn-modal":"#vrn-capture-modal-card",
             "vrn-modal-reg-number-input":"input[formcontrolname='vehicleRegistration']",
             "vrn-modal-cancel-btn":".cancel-button",
@@ -116,6 +120,24 @@
             "enter-signature-err-msg":"#waiting-room-signature-validation-text",
             "insurance-declaration-unchecked-validation-error":"#waiting-room-insurance-validation-text",
             "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
+        }
+    ],
+    "des-comms-screen": [
+        {
+            "privacy-notice-text":".privacy-text",
+            "declaration-section":"#declaration-section",
+            "communication-header-text":".communication-text-container",
+            "select-email-radio-btn":"input[id='newEmail']",
+            "new-email-label":"label[for='newEmail']",
+            "new-email-input":"#newEmailInput",
+            "new-email-error-msg":"#communication-new-email-validation-text",
+            "select-bypost-radio-btn":"input[id='postalAddress']",
+            "by-post-label":"label[for='postalAddress']",
+            "address-container":".display-address",
+            "address-line-1":"#addressLine1",
+            "address-line-2":"#addressLine2",
+            "address-line-3":"#addressLine3",
+            "address-postcode":"#postcode"
         }
     ],
     
