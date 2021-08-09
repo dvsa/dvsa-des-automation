@@ -34,7 +34,9 @@
     "des-general": [
         {
             "continue-btn":"#continue-button",
-            "vrn-btn":"#vrn-button"
+            "vrn-btn":"#vrn-button",
+            "end-test-btn":".end-test-link-button",
+            "back-btn":"ion-back-button"
         }
     ],
     "des-dashboard": [
@@ -112,7 +114,6 @@
             "signature-pad-area":"#signature-pad",
             "retry-signature-icon":"button[class='retry-button']",
             "signed-pad-area":".ng-touched ng-dirty ng-valid",
-            "end-test-btn":".end-test-link-button",
             "vrn-modal":"#vrn-capture-modal-card",
             "vrn-modal-reg-number-input":"input[formcontrolname='vehicleRegistration']",
             "vrn-modal-cancel-btn":".cancel-button",
