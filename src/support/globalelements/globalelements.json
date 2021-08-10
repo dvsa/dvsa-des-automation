@@ -132,6 +132,8 @@
             "new-email-label":"label[for='newEmail']",
             "new-email-input":"#newEmailInput",
             "new-email-error-msg":"#communication-new-email-validation-text",
+            "select-provided-email-radio-btn":"label[for='providedEmail']",
+            "provided-email-text":"#providedEmailInput",
             "select-bypost-radio-btn":"input[id='postalAddress']",
             "by-post-label":"label[for='postalAddress']",
             "address-container":".display-address",
