@@ -123,6 +123,43 @@
             "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
         }
     ],
+    "des-waiting-room-to-car": [
+        {
+        "eyesight-test-container":"#eyesight-test-card",
+        "eyesight-pass-btn":"#eyesight-pass",
+        "eyesight-fail-btn":"#eyesight-fail",
+        "eyesight-validation-error-msg":"#waiting-room-to-car-eyesight-validation-text",
+        "tell-me-container":"#tell-me-card",
+        "tell-me-selector":"#tell-me-selector",
+        "tell-me-questions-options-modal":"div[role='radiogroup']",
+        "tell-me-questions-options":".select-interface-option",
+        "tell-me-validation-error-msg":"#waiting-room-to-car-tell-me-validation-text",
+        "tell-me-answer-validation-error-msg":"#waiting-room-to-car-tell-me-outcome-validation-text",
+        "tell-me-answer-correct-btn":"#tellme-correct",
+        "tell-me-answer-fault-btn":"#tellme-fault",
+        "modal-cancel-btn":"//button[contains(text(), 'Cancel')]",
+        "modal-submit-btn":"//button[contains(text(), 'Submit')]",
+        "vehicle-registration-container":"#registration-card",
+        "vehicle-registration-input":"#registration",
+        "vehicle-registration-validation-error-msg":"#waiting-room-to-car-registration-validation-text",
+        "transmission-type-validation-error-msg":"#transmission-validation-text",
+        "transmission-type-container":"#transmission-card",
+        "manual-transmission-btn":"#transmission-manual-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
+        "automatic-transmission-btn":"#transmission-automatic-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
+        "instructor-registration-container":"#instructor-registration-card",
+        "instructor-registration-input":"#instructor-registration",
+        "accompanied-by-container":"#accompaniment-card",
+        "accompanied-instructor-option":"#accompaniment-Instructor",
+        "accompanied-supervisor-option":"#accompaniment-Supervisor",
+        "accompanied-interpreter-option":"#accompaniment-Interpreter",
+        "accompanied-other-option":"#accompaniment-Other",
+        "vehicle-details-container":"vehicle-details",
+        "vehicle-details-school-car-option":"#vehicle-details-school-car",
+        "vehicle-details-dual-option":"#vehicle-details-dual-control",
+        "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
+        "continue-to-test-report-btn":"//ion-button[contains(text(), 'Continue to test report')]"
+        }
+    ],
     "des-comms-screen": [
         {
             "privacy-notice-text":".privacy-text",
@@ -143,7 +180,6 @@
             "address-postcode":"#postcode"
         }
     ],
-    
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
