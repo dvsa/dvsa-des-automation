@@ -267,6 +267,8 @@
         {
             "test-outcome-container" : ".test-outcome-container",
             "test-outcome-fail":".test-outcome-container failed",
+            "test-outcome-passed":".test-outcome-container passed",
+            "test-outcome-terminated":".test-outcome-container terminated",
             "eta" : "#ETA",
             "show-me-question":"#show-me-question",
             "end-debrief-btn": "#end-debrief-button",
