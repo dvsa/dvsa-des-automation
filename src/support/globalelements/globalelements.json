@@ -263,6 +263,24 @@
         }
     ],
 
+    "debrief-screen":[
+        {
+            "test-outcome-container" : ".test-outcome-container",
+            "test-outcome-fail":".test-outcome-container failed",
+            "test-outcome-passed":".test-outcome-container passed",
+            "test-outcome-terminated":".test-outcome-container terminated",
+            "eta" : "#ETA",
+            "show-me-question":"#show-me-question",
+            "end-debrief-btn": "#end-debrief-button",
+            "driving-faults-container" :"driving-fault",
+            "eta-faults": "#etaFaults",
+            "vehicle-checks-container" : "#vehicle-checks",
+            "vehicle-checks-heading" : ".fault-heading='Vehicle checks'",
+            "dangerous-faults-heading":".fault-heading='dangerous faults'",
+            "serious-faults-heading":".fault-heading='serious faults'"
+        }
+    ],
+
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
