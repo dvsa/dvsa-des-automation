@@ -281,6 +281,13 @@
         }
     ],
 
+    "post-debrief-screen":[
+        {
+            "dvsa-logo":"#dvsa-logo",
+            "continue-btn":"#continue-to-non-pass-finalisation"
+        }
+    ],
+
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
