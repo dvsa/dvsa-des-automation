@@ -92,7 +92,7 @@
     "des-candidate-details": [
         {
             "test-category":"data-row[ng-reflect-label='Test category']",
-            "candidate-name-candidate-details-page":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
+            "candidate-name":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
             "slot-type":"data-row[ng-reflect-label='Slot type']",
             "test-timeslot":".test-start-time",
             "driver-number":"data-row[ng-reflect-label='Driver number']",
@@ -288,7 +288,7 @@
         }
     ],
 
-    "finalise-pass-screen":[
+    "des-final-outcome-screen":[
         {
             "application-reference-container":"#application-reference-card",
             "test-outcome-text":"#test-outcome-text",
