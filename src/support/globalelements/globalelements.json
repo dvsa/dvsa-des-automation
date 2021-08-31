@@ -36,7 +36,9 @@
             "continue-btn":"#continue-button",
             "vrn-btn":"#vrn-button",
             "end-test-btn":".end-test-link-button",
-            "back-btn":"ion-back-button"
+            "back-btn":"ion-back-button",
+            "candidate-name":".candidate-name"
+
         }
     ],
     "des-dashboard": [
@@ -60,7 +62,6 @@
             "next-day-btn":"#next-day-container",
             "previous-day-btn":"#previous-day-container",
             "rekey-test-btn":"//ion-button[contains(text(), 'Rekey')]",
-            "candidate-name":".candidate-name",
             "test-time":".time-test-complete-text",
             "test-category-container":"test-category",
             "vehicle-details":".vehicle-details-row",
@@ -91,7 +92,7 @@
     "des-candidate-details": [
         {
             "test-category":"data-row[ng-reflect-label='Test category']",
-            "candidate-name":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
+            "candidate-name-candidate-details-page":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
             "slot-type":"data-row[ng-reflect-label='Slot type']",
             "test-timeslot":".test-start-time",
             "driver-number":"data-row[ng-reflect-label='Driver number']",
@@ -105,7 +106,6 @@
     ],
     "des-exam-waiting-room": [
         {
-            "candidate-name":"#candidate-name",
             "candidate-number":"#candidate-driver-number",
             "declaration-section":"#declaration-section",
             "insurance-declaration-checkbox":"input[formcontrolname='insuranceCheckbox']",
@@ -288,6 +288,27 @@
         }
     ],
 
+    "finalise-pass-screen":[
+        {
+            "application-reference-container":"#application-reference-card",
+            "test-outcome-text":"#test-outcome-text",
+            "candidate-driver-number":"#candidate-driver-number",
+            "provisional-license-container":"#provisional-license-card",
+            "provisional-license-recieved-option-yes":"#license-received",
+            "provisional-license-recieved-option-no":"#license-not-received",
+            "transmission-type":"#transmission-card",
+            "transmission-manual":"input[value='manual']",
+            "transmission-automatic":"input[value='automatic']",
+            "pass-certificate-number-field":"#pass-certificate-number",
+            "d255-container":"#d255-card",
+            "d255-yes-option":"#d255-yes",
+            "d255-no-option":"#d255-no",
+            "language-preference-container":"#lang-pref-card",
+            "lang-pref-english-option":"#lang-pref-english",
+            "lang-pref-cymraeg-option":"#lang-pref-welsh",
+            "continue-btn":"#pass-finalisation-continue-button"
+        }
+    ],
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
