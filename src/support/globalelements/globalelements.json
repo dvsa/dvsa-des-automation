@@ -325,7 +325,8 @@
             "certificate-recieved-declaration":"#receipt-declaration-checkbox",
             "enter-signature-err-msg":"#waiting-room-signature-validation-text",
             "continue-modal-cancel-btn":"button='Cancel'",
-            "continue-modal-continue-btn":"button='Continue'"
+            "continue-modal-continue-btn":"button='Continue'",
+            "warning-text":"#warning_text"
         }
     ],
 
