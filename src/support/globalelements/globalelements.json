@@ -37,7 +37,10 @@
             "vrn-btn":"#vrn-button",
             "end-test-btn":".end-test-link-button",
             "back-btn":"ion-back-button",
-            "candidate-name":".candidate-name"
+            "candidate-name":".candidate-name",
+            "candidate-driver-number":"#candidate-driver-number",
+            "signature-pad-area":"#signature-pad",
+            "retry-signature-btn":"#retry-icon"
         }
     ],
     "des-dashboard": [
@@ -110,7 +113,6 @@
             "insurance-declaration-checkbox":"input[formcontrolname='insuranceCheckbox']",
             "residency-declaration-checkbox":"input[formcontrolname='residencyCheckbox']",
             "signature-area":".signature-area",
-            "signature-pad-area":"#signature-pad",
             "retry-signature-icon":"button[class='retry-button']",
             "signed-pad-area":".ng-touched ng-dirty ng-valid",
             "vrn-modal":"#vrn-capture-modal-card",
@@ -124,39 +126,39 @@
     ],
     "des-waiting-room-to-car": [
         {
-        "eyesight-test-container":"#eyesight-test-card",
-        "eyesight-pass-btn":"#eyesight-pass",
-        "eyesight-fail-btn":"#eyesight-fail",
-        "eyesight-validation-error-msg":"#waiting-room-to-car-eyesight-validation-text",
-        "tell-me-container":"#tell-me-card",
-        "tell-me-selector":"#tell-me-selector",
-        "tell-me-questions-options-modal":"div[role='radiogroup']",
-        "tell-me-questions-options":".select-interface-option",
-        "tell-me-validation-error-msg":"#waiting-room-to-car-tell-me-validation-text",
-        "tell-me-answer-validation-error-msg":"#waiting-room-to-car-tell-me-outcome-validation-text",
-        "tell-me-answer-correct-btn":"#tellme-correct",
-        "tell-me-answer-fault-btn":"#tellme-fault",
-        "modal-cancel-btn":"//button[contains(text(), 'Cancel')]",
-        "modal-submit-btn":"//button[contains(text(), 'Submit')]",
-        "vehicle-registration-container":"#registration-card",
-        "vehicle-registration-input":"#registration",
-        "vehicle-registration-validation-error-msg":"#waiting-room-to-car-registration-validation-text",
-        "transmission-type-validation-error-msg":"#transmission-validation-text",
-        "transmission-type-container":"#transmission-card",
-        "manual-transmission-btn":"#transmission-manual-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
-        "automatic-transmission-btn":"#transmission-automatic-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
-        "instructor-registration-container":"#instructor-registration-card",
-        "instructor-registration-input":"#instructor-registration",
-        "accompanied-by-container":"#accompaniment-card",
-        "accompanied-instructor-option":"#accompaniment-Instructor",
-        "accompanied-supervisor-option":"#accompaniment-Supervisor",
-        "accompanied-interpreter-option":"#accompaniment-Interpreter",
-        "accompanied-other-option":"#accompaniment-Other",
-        "vehicle-details-container":"vehicle-details",
-        "vehicle-details-school-car-option":"#vehicle-details-school-car",
-        "vehicle-details-dual-option":"#vehicle-details-dual-control",
-        "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
-        "continue-to-test-report-btn":"//ion-button[contains(text(), 'Continue to test report')]"
+            "eyesight-test-container":"#eyesight-test-card",
+            "eyesight-pass-btn":"#eyesight-pass",
+            "eyesight-fail-btn":"#eyesight-fail",
+            "eyesight-validation-error-msg":"#waiting-room-to-car-eyesight-validation-text",
+            "tell-me-container":"#tell-me-card",
+            "tell-me-selector":"#tell-me-selector",
+            "tell-me-questions-options-modal":"div[role='radiogroup']",
+            "tell-me-questions-options":".select-interface-option",
+            "tell-me-validation-error-msg":"#waiting-room-to-car-tell-me-validation-text",
+            "tell-me-answer-validation-error-msg":"#waiting-room-to-car-tell-me-outcome-validation-text",
+            "tell-me-answer-correct-btn":"#tellme-correct",
+            "tell-me-answer-fault-btn":"#tellme-fault",
+            "modal-cancel-btn":"//button[contains(text(), 'Cancel')]",
+            "modal-submit-btn":"//button[contains(text(), 'Submit')]",
+            "vehicle-registration-container":"#registration-card",
+            "vehicle-registration-input":"#registration",
+            "vehicle-registration-validation-error-msg":"#waiting-room-to-car-registration-validation-text",
+            "transmission-type-validation-error-msg":"#transmission-validation-text",
+            "transmission-type-container":"#transmission-card",
+            "manual-transmission-btn":"#transmission-manual-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
+            "automatic-transmission-btn":"#transmission-automatic-a6f6e3c1-72b6-4d60-9315-b539031fe6c3",
+            "instructor-registration-container":"#instructor-registration-card",
+            "instructor-registration-input":"#instructor-registration",
+            "accompanied-by-container":"#accompaniment-card",
+            "accompanied-instructor-option":"#accompaniment-Instructor",
+            "accompanied-supervisor-option":"#accompaniment-Supervisor",
+            "accompanied-interpreter-option":"#accompaniment-Interpreter",
+            "accompanied-other-option":"#accompaniment-Other",
+            "vehicle-details-container":"vehicle-details",
+            "vehicle-details-school-car-option":"#vehicle-details-school-car",
+            "vehicle-details-dual-option":"#vehicle-details-dual-control",
+            "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
+            "continue-to-test-report-btn":"//ion-button[contains(text(), 'Continue to test report')]"
         }
     ],
     "des-comms-screen": [
@@ -291,7 +293,6 @@
         {
             "application-reference-container":"#application-reference-card",
             "test-outcome-text":"#test-outcome-text",
-            "candidate-driver-number":"#candidate-driver-number",
             "provisional-license-container":"#provisional-license-card",
             "provisional-license-recieved-option-yes":"#license-received",
             "provisional-license-recieved-option-no":"#license-not-received",
@@ -315,6 +316,20 @@
             "continue-btn":"#pass-finalisation-continue-button"
         }
     ],
+
+    "des-final-declaration-screen":[
+        {
+            "dvsa-logo":"#dvsa-logo",
+            "health-declaration-section":"#declaration-section",
+            "health-declaration-checkbox-confirm":"#health-declaration-checkbox",
+            "certificate-recieved-declaration":"#receipt-declaration-checkbox",
+            "enter-signature-err-msg":"#waiting-room-signature-validation-text",
+            "continue-modal-cancel-btn":"button='Cancel'",
+            "continue-modal-continue-btn":"button='Continue'",
+            "warning-text":"#warning_text"
+        }
+    ],
+
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
