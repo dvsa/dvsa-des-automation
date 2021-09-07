@@ -316,8 +316,15 @@
             "continue-btn":"#pass-finalisation-continue-button"
         }
     ],
+    "des-final-fail-declaration-screen":[
+        {
+            "activity-code-container":"#activity-code-card",
+            "activity-code-selector":"#activity-code-selector",
+            "test-outcome-fail-text":"#test-outcome-text=' Unsuccessful '"
+        }
+    ],
 
-    "des-final-declaration-screen":[
+    "des-final-pass-declaration-screen":[
         {
             "dvsa-logo":"#dvsa-logo",
             "health-declaration-section":"#declaration-section",
