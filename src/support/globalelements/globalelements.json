@@ -320,7 +320,8 @@
         {
             "activity-code-container":"#activity-code-card",
             "activity-code-selector":"#activity-code-selector",
-            "test-outcome-fail-text":"#test-outcome-text=' Unsuccessful '"
+            "test-outcome-fail-text":"#test-outcome-text=' Unsuccessful '",
+            "terminate-select-reason":".alert-radio-label"
         }
     ],
 
