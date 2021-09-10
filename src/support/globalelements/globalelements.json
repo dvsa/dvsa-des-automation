@@ -316,7 +316,7 @@
             "continue-btn":"#pass-finalisation-continue-button"
         }
     ],
-    "des-final-fail-declaration-screen":[
+    "des-final-non-pass-declaration-screen":[
         {
             "activity-code-container":"#activity-code-card",
             "activity-code-selector":"#activity-code-selector",
