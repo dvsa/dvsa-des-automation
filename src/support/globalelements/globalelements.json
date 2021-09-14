@@ -347,6 +347,7 @@
             "test-category-row":"ion-row*='Test Category'",
             "transmission-row":"ion-row*='Transmission'",
             "d255-row":"ion-row*='D255'",
+            "activity-code-row":"ion-row*='Activity Code'",
             "submit-test-result-modal":"#alert-6-msg",
             "submit-modal-cancel-btn":"button='Cancel'",
             "submit-modal-submit-btn":"button='Submit'"
