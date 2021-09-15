@@ -338,6 +338,22 @@
         }
     ],
 
+    "des-final-confirmation-screen":[
+        {
+            "submit-test-results-btn":"ion-button='Submit test results'",
+            "back-to-debrief-btn":"ion-button='Back to debrief'",
+            "date-time-of-test-row":"ion-row*='Date and time of test'",
+            "test-outcome-row":"ion-row*='Test outcome'",
+            "test-category-row":"ion-row*='Test Category'",
+            "transmission-row":"ion-row*='Transmission'",
+            "d255-row":"ion-row*='D255'",
+            "activity-code-row":"ion-row*='Activity Code'",
+            "submit-test-result-modal":"#alert-6-msg",
+            "submit-modal-cancel-btn":"button='Cancel'",
+            "submit-modal-submit-btn":"button='Submit'"
+        }
+    ],
+
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
