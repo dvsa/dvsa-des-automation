@@ -354,6 +354,13 @@
         }
     ],
 
+    "des-back-to-office-holding-page":[
+        {
+            "continue-to-write-up-btn":"#continue-to-write-up",
+            "return-to-journal-btn":"#return-to-journal"
+        }
+    ],
+
     "smc-search": [
         {
             "searchinput": "//*[@id='searchbar']/div/input",
