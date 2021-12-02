@@ -16,6 +16,10 @@ reports/*
 !.vscode/extensions.json
 yarn.lock
 
+#Apps
+
+apps/App.app
+
 #Creds
 
 creds/bscreds.ts
