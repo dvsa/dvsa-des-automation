@@ -390,7 +390,9 @@
             "show-me-question-validation": "#office-show-me-validation-text",
             "weather-conditions-sel":"#ion-sel-3-lbl",
             "weather-conditions-validation": "#office-weather-validation-text",
-            "add-info":"#additional-information"
+            "add-info":"#additional-information",
+            "eta-faults": "#etaFaults",
+            "eco-faults": "#ecoFaults"
         }
     ],
 
