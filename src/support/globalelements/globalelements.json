@@ -31,6 +31,7 @@
 
         }
     ],
+
     "des-general": [
         {
             "continue-btn":"#continue-button",
@@ -43,6 +44,7 @@
             "retry-signature-btn":"#retry-icon"
         }
     ],
+
     "des-dashboard": [
         {
             "my-journal-btn": "//ion-button//button[contains(text(), 'Go to my journal')]",
@@ -58,6 +60,7 @@
             "test-practise-mode-container":"#testReportPracticeMode"
         }
     ],
+
     "des-my-journal": [
         {
             "todays-date-container":"#date-container",
@@ -78,6 +81,7 @@
             "cancel-start-test-modal":"#rekey-cancel-button"
         }
     ],
+
     "des-test-centre-journal": [
         {
             "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
@@ -91,6 +95,7 @@
             "select-btn-examiner-select": "button[contains(text(), 'Select')]"
         }
     ],
+
     "des-candidate-details": [
         {
             "test-category":"data-row[ng-reflect-label='Test category']",
@@ -106,6 +111,7 @@
             "candidate-address":"data-row-custom[ng-reflect-label='Address']"
         }
     ],
+
     "des-exam-waiting-room": [
         {
             "candidate-number":"#candidate-driver-number",
@@ -124,6 +130,7 @@
             "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
         }
     ],
+
     "des-waiting-room-to-car": [
         {
             "eyesight-test-container":"#eyesight-test-card",
@@ -161,6 +168,7 @@
             "continue-to-test-report-btn":"//ion-button[contains(text(), 'Continue to test report')]"
         }
     ],
+
     "des-comms-screen": [
         {
             "privacy-notice-text":".privacy-text",
@@ -264,7 +272,7 @@
         }
     ],
 
-    "debrief-screen":[
+    "des-debrief-screen":[
         {
             "test-outcome-container" : ".test-outcome-container",
             "test-outcome-fail":".test-outcome-container failed",
@@ -282,7 +290,7 @@
         }
     ],
 
-    "post-debrief-screen":[
+    "des-post-debrief-screen":[
         {
             "dvsa-logo":"#dvsa-logo",
             "continue-btn":"#continue-to-non-pass-finalisation"
@@ -316,6 +324,7 @@
             "continue-btn":"#pass-finalisation-continue-button"
         }
     ],
+
     "des-final-non-pass-declaration-screen":[
         {
             "activity-code-container":"#activity-code-card",
@@ -358,6 +367,32 @@
         {
             "continue-to-write-up-btn":"#continue-to-write-up",
             "return-to-journal-btn":"#return-to-journal"
+        }
+    ],
+
+    "des-office-page":[
+        {
+            "candidate-name":"#candidate-name",
+            "test-outcome-text":"#test-outcome-text",
+            "activity-code":"#activity-code-selector",
+            "route-number":"#route",
+            "route-number-validation":"#office-route-number-validation-text",
+            "independant-driving-sat-nav":"#independent-driving-satnav",
+            "independant-driving-traffice-signs":"#independent-driving-trafficsigns",
+            "independant-driving-validation":"#office-independent-driving-validation-text",
+            "desc-of-candidate":"#physical-description",
+            "desc-of-candidate-validation": "#office-candidate-description-validation-text",
+            "remaining-char-count":".character-count",
+            "identification-photo-card":"#identification-license",
+            "identification-passport":"#identification-passport",
+            "tell-me-question":"#tell-me-question-text",
+            "show-me-question-sel":"#ion-sel-2-lbl",
+            "show-me-question-validation": "#office-show-me-validation-text",
+            "weather-conditions-sel":"#ion-sel-3-lbl",
+            "weather-conditions-validation": "#office-weather-validation-text",
+            "add-info":"#additional-information",
+            "eta-faults": "#etaFaults",
+            "eco-faults": "#ecoFaults"
         }
     ],
 
