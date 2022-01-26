@@ -1,6 +1,6 @@
 const faker = require("faker/locale/en_GB");
 
-class SearchInfo {
+class DesInfo {
     // Return a random device
 
     get projectName(){
@@ -30,7 +30,7 @@ class SearchInfo {
     }
 
     get localAppPath() {
-        return './apps/Search Mobile.app';
+        return './apps/App.app';
     }
 }
-export default new SearchInfo()
+export default new DesInfo()
