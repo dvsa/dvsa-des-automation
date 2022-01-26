@@ -1,4 +1,3 @@
-@focus
 Feature: Login to the application
     Scenario: Get to the home page
         # Given I Logout from the search application

@@ -3,6 +3,8 @@ import { When } from '@cucumber/cucumber';
 import clearInputField from '../../support/common/action/clearInputField';
 import clickElement from '../../support/common/action/clickElement';
 import clickElementWithText from '../../support/common/action/clickElementWithText';
+import clickElementContainingPartialText from  '../../support/common/action/clickElementContainingPartialText'
+import clickElementWithTextThatsInside from '../../support/common/action/clickElementWithTextThatsInside';
 import closeLastOpenedWindow from '../../support/common/action/closeLastOpenedWindow';
 import deleteCookies from '../../support/common/action/deleteCookies';
 import dragElement from '../../support/common/action/dragElement';
@@ -37,9 +39,15 @@ When(
 );
 
 When(
-    /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element) with the text "([^"]*)?"$/,
+    /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) with the text "([^"]*)?"$/,
     clickElementWithText
 );
+
+When(
+    /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) containing text "([^"]*)?"$/,
+    clickElementContainingPartialText
+);
+
 
 When(
     /^I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"$/,

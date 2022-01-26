@@ -1,5 +1,6 @@
 import waitForExist from 'webdriverio/build/commands/element/waitForExist';
 import checkIfElementExists from '../../lib/checkIfElementExists';
+import waitUntilElementStopsMoving from '../../lib/waitUntilElementStopsMoving';
 
 /**
  * Perform an click action on the given element
@@ -9,7 +10,7 @@ import checkIfElementExists from '../../lib/checkIfElementExists';
  */
 export default (
     action: 'click' | 'doubleClick',
-    type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'element',
+    type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'element' | 'ionic-list-button' | 'ionic-label',
     text: string
 ) => {
 
@@ -18,19 +19,26 @@ export default (
      * @type {String}
      */
     const method = (action === 'click') ? 'click' : 'doubleClick';
+    const ms = 30000;
 
     const elementSelector = {
         'button': `button=${text}`,
         'ionic-button': `ion-button=${text}`,
         'ionic-item': `ion-item=${text}`,
+        'ionic-label': `ion-item=${text}`,
         'ionic-popoveritem': `//ion-select-popover//ion-item[normalize-space(.)='${text}']`,
-        'element': `//*[normalize-space(.)='${text}']`
+        'element': `//*[normalize-space(.)='${text}']`,
+        'ionic-list-button': `//ion-list//ion-label//*[contains(text(), '${text}')]//ancestor::button`
     }[type];
 
     // console.log(elementSelector);
-    // checkIfElementExists(elementSelector);
+    checkIfElementExists(elementSelector);
+        
+    $(elementSelector).waitForDisplayed({ timeout: ms, reverse: false, interval: 50 });
+    
+    // waitUntilElementStopsMoving(elementSelector);
 
-    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
-    $(elementSelector).waitForClickable();
+    $(elementSelector).waitForClickable({ timeout: ms, reverse: false, interval: 50 });
+
     $(elementSelector)[method]();
 };

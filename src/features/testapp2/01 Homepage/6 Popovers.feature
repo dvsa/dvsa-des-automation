@@ -10,6 +10,9 @@ Feature: Homepage - Popovers and selectors
         Then I wait on element "//ion-select-popover" for 2000ms to be displayed
 
         Then I click on the ionic-popoveritem with the text "<optiontext>"
+        # New Step
+        # Then I click on the ionic-popoveritem thats inside "//div[@id='gamingContainer']" with the text "NES"
+      
         Then I expect that element "ionicapp-homepage::gaming" matches the text "<expectedvalue>"
 
         Examples:

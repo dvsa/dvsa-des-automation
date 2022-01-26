@@ -25,6 +25,7 @@ export default (
     let checkValue = value;
 
     checkIfElementExists(elementSelector, false, 1);
+    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
 
     // console.log('DEBUG>>>>',elementSelector);
 

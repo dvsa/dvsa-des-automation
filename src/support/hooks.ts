@@ -149,11 +149,11 @@ export const hooks = {
     // },
     // beforeStep: function ({uri, feature, step}, context) {
     // },
-    afterStep: function (test: any, context: any, { error, result, duration, passed, retries }: any) {
-        if (error) {
-            browser.takeScreenshot();
-        }
-    },
+    // afterStep: function (test: any, context: any, { error, result, duration, passed, retries }: any) {
+    //     if (error) {
+    //         browser.takeScreenshot();
+    //     }
+    // },
     // afterScenario: function (uri, feature, scenario, result, sourceLocation) {
     // },
     // afterFeature: function (uri, feature, scenarios) {

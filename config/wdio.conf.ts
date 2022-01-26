@@ -29,9 +29,7 @@ export const config: WebdriverIO.Config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    reporters: ['dot', 'spec'],
-    logLevel: "info",
-//
+    //
     // ============
     // Capabilities
     // ============
@@ -127,7 +125,7 @@ export const config: WebdriverIO.Config = {
     framework: 'cucumber',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 3,
     //
     // Whether or not retried specfiles should be retried immediately or deferred
     // to the end of the queue specFileRetriesDeferred: false,
@@ -146,13 +144,14 @@ export const config: WebdriverIO.Config = {
         ['allure', {
             outputDir: './reports/allure-results',
             disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
             useCucumberStepReporter: false
         }],
-
-        // ['json', {
-        //     outputDir: './reports/json-results'
-        // }],
+        ['cucumberjs-json', {
+            jsonFolder: './reports/json-results',
+            language: 'en',
+        },
+        ],
 
 
     ],
@@ -185,16 +184,32 @@ export const config: WebdriverIO.Config = {
         strict: true, // <boolean> fail if there are any undefined or pending steps
         tagExpression: 'not @Pending',
         tagsInTitle: false,// <boolean> add cucumber tags to feature or scenario name
-        timeout: 90000,// <number> timeout for step definitions
+        timeout: 60000,// <number> timeout for step definitions
     } as WebdriverIO.CucumberOpts,
+
+    beforeScenario: function (world) {
+        // Comment out this locally if you don't want to clear storage
+        console.info(`clearing local storage before scenario`)
+        browser.execute('window.localStorage.clear()');
+    },
+    
+    afterStep: function (step: any, scenario: any, result: { passed: any; }, context: any) {
+        if (!result.passed) {
+            browser.takeScreenshot()
+        }
+    },
+
+    beforeStep: function (step, scenario,context) {
+        console.log(`  STEP :   ${JSON.stringify(step.text)}`)
+    },
 
     before: async (capabilities: any, specs: string[], browser: any) => {
         console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-        browser.setTimeout({ 'pageLoad': 10000 });
+        // browser.setTimeout({ 'pageLoad': 10000 });
 
         CustomCommand.addCommands();
 
-        browser.url('/');
+        // browser.url('/');
     },
 
     ...hooks,

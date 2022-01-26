@@ -2,6 +2,7 @@ import { Selector } from 'webdriverio';
 
 import checkIfElementExists from '../../lib/checkIfElementExists';
 import PageObjectsHelper from '../../helpers/pageobjectHelper';
+import waitForClickable from 'webdriverio/build/commands/element/waitForClickable';
 
 /**
  * Perform an click action on the given element
@@ -26,8 +27,12 @@ export default (
      */
     const method = (action === 'click') ? 'click' : 'doubleClick';
 
-    checkIfElementExists(elementSelector);
+    // checkIfElementExists(elementSelector);
+    // waitForClickable(elementSelector);
+    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
+    $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50 });
 
     $(elementSelector)[method]();
+    browser.pause(500)
     // browser.debug();
 };

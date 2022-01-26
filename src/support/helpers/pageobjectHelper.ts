@@ -40,6 +40,9 @@ class PageObjectsHelper {
 
         let selector: string = elementName;
 
+        // Bail out if nothing is passed in
+        if (elementName === null) return "";
+
         // Did you mean the globalelementarray selector...?
         if (elementName.indexOf('::') > 0) {
             const [page, element] = elementName.split('::');

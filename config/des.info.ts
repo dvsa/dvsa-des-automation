@@ -1,6 +1,6 @@
 const faker = require("faker/locale/en_GB");
 
-class DesInfo {
+class SearchInfo {
     // Return a random device
 
     get projectName(){
@@ -12,11 +12,11 @@ class DesInfo {
     }
 
     get localDeviceName() {
-        return 'iPad Pro (10.5-inch)';
+        return 'iPhone 12 Pro Max';
     }
 
     get platFormVersion() {
-        return '14'; // pass the platform version
+        return '14.4'; // pass the platform version
     }
 
     get platformName(){
@@ -24,11 +24,13 @@ class DesInfo {
     }
 
     get appName() {
-        return "bs://d10b79bc894dc53c0f533bf0e73130561e00914e" || process.env.BROWSERSTACK_APP_ID;
+
+        return "bs://fe62d1c4981aef84efbffacf8aa7a72b893fedec" || process.env.BROWSERSTACK_APP_ID;
+
     }
 
     get localAppPath() {
-        return './apps/App.app';
+        return './apps/Search Mobile.app';
     }
 }
-export default new DesInfo()
+export default new SearchInfo()

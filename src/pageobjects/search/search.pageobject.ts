@@ -1,6 +1,5 @@
-
-
 import Page from '../base/page'
+import clickElementWithText from '../../support/common/action/clickElementWithText'
 
 class SearchPageObject extends Page {
 
@@ -62,7 +61,6 @@ class SearchPageObject extends Page {
         this.clickUKButton();
         this.waitForResults();
     }
-
 
 }
 

@@ -7,5 +7,5 @@ export const appiumbase = {
     showXcodeLog: true,
     autoWebview: true,
     useNewWDA: true, // Set this to true to reinstall the driver everytime
-    automationName: "XCUITest",
+    automationName: 'XCUITest',
 }

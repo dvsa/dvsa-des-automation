@@ -7,7 +7,6 @@ import waitForAriaSelected from '../../lib/waitForAriaSelected';
 /**
  * Perform an click action on the given element
  * @param  {String}   action  The action to perform (click or doubleClick)
- * @param  {String}   selector Element selector
  */
 export default (
     action: 'click' | 'doubleClick',

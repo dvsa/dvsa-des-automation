@@ -35,5 +35,6 @@ export default (
 
     // Clear any new lines found in the results to flatten the string
     expect(text.replace(/\n/, ' ')).toContain(stringExpectedText);
+    browser.pause(200)
 
 };
