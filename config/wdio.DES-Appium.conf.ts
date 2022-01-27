@@ -1,5 +1,5 @@
 import { config as buildConfig } from './wdio.conf';
-import DESInfo from "./des.info";
+import DesInfo from "./des.info";
 
 import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
@@ -41,11 +41,11 @@ exports.config = {
     capabilities: [
         {
             ...appiumbase,
-            platformName: DESInfo.platformName,
-            platformVersion: DESInfo.platFormVersion,
-            deviceName: 'iPad 8',
+            platformName: DesInfo.platformName,
+            platformVersion: DesInfo.platFormVersion,
+            deviceName: 'iPad (8th generation)',
             // app: '/Users/lee/IonicProjects/dvsa-automation-boilerplate/apps/SearchMobile.app',
-            app: DESInfo.localAppPath,
+            app: DesInfo.localAppPath,
             disableAnimations: true,
             fullReset: false, // Change this to true to reinstall the application
             noReset: false // noReset just clears the app data, such as its cache.
