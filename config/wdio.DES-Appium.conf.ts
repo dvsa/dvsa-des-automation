@@ -1,7 +1,8 @@
 import { config as buildConfig } from './wdio.conf';
 import DesInfo from "./des.info";
+
 import { appiumbase } from './appium.base';
-import { DesSuites } from './suites/des.suites';
+import { DESSuites } from './suites/des.suites';
 import path from 'path';
 
 buildConfig.baseUrl = '/';
@@ -9,17 +10,15 @@ buildConfig.maxInstances = 5;
 // buildConfig.path = '/'
 
 buildConfig.specs = [
-    './src/features/des/**/*.feature',
+    './src/features/search/**/*.feature',
 ];
 
 buildConfig.cucumberOpts!.require!.push(
-    './src/steps/des/*.ts',
-    './src/steps/**/*.ts'
+    './src/steps/des/*.ts'
 );
 
-buildConfig.cucumberOpts!.timeout = 150000 // Allow for the application to install
-
-buildConfig.suites = DesSuites;
+buildConfig.cucumberOpts!.timeout = 150000; // Allow for the application to install
+buildConfig.suites = DESSuites;
 
 buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat([
     ['appium', {
@@ -35,9 +34,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat
     }]
 ]);
 
-//Appium port
 buildConfig.port = 4723;
-buildConfig.logLevel = "debug";
 
 exports.config = {
     ...buildConfig,
@@ -46,11 +43,11 @@ exports.config = {
             ...appiumbase,
             platformName: DesInfo.platformName,
             platformVersion: DesInfo.platFormVersion,
-            deviceName: DesInfo.localDeviceName,
+            deviceName: 'iPad (8th generation)',
             // app: '/Users/lee/IonicProjects/dvsa-automation-boilerplate/apps/SearchMobile.app',
             app: DesInfo.localAppPath,
             disableAnimations: true,
-            fullReset: true, // Change this to true to reinstall the application
+            fullReset: false, // Change this to true to reinstall the application
             noReset: false // noReset just clears the app data, such as its cache.
         }
     ]

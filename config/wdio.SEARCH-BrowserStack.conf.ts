@@ -5,7 +5,7 @@ import path from 'path';
 import { SearchSuites } from './suites/search.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 5;
+buildConfig.maxInstances = 10;
 
 buildConfig.specs = [
     './src/features/search/**/*.feature',
@@ -24,7 +24,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat
 buildConfig.onPrepare = async () => {
     // browser.setTimeout({ 'pageLoad': 10000 });
 }
-
+   
 exports.config = {
     ...buildConfig,
     ...bsconfig,
@@ -38,6 +38,8 @@ exports.config = {
             project: SearchInfo.projectName,
             build: "Search WDIO Browserstack",
             name: bsconfig.user,
+            'browserstack.appium_version': "1.18.0",
+            'browserstack.idle.timeout': 150
         }
     ]
 }

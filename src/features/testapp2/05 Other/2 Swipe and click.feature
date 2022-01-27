@@ -1,4 +1,3 @@
-@focus
 Feature: Navigate to the other page
     Scenario:
 

@@ -2,13 +2,16 @@ import { When } from '@cucumber/cucumber';
 import ionicClickActionButtonWithText from '../../support/ionic/ionic-action/ionic-clickActionButtonWithText';
 import ionicClickAlertButtonWithText from '../../support/ionic/ionic-action/ionic-clickAlertButtonWithText';
 import ionicClickAwayfromSideMenu from '../../support/ionic/ionic-action/ionic-clickAwayfromSideMenu';
+import ionicClickSegmentButtonWithText from '../../support/ionic/ionic-action/ionic-clickSegmentButtonWithText';
 
 import ionicClickTabButtonWithText from '../../support/ionic/ionic-action/ionic-clickTabButtonWithText';
+import ionicSetIonic3DateField from '../../support/ionic/ionic-action/ionic-setIonic3DateField';
 import ionicSetIonicCheckbox from '../../support/ionic/ionic-action/ionic-setIonicCheckbox';
 import ionicSetIonicDateField from '../../support/ionic/ionic-action/ionic-setIonicDateField';
 import ionicSetIonicTimeField from '../../support/ionic/ionic-action/ionic-setIonicTimeField';
 import ionicSetIonicToggle from '../../support/ionic/ionic-action/ionic-setIonicToggle';
 import ionicSwipeItemSliding from '../../support/ionic/ionic-action/ionic-swipeItemSliding';
+import ionicSetIonicTogglebyId from '../../support/ionic/ionic-action/ionic-setIonicTogglebyId';
 
 // Ionic Tab Button
 When(
@@ -17,9 +20,17 @@ When(
 );
 
 // Ionic Time & Date
+
+// Ionic 4+5
 When(
     /^I set "(\d{2})[/](\d{2})[/](\d{4})" to the ionic date field "([^"]*)?"$/,
     ionicSetIonicDateField
+);
+
+// Ionic 3 
+When(
+    /^I set "(\d{2})[/](\d{2})[/](\d{4})" to the ionic 3 date field "([^"]*)?"$/,
+    ionicSetIonic3DateField
 );
 
 When(
@@ -41,14 +52,26 @@ When(
 
 // Ionic Toggle
 When(
-    /^I set the ionic-toggle thats inside "([^"]*)?" with the text "([^"]*)?" (on|off)$/,
+    /^I set the ionic-toggle thats inside "([^"]*)?" with the text "([^"]*)?" (on|off|yes|no)$/,
     ionicSetIonicToggle
+);
+
+// Ionic Toggle by ID
+When(
+    /^I set the ionic-toggle by id "([^"]*)?" (on|off)$/,
+    ionicSetIonicTogglebyId
 );
 
 // Ionic Checkbox
 When(
     /^I set the ionic-checkbox thats inside "([^"]*)?" with the text "([^"]*)?" (on|off)$/,
     ionicSetIonicCheckbox
+);
+
+// Ionic Segment
+When(
+    /^I click the ionic-segment-button "([^"]*)?" with the text "([^"]*)?"$/,
+    ionicClickSegmentButtonWithText
 );
 
 // Ionic Menu

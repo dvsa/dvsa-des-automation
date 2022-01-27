@@ -11,7 +11,7 @@ import debug from '../../lib/debug';
 export default (
     parent: string,
     text: string,
-    status: 'on' | 'off'
+    status: 'on' | 'off' | 'yes' | 'no'
 ) => {
 
     /**
@@ -35,7 +35,7 @@ export default (
 
     $(elementSelector).waitForClickable();
 
-    const setTo = (status === 'on');
+    const setTo = (status === 'on' || status === 'yes');
     const isOn = $(elementSelector).getAttribute('aria-checked') === 'true' ? true : false;
 
     if ( setTo !== isOn ){

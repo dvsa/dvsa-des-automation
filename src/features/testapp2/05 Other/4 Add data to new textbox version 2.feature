@@ -1,4 +1,3 @@
-@focus
 Feature: Add data to new textbox using a pageobject
     Scenario:
         Given The app is loaded using "ionicapp-general::pagetitle"

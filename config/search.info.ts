@@ -8,11 +8,11 @@ class SearchInfo {
     }
 
     get deviceName() {
-        return ['iPhone 12', 'iPhone 12 Pro Max', 'iPhone 11', 'iPhone 11 Pro Max', 'iPhone XS'][Number.parseInt(faker.datatype.number({min: 0, max: 4, precision: 1}))]
+        return ['iPhone 12', 'iPhone 12 Pro Max', 'iPhone 11', 'iPhone 11 Pro Max'][Number.parseInt(faker.datatype.number({min: 0, max: 3, precision: 1}))]
     }
 
     get localDeviceName() {
-        return 'iPhone 12';
+        return 'iPhone 12 Pro Max';
     }
 
     get platFormVersion() {
@@ -24,11 +24,13 @@ class SearchInfo {
     }
 
     get appName() {
-        return "bs://97b9b6675f9db6a1be3557eaa92362715be23134" || process.env.BROWSERSTACK_APP_ID;
+
+        return "bs://7f9ca16cfd78a0fc8f9c2b65b1351ec467443d9c" || process.env.BROWSERSTACK_APP_ID;
+
     }
-    
+
     get localAppPath() {
-        return './apps/SearchMobile.app';
+        return './apps/Search Mobile.app';
     }
 }
 export default new SearchInfo()

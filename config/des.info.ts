@@ -12,11 +12,11 @@ class DesInfo {
     }
 
     get localDeviceName() {
-        return 'iPad Pro (10.5-inch)';
+        return 'iPhone 12 Pro Max';
     }
 
     get platFormVersion() {
-        return '14'; // pass the platform version
+        return '14.4'; // pass the platform version
     }
 
     get platformName(){
@@ -24,7 +24,9 @@ class DesInfo {
     }
 
     get appName() {
-        return "bs://d10b79bc894dc53c0f533bf0e73130561e00914e" || process.env.BROWSERSTACK_APP_ID;
+
+        return "bs://5354816bb28de5f76db680bdfbbcd37d7200cd26" || process.env.BROWSERSTACK_APP_ID;
+
     }
 
     get localAppPath() {

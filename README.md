@@ -6,6 +6,7 @@ DVSA Automation Framework
 
 Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism. 
 
+
 ## DES Setup
 
 ### Apps Folder
@@ -19,7 +20,9 @@ Creating the DES4 build folder:
 
 This folder will contain details for all credentials. You will have to create this folder yourself as it is an ignored folder in GitHub.
 
+
 ## Quick start
+
 
 #### Run a specific spec
 
@@ -57,6 +60,26 @@ To run your tests just call the [WDIO runner](http://webdriver.io/guide/testrunn
 ```sh
 $ yarn run wdio
 ```
+
+# How to run desktop Edge browser related tests
+
+Ensure Edge for Mac is downloaded
+
+Download the correct Edge drivers according to your versions into root of the repository
+
+Modify the SEARCH-EdgeDesktop to have the matching local edge browser version
+
+```buildConfig.capabilities = [{
+    browserName: 'MicrosoftEdge',
+    browserVersion: '96.0.1054.57',
+    path: '/',
+}]```
+
+Start the local web server './msedgedriver -port=4444' on a new terminal console
+
+On a seperate terminal console, run tests/single feature file using the Edge browser configuration as such:
+
+wdio run ./config/wdio.SEARCH-EdgeDesktop.conf.ts "--spec=./src/features/searchdesktop/sift/desktopSiftGB.feature"
 
 # Setup appium
 
@@ -234,3 +257,6 @@ To assert values this boilerplate project uses WebdriverIOs embedded assertion l
     delete the node_modules folder and the package.lock file and then run
 
 `npm i`
+
+### If desktop tests dont spin up, check version of chromedriver
+`npm install chromedriver --chromedriver_version=LATEST`
