@@ -773,22 +773,26 @@
 
   "des-dashboard": [
     {
-      "my-journal-btn": "//ion-button//button[contains(text(), 'Go to my journal')]",
-      "centre-journal-btn": "//ion-button//button(text(), 'Go to test centre journal')]",
-      "search-completed-tests-btn":"//ion-button//button(text(), 'Search for completed tests')]",
-      "rekey-test-btn":"//ion-button//button(text(), 'Search test bookings to rekey')]",
+      "page-title": "#page-title",
       "date": ".date",
       "staff-number-container":"//ion-col[@class='staff-number']",
-      "employee-id":".employee-id",
+      "staff-number":"#staff-number",
       "username-header":"//ion-row/h2[@class='name']",
-      "user-classification":"//ion-row/ion-col[@class='role']/span",
+      "user-classification":"//ion-col[@class='role ios hydrated']/span",
       "user-profile-icon":"//ion-icon[@id='contact-icon']",
-      "test-practise-mode-container":"#testReportPracticeMode"
+      "my-journal-btn": "#go-to-journal-button",
+      "my-journal-card": "#go-to-journal-card",
+      "centre-journal-btn": "#test-centre-journal-button",
+      "search-completed-tests-btn":"#completed-search-button",
+      "rekey-test-btn":"#rekey-search-button",
+      "partial-practise-mode-btn":"#practice-mode-test-report-button",
+      "full-practise-mode-btn":"#practice-mode-full-button"
     }
   ],
 
   "des-my-journal": [
     {
+      "page-title": "#page-title",
       "todays-date-container":"#date-container",
       "next-day-btn":"#next-day-container",
       "previous-day-btn":"#previous-day-container",
@@ -842,9 +846,9 @@
     {
       "candidate-number":"#candidate-driver-number",
       "declaration-section":"#declaration-section",
-      "insurance-declaration-checkbox":"input[formcontrolname='insuranceCheckbox']",
-      "residency-declaration-checkbox":"input[formcontrolname='residencyCheckbox']",
-      "signature-area":".signature-area",
+      "insurance-declaration-checkbox":"#insurance-declaration-checkbox",
+      "residency-declaration-checkbox":"#residency-declaration-checkbox",
+      "signature-area":"#signature-area-signature-pad",
       "retry-signature-icon":"button[class='retry-button']",
       "signed-pad-area":".ng-touched ng-dirty ng-valid",
       "vrn-modal":"#vrn-capture-modal-card",
@@ -901,7 +905,7 @@
       "declaration-section":"#declaration-section",
       "communication-header-text":".communication-text-container",
       "select-email-radio-btn":"input[id='newEmail']",
-      "new-email-label":"label[for='newEmail']",
+      "new-email-label":"#new-email-label",
       "new-email-input":"#newEmailInput",
       "new-email-error-msg":"#communication-new-email-validation-text",
       "select-provided-email-radio-btn":"label[for='providedEmail']",

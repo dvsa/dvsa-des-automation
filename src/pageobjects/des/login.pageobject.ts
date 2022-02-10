@@ -24,8 +24,10 @@ class LoginPageObject extends Page {
     return credentials.Environment.Dev.Super[randomId];
   }
 
-  getSuperUser(id: number) {
-    return credentials.Environment.Dev.Super[id];
+  getSuperUser() {
+    const totalUsers = credentials.Environment.Dev.Super.length
+    const randomUserId = Math.floor(Math.random() * totalUsers);
+    return credentials.Environment.Dev.Super[randomUserId - 1];
   }
 
   clickNativeContinueButton() {
@@ -61,32 +63,91 @@ class LoginPageObject extends Page {
       driver.refresh();
     }
   }
+
+  getRandomUserType( userType:string) {
+    console.log(userType)
+    console.log("total users of type:",credentials.Environment.Dev[userType].length)
+    const totalUsers = credentials.Environment.Dev[userType].length
+    const randomUserId= Math.floor(Math.random()*totalUsers);
+    return credentials.Environment.Dev[userType][randomUserId - 1];
+  }
+
+  //desktoplogin
   desktopLogin() {
     // const user = this.getRandomSuperUser();
     console.info('>>>>>Switching to login tab')
     browser.switchWindow('Sign in to your account')
-    const user = this.getSuperUser(0);
+    const superUser = this.getSuperUser();
     console.info('>>>>>Logging In');
     console.info('Filling in email and Password');
     this.msEmailTextbox.waitForExist();
-    this.msEmailTextbox.setValue(user.UserPrincipalName);
+    this.msEmailTextbox.setValue(superUser.UserPrincipalName);
     this.msSubmitButton.click();
     this.msPasswordTextBox.waitForExist();
-    this.msPasswordTextBox.setValue(user.Password);
+    this.msPasswordTextBox.setValue(superUser.Password);
     console.info(`click sign in button`);
     this.msSigninButton.click();
     console.info('>>>>>Switching back to app')
     browser.switchWindow('DVSA Search')
   } //desktoplogin
 
+  // mobile log in
   loginWeb() {
-    // const user = this.getRandomSuperUser();
-    const user = this.getSuperUser(0);
+    const superUser = this.getSuperUser();
 
     //@ts-ignore
     // browser.sharedStore.set('user-logged-in', user);
 
     // Click the native button should we need to.
+    console.log(`User : >>> ${JSON.stringify(superUser.Name)}`);
+
+    console.info('>>>>>Checking for the native continue button');
+    this.clickNativeContinueButton();
+    console.info('>>>>>Continue button clicked');
+
+    if (this.doesContextExistByArray([this._contextTitleForPage])) {
+      console.info('>>>>>Logging In');
+      this.switchContextByTitleArray([this._contextTitleForPage]);
+      this.checkCookiesExist();
+      console.info('Filling in email and Password');
+      this.msEmailTextbox.waitForExist();
+      this.msEmailTextbox.setValue(superUser.UserPrincipalName);
+      this.msSubmitButton.click();
+      this.msPasswordTextBox.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msPasswordTextBox)} did not exist on page within 15 seconds` });
+      this.msPasswordTextBox.setValue(superUser.Password);
+      console.info(`click sign in button`);
+      this.msSigninButton.click();
+      console.info(`clicked sign in button`);
+      console.info(`wait for sign in button to disappeare sign in button`);
+      this.msSigninButton.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msSigninButton)} did not exist on page within 15 seconds` });
+
+      // this.msContinueButton2.waitForExist({ reverse: true, interval: 50 });
+      console.info(`wait for continue button`);
+      this.msContinueButton2.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} did not exist on page within 15 seconds` });
+
+      this.msContinueButton2.waitForClickable({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} was not clickable within 15 seconds` })
+      console.info(`click continue button`);
+
+      this.msContinueButton2.click();
+      // Wait for the button to go before moving on
+      console.info('Waiting for disappearance of sign in button');
+      browser.pause(30000)
+
+      console.log('Wait for context to leave so the login page isnt there anymore')
+      this.waitForContextToLeave(this._contextTitleForPage);
+    }
+    // this.switchContextByTitleArray(["DVSA Search"]);
+    this.switchContext(this._dvsaAppContextTitle);
+
+    console.log(`THIS IS VERSION  :::: ${$('.bottomright').getText()}`)
+
+  } //loginWeb
+
+  // mobile log in
+  loginWebAsUser(typeOfUser: string) {
+    this.checkCookiesExist();
+    const user = this.getRandomUserType(typeOfUser);
+    console.log(`Signing in with User : >>> ${JSON.stringify(user.Name)}`);
     console.info('>>>>>Checking for the native continue button');
     this.clickNativeContinueButton();
     console.info('>>>>>Continue button clicked');
@@ -99,22 +160,27 @@ class LoginPageObject extends Page {
       this.msEmailTextbox.waitForExist();
       this.msEmailTextbox.setValue(user.UserPrincipalName);
       this.msSubmitButton.click();
-      this.msPasswordTextBox.waitForExist();
+      this.msPasswordTextBox.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msPasswordTextBox)} did not exist on page within 15 seconds` });
       this.msPasswordTextBox.setValue(user.Password);
       console.info(`click sign in button`);
       this.msSigninButton.click();
-      this.msSigninButton.waitForExist({ reverse: true, interval: 50 });
+      console.info(`clicked sign in button`);
+      console.info(`wait for sign in button to disappeare sign in button`);
+      this.msSigninButton.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msSigninButton)} did not exist on page within 15 seconds` });
+
       // this.msContinueButton2.waitForExist({ reverse: true, interval: 50 });
-      this.msContinueButton2.waitForClickable({ interval: 50 })
-      console.log('1')
+      console.info(`wait for continue button`);
+      this.msContinueButton2.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} did not exist on page within 15 seconds` });
+
+      this.msContinueButton2.waitForClickable({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} was not clickable within 15 seconds` })
+      console.info(`click continue button`);
+
       this.msContinueButton2.click();
-      console.log('2')
       // Wait for the button to go before moving on
       console.info('Waiting for disappearance of sign in button');
-      browser.pause(2000)
-      // console.log('3')
+      browser.pause(30000)
 
-      console.log('WAit for context to leave so the login page isnt there anymore')
+      console.log('Wait for context to leave so the login page isnt there anymore')
       this.waitForContextToLeave(this._contextTitleForPage);
     }
     // this.switchContextByTitleArray(["DVSA Search"]);
@@ -123,7 +189,6 @@ class LoginPageObject extends Page {
     console.log(`THIS IS VERSION  :::: ${$('.bottomright').getText()}`)
 
   } //loginWeb
-
 
 }
 
