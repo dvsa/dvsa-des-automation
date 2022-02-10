@@ -25,7 +25,7 @@ class DesInfo {
 
     get appName() {
 
-        return "bs://b7165f684774df6eb7212cf2b22656965d347454" || process.env.BROWSERSTACK_APP_ID;
+        return process.env.BROWSERSTACK_APP_ID || "bs://b7165f684774df6eb7212cf2b22656965d347454";
 
     }
 
