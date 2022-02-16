@@ -805,7 +805,7 @@
       "rekey-test-modal":"journal-rekey-modal",
       "start-test-btn":"//ion-button[contains(text(), 'Start test')]",
       "start-test-modal":"ion-card[class='modal-alert']",
-      "start-test-modal-start-test-btn":"#rekey-start-test-button",
+      "start-test-modal-start-test-btn": "#rekey-start-test-button",
       "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
       "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
       "cancel-start-test-modal":"#rekey-cancel-button"
@@ -847,8 +847,11 @@
       "candidate-number":"#candidate-driver-number",
       "declaration-section":"#declaration-section",
       "insurance-declaration-checkbox":"#insurance-declaration-checkbox",
+      "insurance-declaration-label":"#waiting-room-confirm-insurance-label",
       "residency-declaration-checkbox":"#residency-declaration-checkbox",
+      "residency-declaration-label":"#waiting-room-confirm-residency-label",
       "signature-area":"#signature-area-signature-pad",
+      "signature-area-xpath":"//signature-pad/canvas",
       "retry-signature-icon":"button[class='retry-button']",
       "signed-pad-area":".ng-touched ng-dirty ng-valid",
       "vrn-modal":"#vrn-capture-modal-card",
@@ -861,11 +864,35 @@
     }
   ],
 
+  "des-comms-screen": [
+    {
+      "privacy-notice-text":".privacy-text",
+      "declaration-section":"#declaration-section",
+      "communication-header-text":".communication-text-container",
+      "new-email-radio-btn":"#newEmail",
+      "new-email-label":"#new-email-label",
+      "new-email-input":"#newEmailInput",
+      "new-email-error-msg":"#communication-new-email-validation-text",
+      "select-provided-email-radio-btn":"label[for='providedEmail']",
+      "provided-email-text":"#providedEmailInput",
+      "by-post-radio-btn":"#postalAddress",
+      "by-post-label":"#by-post-label",
+      "address-container":"#address",
+      "address-line-1":"#addressLine1",
+      "address-line-2":"#addressLine2",
+      "address-line-3":"#addressLine3",
+      "address-postcode":"#postcode"
+    }
+  ],
+
   "des-waiting-room-to-car": [
     {
+      "page-title":"#waiting-room-to-car-page-title",
       "eyesight-test-container":"#eyesight-test-card",
       "eyesight-pass-btn":"#eyesight-pass",
+      "eyesight-pass-label":"#eyesight-pass-label",
       "eyesight-fail-btn":"#eyesight-fail",
+      "eyesight-fail-label":"#eyesight-fail-label",
       "eyesight-validation-error-msg":"#waiting-room-to-car-eyesight-validation-text",
       "tell-me-container":"#tell-me-card",
       "tell-me-selector":"#tell-me-selector",
@@ -896,27 +923,6 @@
       "vehicle-details-dual-option":"#vehicle-details-dual-control",
       "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
       "continue-to-test-report-btn":"//ion-button[contains(text(), 'Continue to test report')]"
-    }
-  ],
-
-  "des-comms-screen": [
-    {
-      "privacy-notice-text":".privacy-text",
-      "declaration-section":"#declaration-section",
-      "communication-header-text":".communication-text-container",
-      "select-email-radio-btn":"input[id='newEmail']",
-      "new-email-label":"#new-email-label",
-      "new-email-input":"#newEmailInput",
-      "new-email-error-msg":"#communication-new-email-validation-text",
-      "select-provided-email-radio-btn":"label[for='providedEmail']",
-      "provided-email-text":"#providedEmailInput",
-      "select-bypost-radio-btn":"input[id='postalAddress']",
-      "by-post-label":"label[for='postalAddress']",
-      "address-container":".display-address",
-      "address-line-1":"#addressLine1",
-      "address-line-2":"#addressLine2",
-      "address-line-3":"#addressLine3",
-      "address-postcode":"#postcode"
     }
   ],
 
