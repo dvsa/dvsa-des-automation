@@ -15,7 +15,7 @@ buildConfig.cucumberOpts!.require!.push(
     './src/steps/des/*.ts'
 );
 
-// buildConfig.suites = DESSuites;
+buildConfig.suites = DESSuites;
 
 buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat([
     'browserstack',
