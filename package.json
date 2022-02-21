@@ -27,6 +27,7 @@
     "wdio:search:bs": "wdio run ./config/wdio.SEARCH-BrowserStack.conf.ts",
     "wdio:search:bs:focus": "wdio run ./config/wdio.SEARCH-BrowserStack.conf.ts --cucumberOpts.tagExpression='@focus'",
     "wdio:des:ap": "wdio run ./config/wdio.DES-Appium.conf.ts",
+    "wdio:des:ap:test": "wdio run ./config/wdio.DES-Appium.conf.ts --cucumberOpts.tagExpression='@test'",
     "wdio:des:bs": "wdio run ./config/wdio.DES-BrowserStack.conf.ts",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",

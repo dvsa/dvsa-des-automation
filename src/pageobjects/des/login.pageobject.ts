@@ -66,10 +66,10 @@ class LoginPageObject extends Page {
 
   getRandomUserType( userType:string) {
     console.log(userType)
-    console.log("total users of type:",credentials.Environment.Dev[userType].length)
-    const totalUsers = credentials.Environment.Dev[userType].length
+    console.log("total users of type:",credentials.Environment.Dev.Super.length)
+    const totalUsers = credentials.Environment.Dev.Super.length
     const randomUserId= Math.floor(Math.random()*totalUsers);
-    return credentials.Environment.Dev[userType][randomUserId - 1];
+    return credentials.Environment.Dev.Super[randomUserId - 1];
   }
 
   //desktoplogin
@@ -147,7 +147,7 @@ class LoginPageObject extends Page {
   loginWebAsUser(typeOfUser: string) {
     this.checkCookiesExist();
     const user = this.getRandomUserType(typeOfUser);
-    console.log(`Signing in with User : >>> ${JSON.stringify(user.Name)}`);
+    console.log(`Signing in with User : >>> ${JSON.stringify(user)}`);
     console.info('>>>>>Checking for the native continue button');
     this.clickNativeContinueButton();
     console.info('>>>>>Continue button clicked');
