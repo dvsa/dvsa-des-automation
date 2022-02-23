@@ -191,6 +191,7 @@ export const config: WebdriverIO.Config = {
         // Comment out this locally if you don't want to clear storage
         console.info(`clearing local storage before scenario`)
         browser.execute('window.localStorage.clear()');
+        browser.reloadSession()
     },
     
     afterStep: function (step: any, scenario: any, result: { passed: any; }, context: any) {
