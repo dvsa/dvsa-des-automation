@@ -29,8 +29,12 @@ export default (
 
     // checkIfElementExists(elementSelector);
     // waitForClickable(elementSelector);
-    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
-    $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50 });
+    // $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
+    // $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50 });
+
+    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not displayed within 15 seconds` });
+
+    $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not clickable within 15 seconds` });
 
     $(elementSelector)[method]();
     browser.pause(500)
