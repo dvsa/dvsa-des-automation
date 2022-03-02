@@ -5,8 +5,8 @@
  * @param  {String}   cookieContent The value of the cookie
  */
 export default (cookieName: string, cookieContent: string) => {
-    browser.setCookies({
-        name: cookieName,
-        value: cookieContent,
-    });
+  browser.setCookies({
+    name: cookieName,
+    value: cookieContent,
+  });
 };

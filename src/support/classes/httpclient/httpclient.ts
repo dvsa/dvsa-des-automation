@@ -22,12 +22,11 @@ export abstract class HttpClient {
     );
   };
 
-  
-//   private _handleRequest = (config: AxiosRequestConfig) => {
-//     config.headers['Authorization'] = 'Bearer ...';
+  //   private _handleRequest = (config: AxiosRequestConfig) => {
+  //     config.headers['Authorization'] = 'Bearer ...';
 
-//     return config;
-//   };
+  //     return config;
+  //   };
 
   private _handleResponse = ({ data }: AxiosResponse) => data;
 

@@ -9,36 +9,35 @@ import waitUntilElementStopsMoving from '../../lib/waitUntilElementStopsMoving';
  * @param  {String}   text    Text to select by
  */
 export default (
-    action: 'click' | 'doubleClick',
-    type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'element' | 'ionic-list-button' | 'ionic-label',
-    text: string
+  action: 'click' | 'doubleClick',
+  type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'element' | 'ionic-list-button' | 'ionic-label',
+  text: string,
 ) => {
-
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
-    const method = (action === 'click') ? 'click' : 'doubleClick';
-    const ms = 30000;
+  const method = (action === 'click') ? 'click' : 'doubleClick';
+  const ms = 30000;
 
-    const elementSelector = {
-        'button': `button=${text}`,
-        'ionic-button': `ion-button=${text}`,
-        'ionic-item': `ion-item=${text}`,
-        'ionic-label': `ion-item=${text}`,
-        'ionic-popoveritem': `//ion-select-popover//ion-item[normalize-space(.)='${text}']`,
-        'element': `//*[normalize-space(.)='${text}']`,
-        'ionic-list-button': `//ion-list//ion-label//*[contains(text(), '${text}')]//ancestor::button`
-    }[type];
+  const elementSelector = {
+    button: `button=${text}`,
+    'ionic-button': `ion-button=${text}`,
+    'ionic-item': `ion-item=${text}`,
+    'ionic-label': `ion-item=${text}`,
+    'ionic-popoveritem': `//ion-select-popover//ion-item[normalize-space(.)='${text}']`,
+    element: `//*[normalize-space(.)='${text}']`,
+    'ionic-list-button': `//ion-list//ion-label//*[contains(text(), '${text}')]//ancestor::button`,
+  }[type];
 
-    // console.log(elementSelector);
-    checkIfElementExists(elementSelector);
-        
-    $(elementSelector).waitForDisplayed({ timeout: ms, reverse: false, interval: 50 });
-    
-    // waitUntilElementStopsMoving(elementSelector);
+  // console.log(elementSelector);
+  checkIfElementExists(elementSelector);
 
-    $(elementSelector).waitForClickable({ timeout: ms, reverse: false, interval: 50 });
+  $(elementSelector).waitForDisplayed({ timeout: ms, reverse: false, interval: 50 });
 
-    $(elementSelector)[method]();
+  // waitUntilElementStopsMoving(elementSelector);
+
+  $(elementSelector).waitForClickable({ timeout: ms, reverse: false, interval: 50 });
+
+  $(elementSelector)[method]();
 };

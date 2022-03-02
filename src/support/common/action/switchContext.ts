@@ -3,20 +3,17 @@
  * @param  {String}   mode Context selector
  */
 export default (
-    mode: 'native' | 'web',
+  mode: 'native' | 'web',
 ) => {
+  const contexts = driver.getContexts();
 
-    const contexts = driver.getContexts();
+  // console.log('Available contexts', contexts);
 
-    // console.log('Available contexts', contexts);
-
-    if (mode == 'native') {
-        // Switch to native
-        driver.switchContext('NATIVE_APP');
-    }
-    else {
-        // Switch to web
-        driver.switchContext(contexts[1]);
-    }
-
+  if (mode == 'native') {
+    // Switch to native
+    driver.switchContext('NATIVE_APP');
+  } else {
+    // Switch to web
+    driver.switchContext(contexts[1]);
+  }
 };

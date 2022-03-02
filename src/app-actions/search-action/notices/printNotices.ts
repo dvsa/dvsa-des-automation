@@ -1,5 +1,5 @@
-import printNoticesPageObject from "../../../pageobjects/search/printNotices.pageobject";
+import printNoticesPageObject from '../../../pageobjects/search/printNotices.pageobject';
 
 export default () => {
-    printNoticesPageObject.reviewAndPrintNotices();
+  printNoticesPageObject.reviewAndPrintNotices();
 };

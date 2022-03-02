@@ -1,9 +1,7 @@
-import fixedpenaltyPageobject from "../../../pageobjects/search/fixedpenalty.pageobject";
+import fixedpenaltyPageobject from '../../../pageobjects/search/fixedpenalty.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-
-    fixedpenaltyPageobject.withdrawFixedPenalty(data);
-
+  fixedpenaltyPageobject.withdrawFixedPenalty(data);
 };

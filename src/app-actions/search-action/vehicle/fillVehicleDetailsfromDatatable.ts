@@ -1,9 +1,7 @@
-import vehicledetailsPageobject from "../../../pageobjects/search/vehicledetails.pageobject";
+import vehicledetailsPageobject from '../../../pageobjects/search/vehicledetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    vehicledetailsPageobject.fillVehicleDetailsFromDataTable(data);
-    
+  vehicledetailsPageobject.fillVehicleDetailsFromDataTable(data);
 };

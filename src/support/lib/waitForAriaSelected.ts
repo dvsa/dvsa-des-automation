@@ -1,4 +1,3 @@
-
 import type { Selector } from 'webdriverio';
 
 /**
@@ -7,13 +6,13 @@ import type { Selector } from 'webdriverio';
 */
 
 export default (
-    selector: Selector
+  selector: Selector,
 ) => {
-    browser.waitUntil(
-        () => $(selector).getAttribute('aria-selected') === 'true',
-        {
-            timeout: 5000,
-            timeoutMsg: 'Was not selected after 5s'
-        }
-    );
+  browser.waitUntil(
+    () => $(selector).getAttribute('aria-selected') === 'true',
+    {
+      timeout: 5000,
+      timeoutMsg: 'Was not selected after 5s',
+    },
+  );
 };

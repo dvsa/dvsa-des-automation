@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class TestCentreJournalPageObject extends Page {
-   
+
 }
 
-export default new TestCentreJournalPageObject()
+export default new TestCentreJournalPageObject();

@@ -1,9 +1,7 @@
-import journeydetailsPageobject from "../../../pageobjects/search/journeydetails.pageobject";
+import journeydetailsPageobject from '../../../pageobjects/search/journeydetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    journeydetailsPageobject.fillJourneyDetailsFromDataTable(data);
-    
+  journeydetailsPageobject.fillJourneyDetailsFromDataTable(data);
 };

@@ -5,20 +5,20 @@ import checkIfElementExists from '../../lib/checkIfElementExists';
  * @param  {String}   selector Element selector
  */
 export default (
-    text: string
+  text: string,
 ) => {
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
 
-    const alertElement = $('ion-alert');
-    const buttonSelector = `button=${text}`;
-    
-    // Could have done it this way but WDIO is better for selecting text
-    // const buttonSelector = `//ion-alert//button[contains(@class,'alert-button') and normalize-space(.)='${text}']`
+  const alertElement = $('ion-alert');
+  const buttonSelector = `button=${text}`;
 
-    checkIfElementExists(alertElement);
+  // Could have done it this way but WDIO is better for selecting text
+  // const buttonSelector = `//ion-alert//button[contains(@class,'alert-button') and normalize-space(.)='${text}']`
 
-    $(buttonSelector).click();
+  checkIfElementExists(alertElement);
+
+  $(buttonSelector).click();
 };

@@ -1,9 +1,7 @@
-import offencedetailsPageobject from "../../../pageobjects/search/offencedetails.pageobject";
+import offencedetailsPageobject from '../../../pageobjects/search/offencedetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-   offencedetailsPageobject.fillOffencesDetailsFromDataTable(data)
-    
+  offencedetailsPageobject.fillOffencesDetailsFromDataTable(data);
 };

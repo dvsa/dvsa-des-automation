@@ -9,15 +9,15 @@ import { Selector } from 'webdriverio';
  * @todo  merge with selectOption
  */
 export default (
-    index: string,
-    obsolete: never,
-    selector: Selector
+  index: string,
+  obsolete: never,
+  selector: Selector,
 ) => {
-    /**
+  /**
      * The index of the option to select
      * @type {Int}
      */
-    const optionIndex = parseInt(index, 10);
+  const optionIndex = parseInt(index, 10);
 
-    $(selector).selectByIndex(optionIndex);
+  $(selector).selectByIndex(optionIndex);
 };

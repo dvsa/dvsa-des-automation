@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class BackToOfficePageObject extends Page {
-   
+
 }
 
-export default new BackToOfficePageObject()
+export default new BackToOfficePageObject();

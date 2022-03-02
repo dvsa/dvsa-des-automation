@@ -1,6 +1,3 @@
-
 export default () => {
-
-    console.log(browser.getPageSource());
-
+  console.log(browser.getPageSource());
 };

@@ -3,7 +3,7 @@ import { When } from '@cucumber/cucumber';
 import clearInputField from '../../support/common/action/clearInputField';
 import clickElement from '../../support/common/action/clickElement';
 import clickElementWithText from '../../support/common/action/clickElementWithText';
-import clickElementContainingPartialText from  '../../support/common/action/clickElementContainingPartialText'
+import clickElementContainingPartialText from '../../support/common/action/clickElementContainingPartialText';
 import clickElementWithTextThatsInside from '../../support/common/action/clickElementWithTextThatsInside';
 import closeLastOpenedWindow from '../../support/common/action/closeLastOpenedWindow';
 import deleteCookies from '../../support/common/action/deleteCookies';
@@ -24,107 +24,106 @@ import setPromptText from '../../support/common/action/setPromptText';
 import switchContext from '../../support/common/action/switchContext';
 
 When(
-    /^I dump the page contents$/,
-    dumpPageContents
+  /^I dump the page contents$/,
+  dumpPageContents,
 );
 
 When(
-    /^I switch to (web|native) context$/,
-    switchContext
+  /^I switch to (web|native) context$/,
+  switchContext,
 );
 
 When(
-    /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
-    clickElement
+  /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
+  clickElement,
 );
 
 When(
-    /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) with the text "([^"]*)?"$/,
-    clickElementWithText
+  /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) with the text "([^"]*)?"$/,
+  clickElementWithText,
 );
 
 When(
-    /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) containing text "([^"]*)?"$/,
-    clickElementContainingPartialText
-);
-
-
-When(
-    /^I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"$/,
-    setInputField
+  /^I (click|doubleclick) on the (button|ionic-button|ionic-item|ionic-popoveritem|element|ionic-list-button|ionic-label) containing text "([^"]*)?"$/,
+  clickElementContainingPartialText,
 );
 
 When(
-    /^I (add|set) (\d+) random characters to the inputfield "([^"]*)?"$/,
-    setInputFieldWithRandom
+  /^I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"$/,
+  setInputField,
 );
 
 When(
-    /^I clear the inputfield "([^"]*)?"$/,
-    clearInputField
+  /^I (add|set) (\d+) random characters to the inputfield "([^"]*)?"$/,
+  setInputFieldWithRandom,
 );
 
 When(
-    /^I drag element "([^"]*)?" to element "([^"]*)?"$/,
-    dragElement
+  /^I clear the inputfield "([^"]*)?"$/,
+  clearInputField,
 );
 
 When(
-    /^I pause for (\d+)ms$/,
-    pause
+  /^I drag element "([^"]*)?" to element "([^"]*)?"$/,
+  dragElement,
 );
 
 When(
-    /^I set a cookie "([^"]*)?" with the content "([^"]*)?"$/,
-    setCookie
+  /^I pause for (\d+)ms$/,
+  pause,
 );
 
 When(
-    /^I delete the cookie "([^"]*)?"$/,
-    deleteCookies
+  /^I set a cookie "([^"]*)?" with the content "([^"]*)?"$/,
+  setCookie,
 );
 
 When(
-    /^I press "([^"]*)?"$/,
-    pressButton
+  /^I delete the cookie "([^"]*)?"$/,
+  deleteCookies,
 );
 
 When(
-    /^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
-    handleModal
+  /^I press "([^"]*)?"$/,
+  pressButton,
 );
 
 When(
-    /^I enter "([^"]*)?" into the prompt$/,
-    setPromptText
+  /^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
+  handleModal,
 );
 
 When(
-    /^I scroll to element "([^"]*)?"$/,
-    scroll
+  /^I enter "([^"]*)?" into the prompt$/,
+  setPromptText,
 );
 
 When(
-    /^I close the last opened (window|tab)$/,
-    closeLastOpenedWindow
+  /^I scroll to element "([^"]*)?"$/,
+  scroll,
 );
 
 When(
-    /^I focus the last opened (window|tab)$/,
-    focusLastOpenedWindow
+  /^I close the last opened (window|tab)$/,
+  closeLastOpenedWindow,
 );
 
 When(
-    /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
-    selectOptionByIndex
+  /^I focus the last opened (window|tab)$/,
+  focusLastOpenedWindow,
 );
 
 When(
-    /^I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"$/,
-    selectOption
+  /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
+  selectOptionByIndex,
 );
 
 When(
-    /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
-    moveTo
+  /^I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"$/,
+  selectOption,
+);
+
+When(
+  /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
+  moveTo,
 );

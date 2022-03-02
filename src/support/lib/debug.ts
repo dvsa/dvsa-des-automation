@@ -1,8 +1,7 @@
-
 /**
- * Display the debug info 
+ * Display the debug info
  * @param  {String}   selector Element selector
  */
 export default (debugitem: any) => {
-    // console.log(">>>DEBUG:", debugitem);
+  // console.log(">>>DEBUG:", debugitem);
 };

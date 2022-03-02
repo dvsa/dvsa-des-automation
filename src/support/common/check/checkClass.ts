@@ -9,29 +9,29 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   expectedClassName     The class name to check
  */
 export default (
-    selector: string,
-    falseCase: string,
-    expectedClassName: string
+  selector: string,
+  falseCase: string,
+  expectedClassName: string,
 ) => {
-    /**
+  /**
      * List of all the classes of the element
      * @type {Array}
      */
-    const elementSelector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector = PageObjectsHelper.elementPageFor(selector);
 
-    const classesList = $(elementSelector).getAttribute('class');
+  const classesList = $(elementSelector).getAttribute('class');
 
-    if (falseCase === 'does not have') {
-        expect(classesList).not.toContain(
-            expectedClassName,
-            // @ts-expect-error
-            `Element ${selector} should not have the class ${expectedClassName}`
-        );
-    } else {
-        expect(classesList).toContain(
-            expectedClassName,
-            // @ts-expect-error
-            `Element ${selector} should have the class ${expectedClassName}`
-        );
-    }
+  if (falseCase === 'does not have') {
+    expect(classesList).not.toContain(
+      expectedClassName,
+      // @ts-expect-error
+      `Element ${selector} should not have the class ${expectedClassName}`,
+    );
+  } else {
+    expect(classesList).toContain(
+      expectedClassName,
+      // @ts-expect-error
+      `Element ${selector} should have the class ${expectedClassName}`,
+    );
+  }
 };

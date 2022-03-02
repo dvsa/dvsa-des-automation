@@ -9,37 +9,35 @@ import debug from '../../lib/debug';
  * @param  {String}   text    Text to select by
  */
 export default (
-    parent: string,
-    text: string,
-    status: 'on' | 'off' | 'yes' | 'no'
+  parent: string,
+  text: string,
+  status: 'on' | 'off' | 'yes' | 'no',
 ) => {
-
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
-    const method = 'click';
+  const method = 'click';
 
-    /**
+  /**
      * Grab the selector for the parent object that was passed in
      * @type {string}
      */
-    const parentSelector =  PageObjectsHelper.elementPageFor(parent);
+  const parentSelector = PageObjectsHelper.elementPageFor(parent);
 
-    /**
+  /**
      * Construct the element selector for the ion-toggle with the name thats passed in
      */
-    const elementSelector = `${parentSelector}//ion-toggle[@name='${text}']`
+  const elementSelector = `${parentSelector}//ion-toggle[@name='${text}']`;
 
-    checkIfElementExists(elementSelector);
+  checkIfElementExists(elementSelector);
 
-    $(elementSelector).waitForClickable();
+  $(elementSelector).waitForClickable();
 
-    const setTo = (status === 'on' || status === 'yes');
-    const isOn = $(elementSelector).getAttribute('aria-checked') === 'true' ? true : false;
+  const setTo = (status === 'on' || status === 'yes');
+  const isOn = $(elementSelector).getAttribute('aria-checked') === 'true';
 
-    if ( setTo !== isOn ){
-        $(elementSelector)[method]();
-    }
-
+  if (setTo !== isOn) {
+    $(elementSelector)[method]();
+  }
 };

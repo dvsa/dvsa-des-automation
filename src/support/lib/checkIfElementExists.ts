@@ -8,41 +8,38 @@ import { Selector } from 'webdriverio';
  *                             of times
  */
 export default async (
-    selector: Selector,
-    falseCase?: boolean,
-    exactly?: string | number
+  selector: Selector,
+  falseCase?: boolean,
+  exactly?: string | number,
 ) => {
-
-    /**
+  /**
      * The number of elements found in the DOM
      * @type {Int}
      */
-    try {
-        let nrOfElements = await $$(selector);
+  try {
+    const nrOfElements = await $$(selector);
 
-        // console.log(nrOfElements);
-        if (falseCase === true) {
-            expect(nrOfElements).toHaveLength(
-                0,
-                // @ts-expect-error
-                `Element with selector "${selector}" should not exist on the page`
-            );
-        } else if (exactly) {
-            expect(nrOfElements).toHaveLength(
-                exactly,
-                // @ts-expect-error
-                `Element with selector "${selector}" should exist exactly ${exactly} time(s)`
-            );
-        } else {
-            expect(nrOfElements.length).toBeGreaterThanOrEqual(
-                1,
-                // @ts-expect-error
-                `Element with selector "${selector}" should exist on the page`
-            );
-        }
-    } catch (error) {
-        // console.log('>>>>>>',error)
+    // console.log(nrOfElements);
+    if (falseCase === true) {
+      expect(nrOfElements).toHaveLength(
+        0,
+        // @ts-expect-error
+        `Element with selector "${selector}" should not exist on the page`,
+      );
+    } else if (exactly) {
+      expect(nrOfElements).toHaveLength(
+        exactly,
+        // @ts-expect-error
+        `Element with selector "${selector}" should exist exactly ${exactly} time(s)`,
+      );
+    } else {
+      expect(nrOfElements.length).toBeGreaterThanOrEqual(
+        1,
+        // @ts-expect-error
+        `Element with selector "${selector}" should exist on the page`,
+      );
     }
-
-
+  } catch (error) {
+    // console.log('>>>>>>',error)
+  }
 };

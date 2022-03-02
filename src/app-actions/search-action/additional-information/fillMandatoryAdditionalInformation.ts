@@ -1,10 +1,7 @@
-import additionalInformationPageobject from "../../../pageobjects/search/additionalinformation.pageobject";
-
+import additionalInformationPageobject from '../../../pageobjects/search/additionalinformation.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    additionalInformationPageobject.fillMandatoryAdditionalInformationFromDataTable(data);
-    
+  additionalInformationPageobject.fillMandatoryAdditionalInformationFromDataTable(data);
 };

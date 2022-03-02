@@ -5,36 +5,34 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   expectedText  The text to check against
  */
 export default (
-    expectedText: string
+  expectedText: string,
 ) => {
-
-    /**
+  /**
      * The expected text
      * @type {String}
      */
-    const stringExpectedText = expectedText;
-    const elementSelector: Selector = 'ion-toast';
-  
-    /**
+  const stringExpectedText = expectedText;
+  const elementSelector: Selector = 'ion-toast';
+
+  /**
      * The element from the page
      * @type {Element}
      */
-    // const elem = $(elementSelector).shadow$('.toast-message');
-    const elem = $(elementSelector).$('>>>.toast-message');
+  // const elem = $(elementSelector).shadow$('.toast-message');
+  const elem = $(elementSelector).$('>>>.toast-message');
 
-    elem.waitForDisplayed();
-    
-    /**
+  elem.waitForDisplayed();
+
+  /**
      * The text of the element
      * @type {String}
      */
-    const text = elem.getText();
-    // const text2 = browser.executeScript(`return document.querySelector('ion-toast').shadowRoot.querySelector('.toast-message').innerText`, []);
- 
-    console.log(text);
+  const text = elem.getText();
+  // const text2 = browser.executeScript(`return document.querySelector('ion-toast').shadowRoot.querySelector('.toast-message').innerText`, []);
 
-    // Clear any new lines found in the results to flatten the string
-    expect(text.replace(/\n/, ' ')).toContain(stringExpectedText);
-    browser.pause(200)
+  console.log(text);
 
+  // Clear any new lines found in the results to flatten the string
+  expect(text.replace(/\n/, ' ')).toContain(stringExpectedText);
+  browser.pause(200);
 };

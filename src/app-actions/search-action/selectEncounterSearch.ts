@@ -1,6 +1,5 @@
-import EncounterSearchPageObject from '../../pageobjects/search/encountersearch.pageobject'
+import EncounterSearchPageObject from '../../pageobjects/search/encountersearch.pageobject';
 
 export default () => {
-    EncounterSearchPageObject.openEncounterFromBurgerMenu();
+  EncounterSearchPageObject.openEncounterFromBurgerMenu();
 };
-

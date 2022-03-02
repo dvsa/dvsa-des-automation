@@ -10,34 +10,33 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   text    Text to select by
  */
 export default (
-    action: 'click' | 'doubleClick',
-    type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'ionic-segment' | 'element',
-    parent: string,
-    text: string
+  action: 'click' | 'doubleClick',
+  type: 'button' | 'ionic-button' | 'ionic-popoveritem' | 'ionic-item' | 'ionic-segment' | 'element',
+  parent: string,
+  text: string,
 ) => {
-
-    /**
+  /**
     * Grab the selector for the parent object that was passed in
     * @type {string}
     */
-    const parentSelector = PageObjectsHelper.elementPageFor(parent);
+  const parentSelector = PageObjectsHelper.elementPageFor(parent);
 
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
-    const method = (action === 'click') ? 'click' : 'doubleClick';
+  const method = (action === 'click') ? 'click' : 'doubleClick';
 
-    const elementSelector = {
-        'button': `${parentSelector}//button=${text}`,
-        'ionic-button': `${parentSelector}//ion-button=${text}`,
-        'ionic-item': `${parentSelector}//ion-item=${text}`,
-        'ionic-popoveritem': `${parentSelector}//ion-select-popover//ion-item[normalize-space(.)='${text}']`,
-        'ionic-segment': `${parentSelector}//ion-segment-button[contains(normalize-space(.), '${text}')]`,
-        'element': `${parentSelector}//*[normalize-space(.)='${text}']`
-    }[type];
+  const elementSelector = {
+    button: `${parentSelector}//button=${text}`,
+    'ionic-button': `${parentSelector}//ion-button=${text}`,
+    'ionic-item': `${parentSelector}//ion-item=${text}`,
+    'ionic-popoveritem': `${parentSelector}//ion-select-popover//ion-item[normalize-space(.)='${text}']`,
+    'ionic-segment': `${parentSelector}//ion-segment-button[contains(normalize-space(.), '${text}')]`,
+    element: `${parentSelector}//*[normalize-space(.)='${text}']`,
+  }[type];
 
-    $(elementSelector).waitForDisplayed({ timeout: 15000, reverse: false, interval: 50 });
-    $(elementSelector).waitForClickable();
-    $(elementSelector)[method]();
+  $(elementSelector).waitForDisplayed({ timeout: 15000, reverse: false, interval: 50 });
+  $(elementSelector).waitForClickable();
+  $(elementSelector)[method]();
 };

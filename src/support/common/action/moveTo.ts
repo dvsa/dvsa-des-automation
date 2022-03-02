@@ -7,20 +7,20 @@ import { Selector } from 'webdriverio';
  * @param  {String}   y        Y coordinate to move to
  */
 export default (selector: Selector, x: string, y: string) => {
-    /**
+  /**
      * X coordinate
      * @type {Int}
      */
-    const intX = parseInt(x, 10) || undefined;
+  const intX = parseInt(x, 10) || undefined;
 
-    /**
+  /**
      * Y coordinate
      * @type {Int}
      */
-    const intY = parseInt(y, 10) || undefined;
+  const intY = parseInt(y, 10) || undefined;
 
-    $(selector).moveTo({
-        xOffset: intX,
-        yOffset: intY,
-    });
+  $(selector).moveTo({
+    xOffset: intX,
+    yOffset: intY,
+  });
 };

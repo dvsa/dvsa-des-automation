@@ -1,9 +1,7 @@
-import encounterdetailsPageobject from "../../../pageobjects/search/encounterdetails.pageobject";
+import encounterdetailsPageobject from '../../../pageobjects/search/encounterdetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    encounterdetailsPageobject.fillEncounterDetails(data);
-    
+  encounterdetailsPageobject.fillEncounterDetails(data);
 };

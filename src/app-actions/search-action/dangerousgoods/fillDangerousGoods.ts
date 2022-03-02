@@ -1,9 +1,7 @@
-import dangerousgoodsdetailsPageobject from "../../../pageobjects/search/dangerousgoodsdetails.pageobject";
+import dangerousgoodsdetailsPageobject from '../../../pageobjects/search/dangerousgoodsdetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    dangerousgoodsdetailsPageobject.fillDangeroudGoodsFromDataTable(data);
-    
+  dangerousgoodsdetailsPageobject.fillDangeroudGoodsFromDataTable(data);
 };

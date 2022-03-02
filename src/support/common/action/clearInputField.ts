@@ -6,7 +6,7 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   selector Element selector
  */
 export default (selector: string) => {
-    const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
 
-    $(elementSelector).clearValue();
+  $(elementSelector).clearValue();
 };

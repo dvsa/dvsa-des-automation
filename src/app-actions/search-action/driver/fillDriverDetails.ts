@@ -1,10 +1,7 @@
-import driverdetailsPageobject from "../../../pageobjects/search/driverdetails.pageobject";
-
+import driverdetailsPageobject from '../../../pageobjects/search/driverdetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    driverdetailsPageobject.fillDriverDetailsFromDataTable(data);
-    
+  driverdetailsPageobject.fillDriverDetailsFromDataTable(data);
 };

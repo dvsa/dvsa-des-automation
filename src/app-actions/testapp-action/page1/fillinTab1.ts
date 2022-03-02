@@ -1,11 +1,9 @@
 import tabOnePageobject from '../../../pageobjects/testapp2/tabOne.pageobject';
 
 export default (table: any) => {
+  // const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
 
-    // const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-
-    
-    tabOnePageobject.fillFields(data);
+  tabOnePageobject.fillFields(data);
 };

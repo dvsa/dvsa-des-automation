@@ -1,7 +1,5 @@
-import addnoticespagePageobject from "../../../pageobjects/search/addnoticespage.pageobject";
+import addnoticespagePageobject from '../../../pageobjects/search/addnoticespage.pageobject';
 
 export default (data: any) => {
-
-    addnoticespagePageobject.fillNoticeDetails(data)
-
+  addnoticespagePageobject.fillNoticeDetails(data);
 };

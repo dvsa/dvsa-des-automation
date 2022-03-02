@@ -1,7 +1,5 @@
-import withdrawFixedPenalty from "../../../pageobjects/search/withdrawFixedPenaltyReasonInput.pageobject";
+import withdrawFixedPenalty from '../../../pageobjects/search/withdrawFixedPenaltyReasonInput.pageobject';
 
 export default () => {
-
-    withdrawFixedPenalty.fillInWithdrawFixedPenaltyReason();
-
+  withdrawFixedPenalty.fillInWithdrawFixedPenaltyReason();
 };

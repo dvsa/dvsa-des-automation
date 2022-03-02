@@ -8,33 +8,30 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   text    Text to select by
  */
 export default (
-    text: string,
-    selected: string,
+  text: string,
+  selected: string,
 ) => {
-
-    /**
+  /**
      * Grab the selector for the parent object that was passed in
      * @type {string}
      */
-    // const parentSelector = PageObjectsHelper.elementPageFor(parent);
+  // const parentSelector = PageObjectsHelper.elementPageFor(parent);
 
-    /**
+  /**
      * Construct the element selector for the ion-checkbox with the name thats passed in
      */
 
-    const elementSelector = `//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
+  const elementSelector = `//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
 
-    checkIfElementExists(elementSelector);
+  checkIfElementExists(elementSelector);
 
-    $(elementSelector).waitForClickable();
+  $(elementSelector).waitForClickable();
 
-    const currentSetting = $(elementSelector).getAttribute('aria-checked') === 'true' ? true : false;
+  const currentSetting = $(elementSelector).getAttribute('aria-checked') === 'true';
 
-    if ( selected === 'be' ){
-        expect(currentSetting).toBe(true);
-    }else{
-        expect(currentSetting).not.toBe(true);
-    }
-    
-}
-
+  if (selected === 'be') {
+    expect(currentSetting).toBe(true);
+  } else {
+    expect(currentSetting).not.toBe(true);
+  }
+};

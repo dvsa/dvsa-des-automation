@@ -1,8 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class PassFinalisePageObject extends Page {
 
-   
 }
 
-export default new PassFinalisePageObject()
+export default new PassFinalisePageObject();

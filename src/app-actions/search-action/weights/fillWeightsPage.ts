@@ -1,8 +1,7 @@
-import weightsPageobject from "../../../pageobjects/search/weights.pageobject";
+import weightsPageobject from '../../../pageobjects/search/weights.pageobject';
 
 export default (table: any) => {
-    const data = table.rowsHash();
+  const data = table.rowsHash();
 
-    weightsPageobject.fillWeightsFromDataTable(data);
-
+  weightsPageobject.fillWeightsFromDataTable(data);
 };

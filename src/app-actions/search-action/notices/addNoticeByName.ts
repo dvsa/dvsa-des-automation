@@ -1,6 +1,5 @@
-import addnoticespagePageobject from "../../../pageobjects/search/addnoticespage.pageobject";
+import addnoticespagePageobject from '../../../pageobjects/search/addnoticespage.pageobject';
 
 export default (noticeName: any, dataTable:any) => {
-    addnoticespagePageobject.addNoticeByName(noticeName, dataTable)
-
+  addnoticespagePageobject.addNoticeByName(noticeName, dataTable);
 };

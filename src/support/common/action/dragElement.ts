@@ -6,6 +6,6 @@ import { Selector } from 'webdriverio';
  * @param  {String}   destination The selector for the destination element
  */
 export default (selector: Selector, destination: Selector) => {
-    const target = $(destination);
-    $(selector).dragAndDrop(target);
+  const target = $(destination);
+  $(selector).dragAndDrop(target);
 };

@@ -9,23 +9,23 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @todo  merge with waitfor
  */
 export default (falseCase: any, selector: string) => {
-    /**
+  /**
      * Maximum number of milliseconds to wait for
      * @type {Int}
      */
-    const ms = 30000;
+  const ms = 30000;
 
-    const elementSelector:Selector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector:Selector = PageObjectsHelper.elementPageFor(selector);
 
-    $(elementSelector).waitForExist({
-        timeout: ms,
-        reverse: Boolean(falseCase),
-        interval: 100
-    });
+  $(elementSelector).waitForExist({
+    timeout: ms,
+    reverse: Boolean(falseCase),
+    interval: 100,
+  });
 
-    $(elementSelector).waitForDisplayed({
-        timeout: ms,
-        reverse: Boolean(falseCase),
-        interval: 100
-    });
+  $(elementSelector).waitForDisplayed({
+    timeout: ms,
+    reverse: Boolean(falseCase),
+    interval: 100,
+  });
 };

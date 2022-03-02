@@ -1,7 +1,7 @@
 import loginPageobject from '../../pageobjects/des/login.pageobject';
 
 export default (
-  typeOfUser: string
+  typeOfUser: string,
 ) => {
   loginPageobject.loginWebAsUser(typeOfUser);
 };

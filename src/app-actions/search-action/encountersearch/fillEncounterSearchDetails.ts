@@ -1,8 +1,7 @@
-import encounterSearch from "../../../pageobjects/search/encountersearch.pageobject";
+import encounterSearch from '../../../pageobjects/search/encountersearch.pageobject';
 
 export default (table: any) => {
-    const data = table.rowsHash();
+  const data = table.rowsHash();
 
-    encounterSearch.fillEncounterSearchDetails(data);
-
+  encounterSearch.fillEncounterSearchDetails(data);
 };

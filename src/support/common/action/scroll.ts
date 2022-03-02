@@ -5,7 +5,7 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   selector Element selector
  */
 export default (selector: string) => {
-    const elementSelector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector = PageObjectsHelper.elementPageFor(selector);
 
-    $(elementSelector).scrollIntoView();
+  $(elementSelector).scrollIntoView();
 };

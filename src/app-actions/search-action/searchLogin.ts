@@ -1,6 +1,5 @@
-import LoginPageObject from '../../pageobjects/search/login.pageobject'
+import LoginPageObject from '../../pageobjects/search/login.pageobject';
 
 export default () => {
-    LoginPageObject.loginWeb();
+  LoginPageObject.loginWeb();
 };
-

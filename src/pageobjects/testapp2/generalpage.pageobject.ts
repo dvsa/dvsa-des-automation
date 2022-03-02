@@ -1,9 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class GeneralPage extends Page {
-
-    get otherPageButton() { return this.getSelector('ionicapp-general::other')}
-
+  get otherPageButton() { return this.getSelector('ionicapp-general::other'); }
 }
 
-export default new GeneralPage()
+export default new GeneralPage();

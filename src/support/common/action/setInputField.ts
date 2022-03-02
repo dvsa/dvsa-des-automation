@@ -11,27 +11,27 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   string  Element selector
  */
 export default (
-    method: string,
-    value: string,
-    selector: string
+  method: string,
+  value: string,
+  selector: string,
 ) => {
-    /**
+  /**
      * The command to perform on the browser object (addValue or setValue)
      * @type {String}
      */
-    const command = (method === 'add') ? 'addValue' : 'setValue';
-    const elementSelector = PageObjectsHelper.elementPageFor(selector);
+  const command = (method === 'add') ? 'addValue' : 'setValue';
+  const elementSelector = PageObjectsHelper.elementPageFor(selector);
 
-    let checkValue = value;
+  let checkValue = value;
 
-    checkIfElementExists(elementSelector, false, 1);
-    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50 });
+  checkIfElementExists(elementSelector, false, 1);
+  $(elementSelector).waitForDisplayed({ timeout: 15000, reverse: false, interval: 50 });
 
-    // console.log('DEBUG>>>>',elementSelector);
+  // console.log('DEBUG>>>>',elementSelector);
 
-    if (!value) {
-        checkValue = '';
-    }
+  if (!value) {
+    checkValue = '';
+  }
 
-    $(elementSelector)[command](checkValue);
+  $(elementSelector)[command](checkValue);
 };

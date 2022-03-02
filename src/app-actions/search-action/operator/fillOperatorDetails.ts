@@ -1,10 +1,7 @@
-import opeatorDetails from "../../../pageobjects/search/operatordetails.pageobject";
-
+import opeatorDetails from '../../../pageobjects/search/operatordetails.pageobject';
 
 export default (table: any) => {
+  const data = table.rowsHash();
 
-    const data = table.rowsHash();
-    
-    opeatorDetails.fillOperatorDetailsFromDataTable(data)
-    
-};           
+  opeatorDetails.fillOperatorDetailsFromDataTable(data);
+};
