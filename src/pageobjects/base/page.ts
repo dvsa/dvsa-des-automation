@@ -64,7 +64,6 @@ export default class Page {
                 return context.title === titles[i];
             });
 
-            // if (context) return context;
             if (context) {
                 found = true;
                 if (switchContext) driver.switchContext(context.id);

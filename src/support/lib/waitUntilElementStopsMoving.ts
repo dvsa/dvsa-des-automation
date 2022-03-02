@@ -19,11 +19,8 @@ export default async (
         }
         let spread = [postLoc.x - preLoc.x, postLoc.y - preLoc.y]
 
-        // console.log(`WaitForAnimation: Spread x: ${spread[0]}; Spread y: ${spread[1]}`)
-
         preLoc = postLoc;
     }
-    // console.log('WaitForAnimation: Done')
     return true;
 };
 
