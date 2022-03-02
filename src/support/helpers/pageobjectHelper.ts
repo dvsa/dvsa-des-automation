@@ -6,7 +6,6 @@ import debug from '../lib/debug';
 
 class PageObjectsHelper {
 
-    // private globalElementArray: { [key: string]: any[] } = globalelements;
     private globalElementArray;
 
     constructor() {
@@ -51,8 +50,6 @@ class PageObjectsHelper {
                 selector = (this.globalElementArray[page][0][element.toLowerCase()] || selector);
             }
         }
-
-        // debug(selector);
 
         return selector;
     }

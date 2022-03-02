@@ -6,13 +6,10 @@ const faker = require("faker/locale/en_GB");
 class LoginPageObject extends Page {
 
   get msContinueButton() { return this.getSelector('//XCUIElementTypeButton[@name="Continue"]') }
-  // get msContinueButton() { return this.getSelector('~Continue') }
   get msContinueButton2() { return this.getSelector('#idSIButton9') }
   get msAppConfirmTitle() { return this.getSelector('#appConfirmTitle') }
   get msEmailTextbox() { return this.getSelector('//input[@name="loginfmt"]') }
   get msPasswordTextBox() { return this.getSelector('#passwordInput') }
-  // get msEmailTextbox() { return this.getSelector('//XCUIElementTypeTextField[@name="Enter your email, phone, or Skype."]') }
-  // get msPasswordTextBox() { return this.getSelector('//XCUIElementTypeSecureTextField') }
   get msSigninButton() { return this.getSelector('#submitButton') }
   get msSubmitButton() { return this.getSelector('input[type="submit"]') }
 
@@ -42,8 +39,6 @@ class LoginPageObject extends Page {
       this.msContinueButton.click();
       console.log('Continue button clicked');
 
-      // Wait for the button to disappear
-      // this.msContinueButton.waitForDisplayed({ reverse: true, interval: 200 });
     } else {
       console.log('No continue button found');
     }
@@ -74,7 +69,6 @@ class LoginPageObject extends Page {
 
   //desktoplogin
   desktopLogin() {
-    // const user = this.getRandomSuperUser();
     console.info('>>>>>Switching to login tab')
     browser.switchWindow('Sign in to your account')
     const superUser = this.getSuperUser();
@@ -95,12 +89,7 @@ class LoginPageObject extends Page {
   loginWeb() {
     const superUser = this.getSuperUser();
 
-    //@ts-ignore
-    // browser.sharedStore.set('user-logged-in', user);
-
     // Click the native button should we need to.
-    console.log(`User : >>> ${JSON.stringify(superUser.Name)}`);
-
     console.info('>>>>>Checking for the native continue button');
     this.clickNativeContinueButton();
     console.info('>>>>>Continue button clicked');
@@ -121,7 +110,6 @@ class LoginPageObject extends Page {
       console.info(`wait for sign in button to disappeare sign in button`);
       this.msSigninButton.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msSigninButton)} did not exist on page within 15 seconds` });
 
-      // this.msContinueButton2.waitForExist({ reverse: true, interval: 50 });
       console.info(`wait for continue button`);
       this.msContinueButton2.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} did not exist on page within 15 seconds` });
 
@@ -136,7 +124,6 @@ class LoginPageObject extends Page {
       console.log('Wait for context to leave so the login page isnt there anymore')
       this.waitForContextToLeave(this._contextTitleForPage);
     }
-    // this.switchContextByTitleArray(["DVSA Search"]);
     this.switchContext(this._dvsaAppContextTitle);
 
     console.log(`THIS IS VERSION  :::: ${$('.bottomright').getText()}`)
@@ -168,7 +155,6 @@ class LoginPageObject extends Page {
       console.info(`wait for sign in button to disappeare sign in button`);
       this.msSigninButton.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msSigninButton)} did not exist on page within 15 seconds` });
 
-      // this.msContinueButton2.waitForExist({ reverse: true, interval: 50 });
       console.info(`wait for continue button`);
       this.msContinueButton2.waitForExist({ timeout: 30000, reverse: false, interval: 50, timeoutMsg: `Element ${JSON.stringify(this.msContinueButton2)} did not exist on page within 15 seconds` });
 
@@ -183,7 +169,6 @@ class LoginPageObject extends Page {
       console.log('Wait for context to leave so the login page isnt there anymore')
       this.waitForContextToLeave(this._contextTitleForPage);
     }
-    // this.switchContextByTitleArray(["DVSA Search"]);
     this.switchContext(this._dvsaAppContextTitle);
 
     console.log(`THIS IS VERSION  :::: ${$('.bottomright').getText()}`)
