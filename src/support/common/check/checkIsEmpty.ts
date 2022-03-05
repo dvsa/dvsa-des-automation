@@ -15,5 +15,5 @@ export default (
         newFalseCase = false;
     }
 
-    checkContainsAnyText(elementType, element, newFalseCase);
+    checkContainsAnyText(elementType, element as string, newFalseCase);
 };

@@ -52,10 +52,10 @@ export default class Page {
 
     /***
     * Purpose : Search for a context based on an array of context titles
-    * Author  : Lee Carter 
+    * Author  : Lee Carter
     */
     doesContextExistByArray(titles: string[], switchContext = false) {
-        const contexts: any = driver.getContexts();
+        const contexts: AppiumContext[] = driver.getContexts() as unknown as AppiumContext[];
 
         let found = false;
 
@@ -74,8 +74,8 @@ export default class Page {
     }
 
     /***
-    * Purpose : Switch to a context by an array of context titles 
-    * Author  : Lee Carter 
+    * Purpose : Switch to a context by an array of context titles
+    * Author  : Lee Carter
     */
     switchContextByTitleArray(titles: string[]) {
         // let contexts = [{ title: 'context 1', id: '123' }, { title: 'context 2', id: '4321' }];

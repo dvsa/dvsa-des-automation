@@ -72,7 +72,7 @@
   "dependencies": {
     "@types/faker": "^5.5.5",
     "allure-commandline": "^2.13.8",
-    "appium": "^1.21.0",
+    "appium": "^1.22.2",
     "appium-xcuitest-driver": "^3.46.0",
     "browserstack-local": "^1.4.8",
     "ms-chromium-edge-driver": "^0.4.3",
