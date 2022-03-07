@@ -55,7 +55,7 @@ export default class Page {
     * Author  : Lee Carter 
     */
     doesContextExistByArray(titles: string[], switchContext = false) {
-        const contexts: any = driver.getContexts();
+        const contexts: AppiumContext[] = driver.getContexts() as unknown as AppiumContext[];
 
         let found = false;
 
