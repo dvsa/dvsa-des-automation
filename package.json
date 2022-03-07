@@ -71,6 +71,7 @@
   },
   "dependencies": {
     "@types/faker": "^5.5.5",
+    "@dvsa/app-dev-automation": "0.0.2",
     "allure-commandline": "^2.13.8",
     "appium": "^1.21.0",
     "appium-xcuitest-driver": "^3.46.0",

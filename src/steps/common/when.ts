@@ -1,7 +1,8 @@
 import { When } from '@cucumber/cucumber';
 
 import clearInputField from '../../support/common/action/clearInputField';
-import clickElement from '../../support/common/action/clickElement';
+// import clickElement from '../../support/common/action/clickElement';
+import { clickElement } from '@dvsa/app-dev-automation/src/support/common/action/clickElement';
 import clickElementWithText from '../../support/common/action/clickElementWithText';
 import clickElementContainingPartialText from  '../../support/common/action/clickElementContainingPartialText'
 import clickElementWithTextThatsInside from '../../support/common/action/clickElementWithTextThatsInside';

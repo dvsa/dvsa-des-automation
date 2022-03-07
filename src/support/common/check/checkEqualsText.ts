@@ -9,7 +9,7 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
- export const waitFor = async (
+ export const checkEqualsText = async (
     elementType: 'element' | 'button',
     selector: string,
     falseCase: boolean,

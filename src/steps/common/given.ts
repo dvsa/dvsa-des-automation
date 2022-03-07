@@ -7,7 +7,7 @@ import checkCookieContent from '../../support/common/check/checkCookieContent';
 import checkCookieExists from '../../support/common/check/checkCookieExists';
 import checkDimension from '../../support/common/check/checkDimension';
 import checkElementExists from '../../support/common/check/checkElementExists';
-import checkEqualsText from '../../support/common/check/checkEqualsText';
+import { checkEqualsText } from '../../support/common/check/checkEqualsText';
 import checkModal from '../../support/common/check/checkModal';
 import checkOffset from '../../support/common/check/checkOffset';
 import checkProperty from '../../support/common/check/checkProperty';
