@@ -7,7 +7,7 @@ import checkContainsText from '../../support/common/check/checkContainsText';
 import checkCookieContent from '../../support/common/check/checkCookieContent';
 import checkCookieExists from '../../support/common/check/checkCookieExists';
 import checkDimension from '../../support/common/check/checkDimension';
-import checkEqualsText from '../../support/common/check/checkEqualsText';
+import { checkEqualsText } from '../../support/common/check/checkEqualsText';
 import checkFocus from '../../support/common/check/checkFocus';
 import checkInURLPath from '../../support/common/check/checkInURLPath';
 import checkIsOpenedInNewWindow from
@@ -28,7 +28,7 @@ import compareText from '../../support/common/check/compareText';
 import isEnabled from '../../support/common/check/isEnabled';
 import isExisting from '../../support/common/check/isExisting';
 import isVisible from '../../support/common/check/isDisplayed';
-import waitFor from '../../support/common/action/waitFor';
+import { waitFor } from '../../support/common/action/waitFor';
 import waitForVisible from '../../support/common/action/waitForDisplayed';
 import checkIfElementExists from '../../support/lib/checkIfElementExists';
 

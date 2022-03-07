@@ -9,13 +9,13 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
-export default (
+ export const waitFor = async (
     elementType: 'element' | 'button',
     selector: string,
     falseCase: boolean,
     expectedText: string
-) => {
-    /**
+): Promise<void> => {
+        /**
      * The command to execute on the browser object
      * @type {String}
      */
@@ -58,7 +58,7 @@ export default (
         boolFalseCase = true;
     }
 
-    const text = $(elementSelector)[command]();
+    const text = await $(elementSelector)[command]();
 
     if (boolFalseCase) {
         expect(text).not.toBe(parsedExpectedText);

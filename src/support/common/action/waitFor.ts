@@ -11,13 +11,13 @@ type WaitForCommands = 'waitForClickable' | 'waitForDisplayed' | 'waitForEnabled
  * @param  {String}   state                    State to check for (default
  *                                             existence)
  */
-export default (
+ export const waitFor = async (
     selector: string,
     ms: string,
     falseState: boolean,
     state: string
-) => {
-    /**
+): Promise<void> => {
+        /**
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}
      */
@@ -58,7 +58,7 @@ export default (
 
     const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
 
-    $(elementSelector)[command]({
+    await $(elementSelector)[command]({
         timeout: intMs,
         reverse: boolFalseState,
     });
