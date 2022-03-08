@@ -1,5 +1,3 @@
-const faker = require("faker/locale/en_GB");
-
 class DesInfo {
     // Return a random device
 
