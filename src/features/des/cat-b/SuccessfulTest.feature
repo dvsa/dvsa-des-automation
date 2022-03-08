@@ -2,8 +2,7 @@ Feature: Cat-B Successful feature
 
   @test
   Scenario Outline:   Scenario
-#    Given I am signed in as a random "Super" user
-#    Given I pause for 10000ms
+#    Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that element "des-dashboard::staff-number" matches the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
@@ -34,9 +33,10 @@ Feature: Cat-B Successful feature
 #    And I pause for 5000ms
 #    And I click on the element with the text "NS"
 
-    And I pause for 5000ms
+    And I pause for 2000ms
 
-    And I doubleclick on the element "#legal-requirements-tick-NS"
+    And I wait on element "#legal-requirements-tick-NS" to be displayed
+    And I long click on the element "#legal-requirements-tick-NS"
 
     And I pause for 5000ms
 

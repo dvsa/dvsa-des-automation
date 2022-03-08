@@ -15,33 +15,22 @@ class ClickElementLongPageobject extends Page {
     $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not displayed within 15 seconds` });
     $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not clickable within 15 seconds`  });
 
-     // simple touch action on element
-    // browser.touchAction({
-    //   { action: 'longPress' },
-    //   element: elementSelector
-    // });
+    ///
+    //THIS FUNCTION DOES NOT WORK
+    ///
+    // const screen = $('#legal-requirements-tick-NS');
+    const screen = $($(elementSelector));
 
-    // browser.touchAction(`${elementSelector}`, 'longPress');
-    //
-    // elementSelector.touchAction('longPress');
 
-    // driver.touchAction([
-    //   {
-    //     action: 'longPress',
-    //     element: elementSelector
-    //   }]
-    // });
+    this.switchToNativeContext();
 
-    // this.switchToNativeContext();
+    browser.pause(2000);
 
-    this.switchContext("NATIVE");
-
-    browser.touchPerform([{
+    browser.touchAction({
       action: 'longPress',
-      options: {
-        element: elementSelector, // json web element was queried before
-      }
-    }]);
+      element: screen
+    });
+
 
     browser.pause(500)
 
