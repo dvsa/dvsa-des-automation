@@ -28,8 +28,8 @@ import compareText from '../../support/common/check/compareText';
 import isEnabled from '../../support/common/check/isEnabled';
 import isExisting from '../../support/common/check/isExisting';
 import isVisible from '../../support/common/check/isDisplayed';
-import waitFor from '../../support/common/action/waitFor';
-import waitForVisible from '../../support/common/action/waitForDisplayed';
+import waitFor from '@boilerplate-actions/waitFor';
+import waitForVisible from '@boilerplate-actions/waitForDisplayed';
 import checkIfElementExists from '../../support/lib/checkIfElementExists';
 
 Then(

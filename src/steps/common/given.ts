@@ -14,14 +14,13 @@ import checkProperty from '../../support/common/check/checkProperty';
 import checkSelected from '../../support/common/check/checkSelected';
 import checkTitle from '../../support/common/check/checkTitle';
 import checkUrl from '../../support/common/check/checkURL';
-import closeAllButFirstTab from '../../support/common/action/closeAllButFirstTab';
+import closeAllButFirstTab from '@boilerplate-actions/closeAllButFirstTab';
 import compareText from '../../support/common/check/compareText';
 import isEnabled from '../../support/common/check/isEnabled';
 import isDisplayed from '../../support/common/check/isDisplayed';
-import openWebsite from '../../support/common/action/openWebsite';
-import setWindowSize from '../../support/common/action/setWindowSize';
-import waitForDisplayed from '../../support/common/action/waitForDisplayed';
-import waitForRendering from '../../support/common/action/waitForRendering';
+import openWebsite from '@boilerplate-actions/openWebsite';
+import setWindowSize from '@boilerplate-actions/setWindowSize';
+import waitForDisplayed from '@boilerplate-actions/waitForDisplayed';
 
 Given(
     /^I open the (url|site) "([^"]*)?"$/,
@@ -35,7 +34,8 @@ Given(
 
 Given(
     /^The app has rendered$/,
-    waitForRendering
+    // @TODO - do we need this. Seems to do nothing
+    () => {}
 );
 
 Given(

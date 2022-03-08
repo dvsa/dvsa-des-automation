@@ -4,7 +4,10 @@
     "module": "commonjs",
     "allowJs": true,
     "strict": true,
-    "paths": {},
+    "paths": {
+      "@boilerplate-actions/*": ["node_modules/@dvsa/app-dev-automation/src/boilerplate/support/action/*"],
+      "@custom-shared-actions/*": ["node_modules/@dvsa/app-dev-automation/src/custom/support/action/*"]
+    },
     "types": [
       "node",
       "webdriverio/sync",
@@ -16,10 +19,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
   },
   "exclude": [
     "node_modules",
     "apps"
-  ]
+  ],
 }
