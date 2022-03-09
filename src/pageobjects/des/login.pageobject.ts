@@ -1,7 +1,6 @@
 import Page from '../base/page'
 
 import * as credentials from '../../../creds/credentials.json';
-const faker = require("faker/locale/en_GB");
 
 class LoginPageObject extends Page {
 
@@ -15,11 +14,6 @@ class LoginPageObject extends Page {
 
   private _contextTitleForPage: string = 'Sign in to your account';
   private _dvsaAppContextTitle: string = 'DVSA Search';
-
-  getRandomSuperUser() {
-    const randomId = faker.datatype.number(0, credentials.Environment.Dev.Super.length);
-    return credentials.Environment.Dev.Super[randomId];
-  }
 
   getSuperUser() {
     const totalUsers = credentials.Environment.Dev.Super.length
