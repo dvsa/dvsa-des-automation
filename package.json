@@ -74,6 +74,7 @@
     "appium-xcuitest-driver": "^3.46.0",
     "browserstack-local": "^1.4.8",
     "ms-chromium-edge-driver": "^0.4.3",
+    "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
     "wdio-video-reporter": "^3.1.1"
   }
