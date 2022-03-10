@@ -1,5 +1,5 @@
 import PageObjectsHelper from '../../helpers/pageobjectHelper';
-import checkIfElementExists from '../../lib/checkIfElementExists';
+import checkIfElementExists from '@shared-boilerplate/support/lib/checkIfElementExists';
 
 export default (
     menuid: string

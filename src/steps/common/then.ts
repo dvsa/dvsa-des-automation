@@ -30,7 +30,7 @@ import isExisting from '../../support/common/check/isExisting';
 import isVisible from '../../support/common/check/isDisplayed';
 import waitFor from '@shared-boilerplate/support/action/waitFor';
 import waitForVisible from '@shared-boilerplate/support/action/waitForDisplayed';
-import checkIfElementExists from '../../support/lib/checkIfElementExists';
+import checkIfElementExists from '@shared-boilerplate/support/lib/checkIfElementExists';
 
 Then(
     /^I expect that the title is( not)* "([^"]*)?"$/,

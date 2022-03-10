@@ -1,4 +1,4 @@
-import checkIfElementExists from '../../lib/checkIfElementExists';
+import checkIfElementExists from '@shared-boilerplate/support/lib/checkIfElementExists';
 import PageObjectsHelper from '../../helpers/pageobjectHelper';
 
 /**

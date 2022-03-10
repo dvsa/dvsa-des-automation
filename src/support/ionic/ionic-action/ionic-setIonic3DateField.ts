@@ -1,6 +1,6 @@
 import { Selector } from 'webdriverio';
 
-import checkIfElementExists from '../../lib/checkIfElementExists';
+import checkIfElementExists from '@shared-boilerplate/support/lib/checkIfElementExists';
 import PageObjectsHelper from '../../helpers/pageobjectHelper';
 import { formatISO, format, parseISO } from 'date-fns'
 
