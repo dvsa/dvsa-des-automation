@@ -6,8 +6,8 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@boilerplate-actions/*": ["node_modules/@dvsa/app-dev-automation/src/boilerplate/support/action/*"],
-      "@custom-shared-actions/*": ["node_modules/@dvsa/app-dev-automation/src/custom/support/action/*"]
+      "@shared-boilerplate/*": ["shared/boilerplate/*"],
+      "@shared-custom/*": ["shared/custom/*"]
     },
     "types": [
       "node",

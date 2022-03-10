@@ -31,7 +31,9 @@
     "wdio:des:bs": "wdio run ./config/wdio.DES-BrowserStack.conf.ts",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
-    "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs"
+    "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
+    "copy-shared": "./copy-shared.sh",
+    "postinstall": "npm run copy-shared"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",

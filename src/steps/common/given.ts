@@ -14,13 +14,13 @@ import checkProperty from '../../support/common/check/checkProperty';
 import checkSelected from '../../support/common/check/checkSelected';
 import checkTitle from '../../support/common/check/checkTitle';
 import checkUrl from '../../support/common/check/checkURL';
-import closeAllButFirstTab from '@boilerplate-actions/closeAllButFirstTab';
+import closeAllButFirstTab from '@shared-boilerplate/support/action/closeAllButFirstTab';
 import compareText from '../../support/common/check/compareText';
 import isEnabled from '../../support/common/check/isEnabled';
 import isDisplayed from '../../support/common/check/isDisplayed';
-import openWebsite from '@boilerplate-actions/openWebsite';
-import setWindowSize from '@boilerplate-actions/setWindowSize';
-import waitForDisplayed from '@boilerplate-actions/waitForDisplayed';
+import openWebsite from '@shared-boilerplate/support/action/openWebsite';
+import setWindowSize from '@shared-boilerplate/support/action/setWindowSize';
+import waitForDisplayed from '@shared-boilerplate/support/action/waitForDisplayed';
 
 Given(
     /^I open the (url|site) "([^"]*)?"$/,
