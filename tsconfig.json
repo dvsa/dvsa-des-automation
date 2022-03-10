@@ -4,7 +4,11 @@
     "module": "commonjs",
     "allowJs": true,
     "strict": true,
-    "paths": {},
+    "baseUrl": "./",
+    "paths": {
+      "@shared-boilerplate/*": ["shared/boilerplate/*"],
+      "@shared-custom/*": ["shared/custom/*"]
+    },
     "types": [
       "node",
       "webdriverio/sync",
@@ -16,10 +20,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
   },
   "exclude": [
     "node_modules",
     "apps"
-  ]
+  ],
 }

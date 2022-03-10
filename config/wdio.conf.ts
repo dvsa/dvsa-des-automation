@@ -5,6 +5,20 @@ import CustomCommand from '../src/support/lib/addCommands';
 
 //@ts-ignore
 export const config: WebdriverIO.Config = {
+    autoCompileOpts: {
+        autoCompile: true,
+        tsNodeOpts: {
+            transpileOnly:true,
+            project: "tsconfig.json",
+        },
+        tsConfigPathsOpts: {
+            baseUrl: "./",
+            paths: {
+                "@shared-boilerplate/*": ["shared/boilerplate/*"],
+                "@shared-custom/*": ["shared/custom/*"]
+            }
+        }
+    },
     //
     // ====================
     // Runner Configuration

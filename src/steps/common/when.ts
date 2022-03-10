@@ -1,27 +1,29 @@
 import { When } from '@cucumber/cucumber';
 
-import clearInputField from '../../support/common/action/clearInputField';
-import clickElement from '../../support/common/action/clickElement';
-import clickElementWithText from '../../support/common/action/clickElementWithText';
-import clickElementContainingPartialText from  '../../support/common/action/clickElementContainingPartialText'
-import clickElementWithTextThatsInside from '../../support/common/action/clickElementWithTextThatsInside';
-import closeLastOpenedWindow from '../../support/common/action/closeLastOpenedWindow';
-import deleteCookies from '../../support/common/action/deleteCookies';
-import dragElement from '../../support/common/action/dragElement';
-import dumpPageContents from '../../support/common/action/dumpPageContents';
-import focusLastOpenedWindow from '../../support/common/action/focusLastOpenedWindow';
-import handleModal from '../../support/common/action/handleModal';
-import moveTo from '../../support/common/action/moveTo';
-import pause from '../../support/common/action/pause';
-import pressButton from '../../support/common/action/pressButton';
-import scroll from '../../support/common/action/scroll';
-import selectOption from '../../support/common/action/selectOption';
-import selectOptionByIndex from '../../support/common/action/selectOptionByIndex';
-import setCookie from '../../support/common/action/setCookie';
-import setInputField from '../../support/common/action/setInputField';
-import setInputFieldWithRandom from '../../support/common/action/setInputFieldWithRandom';
-import setPromptText from '../../support/common/action/setPromptText';
-import switchContext from '../../support/common/action/switchContext';
+import clearInputField from '@shared-boilerplate/support/action/clearInputField';
+import clickElement from '@shared-boilerplate/support/action/clickElement';
+import closeLastOpenedWindow from '@shared-boilerplate/support/action/closeLastOpenedWindow';
+import deleteCookies from '@shared-boilerplate/support/action/deleteCookies';
+import dragElement from '@shared-boilerplate/support/action/dragElement';
+import focusLastOpenedWindow from '@shared-boilerplate/support/action/focusLastOpenedWindow';
+import handleModal from '@shared-boilerplate/support/action/handleModal';
+import moveTo from '@shared-boilerplate/support/action/moveTo';
+import pause from '@shared-boilerplate/support/action/pause';
+import pressButton from '@shared-boilerplate/support/action/pressButton';
+import scroll from '@shared-boilerplate/support/action/scroll';
+import selectOption from '@shared-boilerplate/support/action/selectOption';
+import selectOptionByIndex from '@shared-boilerplate/support/action/selectOptionByIndex';
+import setCookie from '@shared-boilerplate/support/action/setCookie';
+import setInputField from '@shared-boilerplate/support/action/setInputField';
+import setPromptText from '@shared-boilerplate/support/action/setPromptText';
+import switchContext from '@shared-custom/support/action/switchContext';
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
+import clickElementContainingPartialText from  '@shared-custom/support/action/clickElementContainingPartialText'
+import setInputFieldWithRandom from '@shared-custom/support/action/setInputFieldWithRandom';
+import dumpPageContents from '@shared-custom/support/action/dumpPageContents';
+
+
+
 
 When(
     /^I dump the page contents$/,

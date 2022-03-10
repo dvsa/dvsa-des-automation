@@ -31,7 +31,9 @@
     "wdio:des:bs": "wdio run ./config/wdio.DES-BrowserStack.conf.ts",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
-    "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs"
+    "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
+    "copy-shared": "./copy-shared.sh",
+    "postinstall": "npm run copy-shared"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
@@ -68,12 +70,13 @@
     "webdriverio": "^7.16.16"
   },
   "dependencies": {
-    "@dvsa/app-dev-automation": "0.0.8",
+    "@dvsa/app-dev-automation": "0.0.9",
     "allure-commandline": "^2.13.8",
     "appium": "^1.21.0",
     "appium-xcuitest-driver": "^3.46.0",
     "browserstack-local": "^1.4.8",
     "ms-chromium-edge-driver": "^0.4.3",
+    "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
     "wdio-video-reporter": "^3.1.1"
   }
