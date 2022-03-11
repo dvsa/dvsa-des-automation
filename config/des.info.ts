@@ -14,7 +14,7 @@ class DesInfo {
     }
 
     get platFormVersion() {
-        return '14.4'; // pass the platform version
+        return '15.2'; // pass the platform version
     }
 
     get platformName(){

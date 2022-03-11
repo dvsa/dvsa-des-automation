@@ -1,3 +1,4 @@
+
 export const appiumbase = {
     maxInstances: 1,
     usePrebuiltWDA: false,
@@ -8,4 +9,5 @@ export const appiumbase = {
     autoWebview: true,
     useNewWDA: true, // Set this to true to reinstall the driver everytime
     automationName: 'XCUITest',
+    autoAcceptAlerts: false,
 }
