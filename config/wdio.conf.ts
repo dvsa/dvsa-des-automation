@@ -1,7 +1,7 @@
 const video = require('wdio-video-reporter');
 import path from 'path';
 import { hooks } from '../src/support/hooks';
-import CustomCommand from '@shared-custom/support/lib/addCommands';
+import CustomCommand from '../shared/custom/support/lib/addCommands';
 
 //@ts-ignore
 export const config: WebdriverIO.Config = {
