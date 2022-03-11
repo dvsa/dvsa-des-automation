@@ -18,7 +18,7 @@ class LoginMobilePageObject {
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
-    console.log(contexts);
+    console.log(`Apium Contexts : ${contexts}`);
     const doesContextExist: boolean = contexts.some((context) => context.title === contextTitle || context.id === contextTitle)
     console.log(`context ${contextTitle} exists: ${doesContextExist}`)
     return doesContextExist;
