@@ -1,18 +1,18 @@
 Feature: Dashboard feature
 
   Scenario:  LDTM Dashboard Page Scenario
-#    Given I am signed in as a random "mobexaminer1" user
+    Given I am signed in as a random "mobexaminer1" user
     When I wait on element "#page-title" to be displayed
-#    Then I expect that element "#page-title" matches the text "My dashboard"
-#    And I expect that element "//ion-row/h2[@class='name']" matches the text "MESBeta User 1"
-#    And I expect that element "//ion-col[@class='role ios hydrated']/span" matches the text "Local Driving Test Manager"
-#    And I expect that element "#staff-number" matches the text "1234567"
-#    And I expect that element "#go-to-journal-button" is displayed
-#    And I expect that element "#test-centre-journal-button" is displayed
-#    And I expect that element "#completed-search-button" is displayed
-#    And I expect that element "#rekey-search-button" is displayed
-#    And I expect that element "#practice-mode-test-report-button" is displayed
-#    And I expect that element "#practice-mode-full-button" is displayed
+    Then I expect that element "#page-title" matches the text "My dashboard"
+    And I expect that element "//ion-row/h2[@class='name']" matches the text "MESBeta User 1"
+    And I expect that element "//ion-col[@class='role ios hydrated']/span" matches the text "Local Driving Test Manager"
+    And I expect that element "#staff-number" matches the text "1234567"
+    And I expect that element "#go-to-journal-button" is displayed
+    And I expect that element "#test-centre-journal-button" is displayed
+    And I expect that element "#completed-search-button" is displayed
+    And I expect that element "#rekey-search-button" is displayed
+    And I expect that element "#practice-mode-test-report-button" is displayed
+    And I expect that element "#practice-mode-full-button" is displayed
 
 
 ##### The below scenario can be enabled when Delegated Examiner is being developed

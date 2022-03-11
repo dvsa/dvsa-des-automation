@@ -1,6 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import { waitUntil } from 'async-wait-until';
-
 import * as credentials from '../../../creds/credentials.json';
 import { AppiumContext } from '../../support/models/appiumContext.model';
 
@@ -14,7 +12,8 @@ export interface Context {
 class LoginMobilePageObject {
 
   private _msSignInContextTitle: string = 'Sign in to your account';
-  private _msSignOutContextTitle: string = 'Sign out';
+  // @TODO will be needed when log out added
+  // private _msSignOutContextTitle: string = 'Sign out';
   private _desAppContextTitle: string = 'Ionic App';
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
@@ -26,7 +25,6 @@ class LoginMobilePageObject {
 
   async waitForContextToExist(contextTitle: string): Promise<void> {
     console.log(`waiting for context ${contextTitle}`)
-    // await waitUntil(async () => { return this.doesContextExist(contextTitle) }, { timeout: 15000 })
     await driver.waitUntil(async () => this.doesContextExist(contextTitle), {
       timeout: 10000,
       timeoutMsg: `timed out waiting for ${contextTitle} context`
@@ -100,30 +98,12 @@ class LoginMobilePageObject {
     await browser.pause(2000);
     let user = this.getSuperUser();
 
-    // @TODO - reinstate this once getRandomUserType method fixed
-    // if (providedUser) {
-    //     user = this.getRandomUserType(providedUser);
-    // }
+    if (providedUser) {
+        user = this.getRandomUserType(providedUser);
+    }
 
-    // determine if already logged in or new log in
     const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
-
-    // @TODO - log in currently only works if not already logged in (appium capability fullReset: true).
-    //  Need to get the log out if already logged in flow working
-
-    // const dashboardButton = await $('#go-to-journal-button');
-    // await Promise.race([
-    //     this.waitForExistAndClickable(nativeContinueButton),
-    //     this.waitForExistAndClickable(dashboardButton),
-    // ]);
-    //
-    // if (await dashboardButton.isExisting()) {
-    //     console.log('<<<<<<<<<<<<<<ALREADY LOGGED IN >>>>>>>>>>>>>>')
-    //     await this.logout();
-    // }
-
     await this.clickNativeButton(nativeContinueButton);
-    console.log('clicked native continue')
 
     // wait for log in page
     await this.waitForContextToExist(this._msSignInContextTitle);
@@ -142,17 +122,17 @@ class LoginMobilePageObject {
       this.waitForExistAndClickable(useAnotherAccount),
       this.waitForExistAndClickable(emailTextBox),
     ]);
-    console.log('promise.race done')
     // logout if already logged in and start again
     const continueButtonPresent = await continueButton.isExisting();
-    // if (continueButtonPresent) {
-    //   await this.waitForExistAndClickable(continueButton);
-    //   await this.clickElement(continueButton);
-    //   await this.switchToDESContext();
-    //   await this.logout();
-    //   await this.login();
-    //   return Promise.resolve();
-    // }
+    if (continueButtonPresent) {
+      // @TODO - build log out and back in if already logged in
+      // await this.waitForExistAndClickable(continueButton);
+      // await this.clickElement(continueButton);
+      // await this.switchToDESContext();
+      // await this.logout();
+      // await this.login();
+      // return Promise.resolve();
+    }
     // click use another account if it is available
     const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
     if (useAnotherAccountButtonPresent) {
@@ -161,7 +141,6 @@ class LoginMobilePageObject {
     // set email
     await this.waitForExistAndClickable(emailTextBox);
     await this.clickElement(emailTextBox);
-    console.log('clicked email box')
     await emailTextBox.addValue(user.UserPrincipalName);
     // click next button
     const nextButton: WebdriverIO.Element = await $('#idSIButton9');
@@ -185,40 +164,11 @@ class LoginMobilePageObject {
     // switch to Search app context
     await this.switchToDESContext();
     await browser.pause(3000);
-    return Promise.resolve();
+    // return Promise.resolve();
   }
 
   async logout(): Promise<void> {
-    await browser.pause(2000);
-    // click burger menu
-    const burgerMenu = await $('#menuButton');
-    await this.waitForExistAndClickable(burgerMenu);
-    await this.clickElement(burgerMenu);
-    console.log('burger menu');
-    // click log out
-    const logout = await $('#logOut');
-    await this.waitForExistAndClickable(logout);
-    await this.clickElement(logout);
-    // click confirm
-    const yesConfirmButton = await $('span=YES');
-    await this.waitForExistAndClickable(yesConfirmButton);
-    await this.clickElement(yesConfirmButton);
-    // click native continue
-    const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
-    await this.clickNativeButton(nativeContinueButton);
-    // wait for MS sign out page
-    await this.waitForContextToExist(this._msSignOutContextTitle);
-    const signOutContext = await this.getContextByTitle(this._msSignOutContextTitle);
-    // switch to sign out page context
-    // @ts-ignore
-    await driver.switchContext(signOutContext.id);
-    // click account sign out tile
-    const logoutTile = await $("small=Signed in");
-    await this.waitForExistAndClickable(logoutTile);
-    await this.clickElement(logoutTile);
-    await browser.pause(3000);
-    const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
-    await this.clickNativeButton(nativeCancelButton);
+    // @TODO - build log out
   }
 }
 
