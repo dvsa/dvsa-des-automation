@@ -1,10 +1,10 @@
 import { When } from '@cucumber/cucumber';
-import ionicClickActionButtonWithText from '../../support/ionic/ionic-action/ionic-clickActionButtonWithText';
-import ionicClickAlertButtonWithText from '../../support/ionic/ionic-action/ionic-clickAlertButtonWithText';
+import ionicClickActionButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickActionButtonWithText';
+import ionicClickAlertButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickAlertButtonWithText';
 import ionicClickAwayfromSideMenu from '../../support/ionic/ionic-action/ionic-clickAwayfromSideMenu';
 import ionicClickSegmentButtonWithText from '../../support/ionic/ionic-action/ionic-clickSegmentButtonWithText';
 
-import ionicClickTabButtonWithText from '../../support/ionic/ionic-action/ionic-clickTabButtonWithText';
+import ionicClickTabButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickTabButtonWithText';
 import ionicSetIonic3DateField from '../../support/ionic/ionic-action/ionic-setIonic3DateField';
 import ionicSetIonicCheckbox from '../../support/ionic/ionic-action/ionic-setIonicCheckbox';
 import ionicSetIonicDateField from '../../support/ionic/ionic-action/ionic-setIonicDateField';

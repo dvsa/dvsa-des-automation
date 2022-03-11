@@ -5,10 +5,9 @@ import ionicWaitforSideMenu from '../../support/ionic/ionic-action/ionic-waitfor
 import ionicCheckBadge from '../../support/ionic/ionic-check/ionic-checkBadge';
 import ionicCheckCheckbox from '../../support/ionic/ionic-check/ionic-checkCheckbox';
 import ionicCheckIonicToggle from '../../support/ionic/ionic-check/ionic-checkToggle';
-import ionicCheckToastMessage from '../../support/ionic/ionic-check/ionic-checkToastMessage';
+import ionicCheckToastMessage from '@shared-custom/support/ionic/ionic-check/ionic-checkToastMessage';
 import waitForTextToBe from '../../support/lib/waitForTextToBe';
 import ionicCheckCard from '../../support/ionic/ionic-check/ionic-checkCard';
-
 
 Then(
     /^I expect that element "([^"]*)?"( not)* matches the time "([^"]*)?"$/,

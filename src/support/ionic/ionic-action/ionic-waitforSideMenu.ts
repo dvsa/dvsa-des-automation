@@ -1,4 +1,4 @@
-import waitUntilElementStopsMoving from '../../lib/waitUntilElementStopsMoving';
+import waitUntilElementStopsMoving from '@shared-custom/support/lib/waitUntilElementStopsMoving';
 import PageObjectsHelper from '../../helpers/pageobjectHelper';
 
 /**
