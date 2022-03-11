@@ -201,12 +201,12 @@ export const config: WebdriverIO.Config = {
         timeout: 60000,// <number> timeout for step definitions
     } as WebdriverIO.CucumberOpts,
 
-    beforeScenario: (world) => {
-        // Comment out this locally if you don't want to clear storage
-        console.info(`clearing local storage before scenario`)
-        browser.execute('window.localStorage.clear()');
-        browser.reloadSession()
-    },
+    // beforeScenario: (world) => {
+    //     // Comment out this locally if you don't want to clear storage
+    //     console.info(`clearing local storage before scenario`)
+    //     browser.execute('window.localStorage.clear()');
+    //     browser.reloadSession()
+    // },
     
     afterStep: (step, scenario, result) => {
         if (!result.passed) {
@@ -218,14 +218,14 @@ export const config: WebdriverIO.Config = {
         console.log(`  STEP :   ${JSON.stringify(step.text)}`)
     },
 
-    before: async (capabilities: any, specs: string[], browser: any) => {
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-        // browser.setTimeout({ 'pageLoad': 10000 });
-
-        CustomCommand.addCommands();
-
-        // browser.url('/');
-    },
+    // before: async (capabilities: any, specs: string[], browser: any) => {
+    //     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+    //     // browser.setTimeout({ 'pageLoad': 10000 });
+    //
+    //     CustomCommand.addCommands();
+    //
+    //     // browser.url('/');
+    // },
 
     ...hooks,
 };

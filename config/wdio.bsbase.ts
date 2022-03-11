@@ -22,5 +22,5 @@ export const bscapabilities = {
     'os': 'Windows',
     fullContextList: true,
     autoWebview: true,
-    autoAcceptAlerts: true,
+    autoAcceptAlerts: false,
 }
