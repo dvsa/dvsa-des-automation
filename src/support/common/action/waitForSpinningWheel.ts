@@ -1,41 +1,31 @@
-import waitFor from "./waitFor";
-
-export default (
+export default async(
     loadingtext: string
 ) => {
     /**
      * Maximum number of milliseconds to wait for
      * @type {Int}
      */
-    const ms = 2000;
-    //const elementSelector = `.loading-content`;
+    const ms = 10000;
     const elementSelector = `//*[contains(text(), "${loadingtext}")]`;
 
-    const contexts: Array<any> = driver.getContexts();
-
-    // console.log('Available contexts', contexts);
-
-    // if ($(elementSelector).isExisting()) {
-
+    const contexts: Array<any> = await driver.getContexts();
     try {
         console.info("checking for loading spinner to exist")
         const contexts: Array<any> = driver.getContexts();
-
-        // console.log('Available contexts', contexts);
-        $(elementSelector).waitForExist({
+        await $(elementSelector).waitForExist({
             timeout: ms,
             reverse: false,
             interval: 100
         });
         console.info("checking for loading spinner to display")
-        $(elementSelector).waitForDisplayed({
+        await $(elementSelector).waitForDisplayed({
             timeout: ms,
             reverse: false,
             interval: 100
         });
 
         console.info("checking for loading spinner to disappear")
-        $(elementSelector).waitForDisplayed({
+        await $(elementSelector).waitForDisplayed({
             timeout: ms,
             reverse: true,
             interval: 100
