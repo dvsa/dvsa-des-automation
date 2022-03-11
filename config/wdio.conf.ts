@@ -219,7 +219,6 @@ export const config: WebdriverIO.Config = {
     },
 
     before: async (capabilities: any, specs: string[], browser: any) => {
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
         CustomCommand.addCommands();
     },
 };
