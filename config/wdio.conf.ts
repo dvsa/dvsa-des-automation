@@ -1,6 +1,9 @@
+const video = require('wdio-video-reporter');
 import path from 'path';
 import { hooks } from '../src/support/hooks';
+import CustomCommand from '../src/support/lib/addCommands';
 
+//@ts-ignore
 export const config: WebdriverIO.Config = {
     autoCompileOpts: {
         autoCompile: true,
@@ -16,7 +19,6 @@ export const config: WebdriverIO.Config = {
             }
         }
     },
-
     //
     // ====================
     // Runner Configuration
@@ -83,8 +85,9 @@ export const config: WebdriverIO.Config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'trace',
-    outputDir: path.join(__dirname, '/logs'),
+    logLevel: 'debug',
+    // outputDir: path.join(__dirname, '/logs'),
+    outputDir: path.join('./reports/logs'),
     //
     // Set specific log levels per logger
     // loggers:
@@ -109,14 +112,14 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    // baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
-    connectionRetryTimeout: 90000,
+    connectionRetryTimeout: 120000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -125,7 +128,7 @@ export const config: WebdriverIO.Config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    services: ['shared-store'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -136,7 +139,7 @@ export const config: WebdriverIO.Config = {
     framework: 'cucumber',
     //
     // The number of times to retry the entire specfile when it fails as a whole
-    // specFileRetries: 1,
+    specFileRetries: 3,
     //
     // Whether or not retried specfiles should be retried immediately or deferred
     // to the end of the queue specFileRetriesDeferred: false,
@@ -144,33 +147,44 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
-    //
+    // reporters: ['spec'],
+    reporters: [
+        'spec',
+        [video, {
+            saveAllVideos: true,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
+            videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering
+        }],
+        ['allure', {
+            outputDir: './reports/allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+            useCucumberStepReporter: false
+        }],
+        ['cucumberjs-json', {
+            jsonFolder: './reports/json-results',
+            language: 'en',
+        },
+        ],
+
+
+    ],
+
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        // <boolean> show full backtrace for errors
-        backtrace: false,
-        // <string[]> module used for processing required features
-        requireModule: [],
-        // <boolean< Treat ambiguous definitions as errors
-        failAmbiguousDefinitions: true,
-        // <boolean> invoke formatters without executing steps
-        // dryRun: false,
-        // <boolean> abort the run on first failure
-        failFast: false,
-        // <boolean> Enable this config to treat undefined definitions as
-        // warnings
-        ignoreUndefinedDefinitions: false,
+        featureDefaultLanguage: 'en',
+        backtrace: false, // <boolean> show full backtrace for errors
+        requireModule: [],// <string[]> module used for processing required features
+        failAmbiguousDefinitions: true,        // <boolean< Treat ambiguous definitions as errors
+        // dryRun: false, // <boolean> invoke formatters without executing steps
+        failFast: false, // <boolean> abort the run on first failure
+        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings
         // <string[]> ("extension:module") require files with the given
         // EXTENSION after requiring MODULE (repeatable)
         names: [],
-        // <boolean> hide step definition snippets for pending steps
-        snippets: true,
-        // <boolean> hide source uris
-        source: true,
-        // <string[]> (name) specify the profile to use
-        profile: [],
-        // <string[]> (file/dir) require files before executing features
+        snippets: true,// <boolean> hide step definition snippets for pending steps
+        source: true,// <boolean> hide source uris
+        profile: [],// <string[]> (name) specify the profile to use
         require: [
             './src/steps/common/**/*.ts',
             './src/steps/ionic/*.ts',
@@ -180,18 +194,25 @@ export const config: WebdriverIO.Config = {
         ],
         scenarioLevelReporter: false,
         order: 'defined',
-        // <string> specify a custom snippet syntax
-        snippetSyntax: undefined,
-        // <boolean> fail if there are any undefined or pending steps
-        strict: true,
-        // <string> (expression) only execute the features or scenarios with
-        // tags matching the expression, see
-        // https://docs.cucumber.io/tag-expressions/
+        snippetSyntax: undefined,// <string> specify a custom snippet syntax
+        strict: true, // <boolean> fail if there are any undefined or pending steps
         tagExpression: 'not @Pending',
-        // <boolean> add cucumber tags to feature or scenario name
-        tagsInTitle: false,
-        // <number> timeout for step definitions
-        timeout: 20000,
+        tagsInTitle: false,// <boolean> add cucumber tags to feature or scenario name
+        timeout: 60000,// <number> timeout for step definitions
     } as WebdriverIO.CucumberOpts,
-    ...hooks,
+
+    afterStep: (step, scenario, result) => {
+        if (!result.passed) {
+            browser.takeScreenshot()
+        }
+    },
+
+    beforeStep: (step) => {
+        console.log(`  STEP :   ${JSON.stringify(step.text)}`)
+    },
+
+    before: async (capabilities: any, specs: string[], browser: any) => {
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+        CustomCommand.addCommands();
+        },
 };
