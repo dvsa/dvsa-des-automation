@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2018",
     "module": "commonjs",
     "allowJs": true,
     "strict": true,
@@ -11,7 +11,7 @@
     },
     "types": [
       "node",
-      "webdriverio/sync",
+      "webdriverio/async",
       "@wdio/cucumber-framework",
       "expect-webdriverio"
     ],

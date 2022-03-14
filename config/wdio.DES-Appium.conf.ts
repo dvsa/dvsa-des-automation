@@ -47,7 +47,7 @@ exports.config = {
             // app: '/Users/lee/IonicProjects/dvsa-automation-boilerplate/apps/SearchMobile.app',
             app: DesInfo.localAppPath,
             disableAnimations: true,
-            fullReset: false, // Change this to true to reinstall the application
+            fullReset: true, // Change this to true to reinstall the application
             noReset: false // noReset just clears the app data, such as its cache.
         }
     ]
