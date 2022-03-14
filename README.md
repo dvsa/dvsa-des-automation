@@ -2,19 +2,22 @@ DVSA Automation Framework
 ====================
 #### Requirements
 
-- Node version 12 or higher
+- Node version 14 or higher
+- The npm dependencies include private DVSA packages. In order to run `npm i` you will need a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (PAT) in your global `~/.npmrc` file. Your file should contain similar to below:
 
-Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism. 
+`//npm.pkg.github.com/:_authToken=<your auth token here>`
+
+Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism.
 
 
 ## DES Setup
 
 ### Apps Folder
 
-In this folder you will need to copy in DES build folder, named "App.app", that is created in the DES4 project. 
+In this folder you will need to copy in DES build folder, named "App.app", that is created in the DES4 project.
 Creating the DES4 build folder:
-  - In DES4 project run `npm run e2e-build`
-  - The build command will not work with Xcode version 12.0> as it is not a supported version.
+- In DES4 project run `npm run e2e-build`
+- The build command will not work with Xcode version 12.0> as it is not a supported version.
 
 ### Creds Folder
 
@@ -253,7 +256,7 @@ To assert values this boilerplate project uses WebdriverIOs embedded assertion l
 
 ## When things go wrong
 
-### If you get an error with something to do with modules and puppetier, it's dead.  
+### If you get an error with something to do with modules and puppetier, it's dead.
     delete the node_modules folder and the package.lock file and then run
 
 `npm i`

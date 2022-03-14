@@ -186,7 +186,7 @@ export const config: WebdriverIO.Config = {
         source: true,// <boolean> hide source uris
         profile: [],// <string[]> (name) specify the profile to use
         require: [
-            './src/steps/common/**/*.ts',
+            './shared/boilerplate/steps/**/*.ts',
             './src/steps/ionic/*.ts',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
@@ -201,13 +201,13 @@ export const config: WebdriverIO.Config = {
         timeout: 60000,// <number> timeout for step definitions
     } as WebdriverIO.CucumberOpts,
 
-    beforeScenario: (world) => {
+    beforeScenario: async (world) => {
         // Comment out this locally if you don't want to clear storage
         console.info(`clearing local storage before scenario`)
-        browser.execute('window.localStorage.clear()');
-        browser.reloadSession()
+        await browser.execute('window.localStorage.clear()');
+        await browser.reloadSession()
     },
-    
+
     afterStep: (step, scenario, result) => {
         if (!result.passed) {
             browser.takeScreenshot()
@@ -219,13 +219,6 @@ export const config: WebdriverIO.Config = {
     },
 
     before: async (capabilities: any, specs: string[], browser: any) => {
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Running Before Script <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-        // browser.setTimeout({ 'pageLoad': 10000 });
-
         CustomCommand.addCommands();
-
-        // browser.url('/');
     },
-
-    ...hooks,
 };

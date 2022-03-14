@@ -1,7 +1,7 @@
 import loginPageobject from '../../pageobjects/des/login.pageobject';
 
-export default (
+export default async (
   typeOfUser: string
 ) => {
-  loginPageobject.loginWebAsUser(typeOfUser);
+  await loginPageobject.login(typeOfUser);
 };
