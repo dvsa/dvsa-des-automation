@@ -3,6 +3,11 @@ DVSA Automation Framework
 #### Requirements
 
 - Node version 12 or higher
+- Security
+  - [Git secrets](https://github.com/awslabs/git-secrets)
+  - [ScanRepo](https://github.com/UKHomeOffice/repo-security-scanner)
+    - latest version: scanrepo-0.4.0-darwin-amd64.tar.gz
+    - Add to path (using echo $PATH to find your path)
 
 Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism. 
 
