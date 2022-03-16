@@ -1,5 +1,5 @@
 import { Then } from '@cucumber/cucumber';
-import waitForSpinningWheel from '../../support/common/action/waitForSpinningWheel';
+import waitForSpinningWheel from '@shared-custom/support/action/waitForSpinningWheel';
 import checkEqualsTime from '../../support/common/check/checkEqualsTime';
 import ionicWaitforSideMenu from '../../support/ionic/ionic-action/ionic-waitforSideMenu';
 import ionicCheckBadge from '../../support/ionic/ionic-check/ionic-checkBadge';
