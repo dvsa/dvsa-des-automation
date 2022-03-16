@@ -4,6 +4,11 @@ DVSA Automation Framework
 
 - Node version 14 or higher
 - The npm dependencies include private DVSA packages. In order to run `npm i` you will need a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (PAT) in your global `~/.npmrc` file. Your file should contain similar to below:
+- Security
+  - [Git secrets](https://github.com/awslabs/git-secrets)
+  - [ScanRepo](https://github.com/UKHomeOffice/repo-security-scanner)
+    - latest version: scanrepo-0.4.0-darwin-amd64.tar.gz
+    - Add to path (using echo $PATH to find your path)
 
 `//npm.pkg.github.com/:_authToken=<your auth token here>`
 
