@@ -33,7 +33,8 @@
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
     "copy-shared": "./copy-shared.sh",
-    "postinstall": "npm run copy-shared"
+    "postinstall": "npm run copy-shared && npm run merge-element-references",
+    "merge-element-references": "json-concat shared/element-references/common-element-references.json src/element-references/des-element-references.json shared/element-references/combined-element-references.json"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
@@ -61,7 +62,7 @@
     "jest-circus": "^27.0.4",
     "npm-run-all": "^4.1.5",
     "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.7.0",
     "typescript": "^4.2.3",
     "wdio-appium-service": "^0.2.3",
     "wdio-chromedriver-service": "^7.2.2",
@@ -74,6 +75,7 @@
     "appium": "^1.22.2",
     "appium-xcuitest-driver": "^3.46.0",
     "browserstack-local": "^1.4.8",
+    "json-concat": "0.0.1",
     "ms-chromium-edge-driver": "^0.4.3",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
