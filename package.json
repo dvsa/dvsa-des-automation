@@ -33,7 +33,14 @@
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint --fix . --ext .ts"
+    "lint:fix": "eslint --fix . --ext .ts",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix",
+      "pre-push": "run-s test gitSecrets scanRepo"
+    }
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
@@ -55,12 +62,13 @@
     "date-fns": "^2.21.1",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-typescript": "^16.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-wdio": "^7.4.2",
-    "eslint-config-airbnb-typescript": "^16.0.0",
     "exceljs": "^4.2.1",
     "faker": "^5.5.3",
     "http-server": "^0.12.1",
+    "husky": "^7.0.4",
     "jest": "^27.0.4",
     "jest-circus": "^27.0.4",
     "npm-run-all": "^4.1.5",
