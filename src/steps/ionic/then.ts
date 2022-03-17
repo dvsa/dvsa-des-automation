@@ -1,13 +1,13 @@
 import { Then } from '@cucumber/cucumber';
 import waitForSpinningWheel from '@shared-custom/support/action/waitForSpinningWheel';
 import ionicCheckToastMessage from '@shared-custom/support/ionic/ionic-check/ionic-checkToastMessage';
-import checkEqualsTime from '../../support/common/check/checkEqualsTime';
-import ionicWaitforSideMenu from '../../support/ionic/ionic-action/ionic-waitforSideMenu';
-import ionicCheckBadge from '../../support/ionic/ionic-check/ionic-checkBadge';
-import ionicCheckCheckbox from '../../support/ionic/ionic-check/ionic-checkCheckbox';
-import ionicCheckIonicToggle from '../../support/ionic/ionic-check/ionic-checkToggle';
-import waitForTextToBe from '../../support/lib/waitForTextToBe';
-import ionicCheckCard from '../../support/ionic/ionic-check/ionic-checkCard';
+import checkEqualsTime from '@shared-custom/support/common/check/checkEqualsTime';
+import ionicWaitforSideMenu from '@shared-custom/support/ionic/ionic-action/ionic-waitforSideMenu';
+import ionicCheckBadge from '@shared-custom/support/ionic/ionic-check/ionic-checkBadge';
+import ionicCheckCheckbox from '@shared-custom/support/ionic/ionic-check/ionic-checkCheckbox';
+import ionicCheckIonicToggle from '@shared-custom/support/ionic/ionic-check/ionic-checkToggle';
+import waitForTextToBe from '@shared-custom/support/lib/waitForTextToBe';
+import ionicCheckCard from '@shared-custom/support/ionic/ionic-check/ionic-checkCard';
 
 Then(
   /^I expect that element "([^"]*)?"( not)* matches the time "([^"]*)?"$/,

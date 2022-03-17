@@ -2,16 +2,16 @@ import { When } from '@cucumber/cucumber';
 import ionicClickActionButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickActionButtonWithText';
 import ionicClickAlertButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickAlertButtonWithText';
 import ionicClickTabButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickTabButtonWithText';
-import ionicClickAwayfromSideMenu from '../../support/ionic/ionic-action/ionic-clickAwayfromSideMenu';
-import ionicClickSegmentButtonWithText from '../../support/ionic/ionic-action/ionic-clickSegmentButtonWithText';
+import ionicClickAwayfromSideMenu from '@shared-custom/support/ionic/ionic-action/ionic-clickAwayfromSideMenu';
+import ionicClickSegmentButtonWithText from '@shared-custom/support/ionic/ionic-action/ionic-clickSegmentButtonWithText';
 
-import ionicSetIonic3DateField from '../../support/ionic/ionic-action/ionic-setIonic3DateField';
-import ionicSetIonicCheckbox from '../../support/ionic/ionic-action/ionic-setIonicCheckbox';
-import ionicSetIonicDateField from '../../support/ionic/ionic-action/ionic-setIonicDateField';
-import ionicSetIonicTimeField from '../../support/ionic/ionic-action/ionic-setIonicTimeField';
-import ionicSetIonicToggle from '../../support/ionic/ionic-action/ionic-setIonicToggle';
-import ionicSwipeItemSliding from '../../support/ionic/ionic-action/ionic-swipeItemSliding';
-import ionicSetIonicTogglebyId from '../../support/ionic/ionic-action/ionic-setIonicTogglebyId';
+import ionicSetIonic3DateField from '@shared-custom/support/ionic/ionic-action/ionic-setIonic3DateField';
+import ionicSetIonicCheckbox from '@shared-custom/support/ionic/ionic-action/ionic-setIonicCheckbox';
+import ionicSetIonicDateField from '@shared-custom/support/ionic/ionic-action/ionic-setIonicDateField';
+import ionicSetIonicTimeField from '@shared-custom/support/ionic/ionic-action/ionic-setIonicTimeField';
+import ionicSetIonicToggle from '@shared-custom/support/ionic/ionic-action/ionic-setIonicToggle';
+import ionicSwipeItemSliding from '@shared-custom/support/ionic/ionic-action/ionic-swipeItemSliding';
+import ionicSetIonicTogglebyId from '@shared-custom/support/ionic/ionic-action/ionic-setIonicTogglebyId';
 
 // Ionic Tab Button
 When(
