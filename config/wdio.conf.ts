@@ -1,5 +1,4 @@
 import path from 'path';
-import { hooks } from '../src/support/hooks';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
 
 const video = require('wdio-video-reporter');
