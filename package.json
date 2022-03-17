@@ -16,6 +16,8 @@
   ],
   "scripts": {
     "test": "run-s test:*",
+    "gitSecrets": "git secrets --scan",
+    "scanRepo": "git log -p -n 15 | scanrepo",
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
     "wdio:testapp2:local": "wdio run ./config/wdio.TESTAPP2-Chrome.conf.ts",
     "wdio:testapp2:local:focus": "wdio run ./config/wdio.TESTAPP2-Chrome.conf.ts --cucumberOpts.tagExpression='@focus'",
