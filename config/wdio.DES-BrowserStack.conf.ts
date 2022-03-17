@@ -1,4 +1,3 @@
-import path from 'path';
 import { config as buildConfig } from './wdio.conf';
 import { bscapabilities, bsconfig } from './wdio.bsbase';
 import DESInfo from './des.info';

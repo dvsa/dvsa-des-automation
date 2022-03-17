@@ -20,8 +20,10 @@ export default class Page {
 
       let found = false;
 
-      for (let i = 0; i < titles.length; i++) {
-        const context = contexts.find((context: AppiumContext) => context.title === titles[i]);
+      for (let i = 0; i < titles.length; i += 1) {
+        const context = contexts.find(
+          (currentContext: AppiumContext) => (currentContext.title === titles[i]),
+        );
 
         if (context) {
           found = true;
@@ -36,12 +38,14 @@ export default class Page {
     * Purpose : Switch to a context by an array of context titles
     * Author  : Lee Carter
     */
-    switchContextByTitleArray(titles: string[]) {
+    async switchContextByTitleArray(titles: string[]) {
       // let contexts = [{ title: 'context 1', id: '123' }, { title: 'context 2', id: '4321' }];
-      const contexts: any = driver.getContexts();
+      const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
 
-      for (let i = 0; i < titles.length; i++) {
-        const context = contexts.find((context: AppiumContext) => context.title === titles[i]);
+      for (let i = 0; i < titles.length; i += 1) {
+        const context = contexts.find(
+          (currentContext: AppiumContext) => (currentContext.title === titles[i]),
+        );
 
         // if (context) return context;
         if (context) {
