@@ -7,36 +7,34 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   text    Text to select by
  */
 export default (
-    selector: string,
-    status: 'on' | 'off' | 'yes' | 'no'
+  selector: string,
+  status: 'on' | 'off' | 'yes' | 'no',
 ) => {
-
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
-    const method = 'click';
+  const method = 'click';
 
-    /**
+  /**
      * Grab the selector for the parent object that was passed in
      * @type {string}
      */
-    const elementSelector =  PageObjectsHelper.elementPageFor(selector);
+  const elementSelector = PageObjectsHelper.elementPageFor(selector);
 
-    /**
+  /**
      * Construct the element selector for the ion-toggle with the name thats passed in
      */
-    const element = `//ion-toggle[@id='${elementSelector}']`
+  const element = `//ion-toggle[@id='${elementSelector}']`;
 
-    checkIfElementExists(element);
+  checkIfElementExists(element);
 
-    $(element).waitForClickable();
+  $(element).waitForClickable();
 
-    const setTo = (status === 'on' || status === 'yes');
-    const isOn = $(element).getAttribute('aria-checked') === 'true' ? true : false;
+  const setTo = (status === 'on' || status === 'yes');
+  const isOn = $(element).getAttribute('aria-checked') === 'true';
 
-    if ( setTo !== isOn ){
-        $(element)[method]();
-    }
-
+  if (setTo !== isOn) {
+    $(element)[method]();
+  }
 };

@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class WaitingRoomPageObject extends Page {
-   
+
 }
 
-export default new WaitingRoomPageObject()
+export default new WaitingRoomPageObject();

@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class CommsScreenPageObject extends Page {
-   
+
 }
 
-export default new CommsScreenPageObject()
+export default new CommsScreenPageObject();

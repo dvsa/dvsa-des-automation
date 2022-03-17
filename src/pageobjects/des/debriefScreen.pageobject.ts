@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class DebriefScreenPageObject extends Page {
-   
+
 }
 
-export default new DebriefScreenPageObject()
+export default new DebriefScreenPageObject();

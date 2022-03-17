@@ -6,15 +6,15 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   selector Element selector
  */
 export default (
-    menuSelector: string,
-    showhide: string
+  menuSelector: string,
+  showhide: string,
 ) => {
-    /**
+  /**
      * The method to call on the browser object
      * @type {String}
      */
-     
-    const elementSelector =  PageObjectsHelper.elementPageFor(menuSelector);
 
-    waitUntilElementStopsMoving(elementSelector);
+  const elementSelector = PageObjectsHelper.elementPageFor(menuSelector);
+
+  waitUntilElementStopsMoving(elementSelector);
 };

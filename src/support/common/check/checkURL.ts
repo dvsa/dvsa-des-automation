@@ -5,22 +5,22 @@
  * @param  {String}   expectedUrl The expected URL to check against
  */
 export default (falseCase: boolean, expectedUrl: string) => {
-    /**
+  /**
      * The current browser window's URL
      * @type {String}
      */
-    const currentUrl = browser.getUrl();
+  const currentUrl = browser.getUrl();
 
-    if (falseCase) {
-        expect(currentUrl)
-            // @ts-expect-error
-            .not.toEqual(expectedUrl, `expected url not to be "${currentUrl}"`);
-    } else {
-        expect(currentUrl).toEqual(
-            expectedUrl,
-            // @ts-expect-error
-            `expected url to be "${expectedUrl}" but found `
-            + `"${currentUrl}"`
-        );
-    }
+  if (falseCase) {
+    expect(currentUrl)
+    // @ts-expect-error
+      .not.toEqual(expectedUrl, `expected url not to be "${currentUrl}"`);
+  } else {
+    expect(currentUrl).toEqual(
+      expectedUrl,
+      // @ts-expect-error
+      `expected url to be "${expectedUrl}" but found `
+            + `"${currentUrl}"`,
+    );
+  }
 };

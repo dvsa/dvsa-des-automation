@@ -1,8 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class MyJournalPageObject extends Page {
 
-   
 }
 
-export default new MyJournalPageObject()
+export default new MyJournalPageObject();
