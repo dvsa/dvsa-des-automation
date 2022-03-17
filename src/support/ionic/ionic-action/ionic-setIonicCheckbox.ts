@@ -8,31 +8,30 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   text    Text to select by
  */
 export default (
-    parent: string,
-    text: string,
-    status: 'on' | 'off'
+  parent: string,
+  text: string,
+  status: 'on' | 'off',
 ) => {
-
-    /**
+  /**
      * Grab the selector for the parent object that was passed in
      * @type {string}
      */
-    const parentSelector =  PageObjectsHelper.elementPageFor(parent);
+  const parentSelector = PageObjectsHelper.elementPageFor(parent);
 
-    /**
+  /**
      * Construct the element selector for the ion-toggle with the name thats passed in
      */
-    // const elementSelector = `${parentSelector}//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
-    const elementSelector = `${parentSelector}//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
+  // const elementSelector = `${parentSelector}//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
+  const elementSelector = `${parentSelector}//*[normalize-space(text())='${text}']//parent::ion-item//ion-checkbox`;
 
-    checkIfElementExists(elementSelector);
+  checkIfElementExists(elementSelector);
 
-    $(elementSelector).waitForClickable();
-    
-    const setTo = (status === 'on');
-    const isOn = $(elementSelector).getAttribute('aria-checked') === 'true' ? true : false;
-   
-    if ( setTo !== isOn ){
-        $(elementSelector).click();
-    }
+  $(elementSelector).waitForClickable();
+
+  const setTo = (status === 'on');
+  const isOn = $(elementSelector).getAttribute('aria-checked') === 'true';
+
+  if (setTo !== isOn) {
+    $(elementSelector).click();
+  }
 };

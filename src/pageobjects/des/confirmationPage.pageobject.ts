@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class ConfirmationPageObject extends Page {
-   
+
 }
 
-export default new ConfirmationPageObject()
+export default new ConfirmationPageObject();

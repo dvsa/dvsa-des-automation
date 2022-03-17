@@ -7,32 +7,31 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   expectedText  The text to check against
  */
 export default (
-    selector: string,
-    expectedText: string
+  selector: string,
+  expectedText: string,
 ) => {
-
-    /**
+  /**
      * The expected text
      * @type {String}
      */
-    const stringExpectedText = expectedText;
-    const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
-  
-    /**
+  const stringExpectedText = expectedText;
+  const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
+
+  /**
      * The element from the page
      * @type {Element}
      */
-    const elem = $(elementSelector);
+  const elem = $(elementSelector);
 
-    elem.waitForDisplayed();
-    
-    /**
+  elem.waitForDisplayed();
+
+  /**
      * The text of the element
      * @type {String}
      */
-    const text = elem.getText(); 
-    console.log(text);
+  const text = elem.getText();
+  console.log(text);
 
-    // Clear any new lines found in the results to flatten the string
-    expect(text.replace(/\n/, ' ')).toContain(stringExpectedText);
+  // Clear any new lines found in the results to flatten the string
+  expect(text.replace(/\n/, ' ')).toContain(stringExpectedText);
 };

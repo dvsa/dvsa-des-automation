@@ -12,61 +12,59 @@ import PageObjectsHelper from '../../helpers/pageobjectHelper';
  * @param  {String}   expectedValue The value to match against
  */
 export default (
-    isCSS: boolean,
-    attrName: string,
-    selector: string,
-    falseCase: boolean,
-    expectedValue: number | string
+  isCSS: boolean,
+  attrName: string,
+  selector: string,
+  falseCase: boolean,
+  expectedValue: number | string,
 ) => {
-
-    
-    /**
+  /**
      * The command to use for fetching the expected value
      * @type {String}
      */
-    const command = isCSS ? 'getCSSProperty' : 'getAttribute';
+  const command = isCSS ? 'getCSSProperty' : 'getAttribute';
 
-    /**
+  /**
      * Te label to identify the attribute by
      * @type {String}
      */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+  const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
 
-    /**
+  /**
      * The actual attribute value
      * @type {Mixed}
      */
-    const elementSelector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector = PageObjectsHelper.elementPageFor(selector);
 
-    let attributeValue = $(elementSelector)[command](attrName);
+  let attributeValue = $(elementSelector)[command](attrName);
 
-    // eslint-disable-next-line
+  // eslint-disable-next-line
     expectedValue = isFinite(expectedValue as number) ?
-        parseFloat(expectedValue as string)
-        : expectedValue;
+    parseFloat(expectedValue as string)
+    : expectedValue;
 
-    /**
+  /**
      * when getting something with a color or font-weight WebdriverIO returns a
      * object but we want to assert against a string
      */
-    if (attrName.match(/(color|font-weight)/)) {
-        // @ts-expect-error
-        attributeValue = attributeValue.value;
-    }
+  if (attrName.match(/(color|font-weight)/)) {
+    // @ts-expect-error
+    attributeValue = attributeValue.value;
+  }
 
-    if (falseCase) {
-        expect(attributeValue).not.toEqual(
-            expectedValue,
-            // @ts-expect-error
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `not contain "${attributeValue}"`
-        );
-    } else {
-        expect(attributeValue).toEqual(
-            expectedValue,
-            // @ts-expect-error
-            `${attrType}: ${attrName} of element "${selector}" should `
-            + `contain "${attributeValue}", but "${expectedValue}"`
-        );
-    }
+  if (falseCase) {
+    expect(attributeValue).not.toEqual(
+      expectedValue,
+      // @ts-expect-error
+      `${attrType}: ${attrName} of element "${selector}" should `
+            + `not contain "${attributeValue}"`,
+    );
+  } else {
+    expect(attributeValue).toEqual(
+      expectedValue,
+      // @ts-expect-error
+      `${attrType}: ${attrName} of element "${selector}" should `
+            + `contain "${attributeValue}", but "${expectedValue}"`,
+    );
+  }
 };

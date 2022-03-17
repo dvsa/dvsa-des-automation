@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class DashboardScreenPageObject extends Page {
 
 }
 
-export default new DashboardScreenPageObject()
+export default new DashboardScreenPageObject();

@@ -6,23 +6,23 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   falseCase Check for a visible or a hidden element
  */
 export default (selector: Selector, falseCase: boolean) => {
-    /**
+  /**
      * Visible state of the give element
      * @type {String}
      */
-    const isDisplayed = $(selector).isDisplayed();
+  const isDisplayed = $(selector).isDisplayed();
 
-    if (falseCase) {
-        expect(isDisplayed).not.toEqual(
-            true,
-            // @ts-expect-error
-            `Expected element "${selector}" not to be displayed`
-        );
-    } else {
-        expect(isDisplayed).toEqual(
-            true,
-            // @ts-expect-error
-            `Expected element "${selector}" to be displayed`
-        );
-    }
+  if (falseCase) {
+    expect(isDisplayed).not.toEqual(
+      true,
+      // @ts-expect-error
+      `Expected element "${selector}" not to be displayed`,
+    );
+  } else {
+    expect(isDisplayed).toEqual(
+      true,
+      // @ts-expect-error
+      `Expected element "${selector}" to be displayed`,
+    );
+  }
 };

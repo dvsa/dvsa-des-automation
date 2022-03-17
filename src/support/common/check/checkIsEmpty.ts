@@ -3,17 +3,17 @@ import type { Selector } from 'webdriverio';
 import checkContainsAnyText from './checkContainsAnyText';
 
 export default (
-    elementType: 'button' | 'element',
-    element: Selector,
-    falseCase: ' not'
+  elementType: 'button' | 'element',
+  element: Selector,
+  falseCase: ' not',
 ) => {
-    let newFalseCase = true;
+  let newFalseCase = true;
 
-    if (typeof falseCase === 'function') {
-        newFalseCase = false;
-    } else if (falseCase === ' not') {
-        newFalseCase = false;
-    }
+  if (typeof falseCase === 'function') {
+    newFalseCase = false;
+  } else if (falseCase === ' not') {
+    newFalseCase = false;
+  }
 
-    checkContainsAnyText(elementType, element as string, newFalseCase);
+  checkContainsAnyText(elementType, element as string, newFalseCase);
 };

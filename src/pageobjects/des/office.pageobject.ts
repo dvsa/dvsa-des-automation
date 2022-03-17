@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class OfficePageObject extends Page {
 
 }
 
-export default new OfficePageObject()
+export default new OfficePageObject();

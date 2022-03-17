@@ -1,7 +1,7 @@
-import Page from '../base/page'
+import Page from '../base/page';
 
 class IonicBasePageObject extends Page {
 
 }
 
-export default new IonicBasePageObject()
+export default new IonicBasePageObject();

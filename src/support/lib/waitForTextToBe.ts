@@ -1,4 +1,3 @@
-
 import type { Selector } from 'webdriverio';
 import PageObjectsHelper from '../helpers/pageobjectHelper';
 
@@ -8,17 +7,15 @@ import PageObjectsHelper from '../helpers/pageobjectHelper';
 */
 
 export default (
-    text: string,
-    selector: string
+  text: string,
+  selector: string,
 ) => {
-    // Explicitly wait for the text to change on the element
+  // Explicitly wait for the text to change on the element
 
-    const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
+  const elementSelector: Selector = PageObjectsHelper.elementPageFor(selector);
 
-    browser.waitUntil(function () {
-        return $(elementSelector).getText() === text
-    }, {
-        timeout: 10000,
-        timeoutMsg: 'expected text to be different after 10s'
-    });
+  browser.waitUntil(() => $(elementSelector).getText() === text, {
+    timeout: 10000,
+    timeoutMsg: 'expected text to be different after 10s',
+  });
 };
