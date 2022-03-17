@@ -1,52 +1,14 @@
-import PageObjectsHelper from '../../support/helpers/pageobjectHelper';
-import { AppiumContext } from '../../support/models/appiumContext.model';
+import { AppiumContext } from 'shared/models/appiumContext.model';
 
 export default class Page {
     title;
-
-    get databaseSpinner() { return this.getSelector('smc-general::db-spinner'); }
-
-    get searchingSpinner() { return this.getSelector('smc-general::searching-spinner'); }
-
-    get loadingSpinner() { return this.getSelector('smc-general::loading-spinner'); }
-
-    get pageTitle() { return this.getSelector('smc-general::pagetitle'); }
-
-    get ionicPageTitle() { return this.getSelector('smc-general::ionictitle'); }
 
     constructor() {
       this.title = 'My Page';
     }
 
-    getStrategy(elementName: string): string {
-      return PageObjectsHelper.elementPageFor(elementName);
-    }
-
-    getSelector(elementName: string): WebdriverIO.Element {
-      return $(PageObjectsHelper.elementPageFor(elementName));
-    }
-
     open(path: string) {
       browser.url(path);
-    }
-
-    getLastContext() {
-      const contexts = browser.getContexts();
-      return contexts[contexts.length - 1];
-    }
-
-    async getContexts() {
-      return driver.executeScript('mobile:getContexts');
-    }
-
-    async waitForContextToLeave(context: string) {
-      try {
-        await browser.waitUntil(() => this.doesContextExistByArray([context]), {
-          timeout: 2000,
-        });
-      } catch {
-
-      }
     }
 
     /** *
@@ -91,26 +53,6 @@ export default class Page {
 
     switchToNativeContext() {
       driver.switchContext('NATIVE_APP');
-    }
-
-    debugContexts() {
-      const contexts: Array<any> = driver.getContexts();
-
-      console.log('Available contexts', contexts);
-    }
-
-    switchContext(switchTo: string) {
-      const contexts: Array<any> = driver.getContexts();
-
-      console.log('Available contexts', contexts);
-
-      if (switchTo == 'NATIVE') {
-        // Switch to native
-        driver.switchContext('NATIVE_APP');
-      } else {
-        // Switch to web
-        driver.switchContext(contexts[contexts.length - 1].id);
-      }
     }
 
     /**
