@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import * as credentials from '../../../creds/credentials.json';
-import { AppiumContext } from '../../support/models/appiumContext.model';
+import { AppiumContext } from '@shared-custom/support/models/appiumContext.model';
 
 export interface Context {
   id: string,
