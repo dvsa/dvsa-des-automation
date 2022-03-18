@@ -35,8 +35,8 @@
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
     "copy-shared": "./copy-shared.sh",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint --fix . --ext .ts",
+    "lint": "npx eslint . --ext .ts",
+    "lint:fix": "npx eslint --fix . --ext .ts",
     "prepare": "husky install",
     "postinstall": "npm run copy-shared && npm run merge-element-references",
     "merge-element-references": "json-concat shared/element-references/common-element-references.json src/element-references/des-element-references.json shared/element-references/combined-element-references.json"
