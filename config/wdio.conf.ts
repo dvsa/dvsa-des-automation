@@ -220,6 +220,6 @@ export const config: WebdriverIO.Config = {
   },
 
   before: async () => {
-    CustomCommand.addCommands();
+    await CustomCommand.addCommands();
   },
 };
