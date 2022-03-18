@@ -30,14 +30,16 @@ exports.config = {
   capabilities: [
     {
       ...bscapabilities,
-      os_version: DESInfo.platFormVersion,
+      os_version: '14',
       device: DESInfo.deviceName,
       platformName: DESInfo.platformName,
       app: DESInfo.appName,
       project: DESInfo.projectName,
       build: 'DES WDIO Browserstack',
       name: bsconfig.user,
-      'browserstack.appium_version': '1.18.0',
+      'browserstack.os_version': '14',
+      'browserstack.device': 'iPad 8th',
+      'browserstack.appium_version': '1.22.0',
       'browserstack.idle.timeout': 150,
     },
   ],
