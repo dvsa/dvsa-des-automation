@@ -1,6 +1,6 @@
 import Page from '../base/page';
 
-class candidateDetailsPageObject extends Page {
+class CandidateDetailsPageObject extends Page {
   public checkCandidateTestDetailsCard(data: any) {
     const {
       testCentre, candidateName, testTime, candidateReference, testCategory, examinerName,
@@ -15,4 +15,4 @@ class candidateDetailsPageObject extends Page {
   }
 }
 
-export default new candidateDetailsPageObject();
+export default new CandidateDetailsPageObject();

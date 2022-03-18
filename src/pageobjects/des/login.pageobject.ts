@@ -18,14 +18,14 @@ class LoginMobilePageObject {
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
-    console.log(`Apium Contexts : ${contexts}`);
-    const doesContextExist: boolean = contexts.some((context) => context.title === contextTitle || context.id === contextTitle);
-    console.log(`context ${contextTitle} exists: ${doesContextExist}`);
+    const doesContextExist: boolean = contexts.some(
+      (currentContext) => (currentContext.title === contextTitle
+        || currentContext.id === contextTitle),
+    );
     return doesContextExist;
   }
 
   async waitForContextToExist(contextTitle: string): Promise<void> {
-    console.log(`waiting for context ${contextTitle}`);
     await driver.waitUntil(async () => this.doesContextExist(contextTitle), {
       timeout: 10000,
       timeoutMsg: `timed out waiting for ${contextTitle} context`,
@@ -74,10 +74,8 @@ class LoginMobilePageObject {
     return credentials.Environment.Dev.Super[0];
   }
 
-  getRandomUserType(userType:string) {
-    console.log(userType);
+  getRandomUserType() {
     const totalUsers = credentials.Environment.Dev.Super.length;
-    console.log('total users of type:', totalUsers);
     const randomUserId = Math.floor(Math.random() * totalUsers) || 1;
     return credentials.Environment.Dev.Super[randomUserId - 1];
   }
@@ -111,7 +109,6 @@ class LoginMobilePageObject {
     const signInContext = await this.getContextByTitle(this._msSignInContextTitle);
     // @ts-ignore
     await driver.switchContext(signInContext.id);
-    console.log('switched context to sign in');
 
     // click 'use another account if clickable
     const continueButton = await $('input[value="Continue"]');
@@ -147,7 +144,6 @@ class LoginMobilePageObject {
     const nextButton: WebdriverIO.Element = await $('#idSIButton9');
     await this.waitForExistAndClickable(nextButton);
     await this.clickElement(nextButton);
-    console.log('clicked next button');
 
     // click password button
     const passwordBox = await $('#passwordInput');

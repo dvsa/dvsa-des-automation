@@ -152,6 +152,7 @@ export const config: WebdriverIO.Config = {
     'spec',
     [video, {
       saveAllVideos: true, // If true, also saves videos for successful test cases
+      // eslint-disable-next-line max-len
       videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
       videoRenderTimeout: 5, // Max seconds to wait for a video to finish rendering
     }],
@@ -177,6 +178,7 @@ export const config: WebdriverIO.Config = {
     failAmbiguousDefinitions: true, // <boolean< Treat ambiguous definitions as errors
     // dryRun: false, // <boolean> invoke formatters without executing steps
     failFast: false, // <boolean> abort the run on first failure
+    // eslint-disable-next-line max-len
     ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings
     // <string[]> ("extension:module") require files with the given
     // EXTENSION after requiring MODULE (repeatable)
@@ -200,7 +202,7 @@ export const config: WebdriverIO.Config = {
     timeout: 60000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
 
-  beforeScenario: async (world) => {
+  beforeScenario: async () => {
     // Comment out this locally if you don't want to clear storage
     console.info('clearing local storage before scenario');
     await browser.execute('window.localStorage.clear()');
@@ -217,7 +219,7 @@ export const config: WebdriverIO.Config = {
     console.log(`  STEP :   ${JSON.stringify(step.text)}`);
   },
 
-  before: async (capabilities: any, specs: string[], browser: any) => {
+  before: async () => {
     CustomCommand.addCommands();
   },
 };
