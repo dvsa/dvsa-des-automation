@@ -26,7 +26,7 @@ class LoginMobilePageObject {
   }
 
   async waitForContextToExist(contextTitle: string): Promise<void> {
-    await driver.waitUntil(async () => this.doesContextExist(contextTitle), {
+    await driver.waitUntil(() => this.doesContextExist(contextTitle), {
       timeout: 10000,
       timeoutMsg: `timed out waiting for ${contextTitle} context`,
     });

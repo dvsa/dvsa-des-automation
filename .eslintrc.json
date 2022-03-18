@@ -23,6 +23,7 @@
     "quotes": ["error", "single"],
     "import/extensions": ["error", "ignorePackages", {"ts": "never"}],
     "no-undef": "off",
+    "require-await": "error",
     "no-restricted-syntax": "warn",
     "no-redeclare": "warn"
   }
