@@ -22,7 +22,7 @@ class DesInfo {
   }
 
   get appName() {
-    return process.env.BROWSERSTACK_APP_ID || 'bs://900fdd1fa2656bd723d3a7897027caab19b9b8f7';
+    return process.env.BROWSERSTACK_APP_ID || 'bs://37d03948eda78915007ce52302eb8fe198c03f8a';
   }
 
   get localAppPath() {
