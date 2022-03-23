@@ -5,3 +5,8 @@ Then(
   /^the candidates test details are shown$/,
   checkCandidateTestDetailsCard,
 );
+
+Then(
+    /^the candidates test details are shown wow$/,
+    checkCandidateTestDetailsCard,
+  );

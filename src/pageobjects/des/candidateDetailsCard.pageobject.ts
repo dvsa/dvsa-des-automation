@@ -8,7 +8,7 @@ class CandidateDetailsPageObject extends Page {
     } = data;
     console.info('Checking candidate details card');
 
-    // await checkEqualsText('element', '.test-category', false, testCategory);
+    await checkEqualsText('element', '<test-category />', false, testCategory);
     await checkEqualsText('element', '.time-test-complete-text', false, testTime);
     await checkEqualsText('element', '.team-journal-test-centre-name', false, testCentre);
     await checkEqualsText('element', '.team-journal-driver-number', false, candidateReference);
