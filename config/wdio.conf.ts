@@ -189,8 +189,6 @@ export const config: WebdriverIO.Config = {
     require: [
       './shared/boilerplate/steps/**/*.ts',
       './shared/custom/steps/**/*.ts',
-      './src/steps/ionic/*.ts',
-      './src/steps/des/*.ts',
       // Or search a (sub)folder for JS files with a wildcard
       // works since version 1.1 of the wdio-cucumber-framework
       // './src/**/*.js',
