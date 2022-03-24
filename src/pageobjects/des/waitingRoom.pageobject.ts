@@ -1,3 +1,4 @@
+import clickElement from '@shared-boilerplate/support/action/clickElement';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 
