@@ -15,7 +15,7 @@
     "partial-practise-mode-btn": "#practice-mode-test-report-button",
     "full-practise-mode-btn": "#practice-mode-full-button"
   },
-  "test-center-journal": {
+  "des-test-center-journal": {
     "page-title": "#test-title",
     "journal-button": "#test-centre-journal-button",
     "location-text": "#test-centre-location",
