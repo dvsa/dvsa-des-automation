@@ -21,6 +21,7 @@
     "location-text": "#test-centre-location",
     "candidiate-search-text": "#typeahead-prevent-manual-entry",
     "show-booking-button": "#show-booking-button-text",
-    "candidiate-booking-message": "#candidate-no-booking-at-test-centre-tomorrow-message"
-  }
+    "candidiate-booking-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
+    "candidiate-booking-message-today": "#candidate-no-booking-at-test-centre-today-message"
+}
 }
