@@ -14,5 +14,13 @@
     "re-key-test-btn": "#rekey-search-button",
     "partial-practise-mode-btn": "#practice-mode-test-report-button",
     "full-practise-mode-btn": "#practice-mode-full-button"
+  },
+  "des-test-center-journal": {
+    "page-title": "#test-title",
+    "journal-button": "#test-centre-journal-button",
+    "location-text": "#test-centre-location",
+    "candidiate-search-text": "#typeahead-prevent-manual-entry",
+    "show-booking-button": "#show-booking-button-text",
+    "candidiate-booking-message": "#candidate-no-booking-at-test-centre-tomorrow-message"
   }
 }

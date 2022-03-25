@@ -1,17 +1,19 @@
+import checkEqualsText from '@shared-boilerplate/support/check/checkEqualsText';
 import Page from '../base/page';
 
 class CandidateDetailsPageObject extends Page {
-  public checkCandidateTestDetailsCard(data: any) {
+  public async checkCandidateTestDetailsCard(data: any) {
     const {
       testCentre, candidateName, testTime, candidateReference, testCategory, examinerName,
     } = data;
     console.info('Checking candidate details card');
-    expect($('.time-test-complete-text').getText()).toBe(testTime);
-    expect($('.team-journal-test-centre-name').getText()).toBe(testCentre);
-    expect($('.team-journal-driver-number').getText()).toBe(candidateReference);
-    expect($('.candidate-name').getText()).toBe(candidateName);
-    expect($('test-category').getText()).toBe(testCategory);
-    expect($('.examiner-name').getText()).toBe(examinerName);
+
+    await checkEqualsText('element', '<test-category />', false, testCategory);
+    await checkEqualsText('element', '.time-test-complete-text', false, testTime);
+    await checkEqualsText('element', '.team-journal-test-centre-name', false, testCentre);
+    await checkEqualsText('element', '.team-journal-driver-number', false, candidateReference);
+    await checkEqualsText('element', '.candidate-name', false, candidateName);
+    await checkEqualsText('element', '.examiner-name', false, examinerName);
   }
 }
 

@@ -1,6 +1,6 @@
 import candidateDetails from '../../pageobjects/des/candidateDetailsCard.pageobject';
 
-export default (table: any) => {
+export default async (table: any) => {
   const data = table.rowsHash();
-  candidateDetails.checkCandidateTestDetailsCard(data);
+  await candidateDetails.checkCandidateTestDetailsCard(data);
 };
