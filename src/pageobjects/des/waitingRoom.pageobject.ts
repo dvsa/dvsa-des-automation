@@ -1,5 +1,5 @@
-import clickElement from '@shared-boilerplate/support/action/clickElement';
 import Page from '../base/page';
+import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 
 class WaitingRoomPageObject extends Page {
   get insuranceDeclarationLabel() { return ('des-exam-waiting-room::insurance-declaration-label'); }
