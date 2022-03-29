@@ -2,7 +2,7 @@ Feature: Cat-B Successful feature
 
   @test
   Scenario:   Scenario
-#    Given I am signed in as a random "mobexaminer1" user
+    Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that element "des-dashboard::staff-number" matches the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
