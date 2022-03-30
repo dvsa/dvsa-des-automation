@@ -46,8 +46,8 @@ class LoginMobilePageObject {
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
-    await element.waitForExist({
-      timeout: 15000,
+    await element.waitForDisplayed({
+      timeout: 20000,
       reverse: false,
       // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
@@ -168,6 +168,7 @@ class LoginMobilePageObject {
     await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
+    console.log('switched back to es context');
     await this.switchToDESContext();
     await browser.pause(3000);
   }
@@ -192,11 +193,22 @@ class LoginMobilePageObject {
     // switch to sign out page context
     // @ts-ignore
     await driver.switchContext(signOutContext.id);
-    // click account sign out tile
+
+    const logOutSuccessText = await $('#login_workload_logo_text');
     const logoutTile = await $('small=Signed in');
-    await this.waitForExistAndClickable(logoutTile);
-    await this.clickElement(logoutTile);
-    await browser.pause(3000);
+
+    await Promise.race([
+      this.waitForExist(logOutSuccessText),
+      this.waitForExist(logoutTile),
+    ]);
+
+    if (await logoutTile.isExisting()) {
+      // click account sign out tile
+      await this.waitForExistAndClickable(logoutTile);
+      await this.clickElement(logoutTile);
+      await browser.pause(3000);
+    }
+
     const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
     await this.clickNativeButton(nativeCancelButton);
     await this.switchToDESContext();
