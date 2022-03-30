@@ -47,7 +47,7 @@ class LoginMobilePageObject {
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
     await element.waitForDisplayed({
-      timeout: 20000,
+      timeout: 15000,
       reverse: false,
       // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
@@ -168,7 +168,6 @@ class LoginMobilePageObject {
     await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
-    console.log('switched back to es context');
     await this.switchToDESContext();
     await browser.pause(3000);
   }
