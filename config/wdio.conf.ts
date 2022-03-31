@@ -138,7 +138,7 @@ export const config: WebdriverIO.Config = {
   framework: 'cucumber',
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  specFileRetries: 0,
+  specFileRetries: 3,
   //
   // Whether or not retried specfiles should be retried immediately or deferred
   // to the end of the queue specFileRetriesDeferred: false,
@@ -198,7 +198,7 @@ export const config: WebdriverIO.Config = {
     strict: true, // <boolean> fail if there are any undefined or pending steps
     tagExpression: 'not @Pending',
     tagsInTitle: false, // <boolean> add cucumber tags to feature or scenario name
-    timeout: 150000, // <number> timeout for step definitions
+    timeout: 120000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
 
   beforeStep: (step) => {

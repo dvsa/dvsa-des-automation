@@ -20,10 +20,6 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat
   'browserstack',
 ]);
 
-// buildConfig.onPrepare = async () => {
-//   // browser.setTimeout({ 'pageLoad': 10000 });
-// };
-
 exports.config = {
   ...buildConfig,
   ...bsconfig,
@@ -40,7 +36,6 @@ exports.config = {
       'browserstack.os_version': '14',
       'browserstack.device': 'iPad 8th',
       'browserstack.appium_version': '1.22.0',
-      // 'browserstack.idle.timeout': 150,
     },
   ],
 };
