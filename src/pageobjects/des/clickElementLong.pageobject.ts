@@ -1,26 +1,26 @@
-import Page from '../base/page'
 import { Selector } from 'webdriverio';
-import PageObjectsHelper from '../../support/helpers/pageobjectHelper'
-
+import Page from '../base/page';
+import PageObjectsHelper from '@shared-custom/support/helpers/pageobjectHelper';
 
 class ClickElementLongPageobject extends Page {
-
   clickElementLong(
     type: 'link' | 'selector',
-    selector: string
+    selector: string,
   ) {
-
     const elementSelector: Selector = (type === 'link') ? `=${selector}` : PageObjectsHelper.elementPageFor(selector);
 
-    $(elementSelector).waitForDisplayed({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not displayed within 15 seconds` });
-    $(elementSelector).waitForClickable({ timeout:15000, reverse: false, interval: 50,timeoutMsg:`Elemennt ${elementSelector} was not clickable within 15 seconds`  });
+    $(elementSelector).waitForDisplayed({
+      timeout: 15000, reverse: false, interval: 50, timeoutMsg: `Elemennt ${elementSelector} was not displayed within 15 seconds`,
+    });
+    $(elementSelector).waitForClickable({
+      timeout: 15000, reverse: false, interval: 50, timeoutMsg: `Elemennt ${elementSelector} was not clickable within 15 seconds`,
+    });
 
     ///
-    //THIS FUNCTION DOES NOT WORK
+    // THIS FUNCTION DOES NOT WORK
     ///
     // const screen = $('#legal-requirements-tick-NS');
     const screen = $($(elementSelector));
-
 
     this.switchToNativeContext();
 
@@ -28,13 +28,11 @@ class ClickElementLongPageobject extends Page {
 
     browser.touchAction({
       action: 'longPress',
-      element: screen
+      element: screen,
     });
 
-
-    browser.pause(500)
-
+    browser.pause(500);
   }
 }
 
-export default new ClickElementLongPageobject()
+export default new ClickElementLongPageobject();
