@@ -53,41 +53,41 @@ class FinalOutcomePageObject extends Page {
       d255, testLanguage, debriefWitnessed,
     } = data;
 
-    // await this.checkForNA(data);
+    await this.checkForNA(data);
 
     await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
 
-    // switch (provisionalLicenceReceived.toLowerCase()) {
-    //   case 'yes':
-    //     await clickElement('click', 'selector', this.provLicencedRecievedYes);
-    //     break;
-    //   case 'no':
-    //     await clickElement('click', 'selector', this.provLicencedRecievedNo);
-    // }
-    if (provisionalLicenceReceived.toLowerCase() !== 'na') {
-      if (provisionalLicenceReceived.toLowerCase() === 'yes') {
+    switch (provisionalLicenceReceived.toLowerCase()) {
+      case 'yes':
         await clickElement('click', 'selector', this.provLicencedRecievedYes);
-      }
-      if (provisionalLicenceReceived.toLowerCase() === 'no') {
+        break;
+      case 'no':
         await clickElement('click', 'selector', this.provLicencedRecievedNo);
-      }
     }
-
-    // switch (transmission.toLowerCase()) {
-    //   case 'manual':
-    //     await clickElement('click', 'selector', this.transmissionManualInput);
-    //     break;
-    //   case 'automatic':
-    //     await clickElement('click', 'selector', this.transmissionAutomaticInput);
+    // if (provisionalLicenceReceived.toLowerCase() !== 'na') {
+    //   if (provisionalLicenceReceived.toLowerCase() === 'yes') {
+    //     await clickElement('click', 'selector', this.provLicencedRecievedYes);
+    //   }
+    //   if (provisionalLicenceReceived.toLowerCase() === 'no') {
+    //     await clickElement('click', 'selector', this.provLicencedRecievedNo);
+    //   }
     // }
-    if (transmission.toLowerCase() !== 'na') {
-      if (transmission.toLowerCase() === 'manual') {
+
+    switch (transmission.toLowerCase()) {
+      case 'manual':
         await clickElement('click', 'selector', this.transmissionManualInput);
-      }
-      if (transmission.toLowerCase() === 'automatic') {
+        break;
+      case 'automatic':
         await clickElement('click', 'selector', this.transmissionAutomaticInput);
-      }
     }
+    // if (transmission.toLowerCase() !== 'na') {
+    //   if (transmission.toLowerCase() === 'manual') {
+    //     await clickElement('click', 'selector', this.transmissionManualInput);
+    //   }
+    //   if (transmission.toLowerCase() === 'automatic') {
+    //     await clickElement('click', 'selector', this.transmissionAutomaticInput);
+    //   }
+    // }
 
     if (passCertNumber.toLowerCase() !== 'na') {
       await setInputField('add', passCertNumber, this.passCertificateNumberInput);
