@@ -141,6 +141,18 @@ class LoginMobilePageObject {
       this.waitForExistAndClickable(useAnotherAccount),
       this.waitForExistAndClickable(emailTextBox),
     ]);
+
+    // if continue button at this point, need to click it and then sign out
+    if (await continueButton.isClickable()) {
+      await this.waitForExistAndClickable(continueButton);
+      await this.clickElement(continueButton);
+      await this.switchToDESContext();
+      await this.waitForExistAndClickable(burgerMenu);
+      await this.logout();
+      await this.login();
+      return Promise.resolve();
+    }
+
     // click use another account if it is available
     const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
     if (useAnotherAccountButtonPresent) {
@@ -170,6 +182,7 @@ class LoginMobilePageObject {
     // switch to Search app context
     await this.switchToDESContext();
     await browser.pause(3000);
+    return Promise.resolve();
   }
 
   async logout(): Promise<void> {
