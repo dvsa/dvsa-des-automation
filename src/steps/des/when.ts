@@ -1,6 +1,6 @@
 import { When } from '@cucumber/cucumber';
 import desLogin from '../../app-actions/des-action/desLogin';
-import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser'
+import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
 import completeDeclarationPage from '../../app-actions/des-action/completeDeclarationPage';
 import completeComunicationPage from '../../app-actions/des-action/completeComunicationPage';
 import completeWaitingRoomToCarPage from '../../app-actions/des-action/completeWaitingRoomToCarPage';
@@ -10,6 +10,7 @@ import completeHealthDeclarationPage from '../../app-actions/des-action/complete
 import checkConfirmationPageDetails from '../../app-actions/des-action/checkConfirmationPageDetails';
 import completeOfficePage from '../../app-actions/des-action/completeOfficePage';
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
+import addingFault from '../../app-actions/des-action/addingFault';
 
 When(
   /^I am signed in as a random user$/,
@@ -64,4 +65,9 @@ When(
 When(
   /^I select all legal requirements$/,
   completeLegalRequirements,
+);
+
+When(
+  /^I add a (driving|serious|dangerous) fault to the "([^"]*)?" field$/,
+  addingFault,
 );

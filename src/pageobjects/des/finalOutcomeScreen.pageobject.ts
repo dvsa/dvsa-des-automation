@@ -40,14 +40,30 @@ class FinalOutcomePageObject extends Page {
     $(`.alert-radio-label=${terminationReason}`).click();
   }
 
+  // eslint-disable-next-line require-await
+  async checkForNA(input: string): Promise<void> {
+    for (const inputs of input) {
+      console.info('INPUTS:       ', inputs);
+    }
+  }
+
   async completePassedFinalOutcomePage(data: any): Promise<void> {
     const {
       provisionalLicenceReceived, transmission, passCertNumber,
       d255, testLanguage, debriefWitnessed,
     } = data;
 
+    // await this.checkForNA(data);
+
     await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
 
+    // switch (provisionalLicenceReceived.toLowerCase()) {
+    //   case 'yes':
+    //     await clickElement('click', 'selector', this.provLicencedRecievedYes);
+    //     break;
+    //   case 'no':
+    //     await clickElement('click', 'selector', this.provLicencedRecievedNo);
+    // }
     if (provisionalLicenceReceived.toLowerCase() !== 'na') {
       if (provisionalLicenceReceived.toLowerCase() === 'yes') {
         await clickElement('click', 'selector', this.provLicencedRecievedYes);
@@ -57,6 +73,13 @@ class FinalOutcomePageObject extends Page {
       }
     }
 
+    // switch (transmission.toLowerCase()) {
+    //   case 'manual':
+    //     await clickElement('click', 'selector', this.transmissionManualInput);
+    //     break;
+    //   case 'automatic':
+    //     await clickElement('click', 'selector', this.transmissionAutomaticInput);
+    // }
     if (transmission.toLowerCase() !== 'na') {
       if (transmission.toLowerCase() === 'manual') {
         await clickElement('click', 'selector', this.transmissionManualInput);

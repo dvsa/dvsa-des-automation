@@ -4,21 +4,57 @@ import clickElement from '../../../shared/boilerplate/support/action/clickElemen
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
 
 class TestReportPageObject extends Page {
-  get firstNSLegalReqTick() { return ('des-test-report-screen::test-requirement-first-ns-tick'); }
+  get drivingFaultCounter() {
+    return ('des-test-report-screen::driving-fault-counter');
+  }
 
-  get secondNSLegalReqTick() { return ('des-test-report-screen::test-requirement-second-ns-tick'); }
+  get firstNSLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-first-ns-tick');
+  }
 
-  get firstASLegalReqTick() { return ('des-test-report-screen::test-requirement-as-tick'); }
+  get secondNSLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-second-ns-tick');
+  }
 
-  get hsdsLegalReqTick() { return ('des-test-report-screen::test-requirement-hs-ds-tick'); }
+  get firstASLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-as-tick');
+  }
 
-  get ecoLegalReqTick() { return ('des-test-report-screen::eco-tick-button-xpath'); }
+  get hsdsLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-hs-ds-tick');
+  }
 
-  get showTellLegalReqTick() { return ('des-test-report-screen::show-tell-tick-button-xpath'); }
+  get ecoLegalReqTick() {
+    return ('des-test-report-screen::eco-tick-button-xpath');
+  }
 
-  get maneuversLegalReqButton() { return ('des-test-report-screen::manouvers-btn'); }
+  get showTellLegalReqTick() {
+    return ('des-test-report-screen::show-tell-tick-button-xpath');
+  }
 
-  get maneuversReverseRightLegalReqButton() { return ('des-test-report-screen::manouvers-reverse-right-label'); }
+  get maneuversLegalReqButton() {
+    return ('des-test-report-screen::manouvers-btn');
+  }
+
+  get maneuversReverseRightLegalReqButton() {
+    return ('des-test-report-screen::manouvers-reverse-right-label');
+  }
+
+  get competancyAccelarator() {
+    return ('des-test-report-screen::competency-btn-accelarator');
+  }
+
+  get competancyClutch() {
+    return ('des-test-report-screen::competency-btn-clutch');
+  }
+
+  get competancySafety() {
+    return ('des-test-report-screen::competency-btn-safety');
+  }
+
+  get competancyControl() {
+    return ('des-test-report-screen::competency-btn-control');
+  }
 
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
@@ -41,6 +77,23 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.showTellLegalReqTick, 500);
   }
-}
 
+  async addingFault(fault: string, selector: string): Promise<void> {
+    switch (fault.toLowerCase()) {
+      case 'driving':
+        await longClickElement(selector, 100);
+        break;
+      case 'serious':
+        // Will need to change this to work with serious fault
+        await longClickElement(selector, 500);
+        break;
+      case 'dangerous':
+        // Will need to change this to work with dangerous fault
+        await longClickElement(selector, 500);
+        break;
+      default:
+        console.error('This is not the correct selector');
+    }
+  }
+}
 export default new TestReportPageObject();
