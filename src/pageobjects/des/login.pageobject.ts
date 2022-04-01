@@ -16,7 +16,7 @@ class LoginMobilePageObject {
 
   // @TODO will be needed when log out added
   // private _msSignOutContextTitle: string = 'Sign out';
-  private _desAppContextTitle: string = 'Ionic App';
+  private _desAppContextTitle: string = 'DVSA DES';
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
@@ -46,7 +46,7 @@ class LoginMobilePageObject {
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
-    await element.waitForExist({
+    await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
       // eslint-disable-next-line max-len
@@ -192,11 +192,22 @@ class LoginMobilePageObject {
     // switch to sign out page context
     // @ts-ignore
     await driver.switchContext(signOutContext.id);
-    // click account sign out tile
+
+    const logOutSuccessText = await $('#login_workload_logo_text');
     const logoutTile = await $('small=Signed in');
-    await this.waitForExistAndClickable(logoutTile);
-    await this.clickElement(logoutTile);
-    await browser.pause(3000);
+
+    await Promise.race([
+      this.waitForExist(logOutSuccessText),
+      this.waitForExist(logoutTile),
+    ]);
+
+    if (await logoutTile.isExisting()) {
+      // click account sign out tile
+      await this.waitForExistAndClickable(logoutTile);
+      await this.clickElement(logoutTile);
+      await browser.pause(3000);
+    }
+
     const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
     await this.clickNativeButton(nativeCancelButton);
     await this.switchToDESContext();
