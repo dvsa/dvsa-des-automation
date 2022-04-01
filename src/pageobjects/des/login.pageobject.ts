@@ -16,7 +16,7 @@ class LoginMobilePageObject {
 
   // @TODO will be needed when log out added
   // private _msSignOutContextTitle: string = 'Sign out';
-  private _desAppContextTitle: string = 'Ionic App';
+  private _desAppContextTitle: string = 'DVSA DES';
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
