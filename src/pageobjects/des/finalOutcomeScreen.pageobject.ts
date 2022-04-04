@@ -4,6 +4,10 @@ import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqua
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
 import scroll from '../../../shared/boilerplate/support/action/scroll';
 
+interface PassedFinalOutcomeData {
+  passCertNumber: string;
+}
+
 class FinalOutcomePageObject extends Page {
   get testOutcomePassed() { return ('des-final-outcome-screen::test-outcome-pass'); }
 
@@ -40,113 +44,88 @@ class FinalOutcomePageObject extends Page {
     $(`.alert-radio-label=${terminationReason}`).click();
   }
 
-  // eslint-disable-next-line require-await
-  async checkForNA(input: any): Promise<void> {
-    for (const inputs of input) {
-      console.info('INPUTS:       ', inputs);
-    }
-  }
-
-  async completePassedFinalOutcomePage(data: any): Promise<void> {
-    const {
-      provisionalLicenceReceived, transmission, passCertNumber,
-      d255, testLanguage, debriefWitnessed,
-    } = data;
-
-    // const dataInput:any[] = [data.toLowerCase()];
-    // for (const inputs of dataInput) {
-    //   if (inputs !== 'na') {
-    //     switch (provisionalLicenceReceived.toLowerCase()) {
-    //       case 'yes':
-    //         await clickElement('click', 'selector', this.provLicencedRecievedYes);
-    //         break;
-    //       case 'no':
-    //         await clickElement('click', 'selector', this.provLicencedRecievedNo);
-    //     }
-    //
-    //     switch (transmission.toLowerCase()) {
-    //       case 'manual':
-    //         await clickElement('click', 'selector', this.transmissionManualInput);
-    //         break;
-    //       case 'automatic':
-    //         await clickElement('click', 'selector', this.transmissionAutomaticInput);
-    //     }
-    //   }
-    // }
-
-    // await this.checkForNA(dataInput);
-
+  async completePassedFinalOutcomePage(
+    data: Record<keyof PassedFinalOutcomeData, string>,
+  ): Promise<void> {
+    const { passCertNumber } = data;
     await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
 
-    // switch (provisionalLicenceReceived.toLowerCase()) {
-    //   case 'yes':
-    //     await clickElement('click', 'selector', this.provLicencedRecievedYes);
-    //     break;
-    //   case 'no':
-    //     await clickElement('click', 'selector', this.provLicencedRecievedNo);
-    // }
-    if (provisionalLicenceReceived.toLowerCase() !== 'na') {
-      if (provisionalLicenceReceived.toLowerCase() === 'yes') {
-        await clickElement('click', 'selector', this.provLicencedRecievedYes);
-      }
-      if (provisionalLicenceReceived.toLowerCase() === 'no') {
-        await clickElement('click', 'selector', this.provLicencedRecievedNo);
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'provisionallicencereceived':
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.provLicencedRecievedYes);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.provLicencedRecievedNo);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'transmission':
+            switch (fieldInput) {
+              case 'manual':
+                await clickElement('click', 'selector', this.transmissionManualInput);
+                break;
+              case 'automatic':
+                await clickElement('click', 'selector', this.transmissionAutomaticInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'passcertnumber':
+            await setInputField('add', passCertNumber, this.passCertificateNumberInput);
+            break;
+          case 'd255':
+            await scroll(this.d255YesInput);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.d255YesInput);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.d255NoInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'testlanguage':
+            await scroll(this.languageEnglishInput);
+            switch (fieldInput) {
+              case 'english':
+                await clickElement('click', 'selector', this.languageEnglishInput);
+                break;
+              case 'cymraeg':
+                await clickElement('click', 'selector', this.languageCymraegInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'debriefwitnessed':
+            await scroll(this.debriefWitnessedYes);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.debriefWitnessedYes);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.debriefWitnessedNo);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
       }
     }
-
-    // switch (transmission.toLowerCase()) {
-    //   case 'manual':
-    //     await clickElement('click', 'selector', this.transmissionManualInput);
-    //     break;
-    //   case 'automatic':
-    //     await clickElement('click', 'selector', this.transmissionAutomaticInput);
-    // }
-    if (transmission.toLowerCase() !== 'na') {
-      if (transmission.toLowerCase() === 'manual') {
-        await clickElement('click', 'selector', this.transmissionManualInput);
-      }
-      if (transmission.toLowerCase() === 'automatic') {
-        await clickElement('click', 'selector', this.transmissionAutomaticInput);
-      }
-    }
-
-    if (passCertNumber.toLowerCase() !== 'na') {
-      await setInputField('add', passCertNumber, this.passCertificateNumberInput);
-    }
-
-    await scroll(this.d255YesInput);
-
-    if (d255.toLowerCase() !== 'na') {
-      if (d255.toLowerCase() === 'yes') {
-        await clickElement('click', 'selector', this.d255YesInput);
-      }
-      if (d255.toLowerCase() === 'no') {
-        await clickElement('click', 'selector', this.d255NoInput);
-      }
-    }
-
-    await scroll(this.languageEnglishInput);
-
-    if (testLanguage.toLowerCase() !== 'na') {
-      if (testLanguage.toLowerCase() === 'english') {
-        await clickElement('click', 'selector', this.languageEnglishInput);
-      }
-      if (testLanguage.toLowerCase() === 'cymraeg') {
-        await clickElement('click', 'selector', this.languageCymraegInput);
-      }
-    }
-
-    await scroll(this.debriefWitnessedYes);
-
-    if (debriefWitnessed.toLowerCase() !== 'na') {
-      if (debriefWitnessed.toLowerCase() === 'yes') {
-        await clickElement('click', 'selector', this.debriefWitnessedYes);
-      }
-      if (debriefWitnessed.toLowerCase() === 'no') {
-        await clickElement('click', 'selector', this.debriefWitnessedNo);
-      }
-    }
-
     await clickElement('click', 'selector', this.passFinalisationContinueButton);
   }
 }

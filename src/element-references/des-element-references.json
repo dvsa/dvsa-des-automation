@@ -153,7 +153,7 @@
     },
   "des-test-report-screen": {
       "page-title":"#test-report-page-title",
-      "end-test-btn": "#end-test-button",
+      "end-test-btn": "(//*[@id='end-test-button'])[2]",
       "end-test-btn-xpath": "//div//*[@id='end-test-button']",
       "remove-btn":"#remove-button",
       "remove-mode":".remove-mode",
@@ -189,6 +189,7 @@
       "eta-verbal-label":"//*[@id=\"eta-label-ETA: Verbal\"]",
       "eta-physical-label":"//*[@id=\"eta-label-ETA: Physical\"]",
       "manouvers-btn":"#manoeuvers-button",
+      "manouvers-btn-tick":"#manoeuvers-tick",
       "manouvers-popover":"manoeuvres-popover",
       "manouvers-reverse-right-option":"#manoeuvres-reverse-right-radio",
       "manouvers-reverse-right-label":"#manoeuvres-reverse-right-label",

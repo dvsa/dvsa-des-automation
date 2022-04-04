@@ -36,6 +36,10 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::manouvers-btn');
   }
 
+  get maneuversLegalReqTick() {
+    return ('des-test-report-screen::manouvers-btn-tick');
+  }
+
   get maneuversReverseRightLegalReqButton() {
     return ('des-test-report-screen::manouvers-reverse-right-label');
   }
@@ -70,30 +74,12 @@ class TestReportPageObject extends Page {
     await longClickElement(this.secondNSLegalReqTick, 500);
     await longClickElement(this.firstASLegalReqTick, 500);
     await longClickElement(this.hsdsLegalReqTick, 500);
-    await clickElement('click', 'selector', this.maneuversLegalReqButton);
+    await longClickElement(this.maneuversLegalReqTick, 500);
     await waitFor(this.maneuversReverseRightLegalReqButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.maneuversReverseRightLegalReqButton);
-    await clickElement('click', 'selector', this.maneuversLegalReqButton);
+    await longClickElement(this.maneuversLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.showTellLegalReqTick, 500);
-  }
-
-  async addingFault(fault: string, selector: string): Promise<void> {
-    switch (fault.toLowerCase()) {
-      case 'driving':
-        await longClickElement(selector, 100);
-        break;
-      case 'serious':
-        // Will need to change this to work with serious fault
-        await longClickElement(selector, 500);
-        break;
-      case 'dangerous':
-        // Will need to change this to work with dangerous fault
-        await longClickElement(selector, 500);
-        break;
-      default:
-        console.error('This is not the correct selector');
-    }
   }
 }
 export default new TestReportPageObject();
