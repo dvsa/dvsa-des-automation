@@ -187,8 +187,8 @@ export const config: WebdriverIO.Config = {
     source: true, // <boolean> hide source uris
     profile: [], // <string[]> (name) specify the profile to use
     require: [
-      './shared/boilerplate/steps/**/*.ts',
-      './shared/custom/steps/**/*.ts',
+      './shared/boilerplate/steps/*.ts',
+      './shared/custom/steps/*.ts',
       // Or search a (sub)folder for JS files with a wildcard
       // works since version 1.1 of the wdio-cucumber-framework
       // './src/**/*.js',

@@ -1,6 +1,15 @@
 import Page from '../base/page';
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
 
+interface PassedConfirmationData {
+  testOutcome: string;
+  activityCode: string;
+  testCategory: string;
+  provLicenceRecieved: string;
+  transmission: string;
+  d255: string;
+}
+
 class ConfirmationPageObject extends Page {
   get testOutcomeValue() { return ('des-final-confirmation-screen::test-outcome-value'); }
 
@@ -14,7 +23,9 @@ class ConfirmationPageObject extends Page {
 
   get d255Value() { return ('des-final-confirmation-screen::test-d255-value'); }
 
-  async checkPassedConfirmationPageDetails(data: any): Promise<void> {
+  async checkPassedConfirmationPageDetails(
+    data: Record<keyof PassedConfirmationData, string>,
+  ): Promise<void> {
     const {
       testOutcome, activityCode, testCategory, provLicenceRecieved, transmission, d255,
     } = data;

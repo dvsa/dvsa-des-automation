@@ -14,7 +14,8 @@
     "wdio"
   ],
   "ignorePatterns": [
-    "shared/**"
+    "shared/**",
+    "apps/**"
   ],
   "rules": {
     "import/no-unresolved": "off",
