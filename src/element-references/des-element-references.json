@@ -9,6 +9,8 @@
     "user-profile-icon": "//ion-icon[@id='contact-icon']",
     "my-journal-btn": "#go-to-journal-button",
     "my-journal-card": "#go-to-journal-card",
+    "examiner-name": "#examiner-name",
+    "examiner-role": "#examiner-role",
     "centre-journal-btn": "#test-centre-journal-button",
     "search-completed-tests-btn": "#completed-search-button",
     "re-key-test-btn": "#rekey-search-button",
