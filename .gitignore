@@ -17,6 +17,7 @@ reports/*
 .vscode
 !.vscode/extensions.json
 yarn.lock
+.eslintrc.json
 
 #Apps
 
