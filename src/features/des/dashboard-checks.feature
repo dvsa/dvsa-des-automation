@@ -1,3 +1,4 @@
+@test
 Feature: Dashboard Checks feature
 
   Background:
@@ -14,10 +15,10 @@ Feature: Dashboard Checks feature
   Scenario:  Practice marking a full test
     Then I click on the button "des-dashboard::full-practise-mode-btn"
 
-  Scenario: Search for completed tests ww
+  Scenario: Search for completed tests
     Then I click on the button "des-dashboard::search-completed-tests-btn"
 
-  Scenario:  Rekey DVSA test ww
+  Scenario:  Rekey DVSA test
     Then I click on the button "des-dashboard::re-key-test-btn"
 
   Scenario: Go to my journal
