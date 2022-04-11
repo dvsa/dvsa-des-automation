@@ -47,6 +47,8 @@
       "cancel-start-test-modal":"#rekey-cancel-button"
     },
   "des-test-centre-journal": {
+      "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
+      "show-booking-button": "#show-booking-button",
       "location-text": "#test-centre-location" ,
       "test-title": "#test-title",
       "page-title": "#page-title",

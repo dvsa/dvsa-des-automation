@@ -11,11 +11,10 @@ Feature: Test Centre Journal
 
     Scenario: Test centre Journal - Today Test
         When I add "Ali Campbell" to the inputfield "des-test-centre-journal::candidate-search-input"
-        When I click on the button "des-dashboard::centre-journal-btn"
         When I click on the button with the text "Ali Campbell"
-#        And I wait on element "des-test-centre-journal::show-booking-button" to be enabled
-#        And I click on the element "des-test-centre-journal::show-booking-button"
-#        And I expect that element "des-test-center-journal::candidate-booking-message-tomorrow" matches the text "This candidate does not have a booking at Example Test Centre for tomorrow."
+        And I wait on element "des-test-centre-journal::show-booking-button" to be enabled
+        And I click on the element "des-test-centre-journal::show-booking-button"
+        And I expect that element "des-test-center-journal::tomorrow-message" matches the text "This candidate does not have a booking at Example Test Centre for tomorrow."
 #        Then the candidates test details are shown
 #            | testCentre          | Example Test Centre   |
 #            | candidateName       | Mr Ali Campbell       |
