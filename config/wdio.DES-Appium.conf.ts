@@ -10,7 +10,7 @@ buildConfig.maxInstances = 5;
 // buildConfig.path = '/'
 
 buildConfig.specs = [
-  './src/features/des/**/*.feature',
+  './src/features/des/**/**/*.feature',
 ];
 
 buildConfig.cucumberOpts!.require!.push(

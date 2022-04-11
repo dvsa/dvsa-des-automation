@@ -10,6 +10,6 @@ Feature: Dashboard feature
     And I expect that element "des-dashboard::my-journal-btn" is displayed
     And I expect that element "des-dashboard::centre-journal-btn" is displayed
     And I expect that element "des-dashboard::search-completed-tests-btn" is displayed
-    And I expect that element "des-dashboard::re-key-test-btn" is displayed
+    And I expect that element "des-dashboard::rekey-test-btn" is displayed
     And I expect that element "des-dashboard::partial-practise-mode-btn" is displayed
     And I expect that element "des-dashboard::full-practise-mode-btn" is displayed

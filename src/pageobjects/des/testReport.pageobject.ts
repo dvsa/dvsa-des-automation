@@ -60,6 +60,14 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::competency-btn-control');
   }
 
+  get seriousFaultButton() {
+    return ('des-test-report-screen::serious-fault-btn');
+  }
+
+  get dangerousFaultButton() {
+    return ('des-test-report-screen::dangerous-fault-btn');
+  }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
@@ -80,6 +88,35 @@ class TestReportPageObject extends Page {
     await longClickElement(this.maneuversLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.showTellLegalReqTick, 500);
+  }
+
+  async addingFault(faultCount:number, fault: string, selector: string): Promise<void> {
+    let i:number = 0;
+    // eslint-disable-next-line eqeqeq
+    // for (let i = 0; i == faultCount; i += 1) {
+    while (i < faultCount) {
+      switch (fault.toLowerCase()) {
+        case 'driving':
+          // eslint-disable-next-line no-await-in-loop
+          await longClickElement(selector, 500);
+          break;
+        case 'serious':
+          // eslint-disable-next-line no-await-in-loop
+          await clickElement('click', 'selector', this.seriousFaultButton);
+          // eslint-disable-next-line no-await-in-loop
+          await longClickElement(selector, 500);
+          break;
+        case 'dangerous':
+          // eslint-disable-next-line no-await-in-loop
+          await clickElement('click', 'selector', this.dangerousFaultButton);
+          // eslint-disable-next-line no-await-in-loop
+          await longClickElement(selector, 500);
+          break;
+        default:
+          console.error('This is not the correct selector');
+      }
+      i += 1;
+    }
   }
 }
 export default new TestReportPageObject();

@@ -43,7 +43,8 @@
       "start-test-modal-start-test-btn": "#rekey-start-test-button",
       "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
       "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
-      "cancel-start-test-modal":"#rekey-cancel-button"
+      "cancel-start-test-modal":"#rekey-cancel-button",
+      "journal-back-button": "//ion-header//ion-buttons/ion-back-button"
     },
   "des-test-centre-journal": {
       "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
@@ -217,7 +218,7 @@
       "competency-btn-ancillary-controls":"competency-button='Ancillary controls'",
       "competency-btn-safety":"#competency-label-Safety",
       "competency-btn-control":"#competency-label-Control",
-      "competency-btn-signalling":"competency-button='Signalling'",
+      "competency-btn-signalling":"#competency-label-Signalling",
       "competency-btn-change-directon":"competency-button='Change direction'",
       "competency-btn-change-speed":"competency-button='Change speed'",
       "competency-btn-necessary":"competency-button='Necessary'",
@@ -261,8 +262,19 @@
       "vehicle-checks-container" : "#vehicle-checks",
       "vehicle-checks-heading" : ".fault-heading='Vehicle checks'",
       "dangerous-faults-heading":".fault-heading='dangerous faults'",
-      "serious-faults-heading":".fault-heading='serious faults'"
-    },
+      "serious-faults-heading":".fault-heading='serious faults'",
+      "driving-fault-count": "#driving-fault-count",
+      "driving-fault-title": "#driving-fault-title",
+      "control-accelerator-driver-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Control - Accelerator')]",
+      "control-accelerator-driver-fault": "#controlsAccelerator-driving-text",
+      "control-accelerator-driver-fault-count": "//driving-faults-debrief-card//*[@id=\"controlsAccelerator-count\"]",
+      "move-off-safety-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Move off - Safety')]",
+      "move-off-safety-fault": "#moveOffSafety-driving-text",
+      "move-off-safety-fault-count": "//driving-faults-debrief-card//*[@id=\"moveOffSafety-count\"]",
+      "use-of-mirrors-signalling-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Use of mirrors - Signalling')]",
+      "use-of-mirrors-signalling-fault": "#useOfMirrorsSignalling-driving-text",
+      "use-of-mirrors-signalling-fault-count": "//driving-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-count\"]"
+  },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
       "continue-btn":"#continue-to-non-pass-finalisation"
