@@ -10,6 +10,8 @@ import completeHealthDeclarationPage from '../../app-actions/des-action/complete
 import checkConfirmationPageDetails from '../../app-actions/des-action/checkConfirmationPageDetails';
 import completeOfficePage from '../../app-actions/des-action/completeOfficePage';
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
+import addingFault from '../../app-actions/des-action/addingFault';
+import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
 
 When(
   /^I am signed in as a random user$/,
@@ -64,4 +66,14 @@ When(
 When(
   /^I select all legal requirements$/,
   completeLegalRequirements,
+);
+
+When(
+  /^I add "([^"]*)?" (driving|serious|dangerous) fault(s)? to the "([^"]*)?" field$/,
+  addingFault,
+);
+
+When(
+  /^I check from a database the number of faults are correct/,
+  checkCorrectFaults,
 );

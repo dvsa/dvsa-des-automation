@@ -7,6 +7,7 @@ Feature: Cat-B Successful feature
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#start-test-button-20654335" to be displayed
+    And I pause for 10000ms
     And I click on the button "#start-test-button-20654335"
     And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
@@ -61,3 +62,7 @@ Feature: Cat-B Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654335" to be displayed
     And I expect that element "#activity-code-20654335" contains the text "1"
+    And I wait on element "//ion-header//ion-buttons/ion-back-button" to be displayed
+    And I click on the button "des-my-journal::journal-back-button"
+    And I expect that container "des-dashboard::staff-number" contains the text "1234567"
+
