@@ -10,6 +10,7 @@ import completeHealthDeclarationPage from '../../app-actions/des-action/complete
 import checkConfirmationPageDetails from '../../app-actions/des-action/checkConfirmationPageDetails';
 import completeOfficePage from '../../app-actions/des-action/completeOfficePage';
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
+import pressEnter from '../../app-actions/des-action/pressReturn';
 
 When(
   /^I am signed in as a random user$/,
@@ -65,3 +66,9 @@ When(
   /^I select all legal requirements$/,
   completeLegalRequirements,
 );
+When(
+  /^I press the Return key$/,
+  { timeout: 120000 },
+  pressEnter,
+);
+
