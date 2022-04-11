@@ -1,5 +1,6 @@
 Feature: Cat-B Successful feature
 
+  @test
   Scenario:   Successful test with 15 faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -72,6 +73,6 @@ Feature: Cat-B Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654334" to be displayed
     And I expect that element "#activity-code-20654334" contains the text "1"
-    And I wait on element "//ion-header//ion-buttons/ion-back-button" to be displayed
+    And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
