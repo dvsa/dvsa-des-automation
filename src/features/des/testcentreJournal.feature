@@ -28,7 +28,7 @@ Feature: Test Centre Journal
         And I click on the button with the text "Alice Cooper"
         And I wait on element "des-test-centre-journal::show-booking-button" to be enabled
         And I click on the element "des-test-centre-journal::show-booking-button"
-        And I expect that element "des-test-centre-journal::candidate-booking-message-today" matches the text "This candidate does not have a booking at Example Test Centre for today."
+        And I expect that element "des-test-centre-journal::message-today" matches the text "This candidate does not have a booking at Example Test Centre for today."
         Then the candidates test details are shown
             | testCentre          | Example Test Centre   |
             | candidateName       | Miss Alice Cooper     |
