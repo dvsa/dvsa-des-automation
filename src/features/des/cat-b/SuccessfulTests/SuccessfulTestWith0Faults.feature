@@ -65,4 +65,3 @@ Feature: Cat-B Successful feature
     And I wait on element "//ion-header//ion-buttons/ion-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
-
