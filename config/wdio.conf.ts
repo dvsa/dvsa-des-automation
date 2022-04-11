@@ -1,5 +1,4 @@
 import path from 'path';
-import CustomCommand from '../shared/custom/support/lib/addCommands';
 
 const video = require('wdio-video-reporter');
 
@@ -115,7 +114,7 @@ export const config: WebdriverIO.Config = {
   // baseUrl: 'http://localhost:8080',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 60000,
+  waitforTimeout: 20000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
@@ -199,27 +198,11 @@ export const config: WebdriverIO.Config = {
     strict: true, // <boolean> fail if there are any undefined or pending steps
     tagExpression: 'not @Pending',
     tagsInTitle: false, // <boolean> add cucumber tags to feature or scenario name
-    timeout: 60000, // <number> timeout for step definitions
+    timeout: 120000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
-
-  beforeScenario: async () => {
-    // Comment out this locally if you don't want to clear storage
-    console.info('clearing local storage before scenario');
-    await browser.execute('window.localStorage.clear()');
-    await browser.reloadSession();
-  },
-
-  afterStep: (step, scenario, result) => {
-    if (!result.passed) {
-      browser.takeScreenshot();
-    }
-  },
 
   beforeStep: (step) => {
     console.log(`  STEP :   ${JSON.stringify(step.text)}`);
   },
 
-  before: async () => {
-    await CustomCommand.addCommands();
-  },
 };
