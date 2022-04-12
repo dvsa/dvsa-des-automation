@@ -1,4 +1,3 @@
-@test
 Feature: Test Centre Journal
       Scenario: Test centre Journal - Today Test
         Given I am signed in as a random "mobexaminer1" user
