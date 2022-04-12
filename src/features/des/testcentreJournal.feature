@@ -1,4 +1,3 @@
-@test
 Feature: Test Centre Journal
     Background:
         Given I am signed in as a random "mobexaminer1" user
