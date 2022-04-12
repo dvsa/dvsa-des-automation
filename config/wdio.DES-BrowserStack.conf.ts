@@ -7,7 +7,7 @@ buildConfig.baseUrl = '/';
 buildConfig.maxInstances = 5;
 
 buildConfig.specs = [
-  './src/features/des/**/**/*.feature',
+  './src/features/des/*.feature',
 ];
 
 buildConfig.cucumberOpts!.require!.push(
