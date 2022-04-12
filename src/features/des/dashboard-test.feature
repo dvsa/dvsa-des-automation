@@ -2,7 +2,7 @@ Feature: Dashboard feature
 
   Scenario:  LDTM Dashboard Page Scenario
     Given I am signed in as a random "mobexaminer1" user
-    When I wait on element "des-dashboard::page-title" to be displayed
+    When I wait on element "des-general::page-title" to be displayed
     Then I expect that element "des-dashboard::page-title" matches the text "My dashboard"
     And I expect that element "des-dashboard::username-header" matches the text "MESBeta User 1"
     And I expect that element "des-dashboard::user-classification" matches the text "Local Driving Test Manager"

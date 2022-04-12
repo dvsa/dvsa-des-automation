@@ -52,7 +52,6 @@
       "show-booking-button": "#show-booking-button",
       "location-text": "#test-centre-location" ,
       "test-title": "#test-title",
-      "page-title": "#page-title",
       "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
       "show-candidate-booking":"//ion-button[contains(text(), 'Show booking')]",
       "candidate-search-input":"typeahead-dropdown input[id='typeahead-prevent-manual-entry']",

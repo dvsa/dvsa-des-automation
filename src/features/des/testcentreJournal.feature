@@ -1,7 +1,7 @@
 Feature: Test Centre Journal
     Background:
         Given I am signed in as a random "mobexaminer1" user
-        When I wait on element "des-dashboard::page-title" to be displayed
+        When I wait on element "des-general::page-title" to be displayed
         Then I wait on element "des-dashboard::centre-journal-btn" to be displayed
         When I click on the button "des-dashboard::centre-journal-btn"
         Then I wait on element "des-test-centre-journal::test-title" to be displayed
