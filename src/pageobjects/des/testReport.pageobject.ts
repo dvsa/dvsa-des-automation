@@ -92,8 +92,6 @@ class TestReportPageObject extends Page {
 
   async addingFault(faultCount:number, fault: string, selector: string): Promise<void> {
     let i:number = 0;
-    // eslint-disable-next-line eqeqeq
-    // for (let i = 0; i == faultCount; i += 1) {
     while (i < faultCount) {
       switch (fault.toLowerCase()) {
         case 'driving':
