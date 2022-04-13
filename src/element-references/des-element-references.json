@@ -310,7 +310,8 @@
       "debrief-witness-card":"#debrief-card",
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
-      "continue-btn":"#pass-finalisation-continue-button"
+      "continue-btn":"#pass-finalisation-continue-button",
+      "fail-continue-btn": "(//*[@id='continue-button'])[3]"
     },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",

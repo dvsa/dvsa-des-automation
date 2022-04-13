@@ -38,6 +38,8 @@ class FinalOutcomePageObject extends Page {
 
   get passFinalisationContinueButton() { return ('des-final-outcome-screen::continue-btn'); }
 
+  get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
+
   checkTestOutcomeVisibility(testOutcomeText:string) {
     $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
   }
@@ -185,11 +187,8 @@ class FinalOutcomePageObject extends Page {
             console.info(`Could not find ${field}`);
         }
       }
-      console.log('input: ', field, fieldInput, ' skipped');
     }
-
-    console.log('Waiting for continue button');
-    await clickElement('click', 'selector', '(//*[@id="continue-button"])[3]');
+    await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 }
 
