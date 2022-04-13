@@ -1,6 +1,5 @@
 Feature: Cat-B Successful feature
 
-  @test
   Scenario:   Successful test with 15 faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
