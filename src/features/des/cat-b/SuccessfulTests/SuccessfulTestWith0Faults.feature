@@ -1,5 +1,6 @@
 Feature: Cat-B Successful feature
 
+  @test
   Scenario:   Successful Test with no faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -7,7 +8,6 @@ Feature: Cat-B Successful feature
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#start-test-button-20654335" to be displayed
-    And I pause for 10000ms
     And I click on the button "#start-test-button-20654335"
     And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"

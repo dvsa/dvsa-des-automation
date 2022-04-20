@@ -7,7 +7,8 @@
     "candidate-name": ".candidate-name",
     "candidate-driver-number": "#candidate-driver-number",
     "signature-pad-area": "#signature-pad",
-    "retry-signature-btn": "#retry-icon"
+    "retry-signature-btn": "#retry-icon",
+    "page-title": "#page-title"
   },
   "des-dashboard": {
     "page-title": "#page-title",
@@ -47,6 +48,11 @@
       "journal-back-button": "//ion-header//ion-buttons/ion-back-button"
     },
   "des-test-centre-journal": {
+      "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
+      "message-today": "#candidate-no-booking-at-test-centre-today-message",
+      "show-booking-button": "#show-booking-button",
+      "location-text": "#test-centre-location" ,
+      "test-title": "#test-title",
       "candidate-search-tab":"h3[contains(text(), 'Candidate search')]",
       "show-candidate-booking":"//ion-button[contains(text(), 'Show booking')]",
       "candidate-search-input":"typeahead-dropdown input[id='typeahead-prevent-manual-entry']",

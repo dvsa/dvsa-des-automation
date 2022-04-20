@@ -114,12 +114,22 @@ class LoginMobilePageObject {
     const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
     const loginBackdrop = await $('.backdrop-no-scroll');
 
+    // check if LoginSorry error is present
+    const sorryError = await $('#loginSorry');
+    if (await sorryError.isDisplayed()) {
+      console.info('>>>>>>>>>>>>> Resetting Session>>>>>>>>>');
+      await browser.pause(2000);
+      await browser.reloadSession();
+      console.info('>>>>>>>>>>>>> Reset Complete>>>>>>>>>');
+      await browser.pause(2000);
+    }
+
     // check if already logged in on app launch.
     await Promise.race([
       this.waitForExist(burgerMenu),
       this.waitForExist(loginBackdrop),
     ]);
-    if (await burgerMenu.isClickable()) {
+    if (await burgerMenu.isExisting()) {
       await this.logout();
     }
 
@@ -164,7 +174,7 @@ class LoginMobilePageObject {
     await this.waitForExistAndClickable(signInButton);
     await this.clickElement(signInButton);
     // click continue button
-    await browser.pause(2000);
+    await browser.pause(5000);
     await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
