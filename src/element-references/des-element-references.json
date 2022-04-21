@@ -156,7 +156,8 @@
       "vehicle-details-school-car-option":"#vehicle-details-school-car",
       "vehicle-details-dual-option":"#vehicle-details-dual-control",
       "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
-      "continue-to-test-report-btn":"#continue-to-test-report-button"
+      "continue-to-test-report-btn":"#continue-to-test-report-button",
+      "continue-to-debrief-btn": "#confirm-eyesight-failure"
     },
   "des-test-report-screen": {
       "page-title":"#test-report-page-title",
@@ -280,8 +281,10 @@
       "move-off-safety-fault-count": "//driving-faults-debrief-card//*[@id=\"moveOffSafety-count\"]",
       "use-of-mirrors-signalling-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Use of mirrors - Signalling')]",
       "use-of-mirrors-signalling-fault": "#useOfMirrorsSignalling-driving-text",
-      "use-of-mirrors-signalling-fault-count": "//driving-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-count\"]"
-  },
+      "use-of-mirrors-signalling-fault-count": "//driving-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-count\"]",
+      "driving-serious-fault-count": "#serious-fault-count",
+      "eyesight-test-serious-text": "#eyesightTest-serious-text"
+    },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
       "continue-btn":"#continue-to-non-pass-finalisation"
@@ -395,6 +398,7 @@
       "mark-as-complete": "#office-complete-button",
       "mark-as-complete-modal-title": "#model-alert-title-text",
       "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
-      "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator"
+      "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator",
+      "fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest"
     }
 }
