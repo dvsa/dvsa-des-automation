@@ -209,17 +209,17 @@ export const config: WebdriverIO.Config = {
   //   await browser.reloadSession();
   // },
 
-  // afterStep: (step, scenario, result) => {
-  //   if (!result.passed) {
-  //     browser.takeScreenshot();
-  //   }
-  // },
+  afterStep: (step, scenario, result) => {
+    if (!result.passed) {
+      browser.takeScreenshot();
+    }
+  },
 
-  // beforeStep: (step) => {
-  //   console.log(`  STEP :   ${JSON.stringify(step.text)}`);
-  // },
+  beforeStep: (step) => {
+    console.log(`  STEP :   ${JSON.stringify(step.text)}`);
+  },
 
-  // before: async () => {
-  //   await CustomCommand.addCommands();
-  // },
+  before: async () => {
+    await CustomCommand.addCommands();
+  },
 };

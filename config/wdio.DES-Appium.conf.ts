@@ -20,21 +20,21 @@ buildConfig.cucumberOpts!.require!.push(
 buildConfig.cucumberOpts!.timeout = 150000; // Allow for the application to install
 buildConfig.suites = DESSuites;
 
-// buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat([
-//   ['appium', {
-//     command: 'appium',
-//     args: {
-//       address: '127.0.0.1',
-//       commandTimeout: '7200',
-//       sessionOverride: true,
-//       debugLogSpacing: true,
-//       relaxedSecurity: true,
-//     },
-//     logPath: path.join('./reports/appiumlogs'),
-//   }],
-// ]);
+buildConfig.services = (buildConfig.services ? buildConfig.services : []).concat([
+  ['appium', {
+    command: 'appium',
+    args: {
+      address: '127.0.0.1',
+      commandTimeout: '7200',
+      sessionOverride: true,
+      debugLogSpacing: true,
+      relaxedSecurity: true,
+    },
+    logPath: path.join('./reports/appiumlogs'),
+  }],
+]);
 
-// buildConfig.port = 4723;
+buildConfig.port = 4723;
 
 exports.config = {
   ...buildConfig,
