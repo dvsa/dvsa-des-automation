@@ -6,11 +6,11 @@ import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 5;
+buildConfig.maxInstances = 1;
 // buildConfig.path = '/'
 
 buildConfig.specs = [
-  './src/features/des/**/*.feature',
+  './src/features/des/**/**/*.feature',
 ];
 
 buildConfig.cucumberOpts!.require!.push(

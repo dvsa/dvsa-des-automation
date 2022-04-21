@@ -7,7 +7,7 @@ buildConfig.baseUrl = '/';
 buildConfig.maxInstances = 5;
 
 buildConfig.specs = [
-  './src/features/des/**/*.feature',
+  './src/features/des/**/**/*.feature',
 ];
 
 buildConfig.cucumberOpts!.require!.push(
@@ -31,15 +31,19 @@ exports.config = {
     {
       ...bscapabilities,
       os_version: '14',
-      device: DESInfo.deviceName,
+      device: 'iPad 8th',
+      browserName: 'safari',
       platformName: DESInfo.platformName,
       app: DESInfo.appName,
       project: DESInfo.projectName,
       build: 'DES WDIO Browserstack',
       name: bsconfig.user,
-      'browserstack.os_version': '14',
-      'browserstack.device': 'iPad 8th',
-      'browserstack.appium_version': '1.22.0',
+      fullContextList: true,
+      autoWebview: true,
+      autoAcceptAlerts: false,
+      acceptSslCert: true,
+      disableAnimations: true,
+      'browserstack.appium_version': '1.21.0',
       'browserstack.idle.timeout': 150,
     },
   ],
