@@ -204,7 +204,6 @@ class LoginMobilePageObject {
     const logoutTile = await $('small=Signed in');
     // const signOutSuccessful = await $('div=You have successfully signed out');
 
-
     await Promise.race([
       this.waitForExist(logOutSuccessText),
       this.waitForExist(logoutTile),
