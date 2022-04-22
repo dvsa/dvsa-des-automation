@@ -253,13 +253,14 @@
       "competency-btn-traffic-lights":"competency-button='Traffic lights'",
       "competency-btn-traffic-controllers":"competency-button='Traffic controllers'",
       "competency-btn-other-road-users":"competency-button='Other road users'",
-      "end-test-continue-to-debrief-btn": "#end-test-continue-button"
+      "end-test-continue-to-debrief-btn": "#end-test-continue-button",
+      "end-test-terminate-test-btn": "#end-test-terminate-button"
     },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
       "test-outcome-fail":".test-outcome-container failed",
       "test-outcome-passed":"#status-passed",
-      "test-outcome-terminated":".test-outcome-container terminated",
+      "test-outcome-terminated":"#status-terminated",
       "eta" : "#ETA",
       "show-me-question":"#show-me-question",
       "end-debrief-btn": "#end-debrief-button",
@@ -279,7 +280,9 @@
       "move-off-safety-fault-count": "//driving-faults-debrief-card//*[@id=\"moveOffSafety-count\"]",
       "use-of-mirrors-signalling-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Use of mirrors - Signalling')]",
       "use-of-mirrors-signalling-fault": "#useOfMirrorsSignalling-driving-text",
-      "use-of-mirrors-signalling-fault-count": "//driving-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-count\"]"
+      "use-of-mirrors-signalling-fault-count": "//driving-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-count\"]",
+      "use-of-mirrors-signalling-serious-fault": "#useOfMirrorsSignalling-serious-text",
+      "use-of-mirrors-signalling-serious-fault-count": "//serious-faults-debrief-card//*[@id=\"useOfMirrorsSignalling-S\"]"
   },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
