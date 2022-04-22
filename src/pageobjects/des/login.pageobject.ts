@@ -83,14 +83,23 @@ class LoginMobilePageObject {
   }
 
   getSuperUser() {
-    return credentials.Environment.Dev.Super[0];
+    return {
+      Name: 'MESBeta User 1',
+      GivenName: 'MESBeta',
+      Surname: 'User 1',
+      SamAccountName: 'MESBeta User 1',
+      UserPrincipalName: 'mobexaminer1@dvsatest-cloud.uk',
+      EmployeeID: '1234567',
+      DisplayName: 'MESBeta User 1',
+      Password: 'POI/qwe6mj8',
+    };
   }
 
-  getRandomUserType() {
-    const totalUsers = credentials.Environment.Dev.Super.length;
-    const randomUserId = Math.floor(Math.random() * totalUsers) || 1;
-    return credentials.Environment.Dev.Super[randomUserId - 1];
-  }
+  // getRandomUserType() {
+  //   const totalUsers = credentials.Environment.Dev.Super.length;
+  //   const randomUserId = Math.floor(Math.random() * totalUsers) || 1;
+  //   return credentials.Environment.Dev.Super[randomUserId - 1];
+  // }
 
   async clickElement(element: WebdriverIO.Element) {
     await browser.pause(500);
