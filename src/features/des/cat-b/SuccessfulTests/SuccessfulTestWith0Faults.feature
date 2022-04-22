@@ -1,6 +1,5 @@
 Feature: Cat-B Successful feature
 
-  @test
   Scenario:   Successful Test with no faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -61,7 +60,7 @@ Feature: Cat-B Successful feature
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654335" to be displayed
-    And I expect that element "#activity-code-20654335" contains the text "1"
+    And I expect that element "#activity-code-20654335" matches the text "1"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"

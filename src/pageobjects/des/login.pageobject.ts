@@ -113,22 +113,19 @@ class LoginMobilePageObject {
 
     const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
     const loginBackdrop = await $('.backdrop-no-scroll');
-
-    // check if LoginSorry error is present
-    const sorryError = await $('#loginSorry');
-    if (await sorryError.isDisplayed()) {
-      console.info('>>>>>>>>>>>>> Resetting Session>>>>>>>>>');
-      await browser.pause(2000);
-      await browser.reloadSession();
-      console.info('>>>>>>>>>>>>> Reset Complete>>>>>>>>>');
-      await browser.pause(2000);
-    }
+    const loginError = await $('#loginSorry');
 
     // check if already logged in on app launch.
     await Promise.race([
       this.waitForExist(burgerMenu),
       this.waitForExist(loginBackdrop),
+      this.waitForExist(loginError),
     ]);
+
+    if (await loginError.isExisting()) {
+      throw new Error('log in error');
+    }
+
     if (await burgerMenu.isExisting()) {
       await this.logout();
     }
@@ -205,6 +202,7 @@ class LoginMobilePageObject {
 
     const logOutSuccessText = await $('#login_workload_logo_text');
     const logoutTile = await $('small=Signed in');
+    // const signOutSuccessful = await $('div=You have successfully signed out');
 
     await Promise.race([
       this.waitForExist(logOutSuccessText),
@@ -212,10 +210,11 @@ class LoginMobilePageObject {
     ]);
 
     if (await logoutTile.isExisting()) {
+      const signOutSuccessful = await $('#instruction');
       // click account sign out tile
       await this.waitForExistAndClickable(logoutTile);
       await this.clickElement(logoutTile);
-      await browser.pause(3000);
+      await this.waitForExist(signOutSuccessful);
     }
 
     const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
