@@ -25,6 +25,7 @@
     "wdio:des:ap:report": "npm run report:clean && wdio run ./config/wdio.DES-Appium.conf.ts",
     "wdio:des:ap:test:report": "npm run report:clean && wdio run ./config/wdio.DES-Appium.conf.ts --cucumberOpts.tagExpression='@test'",
     "wdio:des:bs:report": "npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts",
+    "wdio:des:bs:test:report": "npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts --cucumberOpts.tagExpression='@test'",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
