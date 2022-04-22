@@ -123,7 +123,14 @@ class LoginMobilePageObject {
     ]);
 
     if (await loginError.isExisting()) {
-      throw new Error('log in error');
+      // throw new Error('log in error');
+      const loginButton = await $('#loginButton');
+      console.log('>>>>>>>>>>>>> LOG IN ERROR >>>>>>>>>>>>>');
+      await this.switchToDESContext();
+      await browser.pause(5000);
+      await this.waitForExistAndClickable(loginButton);
+      await this.clickElement(loginButton);
+      console.log('>>>>>>>>>>>>> CLICKED LOG IN >>>>>>>>>>>>>');
     }
 
     if (await burgerMenu.isExisting()) {

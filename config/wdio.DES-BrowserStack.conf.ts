@@ -29,7 +29,7 @@ exports.config = {
   ...bsconfig,
   capabilities: [
     {
-      ...bscapabilities,
+      // ...bscapabilities,
       os_version: '14',
       device: 'iPad 8th',
       browserName: 'safari',
@@ -45,6 +45,15 @@ exports.config = {
       disableAnimations: true,
       'browserstack.appium_version': '1.21.0',
       'browserstack.idle.timeout': 150,
+      'browserstack.debug': true,
+      'browserstack.local': false,
+      'browserstack.networkLogs': true,
+      'browserstack.acceptInsecureCerts': true,
+      'browserstack.appiumLogs': true,
+      'browserstack.deviceLogs': true,
+      browser_version: 'latest',
+      'browserstack.bfcache': 1,
+      real_mobile: true,
     },
   ],
 };
