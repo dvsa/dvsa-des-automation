@@ -52,12 +52,12 @@ When(
 );
 
 When(
-  /^I complete the successful final outcome screen from a database$/,
+  /^I complete the successful final outcome screen from a data table$/,
   completePassedFinalOutcomePage,
 );
 
 When(
-  /^I complete the unsuccessful final outcome screen from a database$/,
+  /^I complete the unsuccessful final outcome screen from a data table$/,
   completeFailedFinalOutcomePage,
 );
 
@@ -67,17 +67,17 @@ When(
 );
 
 When(
-  /^I check the confirmation page details from a database$/,
+  /^I check the confirmation page details from a data table$/,
   checkConfirmationPageDetails,
 );
 
 When(
-  /^I complete the Office page from a database$/,
+  /^I complete the Office page from a data table$/,
   completeOfficePage,
 );
 
 When(
-  /^I complete the Office unsuccessful page from a database$/,
+  /^I complete the Office unsuccessful page from a data table$/,
   completeUnsuccessfullOfficePage,
 );
 
@@ -92,6 +92,6 @@ When(
 );
 
 When(
-  /^I check from a database the number of faults are correct/,
+  /^I check from a data table the number of faults are correct/,
   checkCorrectFaults,
 );

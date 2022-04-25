@@ -23,7 +23,7 @@ Feature: Cat-B Successful feature
     And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I wait on element "des-final-outcome-screen::page-title" to be displayed
-    And I complete the successful final outcome screen from a database
+    And I complete the successful final outcome screen from a data table
       | provisionalLicenceReceived    | Yes              |
       | transmission                  | Manual           |
       | passCertNumber                | A123456X         |
@@ -33,7 +33,7 @@ Feature: Cat-B Successful feature
     And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
     And I complete the health declaration page
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
-    And I check the confirmation page details from a database
+    And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
       | testCategory          | B                                           |
@@ -46,7 +46,7 @@ Feature: Cat-B Successful feature
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I wait on element "des-office-page::page-title" to be displayed
-    And I complete the Office page from a database
+    And I complete the Office page from a data table
       | activityCode            | NA                                          |
       | routeNumber             | 2                                           |
       | independentDriving      | sat nav                                     |

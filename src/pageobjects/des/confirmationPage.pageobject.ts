@@ -33,8 +33,12 @@ class ConfirmationPageObject extends Page {
     await checkEqualsText('element', this.testOutcomeValue, false, testOutcome);
     await checkEqualsText('element', this.activityCodeValue, false, activityCode);
     await checkEqualsText('element', this.testCategoryValue, false, testCategory);
-    await checkEqualsText('element', this.provisionalLicencedValue, false, provLicenceRecieved);
-    await checkEqualsText('element', this.transmissionValue, false, transmission);
+    if (provLicenceRecieved.toLowerCase() !== 'na') {
+      await checkEqualsText('element', this.provisionalLicencedValue, false, provLicenceRecieved);
+    }
+    if (provLicenceRecieved.toLowerCase() !== 'na') {
+      await checkEqualsText('element', this.transmissionValue, false, transmission);
+    }
     await checkEqualsText('element', this.d255Value, false, d255);
   }
 }
