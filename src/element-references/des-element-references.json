@@ -259,6 +259,7 @@
       "test-outcome-container" : ".test-outcome-container",
       "test-outcome-fail":".test-outcome-container failed",
       "test-outcome-passed":"#status-passed",
+      "test-outcome-failed":"#status-fail",
       "test-outcome-terminated":".test-outcome-container terminated",
       "eta" : "#ETA",
       "show-me-question":"#show-me-question",
@@ -287,9 +288,11 @@
     },
   "des-final-outcome-screen": {
       "page-title": "#pass-finalisation-title",
+      "page-title-non-pass": "#non-pass-page-title",
       "application-reference-container":"#application-reference-card",
       "test-outcome-text":"#test-outcome-text",
       "test-outcome-pass": "#pass-outcome-text",
+      "test-outcome-failed":"#status-fail",
       "provisional-license-container":"#provisional-license-card",
       "provisional-license-recieved-option-yes":"#license-received",
       "provisional-license-recieved-option-no":"#license-not-received",
@@ -313,7 +316,8 @@
       "debrief-witness-card":"#debrief-card",
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
-      "continue-btn":"#pass-finalisation-continue-button"
+      "continue-btn":"#pass-finalisation-continue-button",
+      "fail-continue-btn": "(//*[@id='continue-button'])[3]"
     },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
@@ -390,6 +394,7 @@
       "eco-faults": "#ecoFaults",
       "mark-as-complete": "#office-complete-button",
       "mark-as-complete-modal-title": "#model-alert-title-text",
-      "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]"
-  }
+      "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
+      "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator"
+    }
 }

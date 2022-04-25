@@ -5,5 +5,6 @@ export const DESSuites = {
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith15Faults.feature',
     './src/features/des/testCentre/testcentreJournalToday.feature',
     './src/features/des/testCentre/testcentreJournalTomorrow.feature',
+    './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWith16Faults.feature',
   ],
 };

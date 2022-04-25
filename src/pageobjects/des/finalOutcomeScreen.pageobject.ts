@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
@@ -10,6 +11,8 @@ interface PassedFinalOutcomeData {
 
 class FinalOutcomePageObject extends Page {
   get testOutcomePassed() { return ('des-final-outcome-screen::test-outcome-pass'); }
+
+  get testOutcomeFailed() { return ('des-final-outcome-screen::test-outcome-failed'); }
 
   get provLicencedRecievedYes() { return ('des-final-outcome-screen::provisional-license-recieved-option-yes'); }
 
@@ -34,6 +37,8 @@ class FinalOutcomePageObject extends Page {
   get debriefWitnessedNo() { return ('des-final-outcome-screen::debrief-witness-no-input'); }
 
   get passFinalisationContinueButton() { return ('des-final-outcome-screen::continue-btn'); }
+
+  get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
 
   checkTestOutcomeVisibility(testOutcomeText:string) {
     $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
@@ -127,6 +132,63 @@ class FinalOutcomePageObject extends Page {
       }
     }
     await clickElement('click', 'selector', this.passFinalisationContinueButton);
+  }
+
+  async completeFailedFinalOutcomePage(
+    data: Record<keyof PassedFinalOutcomeData, string>,
+  ): Promise<void> {
+    await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'd255':
+            await scroll(this.d255YesInput);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.d255YesInput);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.d255NoInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'testlanguage':
+            await scroll(this.languageEnglishInput);
+            switch (fieldInput) {
+              case 'english':
+                await clickElement('click', 'selector', this.languageEnglishInput);
+                break;
+              case 'cymraeg':
+                await clickElement('click', 'selector', this.languageCymraegInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'debriefwitnessed':
+            await scroll(this.debriefWitnessedYes);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.debriefWitnessedYes);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.debriefWitnessedNo);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+    await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 }
 
