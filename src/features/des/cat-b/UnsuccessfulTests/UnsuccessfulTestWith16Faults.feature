@@ -1,6 +1,6 @@
 Feature: Cat-B Unsuccessful feature
 
-  Scenario:   Successful test with 16 faults
+  Scenario: Unsuccessful test with 16 faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
