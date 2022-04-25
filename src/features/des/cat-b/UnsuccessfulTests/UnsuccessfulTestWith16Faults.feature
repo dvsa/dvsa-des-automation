@@ -33,7 +33,6 @@ Feature: Cat-B Unsuccessful feature
       | d255                          | na              |
       | testLanguage                  | na              |
       | debriefWitnessed              | yes             |
-    # And I pause for 2000ms
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a database
       | testOutcome           | Unsuccessful                                      |
