@@ -23,18 +23,18 @@ Feature: Cat-B Unsuccessful feature
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
-    And I check from a database the number of faults are correct
+    And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                         | numberOfFaults      |
       | des-debrief-screen::control-accelerator-driver-fault          | Control - Accelerator            | des-debrief-screen::control-accelerator-driver-fault-count | 16                  |
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "#continue-to-non-pass-finalisation"
     And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
-    And I complete the unsuccessful final outcome screen from a database
+    And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
       | testLanguage                  | na              |
       | debriefWitnessed              | yes             |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
-    And I check the confirmation page details from a database
+    And I check the confirmation page details from a data table
       | testOutcome           | Unsuccessful                                      |
       | activityCode          | 2 - Fail                                    |
       | testCategory          | B                                           |
@@ -47,7 +47,7 @@ Feature: Cat-B Unsuccessful feature
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I wait on element "des-office-page::page-title" to be displayed
-    And I complete the Office unsuccessful page from a database
+    And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |
       | routeNumber             | 2                                           |
       | independentDriving      | sat nav                                     |
