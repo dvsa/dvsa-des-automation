@@ -33,8 +33,15 @@ Feature: Cat-B Unsuccessful feature
       | d255                          | na              |
       | testLanguage                  | na              |
       | debriefWitnessed              | yes             |
-      And I pause for 2000ms
+    # And I pause for 2000ms
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
+    And I check the confirmation page details from a database
+      | testOutcome           | Unsuccessful                                      |
+      | activityCode          | 2 - Fail                                    |
+      | testCategory          | B                                           |
+      | provLicenceRecieved   | na                                          |
+      | transmission          | na                                          |
+      | d255                  | No                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
