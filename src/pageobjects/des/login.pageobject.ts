@@ -115,16 +115,6 @@ class LoginMobilePageObject {
     const loginBackdrop = await $('.backdrop-no-scroll');
     const loginError = await $('#loginSorry');
 
-    // check if LoginSorry error is present
-    const sorryError = await $('#loginSorry');
-    if (await sorryError.isDisplayed()) {
-      console.info('>>>>>>>>>>>>> Resetting Session>>>>>>>>>');
-      await browser.pause(2000);
-      await browser.reloadSession();
-      console.info('>>>>>>>>>>>>> Reset Complete>>>>>>>>>');
-      await browser.pause(2000);
-    }
-
     // check if already logged in on app launch.
     await Promise.race([
       this.waitForExist(burgerMenu),

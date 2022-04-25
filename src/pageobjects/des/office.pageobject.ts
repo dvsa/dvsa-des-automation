@@ -9,6 +9,7 @@ interface OfficePageData {
   distinguishingFeatures: string;
   showMeQuestion: string;
   weatherCondition: string;
+  faultComment: string
 }
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
@@ -30,6 +31,8 @@ class OfficePageObject extends Page {
   get showMeQuestionSelector() { return ('des-office-page::show-me-question-selector'); }
 
   get weatherConditionsSelector() { return ('des-office-page::weather-conditions-selector'); }
+
+  get faultComment() { return ('des-office-page::fault-comment-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
@@ -102,6 +105,89 @@ class OfficePageObject extends Page {
             await clickElement('click', 'selector', this.weatherConditionsSelector);
             await clickElementWithText('click', 'button', weatherCondition);
             await clickElementWithText('click', 'element', 'Submit');
+            break;
+          default:
+            console.log(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
+  async completeUnsuccessfullOfficePage(
+    data: Record<keyof OfficePageData, string>,
+  ): Promise<void> {
+    const {
+      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
+    } = data;
+
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'activitycode':
+            // Code will need to be inputted for Unsuccesful and Terminated tests
+            break;
+          case 'routenumber':
+            await setInputField('add', routeNumber, this.routeNumberInput);
+            break;
+          case 'independentdriving':
+            switch (fieldInput) {
+              case 'sat nav':
+                await clickElement('click', 'selector', this.satNavButton);
+                break;
+              case 'traffic signs':
+                await clickElement('click', 'selector', this.trafficSignsButton);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'truelikeness':
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.candidateLikenessYes);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.candidateLikenessNo);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'distinguishingfeatures':
+            await scroll(this.distinguishingFeatureInput);
+            await setInputField('add', distinguishingFeatures, this.distinguishingFeatureInput);
+            break;
+          case 'identification':
+            await scroll(this.photoCardButton);
+            switch (fieldInput) {
+              case 'photo card':
+                await clickElement('click', 'selector', this.photoCardButton);
+                break;
+              case 'passport':
+                await clickElement('click', 'selector', this.passportButton);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'showmequestion':
+            await scroll(this.showMeQuestionSelector);
+            await clickElement('click', 'selector', this.showMeQuestionSelector);
+            await clickElementWithText('click', 'button', showMeQuestion);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'weathercondition':
+            await scroll(this.weatherConditionsSelector);
+            await clickElement('click', 'selector', this.weatherConditionsSelector);
+            await clickElementWithText('click', 'button', weatherCondition);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'faultcomment':
+            await scroll(this.faultComment);
+            await setInputField('add', faultComment, this.faultComment);
             break;
           default:
             console.log(`Could not find ${field}`);
