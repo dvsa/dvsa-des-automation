@@ -20,17 +20,16 @@ Feature: Cat-B Unsuccessful with serious faults feature
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     And I wait on element "des-debrief-screen::status-fail" to be displayed
-    And I wait on element "des-debrief-screen::serious-fault" to be displayed
-
-   And I click on the button "des-debrief-screen::end-debrief-btn"
-#    And I wait on element "des-final-outcome-screen::page-title" to be displayed
-#    And I complete the successful final outcome screen from a database
-#      | provisionalLicenceReceived    | Yes              |
-#      | transmission                  | Manual           |
-#      | passCertNumber                | A123456X         |
-#      | d255                          | NA               |
-#      | testLanguage                  | NA               |
-#      | debriefWitnessed              | Yes              |
+    Then I expect that element ".counter-label" matches the text "Control - Accelerator"
+    And I click on the button "des-debrief-screen::end-debrief-btn"
+    And I click on the button "des-general::continue-to-non-pass-finalisation"
+    And I complete the unsuccessful final outcome screen from a database
+      | provisionalLicenceReceived    | Yes              |
+      | transmission                  | Manual           |
+      | passCertNumber                | A123456X         |
+      | d255                          | NA               |
+      | testLanguage                  | NA               |
+      | debriefWitnessed              | Yes              |
 #    And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
 #    And I complete the health declaration page
 #    And I wait on element "des-final-confirmation-screen::page-title" to be displayed

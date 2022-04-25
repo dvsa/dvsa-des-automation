@@ -199,15 +199,8 @@ export const config: WebdriverIO.Config = {
     strict: true, // <boolean> fail if there are any undefined or pending steps
     tagExpression: 'not @Pending',
     tagsInTitle: false, // <boolean> add cucumber tags to feature or scenario name
-    timeout: 60000, // <number> timeout for step definitions
+    timeout: 120000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
-
-  beforeScenario: async () => {
-    // Comment out this locally if you don't want to clear storage
-    console.info('clearing local storage before scenario');
-    await browser.execute('window.localStorage.clear()');
-    await browser.reloadSession();
-  },
 
   afterStep: (step, scenario, result) => {
     if (!result.passed) {
