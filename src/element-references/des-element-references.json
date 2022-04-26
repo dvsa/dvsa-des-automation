@@ -259,7 +259,6 @@
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
       "status-fail" : "#status-fail",
-      "serious-fault" : "#-S",
       "test-outcome-fail":".test-outcome-container failed",
       "test-outcome-passed":"#status-passed",
       "test-outcome-failed":"#status-fail",

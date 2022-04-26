@@ -1,5 +1,4 @@
-Feature: Cat-B Unsuccessful feature@test
-  @test
+Feature: Cat-B Unsuccessful feature
   Scenario: Unsuccessful test with 16 faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
