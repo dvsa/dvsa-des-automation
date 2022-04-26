@@ -34,6 +34,8 @@ class OfficePageObject extends Page {
 
   get faultComment() { return ('des-office-page::fault-comment-input'); }
 
+  get seriousComment() { return ('des-office-page::serious-comment'); }
+
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
@@ -118,6 +120,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
+      seriousComment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -188,6 +191,10 @@ class OfficePageObject extends Page {
           case 'faultcomment':
             await scroll(this.faultComment);
             await setInputField('add', faultComment, this.faultComment);
+            break;
+          case 'seriouscomment':
+            await scroll(this.seriousComment);
+            await setInputField('add', seriousComment, this.seriousComment);
             break;
           default:
             console.log(`Could not find ${field}`);

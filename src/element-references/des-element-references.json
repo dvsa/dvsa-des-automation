@@ -398,6 +398,7 @@
       "mark-as-complete": "#office-complete-button",
       "mark-as-complete-modal-title": "#model-alert-title-text",
       "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
-      "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator"
+      "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator",
+      "serious-comment": "#fault-comment-text-serious-controlsAccelerator"
     }
 }
