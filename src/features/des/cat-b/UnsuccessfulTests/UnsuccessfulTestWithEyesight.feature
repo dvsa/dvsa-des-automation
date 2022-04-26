@@ -21,7 +21,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                         | numberOfFaults      |
       | des-debrief-screen::eyesight-test-serious-text                | Eyesight test                    | des-debrief-screen::driving-serious-fault-count            | 1                   |
     And I click on the button "des-debrief-screen::end-debrief-btn"
-    And I click on the element "#continue-to-non-pass-finalisation"
+    And I click on the element "des-debrief-screen::continue-non-pass-final-btn"
     And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
     And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
