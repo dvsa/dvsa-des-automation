@@ -37,6 +37,8 @@ class OfficePageObject extends Page {
 
   get eyesightFaultComment() { return ('des-office-page::fault-comment-eyesight-input'); }
 
+  get dangerousFaultComment() { return ('des-office-page::fault-comment-dangerous-input'); }
+
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
@@ -190,8 +192,13 @@ class OfficePageObject extends Page {
             await clickElementWithText('click', 'element', 'Submit');
             break;
           case 'faultcomment':
-            await scroll(this.faultComment);
-            await setInputField('add', faultComment, this.faultComment);
+            if (faultComment === 'dangerous') {
+              await scroll(this.dangerousFaultComment);
+              await setInputField('add', faultComment, this.dangerousFaultComment);
+            } else {
+              await scroll(this.faultComment);
+              await setInputField('add', faultComment, this.faultComment);
+            }
             break;
           case 'eyesightfaultcomment':
             await scroll(this.eyesightFaultComment);
