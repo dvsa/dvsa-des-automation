@@ -1,6 +1,6 @@
 Feature: Cat-B Unsuccessful With Eyesight feature
 
-  Scenario:   Successful test with Eyesight
+  Scenario:   Unsuccessful test with Eyesight
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
@@ -29,12 +29,12 @@ Feature: Cat-B Unsuccessful With Eyesight feature
       | debriefWitnessed              | yes             |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
-      | testOutcome           | Unsuccessful                                      |
-      | activityCode          | 2 - Fail                                    |
+      | testOutcome           | Unsuccessful                                |
+      | activityCode          | 3 - Fail due to eyesight                    |
       | testCategory          | B                                           |
       | provLicenceRecieved   | na                                          |
       | transmission          | na                                          |
-      | d255                  | No                                          |
+      | d255                  | Yes - Please complete a D255                |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
@@ -58,6 +58,6 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654334" to be displayed
     And I expect that element "#activity-code-20654334" contains the text "3"
-    And I wait on element "//ion-header//ion-buttons/ion-back-button" to be displayed
+    And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
