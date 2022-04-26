@@ -23,7 +23,7 @@ Feature: Cat-B Unsuccessful with serious faults feature
     Then I expect that element ".counter-label" matches the text "Control - Accelerator"
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the button "des-general::continue-to-non-pass-finalisation"
-    And I complete the unsuccessful final outcome screen from a database
+    And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
       | testLanguage                  | na              |
       | debriefWitnessed              | yes             |
@@ -35,7 +35,7 @@ Feature: Cat-B Unsuccessful with serious faults feature
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I wait on element "des-office-page::page-title" to be displayed
-    And I complete the Office unsuccessful page from a database
+    And I complete the Office unsuccessful page from a data table
       | routeNumber             | 2                                           |
       | independentDriving      | sat nav                                     |
       | trueLikeness            | yes                                         |
