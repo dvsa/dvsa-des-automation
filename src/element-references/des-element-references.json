@@ -254,7 +254,8 @@
       "competency-btn-traffic-lights":"competency-button='Traffic lights'",
       "competency-btn-traffic-controllers":"competency-button='Traffic controllers'",
       "competency-btn-other-road-users":"competency-button='Other road users'",
-      "end-test-continue-to-debrief-btn": "#end-test-continue-button"
+      "end-test-continue-to-debrief-btn": "#end-test-continue-button",
+      "terminate-test-btn": "#end-test-terminate-button"
     },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
@@ -285,7 +286,7 @@
       "driving-serious-fault-count": "#serious-fault-count",
       "eyesight-test-serious-text": "#eyesightTest-serious-text",
       "continue-non-pass-final-btn": "#continue-to-non-pass-finalisation",
-      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count"
+      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count",
     },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
@@ -322,7 +323,8 @@
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
       "continue-btn":"#pass-finalisation-continue-button",
-      "fail-continue-btn": "(//*[@id='continue-button'])[3]"
+      "fail-continue-btn": "(//*[@id='continue-button'])[3]",
+      "activity-code-selector": "//*[@id='activity-code-row']/ion-col[2]/ion-row[2]/ion-col[2]"
     },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",

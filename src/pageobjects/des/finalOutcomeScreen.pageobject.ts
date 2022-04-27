@@ -1,4 +1,5 @@
 /* eslint-disable no-restricted-syntax */
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
@@ -7,6 +8,7 @@ import scroll from '../../../shared/boilerplate/support/action/scroll';
 
 interface PassedFinalOutcomeData {
   passCertNumber: string;
+  activityCode: string
 }
 
 class FinalOutcomePageObject extends Page {
@@ -39,6 +41,8 @@ class FinalOutcomePageObject extends Page {
   get passFinalisationContinueButton() { return ('des-final-outcome-screen::continue-btn'); }
 
   get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
+
+  get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector'); }
 
   checkTestOutcomeVisibility(testOutcomeText:string) {
     $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
@@ -144,6 +148,72 @@ class FinalOutcomePageObject extends Page {
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
+          case 'd255':
+            await scroll(this.d255YesInput);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.d255YesInput);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.d255NoInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'testlanguage':
+            await scroll(this.languageEnglishInput);
+            switch (fieldInput) {
+              case 'english':
+                await clickElement('click', 'selector', this.languageEnglishInput);
+                break;
+              case 'cymraeg':
+                await clickElement('click', 'selector', this.languageCymraegInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'debriefwitnessed':
+            await scroll(this.debriefWitnessedYes);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.debriefWitnessedYes);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.debriefWitnessedNo);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+    await clickElement('click', 'selector', this.failFinalisationContinueButton);
+  }
+
+  async completeTerminatedFinalOutcomePage(
+    data: Record<keyof PassedFinalOutcomeData, string>,
+  ): Promise<void> {
+    const {
+      activityCode,
+    } = data;
+    await checkEqualsText('element', this.testOutcomeFailed, true, 'Unsuccessful');
+
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'activitycode':
+            await scroll(this.activityCodeSelector);
+            await clickElement('click', 'selector', this.activityCodeSelector);
+            await clickElementWithText('click', 'button', activityCode);
+            // await clickElementWithText('click', 'element', 'Submit');
+            break;
           case 'd255':
             await scroll(this.d255YesInput);
             switch (fieldInput) {
