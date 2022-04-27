@@ -1,6 +1,6 @@
 import { When } from '@cucumber/cucumber';
 import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/completeUnsuccessfullOfficePage';
-import completeFailedFinalOutcomePage from 'src/app-actions/des-action/completeFailedFinalOutcomePage';
+import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
 import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
 import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
@@ -58,7 +58,7 @@ When(
 
 When(
   /^I complete the unsuccessful final outcome screen from a data table$/,
-  completeFailedFinalOutcomePage,
+  completeNonPassedFinalOutcomePage,
 );
 
 When(
