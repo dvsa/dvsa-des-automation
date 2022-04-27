@@ -4,5 +4,5 @@ import FinalOutcomePageObject from '../../pageobjects/des/finalOutcomeScreen.pag
 export default async (table: DataTable): Promise<void> => {
   const data = table.rowsHash();
 
-  await FinalOutcomePageObject.completeFailedFinalOutcomePage(data);
+  await FinalOutcomePageObject.completeNonPassedFinalOutcomePage(data);
 };
