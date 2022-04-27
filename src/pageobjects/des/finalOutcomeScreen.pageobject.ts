@@ -134,7 +134,7 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.passFinalisationContinueButton);
   }
 
-  async completeFailedFinalOutcomePage(
+  async completeNonPassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
     await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
