@@ -29,25 +29,18 @@ Feature: Cat-B Terminated feature
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-post-debrief-screen::continue-btn"
     And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
-    And I pause for 10000ms
-
-
-
-
-
     And I complete the terminated final outcome screen from a data table
-      | activityCode                  | 21 - Vehicle / gear not suitable or no vehicle for test     |
-      | d255                          | na                                                          |
-      | testLanguage                  | na                                                          |
-      | debriefWitnessed              | yes                                                         |
+      | activityCode                  | des-final-outcome-screen::activity-code-21  |
+      | d255                          | na                                          |
+      | testLanguage                  | na                                          |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
-      | testOutcome           | Terminated                                  |
-      | activityCode          | 2 - Fail                                    |
-      | testCategory          | B                                           |
-      | provLicenceRecieved   | na                                          |
-      | transmission          | na                                          |
-      | d255                  | No                                          |
+      | testOutcome           | Terminated                                                |
+      | activityCode          | 21 - Vehicle / gear not suitable or no vehicle for test   |
+      | testCategory          | B                                                         |
+      | provLicenceRecieved   | na                                                        |
+      | transmission          | na                                                        |
+      | d255                  | No                                                        |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
@@ -56,23 +49,20 @@ Feature: Cat-B Terminated feature
     And I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |
-      | routeNumber             | 2                                           |
-      | independentDriving      | sat nav                                     |
-      | trueLikeness            | yes                                         |
+      | routeNumber             | NA                                          |
+      | independentDriving      | NA                                          |
+      | trueLikeness            | No                                          |
       | distinguishingFeatures  | Tall, red shirt, brown hair. 5 foot tall    |
       | identification          | photo card                                  |
-      | showMeQuestion          | S1 - Rear windscreen                        |
+      | showMeQuestion          | NA                                          |
       | weatherCondition        | 1 - Bright / dry roads                      |
-      | faultComment            | Not good                                    |
+      | faultComment            | NA                                          |
     And I click on the button "des-office-page::mark-as-complete"
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#activity-code-20654334" to be displayed
-    And I expect that element "#activity-code-20654334" contains the text "2"
-    And I wait on element "//ion-header//ion-buttons/ion-back-button" to be displayed
+    And I wait on element "#activity-code-20654335" to be displayed
+    And I expect that element "#activity-code-20654335" matches the text "21"
+    And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
-
-    And I pause for 10000ms
-

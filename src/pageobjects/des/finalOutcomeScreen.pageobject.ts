@@ -4,9 +4,14 @@ import clickElement from '../../../shared/boilerplate/support/action/clickElemen
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
 import scroll from '../../../shared/boilerplate/support/action/scroll';
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 
 interface PassedFinalOutcomeData {
   passCertNumber: string;
+}
+
+interface NonPassedFinalOutcomeData {
+  activityCode: string;
 }
 
 class FinalOutcomePageObject extends Page {
@@ -41,6 +46,8 @@ class FinalOutcomePageObject extends Page {
   get passFinalisationContinueButton() { return ('des-final-outcome-screen::continue-btn'); }
 
   get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
+
+  get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector-xpath'); }
 
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
@@ -129,30 +136,25 @@ class FinalOutcomePageObject extends Page {
 
   async completeNonPassedFinalOutcomePage(
     testOutcome:string,
-    data: Record<keyof PassedFinalOutcomeData, string>,
+    data: Record<keyof NonPassedFinalOutcomeData, string>,
   ): Promise<void> {
-    // let expectedText:string = '';
-    // let testOutcomeId:string = '';
-    // eslint-disable-next-line max-len
-    // const outcome = (testOutcome == 'unsuccessful') ? expectedText === 'Failed' : expectedText === 'Terminated'
-    //
-    // if(testOutcome === 'unsuccessful') {
-    //   expectedText === 'Failed';
-    //   testOutcomeId = this.testOutcomeFailed;
-    // } else if (testOutcome === 'terminated') {
-    //   expectedText === 'Terminated';
-    //   testOutcomeId = this.testOutcomeTerminated;
-    // }
+    const { activityCode } = data;
 
-    // await checkEqualsText('element', testOutcomeId, true, expectedText);
-
-    await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    if (testOutcome === 'unsuccessful') {
+      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    } else if (testOutcome === 'terminated') {
+      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+    }
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
+          case 'activitycode':
+            await clickElement('click', 'selector', this.activityCodeSelector);
+            await clickElement('click', 'selector', activityCode);
+            break;
           case 'd255':
             await scroll(this.d255YesInput);
             switch (fieldInput) {

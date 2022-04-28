@@ -326,7 +326,9 @@
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
       "continue-btn":"#pass-finalisation-continue-button",
-      "fail-continue-btn": "(//*[@id='continue-button'])[3]"
+      "fail-continue-btn": "(//*[@id='continue-button'])[3]",
+      "activity-code-selector-xpath": "//*[@id='activity-code-row']//span",
+      "activity-code-21": "//*[@id='activity-code-modal-21-vehicle-/-gear-not-suitable-or-no-vehicle-for-test-label']"
     },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
