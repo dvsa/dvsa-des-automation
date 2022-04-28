@@ -10,6 +10,7 @@ interface OfficePageData {
   showMeQuestion: string;
   weatherCondition: string;
   faultComment: string
+  eyesightFaultComment: string
 }
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
@@ -35,6 +36,8 @@ class OfficePageObject extends Page {
   get faultComment() { return ('des-office-page::fault-comment-input'); }
 
   get seriousComment() { return ('des-office-page::serious-comment'); }
+
+  get eyesightFaultComment() { return ('des-office-page::fault-comment-eyesight-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
@@ -120,7 +123,6 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      seriousComment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -191,6 +193,10 @@ class OfficePageObject extends Page {
           case 'faultcomment':
             await scroll(this.faultComment);
             await setInputField('add', faultComment, this.faultComment);
+            break;
+          case 'eyesightfaultcomment':
+            await scroll(this.eyesightFaultComment);
+            await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
             break;
           case 'seriouscomment':
             await scroll(this.seriousComment);

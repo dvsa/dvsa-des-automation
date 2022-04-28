@@ -16,6 +16,10 @@ class WaitingRoomPageToCarObject extends Page {
 
   get continueToTestReportButton() { return ('des-waiting-room-to-car::continue-to-test-report-btn'); }
 
+  get eyeSightFailLabel() { return ('des-waiting-room-to-car::eyesight-fail-label'); }
+
+  get continueToDebriefButton() { return ('des-waiting-room-to-car::continue-to-debrief-btn'); }
+
   async completeWRTCPage(): Promise<void> {
     await clickElement('click', 'selector', this.eyeSightPassLabel);
     await clickElement('click', 'selector', this.tellMeSeclector);
@@ -25,6 +29,11 @@ class WaitingRoomPageToCarObject extends Page {
     await setInputField('add', 'vehreg', this.vehRegInput);
     await clickElement('click', 'selector', this.manualTransmissionLabel);
     await clickElement('click', 'selector', this.continueToTestReportButton);
+  }
+
+  async completeWRTCPageForFailEyesight(): Promise<void> {
+    await clickElement('click', 'selector', this.eyeSightFailLabel);
+    await clickElement('click', 'selector', this.continueToDebriefButton);
   }
 }
 

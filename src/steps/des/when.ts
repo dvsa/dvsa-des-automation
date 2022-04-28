@@ -1,6 +1,7 @@
 import { When } from '@cucumber/cucumber';
 import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/completeUnsuccessfullOfficePage';
 import completeFailedFinalOutcomePage from 'src/app-actions/des-action/completeFailedFinalOutcomePage';
+import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
 import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
 import completeDeclarationPage from '../../app-actions/des-action/completeDeclarationPage';
@@ -38,6 +39,11 @@ When(
 When(
   /^I complete the waiting room to car page$/,
   completeWaitingRoomToCarPage,
+);
+
+When(
+  /^I complete the waiting room to car page with fail eyesight$/,
+  completeWaitingRoomFailEyesightToCarPage,
 );
 
 When(
