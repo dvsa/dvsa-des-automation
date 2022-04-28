@@ -4,7 +4,6 @@ import clickElement from '../../../shared/boilerplate/support/action/clickElemen
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
 import scroll from '../../../shared/boilerplate/support/action/scroll';
-import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 
 interface PassedFinalOutcomeData {
   passCertNumber: string;
@@ -140,11 +139,13 @@ class FinalOutcomePageObject extends Page {
   ): Promise<void> {
     const { activityCode } = data;
 
-    if (testOutcome === 'unsuccessful') {
-      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
-    } else if (testOutcome === 'terminated') {
-      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
-    }
+    // if (testOutcome === 'unsuccessful') {
+    //   await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    // } else if (testOutcome === 'terminated') {
+    //   await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+    // }
+
+    await this.checkFinaliseOutcomeTestOutcome(testOutcome);
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -152,8 +153,12 @@ class FinalOutcomePageObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'activitycode':
+            console.info('activityCode:    ', activityCode);
             await clickElement('click', 'selector', this.activityCodeSelector);
             await clickElement('click', 'selector', activityCode);
+            if (activityCode === 'des-final-outcome-screen::activity-code-4' || 'des-final-outcome-screen::activity-code-5'){
+              await this.checkFinaliseOutcomeTestOutcome('unsuccessful');
+            }
             break;
           case 'd255':
             await scroll(this.d255YesInput);
@@ -200,6 +205,14 @@ class FinalOutcomePageObject extends Page {
       }
     }
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
+  }
+
+  async checkFinaliseOutcomeTestOutcome(outcome:string): Promise<void> {
+    if (outcome === 'unsuccessful') {
+      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    } else if (outcome === 'terminated') {
+      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+    }
   }
 }
 
