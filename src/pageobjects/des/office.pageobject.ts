@@ -34,7 +34,7 @@ class OfficePageObject extends Page {
 
   get weatherConditionsSelector() { return ('des-office-page::weather-conditions-selector'); }
 
-  get faultComment() { return ('des-office-page::fault-comment-input'); }
+  get faultComment() { return ('des-office-page::driving-fault-controls-accelerator-comment-input'); }
 
   get seriousComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
 
