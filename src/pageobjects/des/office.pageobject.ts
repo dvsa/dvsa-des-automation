@@ -9,7 +9,8 @@ interface OfficePageData {
   distinguishingFeatures: string;
   showMeQuestion: string;
   weatherCondition: string;
-  faultComment: string
+  faultComment: string;
+  seriousComment: string;
   eyesightFaultComment: string
 }
 class OfficePageObject extends Page {
@@ -123,6 +124,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
+      eyesightFaultComment, seriousComment
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {

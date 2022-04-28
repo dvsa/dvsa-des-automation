@@ -18,7 +18,7 @@ Feature: Cat-B Unsuccessful with serious faults feature
     And I add "1" serious fault to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
-    And I wait on element "des-debrief-screen::" to be displayed
+    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     Then I expect that element ".counter-label" matches the text "Control - Accelerator"
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the button "des-general::continue-to-non-pass-finalisation"
