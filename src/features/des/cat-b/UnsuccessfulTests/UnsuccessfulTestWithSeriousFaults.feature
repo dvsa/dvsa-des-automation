@@ -21,7 +21,7 @@ Feature: Cat-B Unsuccessful with serious faults feature
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     Then I expect that element ".counter-label" matches the text "Control - Accelerator"
     And I click on the button "des-debrief-screen::end-debrief-btn"
-    And I click on the button "des-general::continue-to-non-pass-finalisation"
+    And I click on the button "des-post-debrief-screen::continue-btn"
     And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
       | testLanguage                  | na              |

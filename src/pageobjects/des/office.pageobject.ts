@@ -36,7 +36,7 @@ class OfficePageObject extends Page {
 
   get faultComment() { return ('des-office-page::fault-comment-input'); }
 
-  get seriousComment() { return ('des-office-page::serious-comment'); }
+  get seriousComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
 
   get eyesightFaultComment() { return ('des-office-page::fault-comment-eyesight-input'); }
 

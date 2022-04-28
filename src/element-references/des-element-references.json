@@ -8,8 +8,7 @@
     "candidate-driver-number": "#candidate-driver-number",
     "signature-pad-area": "#signature-pad",
     "retry-signature-btn": "#retry-icon",
-    "page-title": "#page-title",
-    "continue-to-non-pass-finalisation": "#continue-to-non-pass-finalisation"
+    "page-title": "#page-title"
   },
   "des-dashboard": {
     "page-title": "#page-title",
@@ -402,6 +401,6 @@
       "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
       "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator",
       "fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
-      "serious-comment": "#fault-comment-text-serious-controlsAccelerator"
+      "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator"
     }
 }
