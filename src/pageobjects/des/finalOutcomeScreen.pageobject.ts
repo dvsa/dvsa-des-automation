@@ -156,7 +156,7 @@ class FinalOutcomePageObject extends Page {
             console.info('activityCode:    ', activityCode);
             await clickElement('click', 'selector', this.activityCodeSelector);
             await clickElement('click', 'selector', activityCode);
-            if (activityCode === 'des-final-outcome-screen::activity-code-4' || 'des-final-outcome-screen::activity-code-5') {
+            if (activityCode === 'des-final-outcome-screen::activity-code-4' || activityCode === 'des-final-outcome-screen::activity-code-5') {
               await this.checkFinaliseOutcomeTestOutcome('unsuccessful');
             }
             break;
