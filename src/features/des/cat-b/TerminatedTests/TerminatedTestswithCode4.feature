@@ -35,10 +35,11 @@ Feature: Cat-B Terminated feature
 
 
 
-    And I complete the unsuccessful final outcome screen from a data table
-      | d255                          | na              |
-      | testLanguage                  | na              |
-      | debriefWitnessed              | yes             |
+    And I complete the terminated final outcome screen from a data table
+      | activityCode                  | 21 - Vehicle / gear not suitable or no vehicle for test     |
+      | d255                          | na                                                          |
+      | testLanguage                  | na                                                          |
+      | debriefWitnessed              | yes                                                         |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Terminated                                  |

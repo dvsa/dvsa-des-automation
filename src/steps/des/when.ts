@@ -1,7 +1,7 @@
 import { When } from '@cucumber/cucumber';
 import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/completeUnsuccessfullOfficePage';
-import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
 import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
+import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
 import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
 import completeDeclarationPage from '../../app-actions/des-action/completeDeclarationPage';
@@ -57,7 +57,7 @@ When(
 );
 
 When(
-  /^I complete the unsuccessful final outcome screen from a data table$/,
+  /^I complete the (unsuccessful|terminated) final outcome screen from a data table$/,
   completeNonPassedFinalOutcomePage,
 );
 

@@ -300,6 +300,7 @@
       "test-outcome-text":"#test-outcome-text",
       "test-outcome-pass": "#pass-outcome-text",
       "test-outcome-failed":"#status-fail",
+      "test-outcome-terminated":"#terminated-outcome-text",
       "provisional-license-container":"#provisional-license-card",
       "provisional-license-recieved-option-yes":"#license-received",
       "provisional-license-recieved-option-no":"#license-not-received",

@@ -14,6 +14,8 @@ class FinalOutcomePageObject extends Page {
 
   get testOutcomeFailed() { return ('des-final-outcome-screen::test-outcome-failed'); }
 
+  get testOutcomeTerminated() { return ('des-final-outcome-screen::test-outcome-terminated'); }
+
   get provLicencedRecievedYes() { return ('des-final-outcome-screen::provisional-license-recieved-option-yes'); }
 
   get provLicencedRecievedNo() { return ('des-final-outcome-screen::provisional-license-recieved-option-no'); }
@@ -39,15 +41,6 @@ class FinalOutcomePageObject extends Page {
   get passFinalisationContinueButton() { return ('des-final-outcome-screen::continue-btn'); }
 
   get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
-
-  checkTestOutcomeVisibility(testOutcomeText:string) {
-    $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
-  }
-
-  selectTerminationReasonFromList(terminationReason:string) {
-    $('ion-alert').waitForDisplayed();
-    $(`.alert-radio-label=${terminationReason}`).click();
-  }
 
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
@@ -135,8 +128,24 @@ class FinalOutcomePageObject extends Page {
   }
 
   async completeNonPassedFinalOutcomePage(
+    testOutcome:string,
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
+    // let expectedText:string = '';
+    // let testOutcomeId:string = '';
+    // eslint-disable-next-line max-len
+    // const outcome = (testOutcome == 'unsuccessful') ? expectedText === 'Failed' : expectedText === 'Terminated'
+    //
+    // if(testOutcome === 'unsuccessful') {
+    //   expectedText === 'Failed';
+    //   testOutcomeId = this.testOutcomeFailed;
+    // } else if (testOutcome === 'terminated') {
+    //   expectedText === 'Terminated';
+    //   testOutcomeId = this.testOutcomeTerminated;
+    // }
+
+    // await checkEqualsText('element', testOutcomeId, true, expectedText);
+
     await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
 
     for await (const [key, value] of Object.entries(data)) {
