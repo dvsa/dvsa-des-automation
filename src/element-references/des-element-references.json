@@ -277,6 +277,8 @@
       "control-accelerator-driver-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Control - Accelerator')]",
       "control-accelerator-driver-fault": "#controlsAccelerator-driving-text",
       "control-accelerator-driver-fault-count": "//driving-faults-debrief-card//*[@id=\"controlsAccelerator-count\"]",
+      "control-accelerator-serious-fault": "#controlsAccelerator-serious-text",
+      "control-accelerator-driver-serious-count": "//serious-faults-debrief-card//*[@id=\"controlsAccelerator-S\"]",
       "move-off-safety-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Move off - Safety')]",
       "move-off-safety-fault": "#moveOffSafety-driving-text",
       "move-off-safety-fault-count": "//driving-faults-debrief-card//*[@id=\"moveOffSafety-count\"]",
@@ -299,7 +301,7 @@
       "application-reference-container":"#application-reference-card",
       "test-outcome-text":"#test-outcome-text",
       "test-outcome-pass": "#pass-outcome-text",
-      "test-outcome-failed":"#status-fail",
+      "test-outcome-failed":"#unsuccessful-outcome-text",
       "test-outcome-terminated":"#terminated-outcome-text",
       "provisional-license-container":"#provisional-license-card",
       "provisional-license-recieved-option-yes":"#license-received",
@@ -327,8 +329,10 @@
       "continue-btn":"#pass-finalisation-continue-button",
       "fail-continue-btn": "(//*[@id='continue-button'])[3]",
       "activity-code-selector-xpath": "//*[@id='activity-code-row']//span",
-      "activity-code-21": "//*[@id='activity-code-modal-21-vehicle-/-gear-not-suitable-or-no-vehicle-for-test-label']"
-    },
+      "activity-code-21": "//*[@id='activity-code-modal-21-vehicle-/-gear-not-suitable-or-no-vehicle-for-test-label']",
+      "activity-code-4": "//*[@id='activity-code-modal-4-fail-in-the-interests-of-public-safety-label']",
+      "activity-code-5": "//*[@id='activity-code-modal-5-fail-candidate-chose-to-stop-test:-already-failed-label']"
+  },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
       "activity-code-selector":"#activity-code-selector",
@@ -406,6 +410,7 @@
       "mark-as-complete-modal-title": "#model-alert-title-text",
       "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
       "fault-comment-input": "#fault-comment-text-driving-controlsAccelerator",
-      "fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest"
+      "fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
+      "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator"
     }
 }
