@@ -124,7 +124,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment, seriousComment
+      eyesightFaultComment, seriousComment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {

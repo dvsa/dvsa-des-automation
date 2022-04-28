@@ -1,5 +1,5 @@
 Feature: Cat-B Unsuccessful with serious faults feature
-  Scenario:   Successful test with 15 faults
+  Scenario:   Unsuccessful test with serious fault
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I click on the button "des-dashboard::my-journal-btn"
