@@ -400,7 +400,7 @@
       "mark-as-complete-modal-title": "#model-alert-title-text",
       "mark-as-complete-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Continue')]",
       "driving-fault-controls-accelerator-comment-input": "#fault-comment-text-driving-controlsAccelerator",
-      "fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
+      "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator"
     }
 }

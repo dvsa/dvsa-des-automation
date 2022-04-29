@@ -38,7 +38,7 @@ class OfficePageObject extends Page {
 
   get seriousComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
 
-  get eyesightFaultComment() { return ('des-office-page::fault-comment-eyesight-input'); }
+  get eyesightFaultComment() { return ('des-office-page::serious-fault-comment-eyesight-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
