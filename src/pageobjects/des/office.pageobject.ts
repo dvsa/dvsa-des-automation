@@ -9,7 +9,8 @@ interface OfficePageData {
   distinguishingFeatures: string;
   showMeQuestion: string;
   weatherCondition: string;
-  faultComment: string
+  faultComment: string;
+  seriousComment: string;
   eyesightFaultComment: string
 }
 class OfficePageObject extends Page {
@@ -33,9 +34,11 @@ class OfficePageObject extends Page {
 
   get weatherConditionsSelector() { return ('des-office-page::weather-conditions-selector'); }
 
-  get faultComment() { return ('des-office-page::fault-comment-input'); }
+  get faultComment() { return ('des-office-page::driving-fault-controls-accelerator-comment-input'); }
 
-  get eyesightFaultComment() { return ('des-office-page::fault-comment-eyesight-input'); }
+  get seriousComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
+
+  get eyesightFaultComment() { return ('des-office-page::serious-fault-comment-eyesight-input'); }
 
   get dangerousFaultComment() { return ('des-office-page::fault-comment-dangerous-input'); }
 
@@ -123,7 +126,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment,
+      eyesightFaultComment, seriousComment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -203,6 +206,10 @@ class OfficePageObject extends Page {
           case 'eyesightfaultcomment':
             await scroll(this.eyesightFaultComment);
             await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
+            break;
+          case 'seriouscomment':
+            await scroll(this.seriousComment);
+            await setInputField('add', seriousComment, this.seriousComment);
             break;
           default:
             console.log(`Could not find ${field}`);
