@@ -8,5 +8,6 @@ export const DESSuites = {
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWith16Faults.feature',
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithSeriousFaults.feature',
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithEyesight.feature',
+    './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithDangerousFault.feature',
   ],
 };
