@@ -57,7 +57,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654334" to be displayed
-    And I expect that element "#activity-code-20654334" contains the text "3"
+    And I expect that element "#activity-code-20654334" matches the text "3"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
