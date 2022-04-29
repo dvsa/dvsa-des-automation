@@ -262,7 +262,7 @@
       "test-outcome-fail":".test-outcome-container failed",
       "test-outcome-passed":"#status-passed",
       "test-outcome-failed":"#status-fail",
-      "test-outcome-terminated":".test-outcome-container terminated",
+      "test-outcome-terminated":"#status-terminated",
       "eta" : "#ETA",
       "show-me-question":"#show-me-question",
       "end-debrief-btn": "#end-debrief-button",
@@ -286,7 +286,7 @@
       "driving-serious-fault-count": "#serious-fault-count",
       "eyesight-test-serious-text": "#eyesightTest-serious-text",
       "continue-non-pass-final-btn": "#continue-to-non-pass-finalisation",
-      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count",
+      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count"
     },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
@@ -324,7 +324,8 @@
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
       "continue-btn":"#pass-finalisation-continue-button",
       "fail-continue-btn": "(//*[@id='continue-button'])[3]",
-      "activity-code-selector": "//*[@id='activity-code-row']/ion-col[2]/ion-row[2]/ion-col[2]"
+      "activity-code-selector": "//*[@id='activity-code-row']/ion-col[2]/ion-row[2]/ion-col[1]",
+      "activity-code-selector-4": "#activity-code-modal-4-fail-in-the-interests-of-public-safety-label"
     },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",

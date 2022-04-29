@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-syntax */
-import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';
@@ -43,6 +42,8 @@ class FinalOutcomePageObject extends Page {
   get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
 
   get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector'); }
+
+  get activityCodeSelectorOption4() { return ('des-final-outcome-screen::activity-code-selector-4'); }
 
   checkTestOutcomeVisibility(testOutcomeText:string) {
     $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
@@ -201,7 +202,7 @@ class FinalOutcomePageObject extends Page {
     const {
       activityCode,
     } = data;
-    await checkEqualsText('element', this.testOutcomeFailed, true, 'Unsuccessful');
+    // await checkEqualsText('element', this.testOutcomeFailed, true, 'Unsuccessful');
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -209,10 +210,13 @@ class FinalOutcomePageObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'activitycode':
-            await scroll(this.activityCodeSelector);
+            // await scroll(this.activityCodeSelector);
+            console.log('CLicking on activity selector');
             await clickElement('click', 'selector', this.activityCodeSelector);
-            await clickElementWithText('click', 'button', activityCode);
-            // await clickElementWithText('click', 'element', 'Submit');
+            console.log('CLicking on activity');
+            if (activityCode === '4') {
+              await clickElement('click', 'selector', this.activityCodeSelectorOption4);
+            }
             break;
           case 'd255':
             await scroll(this.d255YesInput);
