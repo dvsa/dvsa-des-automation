@@ -139,12 +139,6 @@ class FinalOutcomePageObject extends Page {
   ): Promise<void> {
     const { activityCode } = data;
 
-    // if (testOutcome === 'unsuccessful') {
-    //   await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
-    // } else if (testOutcome === 'terminated') {
-    //   await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
-    // }
-
     await this.checkFinaliseOutcomeTestOutcome(testOutcome);
 
     for await (const [key, value] of Object.entries(data)) {
