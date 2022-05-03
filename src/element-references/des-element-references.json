@@ -8,7 +8,8 @@
     "candidate-driver-number": "#candidate-driver-number",
     "signature-pad-area": "#signature-pad",
     "retry-signature-btn": "#retry-icon",
-    "page-title": "#page-title"
+    "page-title": "#page-title",
+    "terminate-test-btn":  "#terminate-test-button"
   },
   "des-dashboard": {
     "page-title": "#page-title",
