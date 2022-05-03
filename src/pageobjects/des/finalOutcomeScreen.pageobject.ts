@@ -134,7 +134,7 @@ class FinalOutcomePageObject extends Page {
   }
 
   async completeNonPassedFinalOutcomePage(
-    testOutcome:string,
+    testOutcome:'unsuccessful' | 'terminated',
     data: Record<keyof NonPassedFinalOutcomeData, string>,
   ): Promise<void> {
     const { activityCode } = data;
@@ -147,7 +147,6 @@ class FinalOutcomePageObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'activitycode':
-            console.info('activityCode:    ', activityCode);
             await clickElement('click', 'selector', this.activityCodeSelector);
             await clickElement('click', 'selector', activityCode);
             if (activityCode === 'des-final-outcome-screen::activity-code-4' || activityCode === 'des-final-outcome-screen::activity-code-5') {
@@ -201,7 +200,7 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 
-  async checkFinaliseOutcomeTestOutcome(outcome:string): Promise<void> {
+  async checkFinaliseOutcomeTestOutcome(outcome: 'unsuccessful' | 'terminated'): Promise<void> {
     if (outcome === 'unsuccessful') {
       await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
     } else if (outcome === 'terminated') {
