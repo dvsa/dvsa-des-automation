@@ -1,4 +1,5 @@
 Feature: Cat-B Unsuccessful with serious faults feature
+
   Scenario:   Unsuccessful test with serious fault
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -48,7 +49,7 @@ Feature: Cat-B Unsuccessful with serious faults feature
       | identification          | photo card                                  |
       | showMeQuestion          | S1 - Rear windscreen                        |
       | weatherCondition        | 1 - Bright / dry roads                      |
-      | seriousComment          | Not done well                               |
+      | seriousFaultComment     | Not done well                               |
     And I click on the button "des-office-page::mark-as-complete"
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
