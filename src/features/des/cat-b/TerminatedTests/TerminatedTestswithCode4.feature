@@ -1,6 +1,6 @@
 Feature: Cat-B Terminated feature
 
-  Scenario:   Terminate Test with Code 21
+  Scenario:   Terminate Test with Code 4
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
