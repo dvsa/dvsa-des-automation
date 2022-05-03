@@ -9,10 +9,16 @@ interface PassedFinalOutcomeData {
   passCertNumber: string;
 }
 
+interface NonPassedFinalOutcomeData {
+  activityCode: string;
+}
+
 class FinalOutcomePageObject extends Page {
   get testOutcomePassed() { return ('des-final-outcome-screen::test-outcome-pass'); }
 
   get testOutcomeFailed() { return ('des-final-outcome-screen::test-outcome-failed'); }
+
+  get testOutcomeTerminated() { return ('des-final-outcome-screen::test-outcome-terminated'); }
 
   get provLicencedRecievedYes() { return ('des-final-outcome-screen::provisional-license-recieved-option-yes'); }
 
@@ -40,14 +46,7 @@ class FinalOutcomePageObject extends Page {
 
   get failFinalisationContinueButton() { return ('des-final-outcome-screen::fail-continue-btn'); }
 
-  checkTestOutcomeVisibility(testOutcomeText:string) {
-    $(`#test-outcome-text=='${testOutcomeText}'`).waitForDisplayed();
-  }
-
-  selectTerminationReasonFromList(terminationReason:string) {
-    $('ion-alert').waitForDisplayed();
-    $(`.alert-radio-label=${terminationReason}`).click();
-  }
+  get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector-xpath'); }
 
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
@@ -134,16 +133,26 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.passFinalisationContinueButton);
   }
 
-  async completeFailedFinalOutcomePage(
-    data: Record<keyof PassedFinalOutcomeData, string>,
+  async completeNonPassedFinalOutcomePage(
+    testOutcome:'unsuccessful' | 'terminated',
+    data: Record<keyof NonPassedFinalOutcomeData, string>,
   ): Promise<void> {
-    await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    const { activityCode } = data;
+
+    await this.checkFinaliseOutcomeTestOutcome(testOutcome);
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
+          case 'activitycode':
+            await clickElement('click', 'selector', this.activityCodeSelector);
+            await clickElement('click', 'selector', activityCode);
+            if (activityCode === 'des-final-outcome-screen::activity-code-4' || activityCode === 'des-final-outcome-screen::activity-code-5') {
+              await this.checkFinaliseOutcomeTestOutcome('unsuccessful');
+            }
+            break;
           case 'd255':
             await scroll(this.d255YesInput);
             switch (fieldInput) {
@@ -189,6 +198,14 @@ class FinalOutcomePageObject extends Page {
       }
     }
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
+  }
+
+  async checkFinaliseOutcomeTestOutcome(outcome: 'unsuccessful' | 'terminated'): Promise<void> {
+    if (outcome === 'unsuccessful') {
+      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+    } else if (outcome === 'terminated') {
+      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+    }
   }
 }
 
