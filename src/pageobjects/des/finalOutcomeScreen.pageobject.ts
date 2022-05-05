@@ -50,6 +50,8 @@ class FinalOutcomePageObject extends Page {
 
   get activityCode() { return ('des-final-outcome-screen::activity-code-21'); }
 
+  get continue() { return ('des-general::continue'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
@@ -213,7 +215,7 @@ class FinalOutcomePageObject extends Page {
   async completeNonPassedFinalOutcomeTerminatePage(): Promise<void> {
     await clickElement('click', 'selector', this.activityCodeSelector);
     await clickElement('click', 'selector', this.activityCode);
-    await clickElement('click', 'selector', this.failFinalisationContinueButton);
+    await clickElement('click', 'selector', this.continue);
   }
 }
 

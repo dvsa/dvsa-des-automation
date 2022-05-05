@@ -14,7 +14,6 @@ Feature: Cat-B   Unsuccessful Test Terminate Waiting Room Declaration feature
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the button "des-post-debrief-screen::continue-btn"
     And I complete the terminated final outcome screen
-    And I click on the button "des-final-outcome-screen::fail-continue-btn"
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Terminated                                               |
@@ -41,7 +40,7 @@ Feature: Cat-B   Unsuccessful Test Terminate Waiting Room Declaration feature
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654334" to be displayed
-    And I expect that element "#activity-code-20654334" matches the text "2"
+    And I expect that element "#activity-code-20654334" matches the text "21"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"

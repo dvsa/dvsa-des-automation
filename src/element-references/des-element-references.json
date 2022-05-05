@@ -9,7 +9,8 @@
     "signature-pad-area": "#signature-pad",
     "retry-signature-btn": "#retry-icon",
     "page-title": "#page-title",
-    "terminate-test-btn":  "#terminate-test-button"
+    "terminate-test-btn":  "#terminate-test-button",
+    "continue": ".continue"
   },
   "des-dashboard": {
     "page-title": "#page-title",
@@ -291,7 +292,8 @@
       "driving-serious-fault-count": "#serious-fault-count",
       "eyesight-test-serious-text": "#eyesightTest-serious-text",
       "continue-non-pass-final-btn": "#continue-to-non-pass-finalisation",
-      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count"
+      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count",
+      "back-button": "(//ion-back-button)[last()]"
     },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
@@ -359,7 +361,7 @@
   "des-final-confirmation-screen":{
       "page-title": "#confirm-test-details-title",
       "submit-test-results-btn":"#confirm-test-details-submit-test-results-btn",
-      "back-to-debrief-btn":"ion-button='Back to debrief'",
+      "back-to-debrief-btn":"#confirm-test-details-back-to-debrief-label",
       "date-time-of-test-row":"ion-row*='Date and time of test'",
       "test-outcome-value": "#confirm-test-details-test-outcome-value",
       "test-outcome-row":"ion-row*='Test outcome'",
