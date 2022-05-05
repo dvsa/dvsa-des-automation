@@ -48,6 +48,8 @@ class FinalOutcomePageObject extends Page {
 
   get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector-xpath'); }
 
+  get activityCode() { return ('des-final-outcome-screen::activity-code-21'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
@@ -206,6 +208,12 @@ class FinalOutcomePageObject extends Page {
     } else if (outcome === 'terminated') {
       await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
     }
+  }
+
+  async completeNonPassedFinalOutcomeTerminatePage(): Promise<void> {
+    await clickElement('click', 'selector', this.activityCodeSelector);
+    await clickElement('click', 'selector', this.activityCode);
+    await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 }
 

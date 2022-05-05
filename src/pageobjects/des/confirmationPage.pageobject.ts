@@ -41,17 +41,6 @@ class ConfirmationPageObject extends Page {
     }
     await checkEqualsText('element', this.d255Value, false, d255);
   }
-
-  async checkPassedConfirmationPageDetailsTerminated(
-    data: Record<keyof PassedConfirmationData, string>,
-  ): Promise<void> {
-    const { activityCode } = data;
-
-
-    await checkEqualsText('element', this.activityCodeValue, false, activityCode);
-
-    await checkEqualsText('element', this.d255Value, false, d255);
-  }
 }
 
 export default new ConfirmationPageObject();
