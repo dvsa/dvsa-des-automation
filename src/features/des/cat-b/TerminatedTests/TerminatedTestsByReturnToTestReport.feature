@@ -1,6 +1,5 @@
 Feature: Cat-B Terminated feature
 
-  @test
   Scenario:   Terminate Test by Returning To the test report page
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
