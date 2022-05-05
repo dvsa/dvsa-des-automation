@@ -87,10 +87,3 @@ Feature: Cat-B Terminated feature
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
-
-
-
-
-
-
-
