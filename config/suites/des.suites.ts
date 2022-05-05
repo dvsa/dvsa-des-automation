@@ -13,5 +13,6 @@ export const DESSuites = {
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode21.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode5.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsByReturnToTestReport.feature',
+    './src/features/des/cat-b/TerminatedTests/TerminatedTestsWaitingRoomToCar.feature',
   ],
 };
