@@ -66,7 +66,11 @@ Feature: Cat-B Terminated feature
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
-    And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I click on the button "des-back-to-office-holding-page::return-to-journal-btn"
+    And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "#write-up-button-20654335" to be displayed
+    And I expect that element "#write-up-button-20654335" is displayed
+    And I click on the button "#write-up-button-20654335"
     And I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |
