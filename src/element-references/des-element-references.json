@@ -8,7 +8,8 @@
     "candidate-driver-number": "#candidate-driver-number",
     "signature-pad-area": "#signature-pad",
     "retry-signature-btn": "#retry-icon",
-    "page-title": "#page-title"
+    "page-title": "#page-title",
+    "terminate-test-btn":  "#terminate-test-button"
   },
   "des-dashboard": {
     "page-title": "#page-title",
@@ -329,7 +330,7 @@
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
       "debrief-wtiness-no-input":"#debrief-witnessed-no",
       "continue-btn":"#pass-finalisation-continue-button",
-      "fail-continue-btn": "(//*[@id='continue-button'])[3]",
+      "fail-continue-btn": "(//*[@id='continue-button'])[last()]",
       "activity-code-selector-xpath": "//*[@id='activity-code-row']//span",
       "activity-code-21": "//*[@id='activity-code-modal-21-vehicle-/-gear-not-suitable-or-no-vehicle-for-test-label']",
       "activity-code-4": "//*[@id='activity-code-modal-4-fail-in-the-interests-of-public-safety-label']",
