@@ -11,7 +11,7 @@ export const DESSuites = {
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithDangerousFault.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode4.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode21.feature',
-    './src/features/des/cat-b/TerminatedTest/TerminatedTestWaitingRoomDeclaration.feature',
+    './src/features/des/cat-b/TerminatedTests/TerminatedTestWaitingRoomDeclaration.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsByReturnToTestReport.feature',
   ],
 };
