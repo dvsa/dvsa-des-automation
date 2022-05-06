@@ -158,8 +158,8 @@
       "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
       "continue-to-test-report-btn":"#continue-to-test-report-button",
       "continue-to-debrief-btn": "#confirm-eyesight-failure",
-      "end-test-btn":"(//*[@id='end-test-button'])[1]",
-      "terminate-test-btn":"#terminate-test-button"
+      "end-test-btn":"(//ion-button//*[@class='end-test-text'])[last()]",
+      "terminate-test-btn":"#terminate-test-button" 
     },
   "des-test-report-screen": {
       "page-title":"#test-report-page-title",
