@@ -48,10 +48,6 @@ class FinalOutcomePageObject extends Page {
 
   get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector-xpath'); }
 
-  get activityCode() { return ('des-final-outcome-screen::activity-code-21'); }
-
-  get continue() { return ('des-general::continue'); }
-
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
