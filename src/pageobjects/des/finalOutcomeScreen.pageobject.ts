@@ -211,12 +211,6 @@ class FinalOutcomePageObject extends Page {
       await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
     }
   }
-
-  async completeNonPassedFinalOutcomeTerminatePage(): Promise<void> {
-    await clickElement('click', 'selector', this.activityCodeSelector);
-    await clickElement('click', 'selector', this.activityCode);
-    await clickElement('click', 'selector', this.continue);
-  }
 }
 
 export default new FinalOutcomePageObject();

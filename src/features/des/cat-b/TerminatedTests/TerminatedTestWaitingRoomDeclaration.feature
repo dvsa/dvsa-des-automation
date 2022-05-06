@@ -13,7 +13,10 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
     And I click on the button "des-general::terminate-test-btn"
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the button "des-post-debrief-screen::continue-btn"
-    And I complete the terminated final outcome screen
+    And I complete the terminated final outcome screen from a data table
+      | activityCode                  | des-final-outcome-screen::activity-code-21  |
+      | d255                          | na                                          |
+      | testLanguage                  | na                                          |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Terminated                                               |
