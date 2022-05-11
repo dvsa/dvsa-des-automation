@@ -82,8 +82,23 @@ class LoginMobilePageObject {
     return (contexts.find((context) => context.title === title) || null);
   }
 
-  getSuperUser() {
-    return credentials.Environment.Dev.Super[0];
+  getUser(typeOfUser: string){
+    let user;
+    switch (typeOfUser) {
+      case 'mobexaminer1':
+        user = credentials.Environment.Dev.Super[0];
+        break;
+      case 'mobexaminer2':
+        user = credentials.Environment.Dev.mobexaminer2;
+        break;
+      case 'mobexaminer3':
+        user = credentials.Environment.Dev.mobexaminer3;
+        break;
+      default:
+        user = credentials.Environment.Dev.Super[0];
+        break;
+    }
+    return user;
   }
 
   getRandomUserType() {
@@ -104,10 +119,10 @@ class LoginMobilePageObject {
     await driver.switchContext(DESContext.id);
   }
 
-  async login(): Promise<void> {
+  async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(2000);
-    const user = this.getSuperUser();
+    const user = this.getUser(typeOfUser);
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
