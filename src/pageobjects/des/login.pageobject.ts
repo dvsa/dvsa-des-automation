@@ -82,7 +82,7 @@ class LoginMobilePageObject {
     return (contexts.find((context) => context.title === title) || null);
   }
 
-  getUser(typeOfUser: string){
+  getUser(typeOfUser: string) {
     let user;
     switch (typeOfUser) {
       case 'mobexaminer1':
