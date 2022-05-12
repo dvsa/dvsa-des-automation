@@ -15,6 +15,7 @@ import completeOfficePage from '../../app-actions/des-action/completeOfficePage'
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
 import addingFault from '../../app-actions/des-action/addingFault';
 import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
+import completeRekeyReasonPage from 'src/app-actions/des-action/completeRekeyReasonPage';
 
 When(
   /^I am signed in as a random user$/,
@@ -94,4 +95,9 @@ When(
 When(
   /^I check from a data table the number of faults are correct/,
   checkCorrectFaults,
+);
+
+When(
+  /^I complete the Rekey reason page from a data table$/,
+  completeRekeyReasonPage,
 );

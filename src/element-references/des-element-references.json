@@ -421,5 +421,21 @@
       "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator",
       "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator"
+  },
+  "des-rekey-reason-page": {
+    "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",
+    "tech-fault-radio":"#ipadIssueTechnicalFault",
+    "lost-radio":"#ipadIssueLost",
+    "transfer-label":"#transfer-label",
+    "staff-number-text":"//*[@id='staffNumber']/input",
+    "other-reason-rekey-label":"#other-specify-reason",
+    "reason-for-rekey-text":"#otherReason",
+    "upload-rekey-btn": "#rekey-reason-upload-rekey-btn",
+    "upload-modal":"#upload-rekey-modal-card",
+    "upload-btn": "//ion-button[contains(text(), 'Upload')]",
+    "upload-spinner":".loading-overlay",
+    "outcome-page":"#rekey-upload-outcome-page",
+    "return-journal-btn":"//ion-button//h3[contains(text(), 'Return to journal')]",
+    "continue-reason-rekey":"#reason-for-rekey"
   }
 }
