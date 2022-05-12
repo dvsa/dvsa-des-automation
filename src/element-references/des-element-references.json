@@ -62,7 +62,8 @@
       "show-examiner-journal-btn":"//ion-button[contains(text(), 'Show journal')]",
       "examiner-selection-modal":".alert-wrapper ion-overlay-wrapper",
       "cancel-btn-examiner-select":".alert-button-role-cancel",
-      "select-btn-examiner-select": "button[contains(text(), 'Select')]"
+      "select-btn-examiner-select": "button[contains(text(), 'Select')]",
+      "default-validation-error-message": "#default-validation-error-message"
     },
   "des-candidate-details": {
       "test-category":"data-row[ng-reflect-label='Test category']",

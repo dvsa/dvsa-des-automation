@@ -83,21 +83,7 @@ class LoginMobilePageObject {
   }
 
   getUser(typeOfUser: string) {
-    let user;
-    switch (typeOfUser) {
-      case 'mobexaminer1':
-        user = credentials.Environment.Dev.Super[0];
-        break;
-      case 'mobexaminer2':
-        user = credentials.Environment.Dev.mobexaminer2;
-        break;
-      case 'mobexaminer3':
-        user = credentials.Environment.Dev.mobexaminer3;
-        break;
-      default:
-        user = credentials.Environment.Dev.Super[0];
-        break;
-    }
+    const user = credentials.Environment.Dev[typeOfUser][0];
     return user;
   }
 
