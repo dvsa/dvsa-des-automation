@@ -1,5 +1,5 @@
 Feature: Test Centre Journal Examiner Account not deployed into a test centre
-  Scenario: Test centre Journal - Today Test
+  Scenario: Examiner accounts will not have access to the Test Centre
     Given I am signed in as a random "mobexaminer3" user
     When I wait on element "des-general::page-title" to be displayed
     Then I wait on element "des-dashboard::centre-journal-btn" to be displayed
