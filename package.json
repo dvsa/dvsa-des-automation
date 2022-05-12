@@ -68,21 +68,20 @@
     "wdio-cucumberjs-json-reporter": "^4.1.4"
   },
   "dependencies": {
+    "date-fns": "^2.21.1",
+    "webdriverio": "^7.16.16",
+    "@wdio/cucumber-framework": "^7.18.0",
     "@cucumber/cucumber": "^7.3.2",
     "@dvsa/app-dev-automation": "0.0.21",
-    "@wdio/cucumber-framework": "^7.18.0",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",
     "appium-xcuitest-driver": "^3.46.0",
     "axios": "^0.26.1",
     "browserstack-local": "^1.4.8",
-    "date-fns": "^2.21.1",
     "json-concat": "0.0.1",
     "ms-chromium-edge-driver": "^0.4.3",
-    "postinstall": "^0.7.4",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
-    "wdio-video-reporter": "^3.1.1",
-    "webdriverio": "^7.16.16"
+    "wdio-video-reporter": "^3.1.1"
   }
 }
