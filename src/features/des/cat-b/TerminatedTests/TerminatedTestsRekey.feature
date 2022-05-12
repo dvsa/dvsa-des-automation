@@ -9,8 +9,8 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the element "#previous-day"
     And I wait on element "#rekey-button-20654339" to be displayed
     And I click on the button "#rekey-button-20654339"
-    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
-    And I click on the button "des-my-journal::start-test-modal-start-test-btn"
+    # And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
+    # And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
