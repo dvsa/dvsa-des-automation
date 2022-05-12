@@ -1,6 +1,7 @@
 import { When } from '@cucumber/cucumber';
 import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/completeUnsuccessfullOfficePage';
 import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
+import completeRekeyReasonPage from 'src/app-actions/des-action/completeRekeyReasonPage';
 import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
 import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
@@ -15,7 +16,6 @@ import completeOfficePage from '../../app-actions/des-action/completeOfficePage'
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
 import addingFault from '../../app-actions/des-action/addingFault';
 import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
-import completeRekeyReasonPage from 'src/app-actions/des-action/completeRekeyReasonPage';
 
 When(
   /^I am signed in as a random user$/,
