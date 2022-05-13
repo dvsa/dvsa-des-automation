@@ -436,6 +436,8 @@
     "upload-spinner":".loading-overlay",
     "outcome-page":"#rekey-upload-outcome-page",
     "return-journal-btn":"//ion-button//h3[contains(text(), 'Return to journal')]",
-    "continue-reason-rekey":"#reason-for-rekey"
+    "continue-reason-rekey":"#reason-for-rekey",
+    "previous-day-btn":"#previous-day"
+
   }
 }

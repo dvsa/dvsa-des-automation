@@ -6,7 +6,7 @@ Feature: Cat-B Terminated with Rekey feature
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I click on the element "#previous-day"
+    And I click on the element "des-rekey-reason-page::previous-day-btn"
     And I wait on element "#rekey-button-20654339" to be displayed
     And I click on the button "#rekey-button-20654339"
     # And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
