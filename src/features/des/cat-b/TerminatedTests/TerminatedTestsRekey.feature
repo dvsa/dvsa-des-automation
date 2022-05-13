@@ -68,6 +68,10 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the element "des-rekey-reason-page::upload-btn"
     And I expect that element "des-rekey-reason-page::upload-spinner" is not displayed
     And I wait on element "des-rekey-reason-page::outcome-page" to be displayed
+    And I expect that element "des-rekey-reason-page::outcome-page" is displayed
+    And I wait on element "des-rekey-reason-page::rekey-success-text" to be displayed
+    And I expect that element "des-rekey-reason-page::rekey-success-text" is displayed
+    And I wait on element "des-rekey-reason-page::return-journal-btn" to be displayed
     And I click on the element "des-rekey-reason-page::return-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654339" to be displayed

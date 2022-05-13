@@ -437,7 +437,7 @@
     "outcome-page":"#rekey-upload-outcome-page",
     "return-journal-btn":"//ion-button//h3[contains(text(), 'Return to journal')]",
     "continue-reason-rekey":"#reason-for-rekey",
-    "previous-day-btn":"#previous-day"
-
+    "previous-day-btn":"#previous-day",
+    "rekey-success-text":".//h2[contains(text(), 'Rekeyed test uploaded successfully')]"
   }
 }
