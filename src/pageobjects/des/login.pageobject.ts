@@ -86,10 +86,8 @@ class LoginMobilePageObject {
     return credentials.Environment.Dev.Super[0];
   }
 
-  getRandomUserType() {
-    const totalUsers = credentials.Environment.Dev.Super.length;
-    const randomUserId = Math.floor(Math.random() * totalUsers) || 1;
-    return credentials.Environment.Dev.Super[randomUserId - 1];
+  getUserType(userType: string) {
+    return credentials.Environment.Dev[userType][0];
   }
 
   async clickElement(element: WebdriverIO.Element) {
@@ -104,10 +102,13 @@ class LoginMobilePageObject {
     await driver.switchContext(DESContext.id);
   }
 
-  async login(): Promise<void> {
+  async login(providedUser?: string): Promise<void> {
     // pause on app launch
     await browser.pause(2000);
-    const user = this.getSuperUser();
+    let user = this.getSuperUser();
+    if (providedUser) {
+      user = this.getUserType(providedUser);
+    }
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
