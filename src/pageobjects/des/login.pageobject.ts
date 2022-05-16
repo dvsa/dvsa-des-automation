@@ -82,10 +82,12 @@ class LoginMobilePageObject {
     return (contexts.find((context) => context.title === title) || null);
   }
 
-  getRandomUserType() {
-    const totalUsers = credentials.Environment.Dev.Super.length;
-    const randomUserId = Math.floor(Math.random() * totalUsers) || 1;
-    return credentials.Environment.Dev.Super[randomUserId - 1];
+  getSuperUser() {
+    return credentials.Environment.Dev.Super[0];
+  }
+
+  getUserType(userType: string) {
+    return credentials.Environment.Dev[userType][0];
   }
 
   async clickElement(element: WebdriverIO.Element) {
