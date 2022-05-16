@@ -31,8 +31,8 @@
       "page-title": "#page-title",
       "journal-loading-spinner": "//*[@id='journal_loading_spinner']/div",
       "todays-date-container":"#date-container",
-      "next-day-btn":"#next-day-container",
-      "previous-day-btn":"#previous-day-container",
+      "next-day-btn":"#next-day",
+      "previous-day-btn":"#previous-day",
       "rekey-test-btn":"//ion-button[contains(text(), 'Rekey')]",
       "test-time":".time-test-complete-text",
       "test-category-container":"test-category",
@@ -46,7 +46,10 @@
       "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
       "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
       "cancel-start-test-modal":"#rekey-cancel-button",
-      "journal-back-button": "//ion-header//ion-buttons/ion-back-button"
+      "journal-back-button": "//ion-header//ion-buttons/ion-back-button",
+      "day-name": "//*[@id=\"date-container\"]//h1",
+      "date": "//*[@id=\"date-container\"]//h3",
+      "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p"
     },
   "des-test-centre-journal": {
       "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
