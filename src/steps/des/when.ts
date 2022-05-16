@@ -98,6 +98,6 @@ When(
 );
 
 When(
-  /^I go (back|forward) "([^"]*)?" day and check the date is correct$/,
+  /^I go (back|forward) ([\d]+) day and check the date is correct$/,
   changeDayCheckDate,
 );

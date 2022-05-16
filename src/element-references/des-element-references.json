@@ -48,7 +48,8 @@
       "cancel-start-test-modal":"#rekey-cancel-button",
       "journal-back-button": "//ion-header//ion-buttons/ion-back-button",
       "day-name": "//*[@id=\"date-container\"]//h1",
-      "date": "//*[@id=\"date-container\"]//h3"
+      "date": "//*[@id=\"date-container\"]//h3",
+      "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p"
     },
   "des-test-centre-journal": {
       "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
