@@ -1,6 +1,5 @@
 Feature: Journal Feature
 
-  @test
   Scenario:   Examiner with no Journal information to display
     Given I am signed in as a random "super2" user
     When I wait on element "des-dashboard::page-title" to be displayed
