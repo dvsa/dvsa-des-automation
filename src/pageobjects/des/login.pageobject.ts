@@ -82,14 +82,6 @@ class LoginMobilePageObject {
     return (contexts.find((context) => context.title === title) || null);
   }
 
-  getSuperUser() {
-    return credentials.Environment.Dev.Super[0];
-  }
-
-  getUserType(userType: string) {
-    return credentials.Environment.Dev[userType][0];
-  }
-
   async clickElement(element: WebdriverIO.Element) {
     await browser.pause(500);
     await element.click();
