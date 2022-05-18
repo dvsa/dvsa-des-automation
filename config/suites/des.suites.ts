@@ -17,6 +17,7 @@ export const DESSuites = {
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode5.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsByReturnToTestReport.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsWaitingRoomToCar.feature',
+    '.src/features/des/cat-b/TerminatedTests/TerminatedTestsRekey.feature',
   ],
   successfultests: [
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature',
@@ -35,5 +36,6 @@ export const DESSuites = {
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode5.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsByReturnToTestReport.feature',
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsWaitingRoomToCar.feature',
+    '.src/features/des/cat-b/TerminatedTests/TerminatedTestsRekey.feature',
   ],
 };
