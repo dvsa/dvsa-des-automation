@@ -70,7 +70,7 @@
     },
   "des-candidate-details": {
       "test-category":"data-row[ng-reflect-label='Test category']",
-      "candidate-name":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
+      "candidate-name":"#candidates-name",
       "slot-type":"data-row[ng-reflect-label='Slot type']",
       "test-timeslot":".test-start-time",
       "driver-number":"data-row[ng-reflect-label='Driver number']",
@@ -79,7 +79,8 @@
       "additional-information":"data-row-custom[ng-reflect-label='Additional information']",
       "candidate-phone-number":"data-row[ng-reflect-label='Phone number']",
       "candidate-email":"data-row[ng-reflect-label='Email']",
-      "candidate-address":"data-row-custom[ng-reflect-label='Address']"
+      "candidate-address":"data-row-custom[ng-reflect-label='Address']",
+      "close-button": "#close-button"
     },
   "des-exam-waiting-room": {
       "candidate-number":"#candidate-driver-number",
@@ -154,12 +155,18 @@
       "instructor-registration-input":"#instructor-registration",
       "accompanied-by-container":"#accompaniment-card",
       "accompanied-instructor-option":"#accompaniment-Instructor",
+      "accompanied-instructor-label":"#accompaniment-instructor-label",
       "accompanied-supervisor-option":"#accompaniment-Supervisor",
+      "accompanied-supervisor-label":"#accompaniment-supervisor-label",
       "accompanied-interpreter-option":"#accompaniment-Interpreter",
+      "accompanied-interpreter-label":"#accompaniment-interpreter-label",
       "accompanied-other-option":"#accompaniment-Other",
+      "accompanied-other-label":"#accompaniment-other-label",
       "vehicle-details-container":"vehicle-details",
       "vehicle-details-school-car-option":"#vehicle-details-school-car",
+      "vehicle-details-school-car-label":"#vehicle-details-school-car-label",
       "vehicle-details-dual-option":"#vehicle-details-dual-control",
+      "vehicle-details-dual-label":"#vehicle-details-dual-control-label",
       "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
       "continue-to-test-report-btn":"#continue-to-test-report-button",
       "continue-to-debrief-btn": "#confirm-eyesight-failure",

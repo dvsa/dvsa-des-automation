@@ -21,6 +21,8 @@ import completeCatCDeclarationPage from '../../app-actions/des-action/completeCa
 import completeWaitingRoomToCarCatCPage
   from '../../app-actions/des-action/completeWaitingRoomToCarCatCPage';
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
+import completeWaitingRoomToCarPageDataTable
+  from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
 
 When(
   /^I am signed in as a random user$/,
@@ -50,6 +52,11 @@ When(
 When(
   /^I complete the waiting room to car page$/,
   completeWaitingRoomToCarPage,
+);
+
+When(
+  /^I complete the waiting room to car page from a data table$/,
+  completeWaitingRoomToCarPageDataTable,
 );
 
 When(
