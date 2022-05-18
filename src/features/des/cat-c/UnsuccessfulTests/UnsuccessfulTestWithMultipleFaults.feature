@@ -1,13 +1,17 @@
-Feature: Cat-B Unsuccessful With Dangerous fault
+Feature: Cat-C Unsuccessful Tests
 
-  Scenario: Unsuccessful test with 1 dangerous fault
-    Given I am signed in as a random "mobexaminer1" user
+  Scenario: Unsuccessful test with multiple different faults
+    Given I am signed in as a random "mobexaminer3" user
     When I wait on element "des-dashboard::page-title" to be displayed
-    And I expect that container "des-dashboard::staff-number" contains the text "1234567"
+    And I expect that container "des-dashboard::staff-number" contains the text "28371932"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#start-test-button-20654334" to be displayed
-    And I click on the button "#start-test-button-20654334"
+    And I wait on element "#start-test-button-32345600" to be displayed
+    And I click on the element "#name-32345600"
+    And I expect that element "des-candidate-details::candidate-name" is displayed
+    And I click on the element "des-candidate-details::close-button"
+    And I wait on element "#start-test-button-32345600" to be displayed
+    And I click on the button "#start-test-button-32345600"
     And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
@@ -15,13 +19,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page from a data table
-      | eyesightTest            | pass             |
-      | tellMeQuestion          | T1 - Brakes      |
-      | tellMeQuestionFault     | correct          |
-      | vehicleRegNum           | vehreg           |
-      | transmission            | manual           |
-    And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
+    And I complete the waiting room to car page
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements
     And I click on the element "des-test-report-screen::dangerous-fault-btn"
@@ -68,8 +66,8 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#activity-code-20654334" to be displayed
-    And I expect that element "#activity-code-20654334" matches the text "2"
+    And I wait on element "#activity-code-32345600" to be displayed
+    And I expect that element "#activity-code-32345600" matches the text "2"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
