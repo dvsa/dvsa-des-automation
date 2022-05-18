@@ -1,5 +1,6 @@
 Feature: Cat-B Successful feature
 
+  @test
   Scenario:   Successful Test with no faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -15,7 +16,15 @@ Feature: Cat-B Successful feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page
+    And I complete the waiting room to car page from a data table
+      | eyesightTest            | pass             |
+      | tellMeQuestion          | T1 - Brakes      |
+      | tellMeQuestionFault     | correct          |
+      | vehicleRegNum           | vehreg           |
+      | transmission            | manual           |
+      | accompaniedBy           | instructor       |
+      | vehicleDetails          | school car       |
+    And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements
     And I click on the button "des-test-report-screen::end-test-btn"
