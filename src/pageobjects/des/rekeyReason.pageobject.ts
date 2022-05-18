@@ -2,7 +2,7 @@ import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
 
-interface OfficePageData {
+interface RekeyReasonPageData {
   ipadIssue: string;
   transfer: string;
   other: string;
@@ -23,7 +23,7 @@ class RekeyReasonPageObject extends Page {
   get staffNumberText() { return ('des-rekey-reason-page::staff-number-text'); }
 
   async completeRekeyReasonPage(
-    data: Record<keyof OfficePageData, string>,
+    data: Record<keyof RekeyReasonPageData, string>,
   ): Promise<void> {
     const {
       transfer, other,
@@ -33,20 +33,15 @@ class RekeyReasonPageObject extends Page {
       const field = key.toLowerCase();
       const fieldInput = value.toLowerCase();
 
-      console.log('WOW: ', field, fieldInput);
-
       if (fieldInput !== 'na') {
         switch (field) {
           case 'ipad':
-            console.log('Tick Ipad');
             await clickElement('click', 'selector', this.ipadIssueChexbox);
             switch (fieldInput) {
               case 'tech':
-                console.log('Tick tech');
                 await clickElement('click', 'selector', this.techFaultRadio);
                 break;
               case 'lost':
-                console.log('Tick lost');
                 await clickElement('click', 'selector', this.lostRadio);
                 break;
               default:
@@ -54,15 +49,11 @@ class RekeyReasonPageObject extends Page {
             }
             break;
           case 'transfer':
-            console.log('Ticking transfer');
             await clickElement('click', 'selector', this.transferCheckbox);
-            console.log('Typing transfer');
             await setInputField('set', transfer, this.staffNumberText);
             break;
           case 'other':
-            console.log('Ticking other');
             await clickElement('click', 'selector', this.otherReasonCheckbox);
-            console.log('Typing other');
             await setInputField('set', other, this.otherReasonText);
             break;
           default:

@@ -28,14 +28,14 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the element "des-post-debrief-screen::continue-btn"
     And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
     And I complete the terminated final outcome screen from a data table
-      | activityCode                  | des-final-outcome-screen::activity-code-21   |
+      | activityCode                  | des-final-outcome-screen::activity-code-25   |
       | d255                          | na                                           |
-      | testLanguage                  | na                                           |
-      | debriefWitnessed              | na                                           |
+      | testLanguage                  | Cymraeg                                      |
+      | debriefWitnessed              | No                                           |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Terminated                                                    |
-      | activityCode          | 21 - Vehicle / gear not suitable or no vehicle for test       |
+      | activityCode          | 25 - DVSA radio failure                                     |
       | testCategory          | B                                                             |
       | provLicenceRecieved   | na                                                            |
       | transmission          | na                                                            |
@@ -48,13 +48,13 @@ Feature: Cat-B Terminated with Rekey feature
     And I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |
-      | routeNumber             | NA                                          |
-      | independentDriving      | NA                                          |
-      | trueLikeness            | no                                          |
-      | distinguishingFeatures  | Tall, red shirt, brown hair. 5 foot tall    |
-      | identification          | photo card                                  |
-      | showMeQuestion          | NA                                          |
-      | weatherCondition        | 1 - Bright / dry roads                      |
+      | routeNumber             | 56                                          |
+      | independentDriving      | Traffic Signs                               |
+      | trueLikeness            | yes                                         |
+      | distinguishingFeatures  | Small, blue shirt, black hair. 8 foot tall  |
+      | identification          | passport                                    |
+      | showMeQuestion          | S2 - Front windscreen                       |
+      | weatherCondition        | 2 - Bright / wet roads                      |
       | seriousFaultComment     | NA                                          |
     And I click on the element "des-rekey-reason-page::continue-reason-rekey"
     And I complete the Rekey reason page from a data table
@@ -73,7 +73,7 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the element "des-rekey-reason-page::return-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654339" to be displayed
-    And I expect that element "#activity-code-20654339" matches the text "21"
+    And I expect that element "#activity-code-20654339" matches the text "25"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
