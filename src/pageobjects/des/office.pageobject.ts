@@ -36,7 +36,11 @@ class OfficePageObject extends Page {
 
   get weatherConditionsSelector() { return ('des-office-page::weather-conditions-selector'); }
 
+  get faultCommentControlsAccelerator() { return ('des-office-page::driving-fault-controls-accelerator-comment-input'); }
+
   get eyesightFaultComment() { return ('des-office-page::serious-fault-comment-eyesight-input'); }
+
+  get dangerousFaultCommentControlsAccelerator() { return ('des-office-page::fault-comment-dangerous-controls-accelerator-input'); }
 
   get seriousFaultComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
 
@@ -198,8 +202,8 @@ class OfficePageObject extends Page {
             await clickElementWithText('click', 'element', 'Submit');
             break;
           case 'faultcomment':
-            // eslint-disable-next-line no-case-declarations
-            const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
+            // eslint-disable-next-line max-len,no-case-declarations
+            const getElementRefForPage = await getElementByReference(this.genericFaultCommentBox);
             // eslint-disable-next-line no-case-declarations
             const nrOfElements = await $$(getElementRefForPage);
             for (let i = 0; i < nrOfElements.length; i += 1) {
