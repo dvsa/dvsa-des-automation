@@ -1,5 +1,6 @@
 Feature: Cat-C Unsuccessful Tests
 
+#  @test
   Scenario: Unsuccessful test with multiple different faults
     Given I am signed in as a random "mobexaminer3" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -15,11 +16,25 @@ Feature: Cat-C Unsuccessful Tests
     And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
+    When I add "A123456X" to the inputfield "des-exam-waiting-room::manoeuvres-pass-cert-num"
     And I complete the waiting room declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page
+    And I complete the waiting room to car page from a data table for a category "C"
+      | vehicleRegNum            | vehreg                             |
+      | showMeQuestion1          | Q1 - All doors secure              |
+      | showMeQuestion2          | Q2 - Air leaks                     |
+      | showMeQuestion3          | Q13 - Check audible warnings       |
+      | tellMeQuestion1          | Q3 - Safety factors while loading  |
+      | tellMeQuestion2          | Q16 - Engine coolant               |
+      | showMeQuestion1Fault     | correct                            |
+      | showMeQuestion2Fault     | correct                            |
+      | showMeQuestion3Fault     | correct                            |
+      | tellMeQuestion1Fault     | correct                            |
+      | tellMeQuestion2Fault     | correct                            |
+      | accompaniedBy            | other                              |
+    And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements
     And I click on the element "des-test-report-screen::dangerous-fault-btn"

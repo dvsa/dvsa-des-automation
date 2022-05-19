@@ -99,8 +99,9 @@
       "vrn-modal-save-btn":".save-button",
       "enter-signature-err-msg":"#waiting-room-signature-validation-text",
       "insurance-declaration-unchecked-validation-error":"#waiting-room-insurance-validation-text",
-      "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
-    },
+      "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text",
+      "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']/input"
+  },
   "des-comms-screen": {
       "continue-btn": "//app-communication//ion-button[*[contains(text(), 'Continue')]]",
       "privacy-notice-text":".privacy-text",
@@ -171,8 +172,25 @@
       "continue-to-test-report-btn":"#continue-to-test-report-button",
       "continue-to-debrief-btn": "#confirm-eyesight-failure",
       "end-test-btn":"(//ion-button//*[@class='end-test-text'])[last()]",
-      "terminate-test-btn":"#terminate-test-button"
-    },
+      "terminate-test-btn":"#terminate-test-button",
+      "vehicle-checks-show-questions-button": "#vehicle-check-select-questions-btn",
+      "first-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[1]",
+      "second-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[2]",
+      "third-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[3]",
+      "first-tell-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[4]",
+      "second-tell-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[5]",
+      "first-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[1]",
+      "first-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[1]",
+      "second-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[2]",
+      "second-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[2]",
+      "third-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[3]",
+      "third-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[3]",
+      "first-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[4]",
+      "first-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[4]",
+      "second-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[5]",
+      "second-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[5]",
+      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label"
+  },
   "des-test-report-screen": {
       "page-title":"#test-report-page-title",
       "end-test-btn": "(//*[@id='end-test-button'])[2]",
