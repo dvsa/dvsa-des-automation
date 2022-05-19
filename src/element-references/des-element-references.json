@@ -290,8 +290,11 @@
       "competency-btn-traffic-controllers":"competency-button='Traffic controllers'",
       "competency-btn-other-road-users":"competency-button='Other road users'",
       "end-test-continue-to-debrief-btn": "#end-test-continue-button",
-      "end-test-terminate-test-btn": "#end-test-terminate-button"
-    },
+      "end-test-terminate-test-btn": "#end-test-terminate-button",
+      "test-requirement-uh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"uphillStart\")]//*[@id=\"legal-requirements-tick-UH\"]/tick-indicator",
+      "test-requirement-dh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"downhillStart\")]//*[@id=\"legal-requirements-tick-DH\"]/tick-indicator",
+      "test-requirement-as-cs-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"angledStartControlledStop\")]//*[@id=\"legal-requirements-tick-AS/CS\"]/tick-indicator"
+  },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
       "test-outcome-fail":".test-outcome-container failed",

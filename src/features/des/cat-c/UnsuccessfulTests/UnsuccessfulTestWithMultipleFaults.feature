@@ -1,6 +1,6 @@
 Feature: Cat-C Unsuccessful Tests
 
-#  @test
+  @test
   Scenario: Unsuccessful test with multiple different faults
     Given I am signed in as a random "mobexaminer3" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -36,10 +36,11 @@ Feature: Cat-C Unsuccessful Tests
       | accompaniedBy            | other                              |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
-    And I select all legal requirements
+    And I select all legal requirements for a category "C"
     And I click on the element "des-test-report-screen::dangerous-fault-btn"
     And I add "1" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "0"
+    And I pause for 10000ms
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed

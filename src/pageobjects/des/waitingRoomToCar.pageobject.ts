@@ -171,7 +171,7 @@ class WaitingRoomPageToCarObject extends Page {
     await clickElement('click', 'selector', this.continueToTestReportButton);
   }
 
-  async addVehicleQuestion(question:string, value:string): Promise<void>{
+  async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
     await clickElementWithText('click', 'button', value);
     await clickElementWithText('click', 'element', 'Submit');
@@ -192,7 +192,6 @@ class WaitingRoomPageToCarObject extends Page {
                 break;
               case 'fail':
                 await clickElement('click', 'selector', this.eyeSightFailLabel);
-                await clickElement('click', 'selector', this.continueToDebriefButton);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);

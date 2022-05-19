@@ -87,6 +87,18 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::legal-requirements-label-AS-CS');
   }
 
+  get uhLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-uh-tick');
+  }
+
+  get dhLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-dh-tick');
+  }
+
+  get asCsLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-as-cs-tick');
+  }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
@@ -96,7 +108,7 @@ class TestReportPageObject extends Page {
     return $(`.section-header="${headertitle}"`).waitForDisplayed();
   }
 
-  async completeLegalRequirements(): Promise<void> {
+  async completeLegalRequirementsForCatB(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
     await longClickElement(this.firstASLegalReqTick, 500);
@@ -109,14 +121,27 @@ class TestReportPageObject extends Page {
     await longClickElement(this.showTellLegalReqTick, 500);
   }
 
-  async completeLegalCatCRequirements(): Promise<void> {
+  async completeLegalRequirementsForCatC(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
+    await longClickElement(this.uhLegalReqTick, 500);
+    await longClickElement(this.dhLegalReqTick, 500);
+    await longClickElement(this.asCsLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
-    await longClickElement(this.ecoPButton, 500);
-    await longClickElement(this.legalRequirementsLabelDH, 500);
-    await longClickElement(this.legalRequirementsLabelUH, 500);
-    await longClickElement(this.legalRequirementsLabelASCS, 500);
+  }
+
+  async completeLegalRequirements(category:string): Promise<void> {
+    const cat = category.toLowerCase();
+    switch (cat) {
+      case 'b':
+        await this.completeLegalRequirementsForCatB();
+        break;
+      case 'c':
+        await this.completeLegalRequirementsForCatC();
+        break;
+      default:
+        console.info(`${cat} does not exist`);
+    }
   }
 
   async addingFault(faultCount:number, fault: string, selector: string): Promise<void> {
