@@ -16,6 +16,7 @@ export const config: WebdriverIO.Config = {
       paths: {
         '@shared-boilerplate/*': ['shared/boilerplate/*'],
         '@shared-custom/*': ['shared/custom/*'],
+        '@shared-helpers/*': ['shared/helpers/*'],
       },
     },
   },
@@ -189,6 +190,7 @@ export const config: WebdriverIO.Config = {
     require: [
       './shared/boilerplate/steps/*.ts',
       './shared/custom/steps/**/*.ts',
+      './shared/helpers/*.ts',
       // Or search a (sub)folder for JS files with a wildcard
       // works since version 1.1 of the wdio-cucumber-framework
       // './src/**/*.js',

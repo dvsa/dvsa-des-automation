@@ -31,8 +31,8 @@
       "page-title": "#page-title",
       "journal-loading-spinner": "//*[@id='journal_loading_spinner']/div",
       "todays-date-container":"#date-container",
-      "next-day-btn":"#next-day-container",
-      "previous-day-btn":"#previous-day-container",
+      "next-day-btn":"#next-day",
+      "previous-day-btn":"#previous-day",
       "rekey-test-btn":"//ion-button[contains(text(), 'Rekey')]",
       "test-time":".time-test-complete-text",
       "test-category-container":"test-category",
@@ -46,7 +46,10 @@
       "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
       "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
       "cancel-start-test-modal":"#rekey-cancel-button",
-      "journal-back-button": "//ion-header//ion-buttons/ion-back-button"
+      "journal-back-button": "//ion-header//ion-buttons/ion-back-button",
+      "day-name": "//*[@id=\"date-container\"]//h1",
+      "date": "//*[@id=\"date-container\"]//h3",
+      "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p"
     },
   "des-test-centre-journal": {
       "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
@@ -349,14 +352,15 @@
       "lang-pref-cymraeg-input":"#lang-pref-welsh",
       "debrief-witness-card":"#debrief-card",
       "debrief-witness-yes-input":"#debrief-witnessed-yes",
-      "debrief-wtiness-no-input":"#debrief-witnessed-no",
+      "debrief-witness-no-input":"#debrief-witnessed-no",
       "continue-btn":"#pass-finalisation-continue-button",
       "fail-continue-btn": "(//*[@id='continue-button'])[last()]",
       "activity-code-selector-xpath": "//*[@id='activity-code-row']//span",
       "activity-code-21": "//*[@id='activity-code-modal-21-vehicle-/-gear-not-suitable-or-no-vehicle-for-test-label']",
       "activity-code-4": "//*[@id='activity-code-modal-4-fail-in-the-interests-of-public-safety-label']",
       "activity-code-5": "//*[@id='activity-code-modal-5-fail-candidate-chose-to-stop-test:-already-failed-label']",
-      "activity-code-27": "//*[@id='activity-code-modal-27-language-issues-label']"
+      "activity-code-27": "//*[@id='activity-code-modal-27-language-issues-label']",
+      "activity-code-25": "//*[@id='activity-code-modal-25-dvsa-radio-failure-label']"
   },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
@@ -439,5 +443,23 @@
       "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator",
       "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator"
+  },
+  "des-rekey-reason-page": {
+    "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",
+    "tech-fault-radio":"#ipadIssueTechnicalFault",
+    "lost-radio":"#ipadIssueLost",
+    "transfer-label":"#transfer-label",
+    "staff-number-text":"//*[@id='staffNumber']/input",
+    "other-reason-rekey-label":"#other-specify-reason",
+    "reason-for-rekey-text":"#otherReason",
+    "upload-rekey-btn": "#rekey-reason-upload-rekey-btn",
+    "upload-modal":"#upload-rekey-modal-card",
+    "upload-btn": "//ion-button[contains(text(), 'Upload')]",
+    "upload-spinner":".loading-overlay",
+    "outcome-page":"#rekey-upload-outcome-page",
+    "return-journal-btn":"//ion-button//h3[contains(text(), 'Return to journal')]",
+    "continue-reason-rekey":"#reason-for-rekey",
+    "previous-day-btn":"#previous-day",
+    "rekey-success-text":".//h2[contains(text(), 'Rekeyed test uploaded successfully')]"
   }
 }

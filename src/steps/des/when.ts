@@ -1,6 +1,7 @@
 import { When } from '@cucumber/cucumber';
 import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/completeUnsuccessfullOfficePage';
 import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
+import completeRekeyReasonPage from 'src/app-actions/des-action/completeRekeyReasonPage';
 import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
 import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
@@ -19,6 +20,7 @@ import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults'
 import completeCatCDeclarationPage from '../../app-actions/des-action/completeCatCDeclarationPage';
 import completeWaitingRoomToCarCatCPage
   from '../../app-actions/des-action/completeWaitingRoomToCarCatCPage';
+import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
 
 When(
   /^I am signed in as a random user$/,
@@ -113,4 +115,14 @@ When(
 When(
   /^I check from a data table the number of faults are correct/,
   checkCorrectFaults,
+);
+
+When(
+  /^I go (back|forward) ([\d]+) day and check the date is correct$/,
+  changeDayCheckDate,
+);
+
+When(
+  /^I complete the Rekey reason page from a data table$/,
+  completeRekeyReasonPage,
 );
