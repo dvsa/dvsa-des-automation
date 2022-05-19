@@ -177,6 +177,12 @@ class WaitingRoomPageToCarObject extends Page {
     await clickElementWithText('click', 'element', 'Submit');
   }
 
+  async addVehicleQuestion(question:string, value:string): Promise<void>{
+    await clickElement('click', 'selector', question);
+    await clickElementWithText('click', 'button', value);
+    await clickElementWithText('click', 'element', 'Submit');
+  }
+
   async completeWRTCPageForCatB(
     data: Record<keyof CombinedInterface, any>,
   ): Promise<void> {
