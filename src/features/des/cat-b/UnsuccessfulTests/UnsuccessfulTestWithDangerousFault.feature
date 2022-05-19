@@ -63,7 +63,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
       | identification          | photo card                                  |
       | showMeQuestion          | S1 - Rear windscreen                        |
       | weatherCondition        | 1 - Bright / dry roads                      |
-      | faultComment            | dangerous                                   |
+      | faultComment            | Commenting on faults, there were a some.    |
     And I click on the button "des-office-page::mark-as-complete"
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"

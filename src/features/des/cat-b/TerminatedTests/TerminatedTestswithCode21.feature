@@ -61,7 +61,6 @@ Feature: Cat-B Terminated feature
       | identification          | photo card                                  |
       | showMeQuestion          | NA                                          |
       | weatherCondition        | 1 - Bright / dry roads                      |
-      | faultComment            | NA                                          |
     And I click on the button "des-office-page::mark-as-complete"
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"

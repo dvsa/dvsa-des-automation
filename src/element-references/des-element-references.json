@@ -325,7 +325,12 @@
       "driving-serious-fault-count": "#serious-fault-count",
       "eyesight-test-serious-text": "#eyesightTest-serious-text",
       "continue-non-pass-final-btn": "#continue-to-non-pass-finalisation",
-      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count",
+      "dangerous-fault-count": "#dangerous-fault-count",
+      "serious-fault-count": "#serious-fault-count",
+      "vehicle-checks-serious-fault": "#vehicleChecks-serious-text",
+      "vehicle-checks-driving-fault": "#vehicleChecks-driving-text",
+      "vehicle-checks-driving-fault-count": "#vehicleChecks-count",
+      "control-clutch-dangerous-fault": "#controlsClutch-driving-text",
       "back-button": "(//ion-back-button)[last()]"
     },
   "des-post-debrief-screen":{
@@ -427,6 +432,7 @@
       "route-number-validation":"#office-route-number-validation-text",
       "independant-driving-sat-nav-input":"#independent-driving-satnav",
       "independant-driving-traffice-signs-input":"#independent-driving-trafficsigns",
+      "independant-driving-diagram-input":"#independent-driving-diagram",
       "independant-driving-validation":"#office-independent-driving-validation-text",
       "candidate-true-likeness-yes-input": "#true-likeness-yes",
       "candidate-true-likeness-no-input": "#true-likeness-no",
@@ -452,7 +458,8 @@
       "driving-fault-controls-accelerator-comment-input": "#fault-comment-text-driving-controlsAccelerator",
       "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator",
-      "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator"
+      "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator",
+      "general-fault-comment-input": "//fault-comment//textarea"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",
