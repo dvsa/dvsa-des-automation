@@ -1,6 +1,6 @@
 Feature: Cat-C Unsuccessful Tests
 
-#  @test
+  @test
   Scenario: Unsuccessful test with multiple different faults
     Given I am signed in as a random "mobexaminer3" user
     When I wait on element "des-dashboard::page-title" to be displayed

@@ -99,6 +99,18 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::test-requirement-as-cs-tick');
   }
 
+  get uhLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-uh-tick');
+  }
+
+  get dhLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-dh-tick');
+  }
+
+  get asCsLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-as-cs-tick');
+  }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
