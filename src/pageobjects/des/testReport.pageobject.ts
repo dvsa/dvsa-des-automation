@@ -68,6 +68,30 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::dangerous-fault-btn');
   }
 
+  get firstASCSLegalReqTick() {
+    return ('des-test-report-screen::dangerous-fault-btn');
+  }
+
+  get ecoPButton() {
+    return ('des-test-report-screen::eco-p-button');
+  }
+
+  get ecoCButton() {
+    return ('des-test-report-screen::eco-c-button');
+  }
+
+  get legalRequirementsLabelDH() {
+    return ('des-test-report-screen::legal-requirements-label-DH');
+  }
+
+  get legalRequirementsLabelUH() {
+    return ('des-test-report-screen::legal-requirements-label-UH');
+  }
+
+  get legalRequirementsLabelASCS() {
+    return ('des-test-report-screen::legal-requirements-label-AS-CS');
+  }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
@@ -88,6 +112,17 @@ class TestReportPageObject extends Page {
     await longClickElement(this.maneuversLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.showTellLegalReqTick, 500);
+  }
+
+  async completeLegalCatCRequirements(): Promise<void> {
+    await longClickElement(this.firstNSLegalReqTick, 500);
+    await longClickElement(this.secondNSLegalReqTick, 500);
+    await longClickElement(this.firstASCSLegalReqTick, 500);
+    await longClickElement(this.ecoLegalReqTick, 500);
+    await longClickElement(this.ecoPButton, 500);
+    await longClickElement(this.legalRequirementsLabelDH, 500);
+    await longClickElement(this.legalRequirementsLabelUH, 500);
+    await longClickElement(this.legalRequirementsLabelASCS, 500);
   }
 
   async addingFault(faultCount:number, fault: string, selector: string): Promise<void> {
