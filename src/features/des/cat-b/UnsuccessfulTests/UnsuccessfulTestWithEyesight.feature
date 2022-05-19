@@ -15,8 +15,9 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page from a data table
+    And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | fail             |
+    And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                         | numberOfFaults      |
