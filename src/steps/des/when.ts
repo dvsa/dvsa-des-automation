@@ -90,7 +90,7 @@ When(
 );
 
 When(
-  /^I select all legal requirements$/,
+  /^I select all legal requirements for a category "([^"]*)?"$/,
   completeLegalRequirements,
 );
 
