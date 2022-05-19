@@ -45,7 +45,7 @@ When(
 );
 
 When(
-  /^I complete the waiting room to car page from a data table$/,
+  /^I complete the waiting room to car page from a data table for a category "([^"]*)?"$/,
   completeWaitingRoomToCarPageDataTable,
 );
 

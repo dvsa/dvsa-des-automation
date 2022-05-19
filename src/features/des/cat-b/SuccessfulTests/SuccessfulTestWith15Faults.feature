@@ -15,7 +15,7 @@ Feature: Cat-B Successful feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page from a data table
+    And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
       | tellMeQuestionFault     | correct          |
