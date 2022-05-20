@@ -29,11 +29,6 @@ interface WaitingRoomToCarPageDataCatC {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
-// interface CombinedInterface {
-//   catB: WaitingRoomToCarPageDataCatB
-//   catC: WaitingRoomToCarPageDataCatC
-// }
-
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
 
@@ -102,17 +97,6 @@ class WaitingRoomPageToCarObject extends Page {
   get submitVehicleChecks() { return ('des-waiting-room-to-car::submit-vehicle-checks'); }
 
   get continueToDebriefButton() { return ('des-waiting-room-to-car::continue-to-debrief-btn'); }
-
-  async completeWRTCPage(): Promise<void> {
-    await clickElement('click', 'selector', this.eyeSightPassLabel);
-    await clickElement('click', 'selector', this.tellMeSeclector);
-    await clickElementWithText('click', 'button', 'T1 - Brakes');
-    await clickElementWithText('click', 'element', 'Submit');
-    await clickElement('click', 'selector', this.tellMeAnswerCorrectLabel);
-    await setInputField('add', 'vehreg', this.vehRegInput);
-    await clickElement('click', 'selector', this.manualTransmissionLabel);
-    await clickElement('click', 'selector', this.continueToTestReportButton);
-  }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -324,23 +308,6 @@ class WaitingRoomPageToCarObject extends Page {
       }
     }
   }
-
-  // async completeWRTCPageDataTable(
-  //   data: Record<keyof CombinedInterface, string>,
-  //   category:string,
-  // ): Promise<void> {
-  //   const cat = category.toLowerCase();
-  //   switch (cat) {
-  //     case 'b':
-  //       await this.completeWRTCPageForCatB(data.catB);
-  //       break;
-  //     case 'c':
-  //       await this.completeWRTCPageForCatC(data);
-  //       break;
-  //     default:
-  //       console.info(`${cat} does not exist`);
-  //   }
-  // }
 
   async completeWRTCPageDataTable(
     data: Record<string, string>,
