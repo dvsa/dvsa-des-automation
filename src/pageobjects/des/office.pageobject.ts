@@ -14,6 +14,8 @@ interface OfficePageData {
   eyesightFaultComment: string
 }
 class OfficePageObject extends Page {
+  /* eslint-disable no-case-declarations, no-await-in-loop */
+
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
 
   get satNavButton() { return ('des-office-page::independant-driving-sat-nav-input'); }
@@ -198,15 +200,11 @@ class OfficePageObject extends Page {
             await clickElementWithText('click', 'element', 'Submit');
             break;
           case 'faultcomment':
-            // eslint-disable-next-line no-case-declarations
             const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
-            // eslint-disable-next-line no-case-declarations
             const nrOfElements = await $$(getElementRefForPage);
             for (let i = 0; i < nrOfElements.length; i += 1) {
               const faultCommentElement = `(${nrOfElements[i].selector})[${i + 1}]`;
-              // eslint-disable-next-line no-await-in-loop
               await scroll(faultCommentElement);
-              // eslint-disable-next-line no-await-in-loop
               await setInputField('add', faultComment, faultCommentElement);
             }
             break;
