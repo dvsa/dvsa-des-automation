@@ -13,9 +13,13 @@ import completePassedFinalOutcomePage from '../../app-actions/des-action/complet
 import completeHealthDeclarationPage from '../../app-actions/des-action/completeHealthDeclarationPage';
 import checkConfirmationPageDetails from '../../app-actions/des-action/checkConfirmationPageDetails';
 import completeOfficePage from '../../app-actions/des-action/completeOfficePage';
+import completeLegalCatCRequirements from '../../app-actions/des-action/completeCatCLegalRequirements';
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
 import addingFault from '../../app-actions/des-action/addingFault';
 import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
+import completeCatCDeclarationPage from '../../app-actions/des-action/completeCatCDeclarationPage';
+import completeWaitingRoomToCarCatCPage
+  from '../../app-actions/des-action/completeWaitingRoomToCarCatCPage';
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
 
 When(
@@ -34,6 +38,11 @@ When(
 );
 
 When(
+  /^I complete the waiting room Cat C declaration page$/,
+  completeCatCDeclarationPage,
+);
+
+When(
   /^I complete the waiting room communication page$/,
   completeComunicationPage,
 );
@@ -41,6 +50,11 @@ When(
 When(
   /^I complete the waiting room to car page$/,
   completeWaitingRoomToCarPage,
+);
+
+When(
+  /^I complete the waiting room to car page CAT C$/,
+  completeWaitingRoomToCarCatCPage,
 );
 
 When(
@@ -86,6 +100,11 @@ When(
 When(
   /^I select all legal requirements$/,
   completeLegalRequirements,
+);
+
+When(
+  /^I select all legal requirements Cat C$/,
+  completeLegalCatCRequirements,
 );
 
 When(

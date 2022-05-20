@@ -1,3 +1,4 @@
+import setInputField from '@shared-boilerplate/support/action/setInputField';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 
@@ -14,7 +15,17 @@ class WaitingRoomPageObject extends Page {
 
   get byPostRadioButton() { return ('des-comms-screen::by-post-radio-btn'); }
 
+  get manoeuvresPassCertNumberInput() { return ('des-final-outcome-screen::manoeuvres-pass-cert-number'); }
+
   async completeDeclartionPage(): Promise<void> {
+    await clickElement('click', 'selector', this.insuranceDeclarationLabel);
+    await clickElement('click', 'selector', this.residencyDeclarationLabel);
+    await clickElement('click', 'selector', this.signatureAreaXpath);
+    await clickElement('click', 'selector', this.declarationContinueButton);
+  }
+
+  async completeCatCDeclarationPage(): Promise<void> {
+    await setInputField('add', 'C123456X', this.manoeuvresPassCertNumberInput);
     await clickElement('click', 'selector', this.insuranceDeclarationLabel);
     await clickElement('click', 'selector', this.residencyDeclarationLabel);
     await clickElement('click', 'selector', this.signatureAreaXpath);
