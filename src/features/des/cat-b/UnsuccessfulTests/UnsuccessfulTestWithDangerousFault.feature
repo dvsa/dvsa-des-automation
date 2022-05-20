@@ -32,7 +32,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                            | numberOfFaults      |
-      | des-debrief-screen::control-accelerator-driver-fault          | Control - Accelerator            | des-debrief-screen::control-accelerator-dangerous-fault-count | 1                   |
+      | des-debrief-screen::control-accelerator-driver-fault          | Control - Accelerator            | des-debrief-screen::dangerous-fault-count                     | 1                   |
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-debrief-screen::continue-non-pass-final-btn"
     And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
