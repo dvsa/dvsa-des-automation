@@ -14,9 +14,14 @@ Feature: Cat-B Terminated with Rekey feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page
+    And I complete the waiting room to car page from a data table for a category "B"
+      | eyesightTest            | pass             |
+      | tellMeQuestion          | T1 - Brakes      |
+      | tellMeQuestionFault     | correct          |
+      | vehicleRegNum           | vehreg           |
+      | transmission            | manual           |
     And I wait on element "des-test-report-screen::page-title" to be displayed
-    And I select all legal requirements
+    And I select all legal requirements for a category "B"
     And I add "1" serious fault to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-terminate-test-btn"
@@ -62,7 +67,7 @@ Feature: Cat-B Terminated with Rekey feature
       | transfer             | 123456                                      |
       | other                | Other Testing                               |
     And I click on the button "des-rekey-reason-page::upload-rekey-btn"
-        And I wait on element "des-rekey-reason-page::upload-modal" to be displayed
+    And I wait on element "des-rekey-reason-page::upload-modal" to be displayed
     And I click on the element "des-rekey-reason-page::upload-btn"
     And I expect that element "des-rekey-reason-page::upload-spinner" is not displayed
     And I wait on element "des-rekey-reason-page::outcome-page" to be displayed
