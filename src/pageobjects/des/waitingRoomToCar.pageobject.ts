@@ -29,11 +29,6 @@ interface WaitingRoomToCarPageDataCatC {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
-// interface CombinedInterface {
-//   catB: WaitingRoomToCarPageDataCatB
-//   catC: WaitingRoomToCarPageDataCatC
-// }
-
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
 
@@ -387,23 +382,6 @@ class WaitingRoomPageToCarObject extends Page {
       }
     }
   }
-
-  // async completeWRTCPageDataTable(
-  //   data: Record<keyof CombinedInterface, string>,
-  //   category:string,
-  // ): Promise<void> {
-  //   const cat = category.toLowerCase();
-  //   switch (cat) {
-  //     case 'b':
-  //       await this.completeWRTCPageForCatB(data.catB);
-  //       break;
-  //     case 'c':
-  //       await this.completeWRTCPageForCatC(data);
-  //       break;
-  //     default:
-  //       console.info(`${cat} does not exist`);
-  //   }
-  // }
 
   async completeWRTCPageDataTable(
     data: Record<string, string>,
