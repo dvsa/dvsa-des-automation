@@ -1,11 +1,10 @@
+/* eslint-disable no-await-in-loop */
 import longClickElement from '@shared-custom/support/action/longClickElement';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
 
 class TestReportPageObject extends Page {
-  /* eslint-disable no-await-in-loop */
-
   get firstNSLegalReqTick() {
     return ('des-test-report-screen::test-requirement-first-ns-tick');
   }
@@ -121,4 +120,5 @@ class TestReportPageObject extends Page {
     }
   }
 }
+
 export default new TestReportPageObject();
