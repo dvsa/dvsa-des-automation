@@ -29,10 +29,10 @@ interface WaitingRoomToCarPageDataCatC {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
-interface CombinedInterface {
-  catB: WaitingRoomToCarPageDataCatB
-  catC: WaitingRoomToCarPageDataCatC
-}
+// interface CombinedInterface {
+//   catB: WaitingRoomToCarPageDataCatB
+//   catC: WaitingRoomToCarPageDataCatC
+// }
 
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
@@ -184,7 +184,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async completeWRTCPageForCatB(
-    data: Record<keyof CombinedInterface, any>,
+    data: Record<keyof WaitingRoomToCarPageDataCatB, any>,
   ): Promise<void> {
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -276,7 +276,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async completeWRTCPageForCatC(
-    data: Record<keyof CombinedInterface, string>,
+    data: Record<keyof WaitingRoomToCarPageDataCatC, any>,
   ): Promise<void> {
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -388,17 +388,38 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  // async completeWRTCPageDataTable(
+  //   data: Record<keyof CombinedInterface, string>,
+  //   category:string,
+  // ): Promise<void> {
+  //   const cat = category.toLowerCase();
+  //   switch (cat) {
+  //     case 'b':
+  //       await this.completeWRTCPageForCatB(data.catB);
+  //       break;
+  //     case 'c':
+  //       await this.completeWRTCPageForCatC(data);
+  //       break;
+  //     default:
+  //       console.info(`${cat} does not exist`);
+  //   }
+  // }
+
   async completeWRTCPageDataTable(
-    data: Record<keyof CombinedInterface, string>,
+    data: Record<string, string>,
     category:string,
   ): Promise<void> {
     const cat = category.toLowerCase();
     switch (cat) {
       case 'b':
-        await this.completeWRTCPageForCatB(data);
+        await this.completeWRTCPageForCatB(
+          data as Record<keyof WaitingRoomToCarPageDataCatB, string>,
+        );
         break;
       case 'c':
-        await this.completeWRTCPageForCatC(data);
+        await this.completeWRTCPageForCatC(
+          data as Record<keyof WaitingRoomToCarPageDataCatC, string>,
+        );
         break;
       default:
         console.info(`${cat} does not exist`);
