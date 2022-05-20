@@ -17,11 +17,8 @@ import completeLegalRequirements from '../../app-actions/des-action/completeLega
 import addingFault from '../../app-actions/des-action/addingFault';
 import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
 import completeCatCDeclarationPage from '../../app-actions/des-action/completeCatCDeclarationPage';
-import completeWaitingRoomToCarCatCPage
-  from '../../app-actions/des-action/completeWaitingRoomToCarCatCPage';
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
-import completeWaitingRoomToCarPageDataTable
-  from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
+import completeWaitingRoomToCarPageDataTable from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
 
 When(
   /^I am signed in as a random user$/,
@@ -51,11 +48,6 @@ When(
 When(
   /^I complete the waiting room to car page from a data table for a category "([^"]*)?"$/,
   completeWaitingRoomToCarPageDataTable,
-);
-
-When(
-  /^I complete the waiting room to car page CAT C$/,
-  completeWaitingRoomToCarCatCPage,
 );
 
 When(

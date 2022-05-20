@@ -15,9 +15,21 @@ Feature: Cat-C Successful feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page CAT C
+    And I complete the waiting room to car page from a data table for a category "C"
+      | vehicleRegNum            | vehreg                             |
+      | showMeQuestion1          | Q1 - All doors secure              |
+      | showMeQuestion2          | Q2 - Air leaks                     |
+      | showMeQuestion3          | Q13 - Check audible warnings       |
+      | tellMeQuestion1          | Q3 - Safety factors while loading  |
+      | tellMeQuestion2          | Q16 - Engine coolant               |
+      | showMeQuestion1Fault     | 1 driving fault                    |
+      | showMeQuestion2Fault     | 1 driving fault                    |
+      | showMeQuestion3Fault     | 1 driving fault                    |
+      | tellMeQuestion1Fault     | 1 driving fault                    |
+      | tellMeQuestion2Fault     | 1 driving fault                    |
+      | accompaniedBy            | other                              |
     And I wait on element "des-test-report-screen::page-title" to be displayed
-    And I select all legal requirements Cat C
+    And I select all legal requirements for a category "C"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "5"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-safety" field

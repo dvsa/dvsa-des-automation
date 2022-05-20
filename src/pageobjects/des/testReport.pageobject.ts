@@ -4,9 +4,7 @@ import clickElement from '../../../shared/boilerplate/support/action/clickElemen
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
 
 class TestReportPageObject extends Page {
-  get drivingFaultCounter() {
-    return ('des-test-report-screen::driving-fault-counter');
-  }
+  /* eslint-disable no-await-in-loop */
 
   get firstNSLegalReqTick() {
     return ('des-test-report-screen::test-requirement-first-ns-tick');
@@ -32,10 +30,6 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::show-tell-tick-button-xpath');
   }
 
-  get maneuversLegalReqButton() {
-    return ('des-test-report-screen::manouvers-btn');
-  }
-
   get maneuversLegalReqTick() {
     return ('des-test-report-screen::manouvers-btn-tick');
   }
@@ -44,59 +38,12 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::manouvers-reverse-right-label');
   }
 
-  get competancyAccelarator() {
-    return ('des-test-report-screen::competency-btn-accelarator');
-  }
-
-  get competancyClutch() {
-    return ('des-test-report-screen::competency-btn-clutch');
-  }
-
-  get competancySafety() {
-    return ('des-test-report-screen::competency-btn-safety');
-  }
-
-  get competancyControl() {
-    return ('des-test-report-screen::competency-btn-control');
-  }
-
   get seriousFaultButton() {
     return ('des-test-report-screen::serious-fault-btn');
   }
 
   get dangerousFaultButton() {
     return ('des-test-report-screen::dangerous-fault-btn');
-  }
-  get ecoPButton() {
-    return ('des-test-report-screen::eco-p-button');
-  }
-
-  get ecoCButton() {
-    return ('des-test-report-screen::eco-c-button');
-  }
-
-  get legalRequirementsLabelDH() {
-    return ('des-test-report-screen::legal-requirements-label-DH');
-  }
-
-  get legalRequirementsLabelUH() {
-    return ('des-test-report-screen::legal-requirements-label-UH');
-  }
-
-  get legalRequirementsLabelASCS() {
-    return ('des-test-report-screen::legal-requirements-label-AS-CS');
-  }
-
-  get uhLegalReqTick() {
-    return ('des-test-report-screen::test-requirement-uh-tick');
-  }
-
-  get dhLegalReqTick() {
-    return ('des-test-report-screen::test-requirement-dh-tick');
-  }
-
-  get asCsLegalReqTick() {
-    return ('des-test-report-screen::test-requirement-as-cs-tick');
   }
 
   get uhLegalReqTick() {
@@ -114,10 +61,6 @@ class TestReportPageObject extends Page {
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
-  }
-
-  waitForHeaderSectionDisplayed(headertitle:string) {
-    return $(`.section-header="${headertitle}"`).waitForDisplayed();
   }
 
   async completeLegalRequirementsForCatB(): Promise<void> {
@@ -161,19 +104,14 @@ class TestReportPageObject extends Page {
     while (i < faultCount) {
       switch (fault.toLowerCase()) {
         case 'driving':
-          // eslint-disable-next-line no-await-in-loop
           await longClickElement(selector, 500);
           break;
         case 'serious':
-          // eslint-disable-next-line no-await-in-loop
           await clickElement('click', 'selector', this.seriousFaultButton);
-          // eslint-disable-next-line no-await-in-loop
           await longClickElement(selector, 500);
           break;
         case 'dangerous':
-          // eslint-disable-next-line no-await-in-loop
           await clickElement('click', 'selector', this.dangerousFaultButton);
-          // eslint-disable-next-line no-await-in-loop
           await longClickElement(selector, 500);
           break;
         default:
