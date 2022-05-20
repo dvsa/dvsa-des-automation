@@ -67,11 +67,6 @@ class TestReportPageObject extends Page {
   get dangerousFaultButton() {
     return ('des-test-report-screen::dangerous-fault-btn');
   }
-
-  get firstASCSLegalReqTick() {
-    return ('des-test-report-screen::dangerous-fault-btn');
-  }
-
   get ecoPButton() {
     return ('des-test-report-screen::eco-p-button');
   }
@@ -117,7 +112,6 @@ class TestReportPageObject extends Page {
   async completeLegalCatCRequirements(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
-    await longClickElement(this.firstASCSLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.ecoPButton, 500);
     await longClickElement(this.legalRequirementsLabelDH, 500);
