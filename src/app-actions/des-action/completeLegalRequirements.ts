@@ -1,5 +1,5 @@
 import TestReportPageObject from '../../pageobjects/des/testReport.pageobject';
 
-export default async () => {
-  await TestReportPageObject.completeLegalRequirements();
+export default async (category:string) => {
+  await TestReportPageObject.completeLegalRequirements(category);
 };

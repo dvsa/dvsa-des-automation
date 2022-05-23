@@ -15,9 +15,15 @@ Feature: Cat-B Successful feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page
+    And I complete the waiting room to car page from a data table for a category "B"
+      | eyesightTest            | pass             |
+      | tellMeQuestion          | T1 - Brakes      |
+      | tellMeQuestionFault     | correct          |
+      | vehicleRegNum           | vehreg           |
+      | transmission            | manual           |
+    And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
-    And I select all legal requirements
+    And I select all legal requirements for a category "B"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "5"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-safety" field

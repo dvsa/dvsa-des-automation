@@ -1,4 +1,5 @@
 import scroll from '@shared-boilerplate/support/action/scroll';
+import { getElementByReference } from '@shared-helpers/element-reference-helper';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
@@ -11,14 +12,17 @@ interface OfficePageData {
   weatherCondition: string;
   faultComment: string;
   eyesightFaultComment: string
-  seriousFaultComment: string;
 }
 class OfficePageObject extends Page {
+  /* eslint-disable no-case-declarations, no-await-in-loop */
+
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
 
   get satNavButton() { return ('des-office-page::independant-driving-sat-nav-input'); }
 
   get trafficSignsButton() { return ('des-office-page::independant-driving-traffice-signs-input'); }
+
+  get diagramButton() { return ('des-office-page::independant-driving-diagram-input'); }
 
   get candidateLikenessYes() { return ('des-office-page::candidate-true-likeness-yes-input'); }
 
@@ -34,13 +38,11 @@ class OfficePageObject extends Page {
 
   get weatherConditionsSelector() { return ('des-office-page::weather-conditions-selector'); }
 
-  get faultComment() { return ('des-office-page::driving-fault-controls-accelerator-comment-input'); }
-
   get eyesightFaultComment() { return ('des-office-page::serious-fault-comment-eyesight-input'); }
 
-  get dangerousFaultComment() { return ('des-office-page::fault-comment-dangerous-input'); }
-
   get seriousFaultComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
+
+  get genericFaultCommentBox() { return ('des-office-page::general-fault-comment-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
@@ -126,7 +128,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment, seriousFaultComment,
+      eyesightFaultComment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -148,6 +150,9 @@ class OfficePageObject extends Page {
                 break;
               case 'traffic signs':
                 await clickElement('click', 'selector', this.trafficSignsButton);
+                break;
+              case 'diagram':
+                await clickElement('click', 'selector', this.diagramButton);
                 break;
               default:
                 console.log(`Could not find ${fieldInput}`);
@@ -195,21 +200,17 @@ class OfficePageObject extends Page {
             await clickElementWithText('click', 'element', 'Submit');
             break;
           case 'faultcomment':
-            if (faultComment === 'dangerous') {
-              await scroll(this.dangerousFaultComment);
-              await setInputField('add', faultComment, this.dangerousFaultComment);
-            } else {
-              await scroll(this.faultComment);
-              await setInputField('add', faultComment, this.faultComment);
+            const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
+            const nrOfElements = await $$(getElementRefForPage);
+            for (let i = 0; i < nrOfElements.length; i += 1) {
+              const faultCommentElement = `(${nrOfElements[i].selector})[${i + 1}]`;
+              await scroll(faultCommentElement);
+              await setInputField('add', faultComment, faultCommentElement);
             }
             break;
           case 'eyesightfaultcomment':
             await scroll(this.eyesightFaultComment);
             await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
-            break;
-          case 'seriousfaultcomment':
-            await scroll(this.seriousFaultComment);
-            await setInputField('add', seriousFaultComment, this.seriousFaultComment);
             break;
           default:
             console.log(`Could not find ${field}`);
