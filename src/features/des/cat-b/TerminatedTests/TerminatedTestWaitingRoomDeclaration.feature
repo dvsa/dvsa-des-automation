@@ -3,10 +3,8 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
    Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I click on the button "des-dashboard::my-journal-btn"
-    And I wait on element "#start-test-button-20654334" to be displayed
-    And I click on the button "#start-test-button-20654334"
-    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
-    And I click on the button "des-my-journal::start-test-modal-start-test-btn"
+    And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I start the test for "#start-test-button-20654334"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I click on the button "des-general::end-test-btn"
     And I click on the button "des-general::terminate-test-btn"
