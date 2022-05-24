@@ -100,7 +100,7 @@ class MyJournalPageObject extends Page {
     }
 
     if (await $(getElementByReference(this.specialReqsStartTestModelTitle)).isExisting()) {
-      await waitFor(this.earlyStartTestModelButton, '3000', false, 'be displayed');
+      await waitFor(this.specialReqsStartTestModelButton, '3000', false, 'be displayed');
       await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
       await waitFor(this.candidateDetailsPageTitle, '3000', false, 'be displayed');
       await clickElement('click', 'selector', this.candidateDetailsBackButton);
