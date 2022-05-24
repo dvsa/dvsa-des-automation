@@ -1,6 +1,7 @@
 import clickElement from '@shared-boilerplate/support/action/clickElement';
 import checkEqualsText from '@shared-boilerplate/support/check/checkEqualsText';
 import { getElementByReference } from '@shared-helpers/element-reference-helper';
+import waitFor from '@shared-boilerplate/support/action/waitFor';
 import Page from '../base/page';
 
 class MyJournalPageObject extends Page {
@@ -11,6 +12,24 @@ class MyJournalPageObject extends Page {
   get dayName() { return ('des-my-journal::day-name'); }
 
   get dateName() { return ('des-my-journal::date'); }
+
+  get earlyStartTestModelTitle() { return ('des-my-journal::start-test-model-time-early-title'); }
+
+  get earlyStartTestModelButton() { return ('des-my-journal::early-start-test-modal-start-test-btn'); }
+
+  get expiredStartTestModelTitle() { return ('des-my-journal::start-test-model-time-expired-title'); }
+
+  get expiredStartTestModelButton() { return ('des-my-journal::start-test-modal-start-test-btn'); }
+
+  get expiredStartTestModelRekeyButton() { return ('des-my-journal::start-test-modal-rekey-test-btn'); }
+
+  get specialReqsStartTestModelTitle() { return ('des-my-journal::start-test-model-candidate-special-reqs-title'); }
+
+  get specialReqsStartTestModelButton() { return ('des-my-journal::start-test-modal-view-candidate-details-btn'); }
+
+  get candidateDetailsPageTitle() { return ('des-candidate-details::page-title'); }
+
+  get candidateDetailsBackButton() { return ('des-candidate-details::close-button'); }
 
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
     const gettingDateElementCurrentPage = await $(getElementByReference(this.dateName)).getText();
@@ -46,6 +65,54 @@ class MyJournalPageObject extends Page {
     } else {
       await checkEqualsText('element', this.dayName, false, weekday);
       await checkEqualsText('element', this.dateName, false, date);
+    }
+  }
+
+  async waitForExist(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForExist({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
+    });
+  }
+
+  async startEarlyTest(): Promise<void> {
+    await waitFor(this.earlyStartTestModelButton, '3000', false, 'be displayed');
+    await clickElement('click', 'selector', this.earlyStartTestModelButton);
+  }
+
+  async startLateTest(): Promise<void> {
+    await waitFor(this.expiredStartTestModelButton, '3000', false, 'be displayed');
+    await clickElement('click', 'selector', this.expiredStartTestModelButton);
+  }
+
+  async startTest(selector: string):Promise<void> {
+    await waitFor(selector, '3000', false, 'be displayed');
+    await clickElement('click', 'selector', selector);
+
+    if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
+      await this.startEarlyTest();
+    }
+
+    if (await $(getElementByReference(this.expiredStartTestModelTitle)).isExisting()) {
+      await this.startLateTest();
+    }
+
+    if (await $(getElementByReference(this.specialReqsStartTestModelTitle)).isExisting()) {
+      await waitFor(this.earlyStartTestModelButton, '3000', false, 'be displayed');
+      await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
+      await waitFor(this.candidateDetailsPageTitle, '3000', false, 'be displayed');
+      await clickElement('click', 'selector', this.candidateDetailsBackButton);
+      await clickElement('click', 'selector', selector);
+
+      if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
+        await this.startEarlyTest();
+      }
+
+      if (await $(getElementByReference(this.expiredStartTestModelTitle)).isExisting()) {
+        await this.startLateTest();
+      }
     }
   }
 }

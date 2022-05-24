@@ -6,10 +6,7 @@ Feature: Cat-B Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#start-test-button-20654335" to be displayed
-    And I click on the button "#start-test-button-20654335"
-    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
-    And I click on the button "des-my-journal::start-test-modal-start-test-btn"
+    And I start the test for "#start-test-button-20654335"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
