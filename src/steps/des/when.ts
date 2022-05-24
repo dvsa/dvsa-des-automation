@@ -19,6 +19,7 @@ import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults'
 import completeCatCDeclarationPage from '../../app-actions/des-action/completeCatCDeclarationPage';
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
 import completeWaitingRoomToCarPageDataTable from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
+import startTest from '../../app-actions/des-action/startTest';
 
 When(
   /^I am signed in as a random user$/,
@@ -118,4 +119,9 @@ When(
 When(
   /^I complete the Rekey reason page from a data table$/,
   completeRekeyReasonPage,
+);
+
+When(
+  /^I start the test for "([^"]*)?"$/,
+  startTest,
 );
