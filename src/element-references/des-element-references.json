@@ -70,7 +70,7 @@
     },
   "des-candidate-details": {
       "test-category":"data-row[ng-reflect-label='Test category']",
-      "candidate-name":"//*[@id='ion-overlay-3']/div[3]/app-candidate-details/ion-content/ion-grid/ion-row/ion-col[1]/h2",
+      "candidate-name":"#candidates-name",
       "slot-type":"data-row[ng-reflect-label='Slot type']",
       "test-timeslot":".test-start-time",
       "driver-number":"data-row[ng-reflect-label='Driver number']",
@@ -79,7 +79,8 @@
       "additional-information":"data-row-custom[ng-reflect-label='Additional information']",
       "candidate-phone-number":"data-row[ng-reflect-label='Phone number']",
       "candidate-email":"data-row[ng-reflect-label='Email']",
-      "candidate-address":"data-row-custom[ng-reflect-label='Address']"
+      "candidate-address":"data-row-custom[ng-reflect-label='Address']",
+      "close-button": "#close-button"
     },
   "des-exam-waiting-room": {
       "candidate-number":"#candidate-driver-number",
@@ -98,8 +99,9 @@
       "vrn-modal-save-btn":".save-button",
       "enter-signature-err-msg":"#waiting-room-signature-validation-text",
       "insurance-declaration-unchecked-validation-error":"#waiting-room-insurance-validation-text",
-      "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text"
-    },
+      "residency-declaration-unchecked-validation-error":"#waiting-room-residency-validation-text",
+      "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']/input"
+  },
   "des-comms-screen": {
       "continue-btn": "//app-communication//ion-button[*[contains(text(), 'Continue')]]",
       "privacy-notice-text":".privacy-text",
@@ -154,19 +156,45 @@
       "instructor-registration-input":"#instructor-registration",
       "accompanied-by-container":"#accompaniment-card",
       "accompanied-instructor-option":"#accompaniment-Instructor",
+      "accompanied-instructor-label":"#accompaniment-instructor-label",
       "accompanied-supervisor-option":"#accompaniment-Supervisor",
+      "accompanied-supervisor-label":"#accompaniment-supervisor-label",
       "accompanied-interpreter-option":"#accompaniment-Interpreter",
+      "accompanied-interpreter-label":"#accompaniment-interpreter-label",
       "accompanied-other-option":"#accompaniment-Other",
+      "accompanied-other-label":"#accompaniment-other-label",
       "vehicle-details-container":"vehicle-details",
       "vehicle-details-school-car-option":"#vehicle-details-school-car",
+      "vehicle-details-school-car-label":"#vehicle-details-school-car-label",
       "vehicle-details-dual-option":"#vehicle-details-dual-control",
+      "vehicle-details-dual-label":"#vehicle-details-dual-control-label",
       "view-test-centre-journal-btn":"//ion-button[contains(text(), 'View test centre journal')]",
       "continue-to-test-report-btn":"#continue-to-test-report-button",
       "continue-to-debrief-btn": "#confirm-eyesight-failure",
       "end-test-btn":"(//ion-button//*[@class='end-test-text'])[last()]",
-      "terminate-test-btn":"#terminate-test-button" 
-    },
+      "terminate-test-btn":"#terminate-test-button",
+      "vehicle-checks-show-questions-button": "#vehicle-check-select-questions-btn",
+      "first-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[1]",
+      "second-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[2]",
+      "third-show-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[3]",
+      "first-tell-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[4]",
+      "second-tell-me-question": "(//ion-select[@id='vehicle-checks-question-selector'])[5]",
+      "first-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[1]",
+      "first-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[1]",
+      "second-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[2]",
+      "second-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[2]",
+      "third-show-me-question-correct-label": "(//label[contains(text(), 'Correct')])[3]",
+      "third-show-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[3]",
+      "first-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[4]",
+      "first-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[4]",
+      "second-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[5]",
+      "second-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[5]",
+      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label"
+  },
   "des-test-report-screen": {
+      "legal-requirements-label-AS-CS": "//*[@id=\"legal-requirements-label-AS/CS\"]/span",
+      "legal-requirements-label-DH": "#legal-requirements-label-DH",
+      "legal-requirements-label-UH": "#legal-requirements-label-UH",
       "page-title":"#test-report-page-title",
       "end-test-btn": "(//*[@id='end-test-button'])[2]",
       "end-test-btn-xpath": "//div//*[@id='end-test-button']",
@@ -262,8 +290,11 @@
       "competency-btn-traffic-controllers":"competency-button='Traffic controllers'",
       "competency-btn-other-road-users":"competency-button='Other road users'",
       "end-test-continue-to-debrief-btn": "#end-test-continue-button",
-      "end-test-terminate-test-btn": "#end-test-terminate-button"
-    },
+      "end-test-terminate-test-btn": "#end-test-terminate-button",
+      "test-requirement-uh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"uphillStart\")]//*[@id=\"legal-requirements-tick-UH\"]/tick-indicator",
+      "test-requirement-dh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"downhillStart\")]//*[@id=\"legal-requirements-tick-DH\"]/tick-indicator",
+      "test-requirement-as-cs-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"angledStartControlledStop\")]//*[@id=\"legal-requirements-tick-AS/CS\"]/tick-indicator"
+  },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
       "test-outcome-fail":".test-outcome-container failed",
@@ -297,7 +328,12 @@
       "driving-serious-fault-count": "#serious-fault-count",
       "eyesight-test-serious-text": "#eyesightTest-serious-text",
       "continue-non-pass-final-btn": "#continue-to-non-pass-finalisation",
-      "control-accelerator-dangerous-fault-count": "#dangerous-fault-count",
+      "dangerous-fault-count": "#dangerous-fault-count",
+      "serious-fault-count": "#serious-fault-count",
+      "vehicle-checks-serious-fault": "#vehicleChecks-serious-text",
+      "vehicle-checks-driving-fault": "#vehicleChecks-driving-text",
+      "vehicle-checks-driving-fault-count": "#vehicleChecks-count",
+      "control-clutch-dangerous-fault": "#controlsClutch-driving-text",
       "back-button": "(//ion-back-button)[last()]"
     },
   "des-post-debrief-screen":{
@@ -305,6 +341,7 @@
       "continue-btn":"#continue-to-non-pass-finalisation"
     },
   "des-final-outcome-screen": {
+      "manoeuvres-pass-cert-number": "//*[@id='manoeuvres-pass-cert-number']/input",
       "page-title": "#pass-finalisation-title",
       "page-title-non-pass": "#non-pass-page-title",
       "application-reference-container":"#application-reference-card",
@@ -319,6 +356,8 @@
       "transmission-type":"#transmission-card",
       "transmission-manual":"input[value='manual']",
       "transmission-manual-input":"(//input[contains(@id,'transmission-manual-')])[2]",
+      "transmission-manual-cat-c": "#transmission-manual-label",
+      "code-78-not-received": "#code-78-not-received",
       "transmission-automatic-input":"(//input[contains(@id,'transmission-automatic-')])[2]",
       "transmission-manual-label":"#transmission-manual-label",
       "transmission-automatic-label":"#transmission-automatic-label",
@@ -399,6 +438,7 @@
       "route-number-validation":"#office-route-number-validation-text",
       "independant-driving-sat-nav-input":"#independent-driving-satnav",
       "independant-driving-traffice-signs-input":"#independent-driving-trafficsigns",
+      "independant-driving-diagram-input":"#independent-driving-diagram",
       "independant-driving-validation":"#office-independent-driving-validation-text",
       "candidate-true-likeness-yes-input": "#true-likeness-yes",
       "candidate-true-likeness-no-input": "#true-likeness-no",
@@ -424,7 +464,8 @@
       "driving-fault-controls-accelerator-comment-input": "#fault-comment-text-driving-controlsAccelerator",
       "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator",
-      "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator"
+      "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator",
+      "general-fault-comment-input": "//fault-comment//textarea"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",

@@ -7,16 +7,18 @@ import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
 import completeDeclarationPage from '../../app-actions/des-action/completeDeclarationPage';
 import completeComunicationPage from '../../app-actions/des-action/completeComunicationPage';
-import completeWaitingRoomToCarPage from '../../app-actions/des-action/completeWaitingRoomToCarPage';
 import clickCompetencyButton from '../../app-actions/des-action/clickCompetencyButton';
 import completePassedFinalOutcomePage from '../../app-actions/des-action/completePassedFinalOutcomePage';
 import completeHealthDeclarationPage from '../../app-actions/des-action/completeHealthDeclarationPage';
 import checkConfirmationPageDetails from '../../app-actions/des-action/checkConfirmationPageDetails';
 import completeOfficePage from '../../app-actions/des-action/completeOfficePage';
+import completeLegalCatCRequirements from '../../app-actions/des-action/completeCatCLegalRequirements';
 import completeLegalRequirements from '../../app-actions/des-action/completeLegalRequirements';
 import addingFault from '../../app-actions/des-action/addingFault';
 import checkCorrectFaults from '../../app-actions/des-action/checkCorrectFaults';
+import completeCatCDeclarationPage from '../../app-actions/des-action/completeCatCDeclarationPage';
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
+import completeWaitingRoomToCarPageDataTable from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
 
 When(
   /^I am signed in as a random user$/,
@@ -34,13 +36,18 @@ When(
 );
 
 When(
+  /^I complete the waiting room Cat C declaration page$/,
+  completeCatCDeclarationPage,
+);
+
+When(
   /^I complete the waiting room communication page$/,
   completeComunicationPage,
 );
 
 When(
-  /^I complete the waiting room to car page$/,
-  completeWaitingRoomToCarPage,
+  /^I complete the waiting room to car page from a data table for a category "([^"]*)?"$/,
+  completeWaitingRoomToCarPageDataTable,
 );
 
 When(
@@ -84,8 +91,13 @@ When(
 );
 
 When(
-  /^I select all legal requirements$/,
+  /^I select all legal requirements for a category "([^"]*)?"$/,
   completeLegalRequirements,
+);
+
+When(
+  /^I select all legal requirements Cat C$/,
+  completeLegalCatCRequirements,
 );
 
 When(

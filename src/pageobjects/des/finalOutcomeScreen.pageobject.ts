@@ -26,6 +26,8 @@ class FinalOutcomePageObject extends Page {
 
   get transmissionManualInput() { return ('des-final-outcome-screen::transmission-manual-input'); }
 
+  get transmissionManualInputCatC() { return ('des-final-outcome-screen::transmission-manual-label'); }
+
   get transmissionAutomaticInput() { return ('des-final-outcome-screen::transmission-automatic-input'); }
 
   get passCertificateNumberInput() { return ('des-final-outcome-screen::pass-certificate-number-field-input'); }
@@ -48,6 +50,8 @@ class FinalOutcomePageObject extends Page {
 
   get activityCodeSelector() { return ('des-final-outcome-screen::activity-code-selector-xpath'); }
 
+  get code78() { return ('des-final-outcome-screen::code-78-not-received'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
@@ -59,6 +63,9 @@ class FinalOutcomePageObject extends Page {
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
+          case 'code78':
+            await clickElement('click', 'selector', this.code78);
+            break;
           case 'provisionallicencereceived':
             switch (fieldInput) {
               case 'yes':
@@ -78,6 +85,9 @@ class FinalOutcomePageObject extends Page {
                 break;
               case 'automatic':
                 await clickElement('click', 'selector', this.transmissionAutomaticInput);
+                break;
+              case 'manualcatc':
+                await clickElement('click', 'selector', this.transmissionManualInputCatC);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);
