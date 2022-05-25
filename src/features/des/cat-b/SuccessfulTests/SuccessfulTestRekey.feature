@@ -1,6 +1,6 @@
-Feature: Cat-B Terminated with Rekey feature
+Feature: Cat-B Successful feature
 
-  Scenario:   Terminate Test Rekey
+  Scenario:   Successful Test Rekey
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
@@ -20,31 +20,32 @@ Feature: Cat-B Terminated with Rekey feature
       | tellMeQuestionFault     | correct          |
       | vehicleRegNum           | vehreg           |
       | transmission            | manual           |
+      | accompaniedBy           | instructor       |
+      | vehicleDetails          | school car       |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements for a category "B"
-    And I add "1" serious fault to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn"
-    And I click on the button "des-test-report-screen::end-test-terminate-test-btn"
-    And I wait on element "des-debrief-screen::test-outcome-terminated" to be displayed
-    And I check from a data table the number of faults are correct
-      | faultSelector                                                 | faultExpectedText                | faultCountSelector                                                 | numberOfFaults      |
-      | des-debrief-screen::control-accelerator-serious-fault         | Control - Accelerator            | des-debrief-screen::control-accelerator-driver-serious-count       | S                   |
+    And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
-    And I click on the element "des-post-debrief-screen::continue-btn"
-    And I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
-    And I complete the terminated final outcome screen from a data table
-      | activityCode                  | des-final-outcome-screen::activity-code-25   |
-      | d255                          | na                                           |
-      | testLanguage                  | Cymraeg                                      |
-      | debriefWitnessed              | No                                           |
+    And I wait on element "des-final-outcome-screen::page-title" to be displayed
+    And I complete the successful final outcome screen from a data table
+      | provisionalLicenceReceived    | No               |
+      | transmission                  | Automatic        |
+      | passCertNumber                | A123456X         |
+      | d255                          | NA               |
+      | testLanguage                  | cymraeg          |
+      | debriefWitnessed              | Yes              |
+    And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
+    And I complete the health declaration page
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
-      | testOutcome           | Terminated                                                    |
-      | activityCode          | 25 - DVSA radio failure                                     |
+      | testOutcome           | Passed                                                        |
+      | activityCode          | 1 - Pass                                                      |
       | testCategory          | B                                                             |
-      | provLicenceRecieved   | na                                                            |
-      | transmission          | na                                                            |
+      | provLicenceRecieved   | No - Please ensure that the licence is kept by the candidate  |
+      | transmission          | Automatic - An automatic licence issued                       |
       | d255                  | No                                                            |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
@@ -52,21 +53,20 @@ Feature: Cat-B Terminated with Rekey feature
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I wait on element "des-office-page::page-title" to be displayed
-    And I complete the Office unsuccessful page from a data table
+    And I complete the Office page from a data table
       | activityCode            | NA                                          |
-      | routeNumber             | 56                                          |
-      | independentDriving      | Traffic Signs                               |
-      | trueLikeness            | yes                                         |
-      | distinguishingFeatures  | Small, blue shirt, black hair. 8 foot tall  |
+      | routeNumber             | 20                                          |
+      | independentDriving      | traffic signs                               |
+      | trueLikeness            | no                                          |
+      | distinguishingFeatures  | Tall, red shirt, brown hair. 5 foot tall    |
       | identification          | passport                                    |
-      | showMeQuestion          | S2 - Front windscreen                       |
-      | weatherCondition        | 2 - Bright / wet roads                      |
-      | seriousFaultComment     | NA                                          |
+      | showMeQuestion          | S4 - Rear demister                        |
+      | weatherCondition        | 4 - Showers                      |
     And I click on the element "des-rekey-reason-page::continue-reason-rekey"
     And I complete the Rekey reason page from a data table
       | ipad                 | tech                                        |
       | transfer             | 123456                                      |
-      | other                | Other Testing                               |
+      | other                | Test other reason                           |
     And I click on the button "des-rekey-reason-page::upload-rekey-btn"
     And I wait on element "des-rekey-reason-page::upload-modal" to be displayed
     And I click on the element "des-rekey-reason-page::upload-btn"
@@ -79,7 +79,7 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the element "des-rekey-reason-page::return-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#activity-code-20654339" to be displayed
-    And I expect that element "#activity-code-20654339" matches the text "25"
+    And I expect that element "#activity-code-20654339" matches the text "1"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
