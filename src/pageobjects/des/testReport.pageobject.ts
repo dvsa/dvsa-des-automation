@@ -56,6 +56,7 @@ class TestReportPageObject extends Page {
   get competencyButton() {
     return ('des-test-report-screen::competency-button');
   }
+
   get asCsLegalReqTick() {
     return ('des-test-report-screen::test-requirement-as-cs-tick');
   }

@@ -1,6 +1,6 @@
-Feature: Cat-C Successful feature
+Feature: Cat-CM Successful feature
 
-  Scenario:   Successful test with 15 faults
+  Scenario:   Successful CM
     Given I am signed in as a random "desexaminerm" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000014"
@@ -8,7 +8,7 @@ Feature: Cat-C Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#start-test-button-55512302" to be displayed
     And I click on the button "#start-test-button-55512302"
-#    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
+    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
