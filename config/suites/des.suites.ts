@@ -26,6 +26,7 @@ export const DESSuites = {
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature',
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith15Faults.feature',
     './src/features/des/cat-c/SuccessfulTests/SuccessfulTestWith10Faults.feature',
+    './src/features/des/cat-b/SuccessfulTests/SuccessfulTestRekey.feature',
   ],
   unsuccessfultests: [
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWith16Faults.feature',
