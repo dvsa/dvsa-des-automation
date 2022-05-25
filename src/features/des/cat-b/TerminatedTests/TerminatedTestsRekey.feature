@@ -7,8 +7,7 @@ Feature: Cat-B Terminated with Rekey feature
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I go back 1 day and check the date is correct
-    And I wait on element "#rekey-button-20654339" to be displayed
-    And I click on the button "#rekey-button-20654339"
+    And I start the test for "#rekey-button-20654339"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
