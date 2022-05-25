@@ -71,7 +71,7 @@ When(
 );
 
 When(
-  /^I complete the health declaration page$/,
+  /^I complete the health declaration page for a category "([^"]*)?"$/,
   completeHealthDeclarationPage,
 );
 

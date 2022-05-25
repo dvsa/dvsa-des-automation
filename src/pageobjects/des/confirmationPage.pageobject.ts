@@ -39,7 +39,9 @@ class ConfirmationPageObject extends Page {
     if (provLicenceRecieved.toLowerCase() !== 'na') {
       await checkEqualsText('element', this.transmissionValue, false, transmission);
     }
-    await checkEqualsText('element', this.d255Value, false, d255);
+    if (d255.toLowerCase() !== 'na') {
+      await checkEqualsText('element', this.d255Value, false, d255);
+    }
   }
 }
 
