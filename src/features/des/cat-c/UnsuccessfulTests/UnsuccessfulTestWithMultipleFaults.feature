@@ -55,7 +55,6 @@ Feature: Cat-C Unsuccessful Tests
       | transmission          | na                                          |
       | d255                  | No                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
-    And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     When I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
@@ -69,11 +68,8 @@ Feature: Cat-C Unsuccessful Tests
       | weatherCondition        | 8 - Snowing                                 |
       | faultComment            | Commenting on faults, there were a some.    |
     And I click on the button "des-office-page::mark-as-complete"
-    And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    When I wait on element "#activity-code-32345600" to be displayed
     And I expect that element "#activity-code-32345600" matches the text "2"
-    And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
     Then I expect that container "des-dashboard::staff-number" contains the text "28371932"
