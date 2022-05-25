@@ -48,14 +48,14 @@ class MyJournalPageObject extends Page {
         i += 1;
       }
     }
-    const initialDate = new Date(gettingDateElementCurrentPage);
+    const initialDate = await new Date(gettingDateElementCurrentPage);
     const adjustedDateAsNumber :number = direction === 'back' ? initialDate.getDate() - days : initialDate.getDate() + days;
-    const adjustedDate :Date = new Date(initialDate.setDate(adjustedDateAsNumber));
+    const adjustedDate :Date = await new Date(initialDate.setDate(adjustedDateAsNumber));
     const month = adjustedDate.toLocaleString('default', { month: 'long' });
     const weekday = adjustedDate.toLocaleString('default', { weekday: 'long' });
     const date = `${adjustedDate.getDate()} ${month} ${adjustedDate.getFullYear()}`;
 
-    const dateToday = new Date();
+    const dateToday = await new Date();
     const currentDateString = `${dateToday.toLocaleString('default', { weekday: 'long' })} ${dateToday.getDate()} ${dateToday.toLocaleString('default', { month: 'long' })} ${dateToday.getFullYear()}`;
     const gettingDayNameElementValue = await $(getElementByReference(this.dayName)).getText();
 
@@ -66,15 +66,6 @@ class MyJournalPageObject extends Page {
       await checkEqualsText('element', this.dayName, false, weekday);
       await checkEqualsText('element', this.dateName, false, date);
     }
-  }
-
-  async waitForExist(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForExist({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
   }
 
   async startEarlyTest(): Promise<void> {
