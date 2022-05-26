@@ -60,7 +60,7 @@ export const config: WebdriverIO.Config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 2,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -71,7 +71,7 @@ export const config: WebdriverIO.Config = {
     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
     // grid with only 5 firefox instances available you can make sure that not more than
     // 5 instances get started at a time.
-    maxInstances: 5,
+    maxInstances: 2,
     //
     browserName: 'chrome',
     // If outputDir is provided WebdriverIO can capture driver session logs
@@ -201,7 +201,7 @@ export const config: WebdriverIO.Config = {
     strict: true, // <boolean> fail if there are any undefined or pending steps
     tagExpression: 'not @Pending',
     tagsInTitle: false, // <boolean> add cucumber tags to feature or scenario name
-    timeout: 120000, // <number> timeout for step definitions
+    timeout: 60000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
 
   afterStep: (step, scenario, result) => {
