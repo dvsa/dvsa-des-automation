@@ -8,7 +8,6 @@ Feature: Cat-C Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I wait on element "#start-test-button-32345633" to be displayed
     And I click on the button "#start-test-button-32345633"
-    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room Cat C declaration page
