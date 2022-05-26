@@ -12,7 +12,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | fail             |
     And I click on the element "des-waiting-room-to-car::continue-to-debrief-btn"
-    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
+    And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                         | numberOfFaults      |
       | des-debrief-screen::eyesight-test-serious-text                | Eyesight test                    | des-debrief-screen::driving-serious-fault-count            | 1                   |

@@ -12,7 +12,7 @@ Feature: Cat-B Terminated feature
     And I complete the waiting room communication page
     And I click on the button "des-waiting-room-to-car::end-test-btn"
     And I click on the button "des-waiting-room-to-car::terminate-test-btn"
-    And I wait on element "des-debrief-screen::test-outcome-terminated" to be displayed
+    And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-post-debrief-screen::continue-btn"
     And I complete the terminated final outcome screen from a data table
