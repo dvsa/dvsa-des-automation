@@ -32,6 +32,7 @@ class MyJournalPageObject extends Page {
   get candidateDetailsBackButton() { return ('des-candidate-details::close-button'); }
 
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
+    await waitFor(this.dayName, '', false, 'be displayed');
     const gettingDateElementCurrentPage = await $(getElementByReference(this.dateName)).getText();
 
     let i:number = 0;
@@ -78,17 +79,17 @@ class MyJournalPageObject extends Page {
   }
 
   async startEarlyTest(): Promise<void> {
-    await waitFor(this.earlyStartTestModelButton, '3000', false, 'be displayed');
+    await waitFor(this.earlyStartTestModelButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.earlyStartTestModelButton);
   }
 
   async startLateTest(): Promise<void> {
-    await waitFor(this.expiredStartTestModelButton, '3000', false, 'be displayed');
+    await waitFor(this.expiredStartTestModelButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.expiredStartTestModelButton);
   }
 
   async startTest(selector: string):Promise<void> {
-    await waitFor(selector, '3000', false, 'be displayed');
+    await waitFor(selector, '', false, 'be displayed');
     await clickElement('click', 'selector', selector);
 
     if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
@@ -100,9 +101,9 @@ class MyJournalPageObject extends Page {
     }
 
     if (await $(getElementByReference(this.specialReqsStartTestModelTitle)).isExisting()) {
-      await waitFor(this.specialReqsStartTestModelButton, '3000', false, 'be displayed');
+      await waitFor(this.specialReqsStartTestModelButton, '', false, 'be displayed');
       await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
-      await waitFor(this.candidateDetailsPageTitle, '3000', false, 'be displayed');
+      await waitFor(this.candidateDetailsPageTitle, '', false, 'be displayed');
       await clickElement('click', 'selector', this.candidateDetailsBackButton);
       await clickElement('click', 'selector', selector);
 
