@@ -1,5 +1,6 @@
 Feature: Cat-B Successful feature
 
+  @test
   Scenario:   Successful Test with no faults
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -21,7 +22,7 @@ Feature: Cat-B Successful feature
     And I select all legal requirements for a category "B"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
-    And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
+    And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I complete the successful final outcome screen from a data table
       | provisionalLicenceReceived    | Yes              |

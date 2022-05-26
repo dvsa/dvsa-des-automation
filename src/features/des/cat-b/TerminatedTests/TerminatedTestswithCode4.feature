@@ -20,7 +20,7 @@ Feature: Cat-B Terminated feature
     And I add "1" serious fault to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-terminate-test-btn"
-    And I wait on element "des-debrief-screen::test-outcome-terminated" to be displayed
+    And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                                 | numberOfFaults      |
       | des-debrief-screen::control-accelerator-serious-fault         | Control - Accelerator            | des-debrief-screen::control-accelerator-driver-serious-count       | S                   |
