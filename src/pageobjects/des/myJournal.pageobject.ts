@@ -49,14 +49,14 @@ class MyJournalPageObject extends Page {
         i += 1;
       }
     }
-    const initialDate = await new Date(gettingDateElementCurrentPage);
+    const initialDate = new Date(gettingDateElementCurrentPage);
     const adjustedDateAsNumber :number = direction === 'back' ? initialDate.getDate() - days : initialDate.getDate() + days;
-    const adjustedDate :Date = await new Date(initialDate.setDate(adjustedDateAsNumber));
+    const adjustedDate :Date = new Date(initialDate.setDate(adjustedDateAsNumber));
     const month = adjustedDate.toLocaleString('default', { month: 'long' });
     const weekday = adjustedDate.toLocaleString('default', { weekday: 'long' });
     const date = `${adjustedDate.getDate()} ${month} ${adjustedDate.getFullYear()}`;
 
-    const dateToday = await new Date();
+    const dateToday = new Date();
     const currentDateString = `${dateToday.toLocaleString('default', { weekday: 'long' })} ${dateToday.getDate()} ${dateToday.toLocaleString('default', { month: 'long' })} ${dateToday.getFullYear()}`;
     const gettingDayNameElementValue = await $(getElementByReference(this.dayName)).getText();
 
