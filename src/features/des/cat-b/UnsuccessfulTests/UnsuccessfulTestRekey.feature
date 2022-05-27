@@ -1,4 +1,4 @@
-Feature: Cat-B Unsuccessful with serious faults feature
+Feature: Cat-B Unsuccessful with serious faults feature Rekey
 
   Scenario:   Unsuccessful test Rekey
     Given I am signed in as a random "mobexaminer1" user
