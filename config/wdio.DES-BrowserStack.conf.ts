@@ -4,7 +4,7 @@ import DESInfo from './des.info';
 import { DESSuites } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 12;
+buildConfig.maxInstances = 5;
 
 buildConfig.specs = [
   './src/features/des/**/**/*.feature',
