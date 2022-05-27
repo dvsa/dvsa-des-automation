@@ -192,6 +192,7 @@
       "submit-vehicle-checks": "#vehicle-checks-modal-submit-label"
   },
   "des-test-report-screen": {
+      "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
       "legal-requirements-label-AS-CS": "//*[@id=\"legal-requirements-label-AS/CS\"]/span",
       "legal-requirements-label-DH": "#legal-requirements-label-DH",
       "legal-requirements-label-UH": "#legal-requirements-label-UH",
@@ -293,7 +294,8 @@
       "end-test-terminate-test-btn": "#end-test-terminate-button",
       "test-requirement-uh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"uphillStart\")]//*[@id=\"legal-requirements-tick-UH\"]/tick-indicator",
       "test-requirement-dh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"downhillStart\")]//*[@id=\"legal-requirements-tick-DH\"]/tick-indicator",
-      "test-requirement-as-cs-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"angledStartControlledStop\")]//*[@id=\"legal-requirements-tick-AS/CS\"]/tick-indicator"
+      "test-requirement-as-cs-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"angledStartControlledStop\")]//*[@id=\"legal-requirements-tick-AS/CS\"]/tick-indicator",
+      "competency-button": "//tick-indicator/div/div/span/ion-icon"
   },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
@@ -314,6 +316,7 @@
       "driving-fault-title": "#driving-fault-title",
       "control-accelerator-driver-fault-xpath": "//*[@id=\"driving-fault\"]//div[contains(text(), 'Control - Accelerator')]",
       "control-accelerator-driver-fault": "#controlsAccelerator-driving-text",
+      "reverseManoeuvreControl-driving-text": "#reverseManoeuvreControl-driving-text",
       "control-accelerator-driver-fault-count": "//driving-faults-debrief-card//*[@id=\"controlsAccelerator-count\"]",
       "control-accelerator-serious-fault": "#controlsAccelerator-serious-text",
       "control-accelerator-driver-serious-count": "//serious-faults-debrief-card//*[@id=\"controlsAccelerator-S\"]",

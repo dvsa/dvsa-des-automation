@@ -10,8 +10,12 @@ class HealthDeclarationScreenPageobject extends Page {
 
   get healthDeclarationContinueButton() { return ('des-final-pass-declaration-screen::continue-btn'); }
 
-  async completeHealthDeclartionPage(): Promise<void> {
-    await clickElement('click', 'selector', this.healthDeclarationLabel);
+  async completeHealthDeclarationPage(category : string): Promise<void> {
+    const cat = category.toLowerCase();
+
+    if (cat !== 'manoeuvre') {
+      await clickElement('click', 'selector', this.healthDeclarationLabel);
+    }
     await clickElement('click', 'selector', this.recievedPassCertDeclarationLabel);
     await clickElement('click', 'selector', this.signatureAreaXpath);
     await clickElement('click', 'selector', this.healthDeclarationContinueButton);

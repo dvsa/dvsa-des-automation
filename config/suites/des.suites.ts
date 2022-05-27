@@ -20,6 +20,8 @@ export const DESSuites = {
     '.src/features/des/cat-b/TerminatedTests/TerminatedTestsRekey.feature',
     './src/features/des/cat-c/SuccessfulTests/SuccessfulTestWith10Faults.feature',
     './src/features/des/cat-c/UnsuccessfulTests/UnsuccessfulTestWithMultipleFaults.feature',
+    './src/features/des/cat-cm/SuccessfulTestCatCM.feature',
+    './src/features/des/cat-cm/UnsuccessfulTestCatCM.feature',
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestRekey.feature',
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestRekey.feature',
   ],
@@ -28,6 +30,7 @@ export const DESSuites = {
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith15Faults.feature',
     './src/features/des/cat-c/SuccessfulTests/SuccessfulTestWith10Faults.feature',
     './src/features/des/cat-b/SuccessfulTests/SuccessfulTestRekey.feature',
+    './src/features/des/cat-cm/SuccessfulTestCatCM.feature',
   ],
   unsuccessfultests: [
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWith16Faults.feature',
@@ -35,6 +38,7 @@ export const DESSuites = {
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithEyesight.feature',
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestWithDangerousFault.feature',
     './src/features/des/cat-c/UnsuccessfulTests/UnsuccessfulTestWithMultipleFaults.feature',
+    './src/features/des/cat-cm/UnsuccessfulTestCatCM.feature',
     './src/features/des/cat-b/UnsuccessfulTests/UnsuccessfulTestRekey.feature',
   ],
   terminatedtests: [

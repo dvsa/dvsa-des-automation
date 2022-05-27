@@ -13,6 +13,9 @@ interface WaitingRoomToCarPageDataCatB {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
   vehicleDetails:'school car'|'dual control';
 }
+interface WaitingRoomToCarPageDataCatManoeuvre {
+  vehicleRegNum:string;
+}
 
 interface WaitingRoomToCarPageDataCatC {
   vehicleRegNum:string;
@@ -321,9 +324,21 @@ class WaitingRoomPageToCarObject extends Page {
           data as Record<keyof WaitingRoomToCarPageDataCatC, string>,
         );
         break;
+      case 'manoeuvre':
+        await this.completeWRTCPageForManoeuvre(
+          data as Record<keyof WaitingRoomToCarPageDataCatManoeuvre, string>,
+        );
+        break;
       default:
         console.info(`${cat} does not exist`);
     }
+  }
+
+  async completeWRTCPageForManoeuvre(
+    data: Record<keyof WaitingRoomToCarPageDataCatManoeuvre, any>,
+  ): Promise<void> {
+    const fieldInput = data.vehicleRegNum;
+    await setInputField('add', fieldInput, this.vehRegInput);
   }
 
   async completeWRTCPageForFailEyesight(): Promise<void> {

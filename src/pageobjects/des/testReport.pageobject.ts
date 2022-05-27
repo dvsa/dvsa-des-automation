@@ -53,6 +53,10 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::test-requirement-dh-tick');
   }
 
+  get competencyButton() {
+    return ('des-test-report-screen::competency-button');
+  }
+
   get asCsLegalReqTick() {
     return ('des-test-report-screen::test-requirement-as-cs-tick');
   }
@@ -84,6 +88,10 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  async completeLegalRequirementsForCatManoeuvre(): Promise<void> {
+    await longClickElement(this.competencyButton, 500);
+  }
+
   async completeLegalRequirements(category:string): Promise<void> {
     const cat = category.toLowerCase();
     switch (cat) {
@@ -92,6 +100,9 @@ class TestReportPageObject extends Page {
         break;
       case 'c':
         await this.completeLegalRequirementsForCatC();
+        break;
+      case 'manoeuvre':
+        await this.completeLegalRequirementsForCatManoeuvre();
         break;
       default:
         console.info(`${cat} does not exist`);

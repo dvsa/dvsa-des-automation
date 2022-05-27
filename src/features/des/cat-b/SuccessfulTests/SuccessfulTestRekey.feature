@@ -38,7 +38,7 @@ Feature: Cat-B Successful feature
       | testLanguage                  | cymraeg          |
       | debriefWitnessed              | Yes              |
     And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
-    And I complete the health declaration page
+    And I complete the health declaration page for a category "B"
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                                        |
