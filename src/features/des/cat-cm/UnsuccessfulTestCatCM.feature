@@ -1,4 +1,4 @@
-Feature: Cat-CM Successful feature
+Feature: Cat-CM Unsuccessful feature
 
   Scenario:   Unsuccessful CM
     Given I am signed in as a random "desexaminerm" user
