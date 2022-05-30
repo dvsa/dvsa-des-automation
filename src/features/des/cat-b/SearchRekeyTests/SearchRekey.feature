@@ -1,6 +1,6 @@
 Feature: Cat-B Search Rekey feature
 
-  Scenario:   Successful Search Rekey
+  Scenario:   Search Rekey
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
@@ -12,15 +12,7 @@ Feature: Cat-B Search Rekey feature
     And I add "12345633019" to the inputfield "des-rekey-search-page::application-ref-text"
     And I scroll to element "des-rekey-search-page::staff-number-text"
     And I add "1234567" to the inputfield "des-rekey-search-page::staff-number-text"  
-    And I pause for 2ms 
     And I click on the element "des-rekey-search-page::rekey-search-test-btn"
-    And I click on the button "des-my-journal::journal-back-button"
-    And I click on the button "des-dashboard::rekey-test-btn"
-    And I scroll to element "des-rekey-search-page::application-ref-text"
-    And I add "12345633019" to the inputfield "des-rekey-search-page::application-ref-text"
-    And I scroll to element "des-rekey-search-page::staff-number-text"
-    And I add "1234567" to the inputfield "des-rekey-search-page::staff-number-text"  
-    And I pause for 20000ms
     And I click on the element "des-rekey-search-page::rekey-search-test-btn"
     And I wait on element "des-rekey-search-page::rekey-results-container" to be displayed
     And I expect that element "des-rekey-search-page::result-time-text" matches the text "09:07"
