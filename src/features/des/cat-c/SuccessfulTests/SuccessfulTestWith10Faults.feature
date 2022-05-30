@@ -43,9 +43,7 @@ Feature: Cat-C Successful feature
       | testLanguage                  | NA               |
       | debriefWitnessed              | Yes              |
       | code78                        | Yes              |
-    And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
     And  I complete the health declaration page for a category "C"
-    And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |

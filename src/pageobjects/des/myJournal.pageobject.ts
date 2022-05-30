@@ -69,15 +69,6 @@ class MyJournalPageObject extends Page {
     }
   }
 
-  async waitForExist(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForExist({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
-  }
-
   async startEarlyTest(): Promise<void> {
     await waitFor(this.earlyStartTestModelButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.earlyStartTestModelButton);
