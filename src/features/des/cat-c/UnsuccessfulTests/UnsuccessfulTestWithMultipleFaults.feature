@@ -5,9 +5,7 @@ Feature: Cat-C Unsuccessful Tests
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "28371932"
     And I click on the button "des-dashboard::my-journal-btn"
-    And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "#start-test-button-32345600"
-    When I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I add "A123456X" to the inputfield "des-exam-waiting-room::manoeuvres-pass-cert-num"
     And I complete the waiting room declaration page
     When I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
