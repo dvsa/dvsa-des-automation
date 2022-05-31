@@ -52,5 +52,6 @@ export const DESSuites = {
   ],
   rekeysearchtests: [
     './src/features/des/cat-b/SearchRekeyTests/SearchRekey.feature',
+    './src/features/des/cat-b/SearchRekeyTests/SearchRekey.feature',
   ],
 };
