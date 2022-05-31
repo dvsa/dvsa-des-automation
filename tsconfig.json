@@ -14,7 +14,8 @@
       "node",
       "webdriverio/async",
       "@wdio/cucumber-framework",
-      "expect-webdriverio"
+      "expect-webdriverio",
+      "jasmine"
     ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

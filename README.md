@@ -192,3 +192,11 @@ New steps specific only to the DES automation pack can be committed to the `./sr
 
 ### If desktop tests dont spin up, check version of chromedriver
 `npm install chromedriver --chromedriver_version=LATEST`
+
+##Unit Tests
+
+To run unit tests with report output to command line:
+`npm run test-text-report`
+
+To run unit tests with report output to html file (saved in `coverage` folder):
+`npm run test-html-report`
