@@ -2,6 +2,7 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import checkEqualsText from '@shared-boilerplate/support/check/checkEqualsText';
 import { getElementByReference } from '@shared-helpers/element-reference-helper';
 import Page from '../base/page';
+import scroll from '@shared-boilerplate/support/action/scroll';
 
 class MyJournalPageObject extends Page {
   get nextDayButton() { return ('des-my-journal::next-day-btn'); }
