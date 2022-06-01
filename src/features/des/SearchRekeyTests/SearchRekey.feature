@@ -10,7 +10,7 @@ Feature: Cat-B Search Rekey feature
     And I scroll to element "des-rekey-search-page::application-ref-text"
     And I add "12345633019" to the inputfield "des-rekey-search-page::application-ref-text"
     And I scroll to element "des-rekey-search-page::staff-number-text"
-    And I add "1234567" to the inputfield "des-rekey-search-page::staff-number-text"  
+    And I add "1234567" to the inputfield "des-rekey-search-page::staff-number-text"
     And I click on the element "des-rekey-search-page::rekey-search-test-btn"
     And I click on the element "des-rekey-search-page::rekey-search-test-btn"
     And I wait on element "des-rekey-search-page::rekey-results-container" to be displayed
