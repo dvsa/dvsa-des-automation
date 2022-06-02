@@ -36,7 +36,7 @@ When(
 );
 
 When(
-  /^I complete the waiting room Cat C declaration page$/,
+  /^I complete the waiting room Cat C or D declaration page$/,
   completeCatCDeclarationPage,
 );
 

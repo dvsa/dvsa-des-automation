@@ -9,6 +9,14 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::test-requirement-first-ns-tick');
   }
 
+  get NSCatD() {
+    return ('des-test-report-screen::legal-requirements-NS');
+  }
+
+  get BSCatD() {
+    return ('des-test-report-screen::legal-requirements-BS');
+  }
+
   get secondNSLegalReqTick() {
     return ('des-test-report-screen::test-requirement-second-ns-tick');
   }
@@ -88,6 +96,17 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  async completeLegalRequirementsForCatD(): Promise<void> {
+    await longClickElement(this.NSCatD, 500);
+    await longClickElement(this.NSCatD, 500);
+    await longClickElement(this.BSCatD, 500);
+    await longClickElement(this.BSCatD, 500);
+    await longClickElement(this.uhLegalReqTick, 500);
+    await longClickElement(this.dhLegalReqTick, 500);
+    await longClickElement(this.asCsLegalReqTick, 500);
+    await longClickElement(this.ecoLegalReqTick, 500);
+  }
+
   async completeLegalRequirementsForCatManoeuvre(): Promise<void> {
     await longClickElement(this.competencyButton, 500);
   }
@@ -100,6 +119,9 @@ class TestReportPageObject extends Page {
         break;
       case 'c':
         await this.completeLegalRequirementsForCatC();
+        break;
+      case 'd':
+        await this.completeLegalRequirementsForCatD();
         break;
       case 'manoeuvre':
         await this.completeLegalRequirementsForCatManoeuvre();

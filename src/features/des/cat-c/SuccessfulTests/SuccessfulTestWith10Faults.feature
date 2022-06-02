@@ -10,7 +10,7 @@ Feature: Cat-C Successful feature
     And I click on the button "#start-test-button-32345633"
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
-    And I complete the waiting room Cat C declaration page
+    And I complete the waiting room Cat C or D declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed

@@ -1,20 +1,20 @@
-Feature: Cat-C Successful feature
+Feature: Cat-D Successful feature
 
   Scenario:   Successful test with 15 faults
-    Given I am signed in as a random "mobexaminer3" user
+    Given I am signed in as a random "desexaminerd" user
     When I wait on element "des-dashboard::page-title" to be displayed
-    And I expect that container "des-dashboard::staff-number" contains the text "28371932"
+    And I expect that container "des-dashboard::staff-number" contains the text "10000006"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#start-test-button-32345633" to be displayed
-    And I click on the button "#start-test-button-32345633"
+    And I wait on element "#start-test-button-16123400" to be displayed
+    And I click on the button "#start-test-button-16123400"
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
-    And I complete the waiting room Cat C declaration page
+    And I complete the waiting room Cat C or D declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
-    And I complete the waiting room to car page from a data table for a category "C"
+    And I complete the waiting room to car page from a data table for a category "D"
       | vehicleRegNum            | vehreg                             |
       | showMeQuestion1          | Q1 - All doors secure              |
       | showMeQuestion2          | Q2 - Air leaks                     |
@@ -28,7 +28,7 @@ Feature: Cat-C Successful feature
       | tellMeQuestion2Fault     | correct                            |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
-    And I select all legal requirements for a category "C"
+    And I select all legal requirements for a category "D"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "5"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-safety" field
@@ -51,12 +51,12 @@ Feature: Cat-C Successful feature
       | debriefWitnessed              | Yes              |
       | code78                        | Yes              |
     And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
-    And  I complete the health declaration page for a category "C"
+    And  I complete the health declaration page for a category "D"
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
-      | testCategory          | C                                           |
+      | testCategory          | D                                           |
       | provLicenceRecieved   | Yes - Please retain the candidates licence  |
       | transmission          | Manual                                      |
       | d255                  | No                                          |
@@ -78,8 +78,8 @@ Feature: Cat-C Successful feature
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#activity-code-32345633" to be displayed
-    And I expect that element "#activity-code-32345633" matches the text "1"
+    And I wait on element "#activity-code-16123400" to be displayed
+    And I expect that element "#activity-code-16123400" matches the text "1"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "28371932"
+    And I expect that container "des-dashboard::staff-number" contains the text "10000006"
