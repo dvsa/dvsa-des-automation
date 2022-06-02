@@ -123,7 +123,6 @@ class WaitingRoomPageToCarObject extends Page {
 
   get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
 
-
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
     await clickElementWithText('click', 'button', value);
