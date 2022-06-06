@@ -227,15 +227,6 @@ class WaitingRoomPageToCarObject extends Page {
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
-          case 'fireExtinguisher':
-            await clickElement('click', 'selector', this.fireExtinguisher);
-            break;
-          case 'emergencyExit':
-            await clickElement('click', 'selector', this.emergencyExit);
-            break;
-          case 'fuelCutoff':
-            await clickElement('click', 'selector', this.fuelCutoff);
-            break;
           case 'vehicleregnum':
             await setInputField('add', fieldInput, this.vehRegInput);
             break;
@@ -314,7 +305,6 @@ class WaitingRoomPageToCarObject extends Page {
               default:
                 console.info(`Could not find ${fieldInput}`);
             }
-            await clickElement('click', 'selector', this.submitVehicleChecks);
             break;
           case 'accompaniedby':
             switch (fieldInput) {
@@ -339,6 +329,10 @@ class WaitingRoomPageToCarObject extends Page {
         }
       }
     }
+    await clickElement('click', 'selector', this.fireExtinguisher);
+    await clickElement('click', 'selector', this.emergencyExit);
+    await clickElement('click', 'selector', this.fuelCutoff);
+    await clickElement('click', 'selector', this.submitVehicleChecks);
   }
 
   async completeWRTCPageForCatC(

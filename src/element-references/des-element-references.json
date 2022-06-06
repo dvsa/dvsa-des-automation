@@ -122,9 +122,9 @@
       "address-postcode":"#postcode"
     },
   "des-waiting-room-to-car": {
-      "safety-questions-correct-6": "#safety-questions-correct_6",
-      "safety-questions-correct-7": "#safety-questions-correct_7",
-      "safety-questions-correct-8": "#safety-questions-correct_8",
+      "safety-questions-correct-6": "#safetyQuestionsCorrect_6",
+      "safety-questions-correct-7": "#safetyQuestionsCorrect_7",
+      "safety-questions-correct-8": "#safetyQuestionsCorrect_8",
       "page-title":"#waiting-room-to-car-page-title",
       "eyesight-test-container":"#eyesight-test-card",
       "eyesight-pass-btn":"#eyesight-pass",

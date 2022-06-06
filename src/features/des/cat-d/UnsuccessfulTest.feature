@@ -1,5 +1,5 @@
 Feature: Cat-D Unsuccessful Tests
-  @test
+
   Scenario: Unsuccessful test with multiple different faults
     Given I am signed in as a random "desexaminerd" user
     When I wait on element "des-dashboard::page-title" to be displayed
@@ -33,9 +33,6 @@ Feature: Cat-D Unsuccessful Tests
       | tellMeQuestion1Fault     | 1 driving fault                    |
       | tellMeQuestion2Fault     | 1 driving fault                    |
       | accompaniedBy            | other                              |
-      | fireExtinguisher         | yes                                |
-      | emergencyExit            | yes                                |
-      | fuelCutoff               | yes                                |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I select all legal requirements for a category "D"
     And I add "1" dangerous faults to the "des-test-report-screen::competency-btn-accelarator" field
