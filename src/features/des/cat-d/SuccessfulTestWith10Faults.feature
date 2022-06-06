@@ -27,7 +27,6 @@ Feature: Cat-D Successful feature
       | tellMeQuestion1Fault     | correct                            |
       | tellMeQuestion2Fault     | correct                            |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
-    And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements for a category "D"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "5"
