@@ -27,16 +27,14 @@ Feature: Cat-D Unsuccessful Tests
       | showMeQuestion3          | Q13 - Check audible warnings       |
       | tellMeQuestion1          | Q3 - Safety factors while loading  |
       | tellMeQuestion2          | Q16 - Engine coolant               |
-      | showMeQuestion1Fault     | 1 driving fault                    |
-      | showMeQuestion2Fault     | 1 driving fault                    |
-      | showMeQuestion3Fault     | 1 driving fault                    |
-      | tellMeQuestion1Fault     | 1 driving fault                    |
-      | tellMeQuestion2Fault     | 1 driving fault                    |
-      | accompaniedBy            | other                              |
+      | showMeQuestion1Fault     | correct                            |
+      | showMeQuestion2Fault     | correct                            |
+      | showMeQuestion3Fault     | correct                            |
+      | tellMeQuestion1Fault     | correct                            |
+      | tellMeQuestion2Fault     | correct                            |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I select all legal requirements for a category "D"
     And I add "1" dangerous faults to the "des-test-report-screen::competency-btn-accelarator" field
-    And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "4"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     When I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
