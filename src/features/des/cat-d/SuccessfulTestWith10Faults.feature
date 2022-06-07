@@ -1,6 +1,6 @@
 Feature: Cat-D Successful feature
 
-  Scenario:   Successful test with 15 faults
+  Scenario:   Successful test with 10 faults
     Given I am signed in as a random "desexaminerd" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000006"
@@ -10,7 +10,7 @@ Feature: Cat-D Successful feature
     And I click on the button "#start-test-button-16123400"
     And I click on the button "des-my-journal::start-test-modal-start-test-btn"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
-    And I complete the waiting room Cat C or D declaration page
+    And I complete the waiting room for vocational declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
