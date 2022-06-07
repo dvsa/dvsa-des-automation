@@ -81,6 +81,7 @@ class MyJournalPageObject extends Page {
   }
 
   async startTest(selector: string):Promise<void> {
+    await scroll(selector);
     await waitFor(selector, '', false, 'be displayed');
     await clickElement('click', 'selector', selector);
 
