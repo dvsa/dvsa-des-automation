@@ -7,7 +7,7 @@ Feature: Cat-C Successful feature
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "#start-test-button-32345633"
-    And I complete the waiting room Cat C declaration page
+    And I complete the waiting room Cat C or D declaration page
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "C"
       | vehicleRegNum            | vehreg                             |
