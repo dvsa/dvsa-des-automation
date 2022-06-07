@@ -44,13 +44,18 @@
       "start-test-modal":"ion-card[class='modal-alert']",
       "start-test-modal-start-test-btn": "#rekey-start-test-button",
       "start-test-modal-rekey-test-btn":"#rekey-rekey-test-button",
+      "early-start-test-modal-start-test-btn":"#early-start-start-test-button",
+      "start-test-modal-view-candidate-details-btn": "#model-return-button",
       "back-to-journal-btn-on-modal":"//ion-button[contains(text(), 'Return to journal')]",
       "cancel-start-test-modal":"#rekey-cancel-button",
       "journal-back-button": "//ion-header//ion-buttons/ion-back-button",
       "day-name": "//*[@id=\"date-container\"]//h1",
       "date": "//*[@id=\"date-container\"]//h3",
-      "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p"
-    },
+      "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p",
+      "start-test-model-time-expired-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Test time is expired')]",
+      "start-test-model-time-early-title": "//h2[@id='model-alert-title-text'][contains(text(), 'This test is not due to')]",
+      "start-test-model-candidate-special-reqs-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]"
+  },
   "des-test-centre-journal": {
       "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",
       "message-today": "#candidate-no-booking-at-test-centre-today-message",
@@ -69,6 +74,7 @@
       "default-validation-error-message": "#default-validation-error-message"
     },
   "des-candidate-details": {
+      "page-title": "#test-details-title",
       "test-category":"data-row[ng-reflect-label='Test category']",
       "candidate-name":"#candidates-name",
       "slot-type":"data-row[ng-reflect-label='Slot type']",
