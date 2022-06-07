@@ -121,7 +121,7 @@ class WaitingRoomPageToCarObject extends Page {
 
   get emergencyExit() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
 
-  get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
+  get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-8'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
