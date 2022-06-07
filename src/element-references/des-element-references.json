@@ -199,6 +199,7 @@
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
+      "reverse-manoeuvre-competency-label-observation": "#reverse-manoeuvre-competency-label-Observation",
       "legal-requirements-label-AS-CS": "//*[@id=\"legal-requirements-label-AS/CS\"]/span",
       "legal-requirements-label-DH": "#legal-requirements-label-DH",
       "legal-requirements-label-UH": "#legal-requirements-label-UH",
@@ -343,6 +344,8 @@
       "vehicle-checks-driving-fault": "#vehicleChecks-driving-text",
       "vehicle-checks-driving-fault-count": "#vehicleChecks-count",
       "control-clutch-dangerous-fault": "#controlsClutch-driving-text",
+      "reverse-observation-dangerous-text": "#reverseManoeuvreObservation-driving-text",
+      "reverse-control-serious-text": "reverseManoeuvreControl-serious-text",
       "back-button": "(//ion-back-button)[last()]"
     },
   "des-post-debrief-screen":{
