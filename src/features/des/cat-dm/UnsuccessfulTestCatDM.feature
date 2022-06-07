@@ -1,7 +1,6 @@
 Feature: Cat-DM Unsuccessful feature
 
-  @test
-  Scenario:   Unsuccessful DM
+  Scenario:   Unsuccessful DM with Dangerous and Serious faults
     Given I am signed in as a random "desexaminerm" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000014"

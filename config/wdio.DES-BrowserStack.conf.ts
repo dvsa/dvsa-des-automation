@@ -30,8 +30,8 @@ exports.config = {
   capabilities: [
     {
       ...bscapabilities,
-      os_version: '15',
-      device: 'iPad 9th',
+      os_version: '14',
+      device: 'iPad 8th',
       browserName: 'safari',
       platformName: DESInfo.platformName,
       app: DESInfo.appName,
