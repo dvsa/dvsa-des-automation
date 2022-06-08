@@ -2,6 +2,7 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import checkEqualsText from '@shared-boilerplate/support/check/checkEqualsText';
 import { getElementByReference } from '@shared-helpers/element-reference-helper';
 import waitFor from '@shared-boilerplate/support/action/waitFor';
+import scroll from '@shared-boilerplate/support/action/scroll';
 import Page from '../base/page';
 
 class MyJournalPageObject extends Page {
@@ -80,6 +81,7 @@ class MyJournalPageObject extends Page {
   }
 
   async startTest(selector: string):Promise<void> {
+    await scroll(selector);
     await waitFor(selector, '', false, 'be displayed');
     await clickElement('click', 'selector', selector);
 

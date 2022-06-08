@@ -202,6 +202,7 @@
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
+      "reverse-manoeuvre-competency-label-observation": "#reverse-manoeuvre-competency-label-Observation",
       "legal-requirements-label-AS-CS": "//*[@id=\"legal-requirements-label-AS/CS\"]/span",
       "legal-requirements-label-DH": "#legal-requirements-label-DH",
       "legal-requirements-label-UH": "#legal-requirements-label-UH",
@@ -348,6 +349,8 @@
       "vehicle-checks-driving-fault": "#vehicleChecks-driving-text",
       "vehicle-checks-driving-fault-count": "#vehicleChecks-count",
       "control-clutch-dangerous-fault": "#controlsClutch-driving-text",
+      "reverse-observation-dangerous-text": "#reverseManoeuvreObservation-driving-text",
+      "reverse-control-serious-text": "reverseManoeuvreControl-serious-text",
       "back-button": "(//ion-back-button)[last()]"
     },
   "des-post-debrief-screen":{
@@ -498,5 +501,16 @@
     "continue-reason-rekey":"#reason-for-rekey",
     "previous-day-btn":"#previous-day",
     "rekey-success-text":".//h2[contains(text(), 'Rekeyed test uploaded successfully')]"
-  }
+  },
+  "des-rekey-search-page": {
+    "page-title":"#rekey-search-page-title",
+    "application-ref-text":"//*[@id='rekey-search-application-reference']/input",
+    "staff-number-text":"//*[@id='rekey-search-staff-number']/input",
+    "rekey-search-test-btn":"#rekey-search-search-tests-btn",
+    "rekey-results-container":".results-message",
+    "result-time-text":"#time-12345633",
+    "result-name-text":"#name-12345633",
+    "result-category-text":"#category-12345633",
+    "result-rekey-btn":"#rekey-button-12345633"
+}
 }
