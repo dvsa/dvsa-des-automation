@@ -5,9 +5,7 @@ Feature: Cat-D Unsuccessful Tests
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000006"
     And I click on the button "des-dashboard::my-journal-btn"
-    And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#start-test-button-16123400" to be displayed
-    And I click on the element "#name-16123400"
+    And I start the test for "#start-test-button-16123400"
     And I expect that element "des-candidate-details::candidate-name" is displayed
     And I click on the element "des-candidate-details::close-button"
     And I wait on element "#start-test-button-16123400" to be displayed
