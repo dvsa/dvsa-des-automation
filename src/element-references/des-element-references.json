@@ -128,6 +128,9 @@
       "address-postcode":"#postcode"
     },
   "des-waiting-room-to-car": {
+      "safety-questions-correct-6": "#safetyQuestionsCorrect_6",
+      "safety-questions-correct-7": "#safetyQuestionsCorrect_7",
+      "safety-questions-correct-8": "#safetyQuestionsCorrect_8",
       "page-title":"#waiting-room-to-car-page-title",
       "eyesight-test-container":"#eyesight-test-card",
       "eyesight-pass-btn":"#eyesight-pass",
@@ -203,6 +206,8 @@
       "legal-requirements-label-AS-CS": "//*[@id=\"legal-requirements-label-AS/CS\"]/span",
       "legal-requirements-label-DH": "#legal-requirements-label-DH",
       "legal-requirements-label-UH": "#legal-requirements-label-UH",
+      "legal-requirements-NS": "//*[@id=\"NS\"]//div//div//span",
+      "legal-requirements-BS": "//*[@id=\"BS\"]//div//div//span",
       "page-title":"#test-report-page-title",
       "end-test-btn": "(//*[@id='end-test-button'])[2]",
       "end-test-btn-xpath": "//div//*[@id='end-test-button']",

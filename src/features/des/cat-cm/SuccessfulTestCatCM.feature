@@ -5,11 +5,7 @@ Feature: Cat-CM Successful feature
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000014"
     And I click on the button "des-dashboard::my-journal-btn"
-    And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#start-test-button-55512302" to be displayed
-    And I click on the button "#start-test-button-55512302"
-    And I wait on element "des-my-journal::start-test-modal-start-test-btn" to be displayed
-    And I click on the button "des-my-journal::start-test-modal-start-test-btn"
+    And I start the test for "#start-test-button-55512302"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed

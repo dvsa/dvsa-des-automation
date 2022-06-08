@@ -32,6 +32,24 @@ interface WaitingRoomToCarPageDataCatC {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
+interface WaitingRoomToCarPageDataCatD {
+  vehicleRegNum:string;
+  showMeQuestion1:string;
+  showMeQuestion2:string;
+  showMeQuestion3:string;
+  tellMeQuestion1:string;
+  tellMeQuestion2:string;
+  showMeQuestion1Fault:'correct'|'1 driving fault'
+  showMeQuestion2Fault:'correct'|'1 driving fault'
+  emergencyExit:'correct'|'1 driving fault'
+  tellMeQuestion1Fault:'correct'|'1 driving fault'
+  tellMeQuestion2Fault:'correct'|'1 driving fault'
+  accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
+  showMeQuestion3Fault:'correct'|'1 driving fault'
+  fireExtinguisher:'correct'|'1 driving fault'
+  fuelCutoff:'correct'|'1 driving fault'
+}
+
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
 
@@ -98,6 +116,12 @@ class WaitingRoomPageToCarObject extends Page {
   get submitVehicleChecks() { return ('des-waiting-room-to-car::submit-vehicle-checks'); }
 
   get continueToDebriefButton() { return ('des-waiting-room-to-car::continue-to-debrief-btn'); }
+
+  get fireExtinguisher() { return ('des-waiting-room-to-car::safety-questions-correct-6'); }
+
+  get emergencyExit() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
+
+  get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-8'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -193,6 +217,122 @@ class WaitingRoomPageToCarObject extends Page {
         }
       }
     }
+  }
+
+  async completeWRTCPageForCatD(
+    data: Record<keyof WaitingRoomToCarPageDataCatC, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'vehicleregnum':
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'showmequestion1':
+            await clickElement('click', 'selector', this.vehicleChecksShowQuestionsButton);
+            await this.addVehicleQuestion(this.firstShowMeQuestion, value);
+            break;
+          case 'showmequestion2':
+            await this.addVehicleQuestion(this.secondShowMeQuestion, value);
+            break;
+          case 'showmequestion3':
+            await this.addVehicleQuestion(this.thirdShowMeQuestion, value);
+            break;
+          case 'tellmequestion1':
+            await this.addVehicleQuestion(this.firstTellMeQuestion, value);
+            break;
+          case 'tellmequestion2':
+            await this.addVehicleQuestion(this.secondTellMeQuestion, value);
+            break;
+          case 'showmequestion1fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.firstShowMeQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.firstShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'showmequestion2fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.secondShowMeQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.secondShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'showmequestion3fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.thirdShowMeQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.thirdShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestion1fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.firstTellMeQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.firstTellMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestion2fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.secondTellMeQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.secondTellMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'accompaniedby':
+            switch (fieldInput) {
+              case 'instructor':
+                await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
+                break;
+              case 'supervisor':
+                await clickElement('click', 'selector', this.accompaniedBySupervisorLabel);
+                break;
+              case 'interpreter':
+                await clickElement('click', 'selector', this.accompaniedByInterpreterLabel);
+                break;
+              case 'other':
+                await clickElement('click', 'selector', this.accompaniedByOtherLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+    await clickElement('click', 'selector', this.fireExtinguisher);
+    await clickElement('click', 'selector', this.emergencyExit);
+    await clickElement('click', 'selector', this.fuelCutoff);
+    await clickElement('click', 'selector', this.submitVehicleChecks);
   }
 
   async completeWRTCPageForCatC(
@@ -321,7 +461,12 @@ class WaitingRoomPageToCarObject extends Page {
         break;
       case 'c':
         await this.completeWRTCPageForCatC(
-          data as Record<keyof WaitingRoomToCarPageDataCatC, string>,
+            data as Record<keyof WaitingRoomToCarPageDataCatC, string>,
+        );
+        break;
+      case 'd':
+        await this.completeWRTCPageForCatD(
+          data as Record<keyof WaitingRoomToCarPageDataCatD, string>,
         );
         break;
       case 'manoeuvre':
