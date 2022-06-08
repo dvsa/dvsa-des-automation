@@ -38,4 +38,7 @@ export const DESSuites = {
     './src/features/des/cat-b/TerminatedTests/TerminatedTestsWaitingRoomToCar.feature',
     '.src/features/des/cat-b/TerminatedTests/TerminatedTestsRekey.feature',
   ],
+  rekeysearchtests: [
+    './src/features/des/SearchRekeyTests/SearchRekey.feature',
+  ],
 };
