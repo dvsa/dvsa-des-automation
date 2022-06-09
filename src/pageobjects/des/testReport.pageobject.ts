@@ -69,6 +69,50 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::test-requirement-as-cs-tick');
   }
 
+  get answerLabelOne() {
+    return ('des-test-report-screen::answer-label-1');
+  }
+
+  get answerLabelTwo() {
+    return ('des-test-report-screen::answer-label-2');
+  }
+
+  get answerLabelThree() {
+    return ('des-test-report-screen::answer-label-3');
+  }
+
+  get answerLabelFour() {
+    return ('des-test-report-screen::answer-label-4');
+  }
+
+  get answerLabelFive() {
+    return ('des-test-report-screen::answer-label-5');
+  }
+
+  get answerLabelSix() {
+    return ('des-test-report-screen::answer-label-6');
+  }
+
+  get answerLabelSeven() {
+    return ('des-test-report-screen::answer-label-7');
+  }
+
+  get answerLabelEight() {
+    return ('des-test-report-screen::answer-label-8');
+  }
+
+  get answerLabelNine() {
+    return ('des-test-report-screen::answer-label-9');
+  }
+
+  get answerLabelTen() {
+    return ('des-test-report-screen::answer-label-10');
+  }
+
+  get nextPageButton() {
+    return ('des-test-report-screen::next-page-button');
+  }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
@@ -85,6 +129,30 @@ class TestReportPageObject extends Page {
     await longClickElement(this.maneuversLegalReqTick, 500);
     await longClickElement(this.ecoLegalReqTick, 500);
     await longClickElement(this.showTellLegalReqTick, 500);
+  }
+
+  async completeLegalRequirementsForCatCPC(status: string): Promise<void> {
+    for (let i = 1; i <= 4; i += 1) {
+      await clickElement('click', 'selector', this.answerLabelOne);
+
+      if (status === 'pass') {
+        await clickElement('click', 'selector', this.answerLabelTwo);
+        await clickElement('click', 'selector', this.answerLabelThree);
+        await clickElement('click', 'selector', this.answerLabelFour);
+      }
+
+      await clickElement('click', 'selector', this.nextPageButton);
+    }
+    await clickElement('click', 'selector', this.answerLabelOne);
+    await clickElement('click', 'selector', this.answerLabelTwo);
+    await clickElement('click', 'selector', this.answerLabelThree);
+    await clickElement('click', 'selector', this.answerLabelFour);
+    await clickElement('click', 'selector', this.answerLabelFive);
+    await clickElement('click', 'selector', this.answerLabelSix);
+    await clickElement('click', 'selector', this.answerLabelSeven);
+    await clickElement('click', 'selector', this.answerLabelEight);
+    await clickElement('click', 'selector', this.answerLabelNine);
+    await clickElement('click', 'selector', this.answerLabelTen);
   }
 
   async completeLegalRequirementsForCatC(): Promise<void> {
@@ -122,6 +190,12 @@ class TestReportPageObject extends Page {
         break;
       case 'd':
         await this.completeLegalRequirementsForCatD();
+        break;
+      case 'cpc-pass':
+        await this.completeLegalRequirementsForCatCPC('pass');
+        break;
+      case 'cpc-fail':
+        await this.completeLegalRequirementsForCatCPC('fail');
         break;
       case 'manoeuvre':
         await this.completeLegalRequirementsForCatManoeuvre();

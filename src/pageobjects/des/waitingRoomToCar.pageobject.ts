@@ -17,6 +17,10 @@ interface WaitingRoomToCarPageDataCatManoeuvre {
   vehicleRegNum:string;
 }
 
+interface WaitingRoomToCarPageDataCatCPC {
+  vehicleRegNum:string;
+}
+
 interface WaitingRoomToCarPageDataCatC {
   vehicleRegNum:string;
   showMeQuestion1:string;
@@ -122,6 +126,10 @@ class WaitingRoomPageToCarObject extends Page {
   get emergencyExit() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
 
   get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-8'); }
+
+  get combination() { return ('des-waiting-room-to-car::combination'); }
+
+  get articulated() { return ('des-waiting-room-to-car::articulated'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -474,9 +482,23 @@ class WaitingRoomPageToCarObject extends Page {
           data as Record<keyof WaitingRoomToCarPageDataCatManoeuvre, string>,
         );
         break;
+      case 'cpc':
+        await this.completeWRTCPageForCPC(
+            data as Record<keyof WaitingRoomToCarPageDataCatCPC, string>,
+        );
+        break;
       default:
         console.info(`${cat} does not exist`);
     }
+  }
+
+  async completeWRTCPageForCPC(
+    data: Record<keyof WaitingRoomToCarPageDataCatCPC, any>,
+  ): Promise<void> {
+    const fieldInput = data.vehicleRegNum;
+    await setInputField('add', fieldInput, this.vehRegInput);
+    await clickElement('click', 'selector', this.articulated);
+    await this.addVehicleQuestion(this.combination, 'LGV3');
   }
 
   async completeWRTCPageForManoeuvre(

@@ -44,6 +44,8 @@ class OfficePageObject extends Page {
 
   get genericFaultCommentBox() { return ('des-office-page::general-fault-comment-input'); }
 
+  get assessmentReport() { return ('des-office-page::assessment-report'); }
+
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
@@ -128,7 +130,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment,
+      eyesightFaultComment, assessment,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -173,6 +175,10 @@ class OfficePageObject extends Page {
           case 'distinguishingfeatures':
             await scroll(this.distinguishingFeatureInput);
             await setInputField('add', distinguishingFeatures, this.distinguishingFeatureInput);
+            break;
+          case 'assessment':
+            await scroll(this.assessmentReport);
+            await setInputField('add', assessment, this.assessmentReport);
             break;
           case 'identification':
             await scroll(this.photoCardButton);

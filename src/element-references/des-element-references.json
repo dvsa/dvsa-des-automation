@@ -198,7 +198,9 @@
       "first-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[4]",
       "second-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[5]",
       "second-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[5]",
-      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label"
+      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label",
+      "combination": "#combination",
+      "articulated": "//ion-col//label[contains(text(), 'Articulated')]"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -303,11 +305,24 @@
       "competency-btn-traffic-controllers":"competency-button='Traffic controllers'",
       "competency-btn-other-road-users":"competency-button='Other road users'",
       "end-test-continue-to-debrief-btn": "#end-test-continue-button",
+      "continue-to-debrief":"//ion-button//h3[contains(text(), 'Continue to debrief')]",
       "end-test-terminate-test-btn": "#end-test-terminate-button",
       "test-requirement-uh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"uphillStart\")]//*[@id=\"legal-requirements-tick-UH\"]/tick-indicator",
       "test-requirement-dh-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"downhillStart\")]//*[@id=\"legal-requirements-tick-DH\"]/tick-indicator",
       "test-requirement-as-cs-tick":"//legal-requirement[contains(@ng-reflect-legal-requirement, \"angledStartControlledStop\")]//*[@id=\"legal-requirements-tick-AS/CS\"]/tick-indicator",
-      "competency-button": "//tick-indicator/div/div/span/ion-icon"
+      "competency-button": "//tick-indicator/div/div/span/ion-icon",
+      "answer-label-1": "#answer-label-1",
+      "answer-label-2": "#answer-label-2",
+      "answer-label-3": "#answer-label-3",
+      "answer-label-4": "#answer-label-4",
+      "answer-label-5": "#answer-label-5",
+      "answer-label-6": "#answer-label-6",
+      "answer-label-7": "#answer-label-7",
+      "answer-label-8": "#answer-label-8",
+      "answer-label-9": "#answer-label-9",
+      "answer-label-10":"#answer-label-10",
+      "next-page-button": "#next-page-button",
+      "view-summary-button": "#view-summary-button"
   },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
@@ -482,7 +497,8 @@
       "serious-fault-comment-eyesight-input": "#fault-comment-text-serious-eyesightTest",
       "serious-comment-controls-accelerator": "#fault-comment-text-serious-controlsAccelerator",
       "fault-comment-dangerous-input": "#fault-comment-text-dangerous-controlsAccelerator",
-      "general-fault-comment-input": "//fault-comment//textarea"
+      "general-fault-comment-input": "//fault-comment//textarea",
+      "assessment-report": "(//ion-col//textarea)[3]"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",
