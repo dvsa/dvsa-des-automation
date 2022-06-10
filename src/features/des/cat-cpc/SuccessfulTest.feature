@@ -12,6 +12,9 @@ Feature: Cat-CPC Successful feature
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "CPC"
       | vehicleRegNum            | vehreg                             |
+      | details                  | articulated                        |
+      | accompanied              | interpreter                        |
+      | combination              | LGV3                               |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I select all legal requirements for a category "CPC-Pass"
     And I click on the button "des-test-report-screen::view-summary-button"

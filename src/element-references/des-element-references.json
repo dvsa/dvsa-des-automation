@@ -200,7 +200,9 @@
       "second-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[5]",
       "submit-vehicle-checks": "#vehicle-checks-modal-submit-label",
       "combination": "#combination",
-      "articulated": "//ion-col//label[contains(text(), 'Articulated')]"
+      "articulated": "//ion-col//label[contains(text(), 'Articulated')]",
+      "drawbar": "//ion-col//label[contains(text(), 'Drawbar')]",
+      "rigid": "//ion-col//label[contains(text(), 'Rigid')]"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
