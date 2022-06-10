@@ -6,7 +6,7 @@ import Page from '../base/page';
 interface WaitingRoomToCarPageDataCatB {
   eyesightTest: 'pass'|'fail';
   tellMeQuestion:string;
-  tellMeQuestionFault:'correct'|'1 driving fault'
+  tellMeQuestionFault:'correct'|'1 driving fault';
   vehicleRegNum:string;
   transmission:'manual'|'automatic';
   instructorRegNum:string;
@@ -31,11 +31,11 @@ interface WaitingRoomToCarPageDataCatC {
   showMeQuestion3:string;
   tellMeQuestion1:string;
   tellMeQuestion2:string;
-  showMeQuestion1Fault:'correct'|'1 driving fault'
-  showMeQuestion2Fault:'correct'|'1 driving fault'
-  showMeQuestion3Fault:'correct'|'1 driving fault'
-  tellMeQuestion1Fault:'correct'|'1 driving fault'
-  tellMeQuestion2Fault:'correct'|'1 driving fault'
+  showMeQuestion1Fault:'correct'|'1 driving fault';
+  showMeQuestion2Fault:'correct'|'1 driving fault';
+  showMeQuestion3Fault:'correct'|'1 driving fault';
+  tellMeQuestion1Fault:'correct'|'1 driving fault';
+  tellMeQuestion2Fault:'correct'|'1 driving fault';
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
@@ -46,15 +46,23 @@ interface WaitingRoomToCarPageDataCatD {
   showMeQuestion3:string;
   tellMeQuestion1:string;
   tellMeQuestion2:string;
-  showMeQuestion1Fault:'correct'|'1 driving fault'
-  showMeQuestion2Fault:'correct'|'1 driving fault'
-  emergencyExit:'correct'|'1 driving fault'
-  tellMeQuestion1Fault:'correct'|'1 driving fault'
-  tellMeQuestion2Fault:'correct'|'1 driving fault'
+  showMeQuestion1Fault:'correct'|'1 driving fault';
+  showMeQuestion2Fault:'correct'|'1 driving fault';
+  emergencyExit:'correct'|'1 driving fault';
+  tellMeQuestion1Fault:'correct'|'1 driving fault';
+  tellMeQuestion2Fault:'correct'|'1 driving fault';
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
-  showMeQuestion3Fault:'correct'|'1 driving fault'
-  fireExtinguisher:'correct'|'1 driving fault'
-  fuelCutoff:'correct'|'1 driving fault'
+  showMeQuestion3Fault:'correct'|'1 driving fault';
+  fireExtinguisher:'correct'|'1 driving fault';
+  fuelCutoff:'school bike';
+}
+
+interface WaitingRoomToCarPageDataCatMod1 {
+  categoryType:'AM' | 'A1' | 'A2' | 'A';
+  transmission:'manual'|'automatic';
+  vehicleRegNum:string;
+  accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
+  vehicleDetails:'school bike';
 }
 
 class WaitingRoomPageToCarObject extends Page {
@@ -137,6 +145,10 @@ class WaitingRoomPageToCarObject extends Page {
   get drawbar() { return ('des-waiting-room-to-car::drawbar'); }
 
   get rigid() { return ('des-waiting-room-to-car::rigid'); }
+
+  get catType() { return ('des-waiting-room-to-car::category-type'); }
+
+  get vehicleDetailsSchoolBike() { return ('des-waiting-room-to-car::vehicle-details-school-bike-label'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -463,6 +475,68 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  async completeWRTCPageForCatMod1(
+    data: Record<keyof WaitingRoomToCarPageDataCatMod1, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'categorytype':
+            await clickElement('click', 'selector', this.catType);
+            await clickElementWithText('click', 'button', value);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'transmission':
+            switch (fieldInput) {
+              case 'manual':
+                await clickElement('click', 'selector', this.manualTransmissionLabel);
+                break;
+              case 'automatic':
+                await clickElement('click', 'selector', this.automaticTransmissionLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'vehicleregnum':
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'accompaniedby':
+            switch (fieldInput) {
+              case 'instructor':
+                await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
+                break;
+              case 'supervisor':
+                await clickElement('click', 'selector', this.accompaniedBySupervisorLabel);
+                break;
+              case 'interpreter':
+                await clickElement('click', 'selector', this.accompaniedByInterpreterLabel);
+                break;
+              case 'other':
+                await clickElement('click', 'selector', this.accompaniedByOtherLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'vehicledetails':
+            switch (fieldInput) {
+              case 'school bike':
+                await clickElement('click', 'selector', this.vehicleDetailsSchoolBike);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
   async completeWRTCPageDataTable(
     data: Record<string, string>,
     category:string,
@@ -492,6 +566,11 @@ class WaitingRoomPageToCarObject extends Page {
       case 'cpc':
         await this.completeWRTCPageForCPC(
             data as Record<keyof WaitingRoomToCarPageDataCatCPC, string>,
+        );
+        break;
+      case 'mod1':
+        await this.completeWRTCPageForCatMod1(
+          data as Record<keyof WaitingRoomToCarPageDataCatMod1, string>,
         );
         break;
       default:

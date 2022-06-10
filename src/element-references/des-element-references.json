@@ -202,7 +202,9 @@
       "combination": "#combination",
       "articulated": "//ion-col//label[contains(text(), 'Articulated')]",
       "drawbar": "//ion-col//label[contains(text(), 'Drawbar')]",
-      "rigid": "//ion-col//label[contains(text(), 'Rigid')]"
+      "rigid": "//ion-col//label[contains(text(), 'Rigid')]",
+      "category-type": "#select-cat-type-label",
+      "vehicle-details-school-bike-label": "#vehicle-details-school-bike-label"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
