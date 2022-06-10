@@ -17,6 +17,13 @@ interface WaitingRoomToCarPageDataCatManoeuvre {
   vehicleRegNum:string;
 }
 
+interface WaitingRoomToCarPageDataCatCPC {
+  vehicleRegNum:string;
+  combination:string;
+  details:string;
+  accompanied:string;
+}
+
 interface WaitingRoomToCarPageDataCatC {
   vehicleRegNum:string;
   showMeQuestion1:string;
@@ -122,6 +129,14 @@ class WaitingRoomPageToCarObject extends Page {
   get emergencyExit() { return ('des-waiting-room-to-car::safety-questions-correct-7'); }
 
   get fuelCutoff() { return ('des-waiting-room-to-car::safety-questions-correct-8'); }
+
+  get combination() { return ('des-waiting-room-to-car::combination'); }
+
+  get articulated() { return ('des-waiting-room-to-car::articulated'); }
+
+  get drawbar() { return ('des-waiting-room-to-car::drawbar'); }
+
+  get rigid() { return ('des-waiting-room-to-car::rigid'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -474,8 +489,67 @@ class WaitingRoomPageToCarObject extends Page {
           data as Record<keyof WaitingRoomToCarPageDataCatManoeuvre, string>,
         );
         break;
+      case 'cpc':
+        await this.completeWRTCPageForCPC(
+            data as Record<keyof WaitingRoomToCarPageDataCatCPC, string>,
+        );
+        break;
       default:
         console.info(`${cat} does not exist`);
+    }
+  }
+
+  async completeWRTCPageForCPC(
+    data: Record<keyof WaitingRoomToCarPageDataCatCPC, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'vehicleregnum':
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'details':
+            switch (fieldInput) {
+              case 'rigid':
+                await clickElement('click', 'selector', this.rigid);
+                break;
+              case 'articulated':
+                await clickElement('click', 'selector', this.articulated);
+                break;
+              case 'drawbar':
+                await clickElement('click', 'selector', this.drawbar);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'accompanied':
+            switch (fieldInput) {
+              case 'instructor':
+                await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
+                break;
+              case 'supervisor':
+                await clickElement('click', 'selector', this.accompaniedBySupervisorLabel);
+                break;
+              case 'interpreter':
+                await clickElement('click', 'selector', this.accompaniedByInterpreterLabel);
+                break;
+              case 'other':
+                await clickElement('click', 'selector', this.accompaniedByOtherLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'combination':
+            await this.addVehicleQuestion(this.combination, value);
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
     }
   }
 
