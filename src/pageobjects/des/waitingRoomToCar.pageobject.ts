@@ -20,7 +20,8 @@ interface WaitingRoomToCarPageDataCatManoeuvre {
 interface WaitingRoomToCarPageDataCatCPC {
   vehicleRegNum:string;
   combination:string;
-
+  details:string;
+  accompanied:string;
 }
 
 interface WaitingRoomToCarPageDataCatC {
@@ -542,7 +543,7 @@ class WaitingRoomPageToCarObject extends Page {
                 console.info(`Could not find ${fieldInput}`);
             }
             break;
-          case  'combination':
+          case 'combination':
             await this.addVehicleQuestion(this.combination, value);
             break;
           default:
