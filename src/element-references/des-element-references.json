@@ -198,7 +198,9 @@
       "first-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[4]",
       "second-tell-me-question-correct-label": "(//label[contains(text(), 'Correct')])[5]",
       "second-tell-me-question-fault-label": "(//label[contains(text(), '1 driving fault')])[5]",
-      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label"
+      "submit-vehicle-checks": "#vehicle-checks-modal-submit-label",
+      "category-type": "#select-cat-type-label",
+      "vehicle-details-school-bike-label": "#vehicle-details-school-bike-label"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
