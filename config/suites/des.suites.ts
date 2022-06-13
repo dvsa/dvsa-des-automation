@@ -12,6 +12,7 @@ export const DESSuites = {
     './src/features/des/cat-dm/*.feature',
     './src/features/des/cat-d/*.feature',
     './src/features/des/cat-cpc/*.feature',
+    './src/features/des/cat-mod1/*.feature',
   ],
   successfultests: [
     './src/features/des/cat-d/SuccessfulTestWith10Faults.feature',
