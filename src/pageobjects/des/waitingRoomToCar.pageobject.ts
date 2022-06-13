@@ -471,7 +471,7 @@ class WaitingRoomPageToCarObject extends Page {
           case 'categorytype':
             await clickElement('click', 'selector', this.catType);
             await clickElementWithText('click', 'button', value);
-            await clickElementWithText('click', 'element', 'Submit');
+            await clickElementWithText('click', 'element', 'Confirm');
             break;
           case 'transmission':
             switch (fieldInput) {

@@ -11,7 +11,8 @@ interface OfficePageData {
   showMeQuestion: string;
   weatherCondition: string;
   faultComment: string;
-  eyesightFaultComment: string
+  eyesightFaultComment: string;
+  circuit:'left'| 'right';
 }
 class OfficePageObject extends Page {
   /* eslint-disable no-case-declarations, no-await-in-loop */
@@ -43,6 +44,10 @@ class OfficePageObject extends Page {
   get seriousFaultComment() { return ('des-office-page::serious-comment-controls-accelerator'); }
 
   get genericFaultCommentBox() { return ('des-office-page::general-fault-comment-input'); }
+
+  get circuitLeft() { return ('des-office-page::circuit-left-input'); }
+
+  get circuitRight() { return ('des-office-page::circuit-right-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
@@ -115,6 +120,19 @@ class OfficePageObject extends Page {
             await clickElement('click', 'selector', this.weatherConditionsSelector);
             await clickElementWithText('click', 'button', weatherCondition);
             await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'circuit':
+            await scroll(this.circuitLeft);
+            switch (fieldInput) {
+              case 'left':
+                await clickElement('click', 'selector', this.circuitLeft);
+                break;
+              case 'right':
+                await clickElement('click', 'selector', this.circuitRight);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
             break;
           default:
             console.log(`Could not find ${field}`);
@@ -198,6 +216,19 @@ class OfficePageObject extends Page {
             await clickElement('click', 'selector', this.weatherConditionsSelector);
             await clickElementWithText('click', 'button', weatherCondition);
             await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'circuit':
+            await scroll(this.circuitLeft);
+            switch (fieldInput) {
+              case 'left':
+                await clickElement('click', 'selector', this.circuitLeft);
+                break;
+              case 'right':
+                await clickElement('click', 'selector', this.circuitRight);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
             break;
           case 'faultcomment':
             const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
