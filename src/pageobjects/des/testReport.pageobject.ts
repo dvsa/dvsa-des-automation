@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 import longClickElement from '@shared-custom/support/action/longClickElement';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';

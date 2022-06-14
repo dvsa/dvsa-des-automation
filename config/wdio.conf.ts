@@ -1,7 +1,8 @@
 import path from 'path';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
 
-const video = require('wdio-video-reporter');
+// Uncomment to enable video reporter
+// const video = require('wdio-video-reporter');
 
 // @ts-ignore
 export const config: WebdriverIO.Config = {
@@ -151,12 +152,15 @@ export const config: WebdriverIO.Config = {
   // reporters: ['spec'],
   reporters: [
     'spec',
-    [video, {
-      saveAllVideos: true, // If true, also saves videos for successful test cases
-      // eslint-disable-next-line max-len
-      videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
-      videoRenderTimeout: 5, // Max seconds to wait for a video to finish rendering
-    }],
+    //
+    // Uncomment to enable video reporter
+    //
+    // [video, {
+    //   saveAllVideos: true, // If true, also saves videos for successful test cases
+    // eslint-disable-next-line max-len
+    //   videoSlowdownMultiplier: 10, // Higher to get slower videos, lower for faster videos [Value 1-100]
+    //   videoRenderTimeout: 5, // Max seconds to wait for a video to finish rendering
+    // }],
     ['allure', {
       outputDir: './reports/allure-results',
       disableWebdriverStepsReporting: true,

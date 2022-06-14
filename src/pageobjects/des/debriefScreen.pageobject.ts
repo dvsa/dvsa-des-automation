@@ -24,9 +24,7 @@ class DebriefScreenPageObject extends Page {
       const expectedText = faultExpectedText;
       const faultCount = faultCountSelector;
       const faultNumber = numberOfFaults;
-      // eslint-disable-next-line no-await-in-loop
       await checkEqualsText('element', faultName, false, expectedText);
-      // eslint-disable-next-line no-await-in-loop
       await checkEqualsText('element', faultCount, false, faultNumber);
     }
   }

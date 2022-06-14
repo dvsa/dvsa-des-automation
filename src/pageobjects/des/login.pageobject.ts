@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { AppiumContext } from 'shared/models/appiumContext.model';
 import * as credentials from '../../../creds/credentials.json';
 
@@ -10,13 +9,13 @@ export interface Context {
 }
 
 class LoginMobilePageObject {
-  private _msSignInContextTitle: string = 'Sign in to your account';
+  private msSignInContextTitle: string = 'Sign in to your account';
 
-  private _msSignOutContextTitle: string = 'Sign out';
+  private msSignOutContextTitle: string = 'Sign out';
 
   // @TODO will be needed when log out added
   // private _msSignOutContextTitle: string = 'Sign out';
-  private _desAppContextTitle: string = 'DVSA DES';
+  private desAppContextTitle: string = 'DVSA DES';
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
@@ -39,7 +38,6 @@ class LoginMobilePageObject {
     await element.waitForExist({
       timeout: 15000,
       reverse: false,
-      // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
     });
   }
@@ -49,13 +47,11 @@ class LoginMobilePageObject {
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
-      // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
     });
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
-      // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
   }
@@ -65,7 +61,6 @@ class LoginMobilePageObject {
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
-      // eslint-disable-next-line max-len
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
   }
@@ -88,8 +83,8 @@ class LoginMobilePageObject {
   }
 
   async switchToDESContext(): Promise<void> {
-    await this.waitForContextToExist(this._desAppContextTitle);
-    const DESContext = await this.getContextByTitle(this._desAppContextTitle);
+    await this.waitForContextToExist(this.desAppContextTitle);
+    const DESContext = await this.getContextByTitle(this.desAppContextTitle);
     // @ts-ignore
     await driver.switchContext(DESContext.id);
   }
@@ -123,8 +118,8 @@ class LoginMobilePageObject {
     await this.clickNativeButton(nativeContinueButton);
 
     // wait for log in page
-    await this.waitForContextToExist(this._msSignInContextTitle);
-    const signInContext = await this.getContextByTitle(this._msSignInContextTitle);
+    await this.waitForContextToExist(this.msSignInContextTitle);
+    const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
     // @ts-ignore
     await driver.switchContext(signInContext.id);
 
@@ -184,8 +179,8 @@ class LoginMobilePageObject {
     const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
     await this.clickNativeButton(nativeContinueButton);
     // wait for MS sign out page
-    await this.waitForContextToExist(this._msSignOutContextTitle);
-    const signOutContext = await this.getContextByTitle(this._msSignOutContextTitle);
+    await this.waitForContextToExist(this.msSignOutContextTitle);
+    const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
     // switch to sign out page context
     // @ts-ignore
     await driver.switchContext(signOutContext.id);

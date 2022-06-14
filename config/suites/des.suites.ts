@@ -12,6 +12,7 @@ export const DESSuites = {
     './src/features/des/cat-dm/*.feature',
     './src/features/des/cat-d/*.feature',
     './src/features/des/cat-cpc/*.feature',
+    './src/features/des/cat-mod1/*.feature',
   ],
   successfultests: [
     './src/features/des/cat-d/SuccessfulTestWith10Faults.feature',
@@ -23,6 +24,7 @@ export const DESSuites = {
     './src/features/des/cat-dm/SuccessfulTestCatDM.feature',
     './src/features/des/cat-d/SuccessfulTestWith10Faults.feature',
     './src/features/des/cat-cpc/SuccessfulTest.feature',
+    './src/features/des/mod1/SuccessfulTestCatMod1.feature',
   ],
   unsuccessfultests: [
     './src/features/des/cat-d/UnsuccessfulTest.feature',
@@ -36,6 +38,7 @@ export const DESSuites = {
     './src/features/des/cat-dm/UnsuccessfulTestCatDM.feature',
     './src/features/des/cat-d/UnsuccessfulTest.feature',
     './src/features/des/cat-cpc/UnsuccessfulTest.feature',
+    './src/features/des/mod1/UnsuccessfulTestCatMod1.feature',
   ],
   terminatedtests: [
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode4.feature',

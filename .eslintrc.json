@@ -26,6 +26,10 @@
     "no-undef": "off",
     "require-await": "error",
     "no-restricted-syntax": "warn",
-    "no-redeclare": "warn"
+    "no-redeclare": "warn",
+    "max-len": 0,
+    "no-await-in-loop": "off",
+    "no-console": "off",
+    "no-case-declarations": "warn"
   }
 }

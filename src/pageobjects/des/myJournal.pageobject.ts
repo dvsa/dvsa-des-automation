@@ -39,13 +39,11 @@ class MyJournalPageObject extends Page {
     let i:number = 0;
     if (direction === 'back') {
       while (i < days) {
-        // eslint-disable-next-line no-await-in-loop
         await clickElement('click', 'selector', this.previousDayButton);
         i += 1;
       }
     } else {
       while (i < days) {
-        // eslint-disable-next-line no-await-in-loop
         await clickElement('click', 'selector', this.nextDayButton);
         i += 1;
       }
