@@ -1,6 +1,7 @@
 import path from 'path';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
 
+// Uncomment to enable video reporter
 // const video = require('wdio-video-reporter');
 
 // @ts-ignore
@@ -151,6 +152,9 @@ export const config: WebdriverIO.Config = {
   // reporters: ['spec'],
   reporters: [
     'spec',
+    //
+    // Uncomment to enable video reporter
+    //
     // [video, {
     //   saveAllVideos: true, // If true, also saves videos for successful test cases
     // eslint-disable-next-line max-len
