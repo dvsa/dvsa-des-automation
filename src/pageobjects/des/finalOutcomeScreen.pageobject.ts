@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import checkEqualsText from '../../../shared/boilerplate/support/check/checkEqualsText';

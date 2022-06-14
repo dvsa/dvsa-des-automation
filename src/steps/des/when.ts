@@ -3,7 +3,6 @@ import completeUnsuccessfullOfficePage from 'src/app-actions/des-action/complete
 import completeWaitingRoomFailEyesightToCarPage from 'src/app-actions/des-action/completeWaitingRoomFailEyesightToCarPage';
 import completeRekeyReasonPage from 'src/app-actions/des-action/completeRekeyReasonPage';
 import completeNonPassedFinalOutcomePage from '../../app-actions/des-action/completeNonPassedFinalOutcomePage';
-import desLogin from '../../app-actions/des-action/desLogin';
 import loginWebAsUser from '../../app-actions/des-action/desLoginAsUser';
 import completeDeclarationPage from '../../app-actions/des-action/completeDeclarationPage';
 import completeComunicationPage from '../../app-actions/des-action/completeComunicationPage';
@@ -20,11 +19,6 @@ import completeCatCDeclarationPage from '../../app-actions/des-action/completeCa
 import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate';
 import completeWaitingRoomToCarPageDataTable from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
 import startTest from '../../app-actions/des-action/startTest';
-
-When(
-  /^I am signed in as a random user$/,
-  desLogin,
-);
 
 When(
   /^I am signed in as a random "([^"]*)?" user$/,

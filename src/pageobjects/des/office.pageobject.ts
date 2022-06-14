@@ -13,10 +13,9 @@ interface OfficePageData {
   faultComment: string;
   eyesightFaultComment: string;
   circuit:'left'| 'right';
+  assessment:string;
 }
 class OfficePageObject extends Page {
-  /* eslint-disable no-case-declarations, no-await-in-loop */
-
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
 
   get satNavButton() { return ('des-office-page::independant-driving-sat-nav-input'); }
