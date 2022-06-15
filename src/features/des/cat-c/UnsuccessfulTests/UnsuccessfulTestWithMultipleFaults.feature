@@ -31,6 +31,7 @@ Feature: Cat-C Unsuccessful Tests
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "4"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                            | numberOfFaults      |
