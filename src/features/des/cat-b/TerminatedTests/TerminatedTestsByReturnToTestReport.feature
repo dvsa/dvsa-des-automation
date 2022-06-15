@@ -39,6 +39,7 @@ Feature: Cat-B Terminated feature
     And I click on the element "des-debrief-screen::back-button"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-terminate-test-btn"
+    And I wait on element "des-debrief-screen::test-outcome-terminated" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-post-debrief-screen::continue-btn"
