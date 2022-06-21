@@ -174,6 +174,14 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  async completeLegalRequirementsForCatMod2(): Promise<void> {
+    await longClickElement(this.firstNSLegalReqTick, 500);
+    await longClickElement(this.secondNSLegalReqTick, 500);
+    await longClickElement(this.firstASLegalReqTick, 500);
+    await longClickElement(this.hsdsLegalReqTick, 500);
+    await longClickElement(this.ecoLegalReqTick, 500);
+  }
+
   async completeLegalRequirementsForCatManoeuvre(): Promise<void> {
     await longClickElement(this.competencyButton, 500);
   }
@@ -198,6 +206,9 @@ class TestReportPageObject extends Page {
         break;
       case 'manoeuvre':
         await this.completeLegalRequirementsForCatManoeuvre();
+        break;
+      case 'mod2':
+        await this.completeLegalRequirementsForCatMod2();
         break;
       default:
         console.info(`${cat} does not exist`);
