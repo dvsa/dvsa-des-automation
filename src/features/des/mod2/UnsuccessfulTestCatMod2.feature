@@ -1,7 +1,7 @@
-Feature: Cat-Mod1 Successful feature
+Feature: Cat-Mod2 Unsuccessful feature
 
   @test
-  Scenario:   Successful Mod1 with no faults
+  Scenario:   Unsuccessful Mod2 with 1 dangerous fault
     Given I am signed in as a random "desexaminera" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000000"
