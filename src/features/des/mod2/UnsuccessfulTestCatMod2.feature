@@ -1,6 +1,5 @@
 Feature: Cat-Mod2 Unsuccessful feature
 
-  @test
   Scenario:   Unsuccessful Mod2 with 1 dangerous fault
     Given I am signed in as a random "desexaminera" user
     When I wait on element "des-dashboard::page-title" to be displayed
