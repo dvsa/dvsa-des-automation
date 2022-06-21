@@ -14,6 +14,7 @@ interface OfficePageData {
   eyesightFaultComment: string;
   circuit:'left'| 'right';
   assessment:string;
+  testConducted:'car to bike'| 'bike to bike';
 }
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
@@ -49,6 +50,10 @@ class OfficePageObject extends Page {
   get circuitLeft() { return ('des-office-page::circuit-left-input'); }
 
   get circuitRight() { return ('des-office-page::circuit-right-input'); }
+
+  get testConductedCarBikeInput() { return ('des-office-page::test-conducted-car-bike-input'); }
+
+  get testConductedBikeBikeInput() { return ('des-office-page::test-conducted-bike-bike-input'); }
 
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
@@ -130,6 +135,19 @@ class OfficePageObject extends Page {
                 break;
               case 'right':
                 await clickElement('click', 'selector', this.circuitRight);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'testconducted':
+            await scroll(this.testConductedCarBikeInput);
+            switch (fieldInput) {
+              case 'car to bike':
+                await clickElement('click', 'selector', this.testConductedCarBikeInput);
+                break;
+              case 'bike to bike':
+                await clickElement('click', 'selector', this.testConductedBikeBikeInput);
                 break;
               default:
                 console.log(`Could not find ${fieldInput}`);
@@ -247,6 +265,19 @@ class OfficePageObject extends Page {
           case 'eyesightfaultcomment':
             await scroll(this.eyesightFaultComment);
             await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
+            break;
+          case 'testconducted':
+            await scroll(this.testConductedCarBikeInput);
+            switch (fieldInput) {
+              case 'car to bike':
+                await clickElement('click', 'selector', this.testConductedCarBikeInput);
+                break;
+              case 'bike to bike':
+                await clickElement('click', 'selector', this.testConductedBikeBikeInput);
+                break;
+              default:
+                console.log(`Could not find ${fieldInput}`);
+            }
             break;
           default:
             console.log(`Could not find ${field}`);

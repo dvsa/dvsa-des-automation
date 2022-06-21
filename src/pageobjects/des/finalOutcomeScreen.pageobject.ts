@@ -51,6 +51,10 @@ class FinalOutcomePageObject extends Page {
 
   get code78() { return ('des-final-outcome-screen::code-78-not-received'); }
 
+  get licenceReceivedYesLabel() { return ('des-final-outcome-screen::licence-received-yes-label'); }
+
+  get licenceReceivedNoLabel() { return ('des-final-outcome-screen::licence-received-no-label'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
@@ -129,6 +133,19 @@ class FinalOutcomePageObject extends Page {
                 break;
               case 'no':
                 await clickElement('click', 'selector', this.debriefWitnessedNo);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'licencereceived':
+            await scroll(this.licenceReceivedYesLabel);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.licenceReceivedYesLabel);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.licenceReceivedNoLabel);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);

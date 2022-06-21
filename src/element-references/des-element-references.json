@@ -204,7 +204,12 @@
       "drawbar": "//ion-col//label[contains(text(), 'Drawbar')]",
       "rigid": "//ion-col//label[contains(text(), 'Rigid')]",
       "category-type": "#select-cat-type-label",
-      "vehicle-details-school-bike-label": "#vehicle-details-school-bike-label"
+      "vehicle-details-school-bike-label": "#vehicle-details-school-bike-label",
+      "safety-balance-question-button": "#select-questions-label",
+      "first-safety-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[1]",
+      "second-safety-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[2]",
+      "first-balance-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[3]",
+      "safety-balance-questions-continue-button": "#submit-vehicle-checks"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -425,7 +430,9 @@
       "activity-code-4": "//*[@id='activity-code-modal-4-fail-in-the-interests-of-public-safety-label']",
       "activity-code-5": "//*[@id='activity-code-modal-5-fail-candidate-chose-to-stop-test:-already-failed-label']",
       "activity-code-27": "//*[@id='activity-code-modal-27-language-issues-label']",
-      "activity-code-25": "//*[@id='activity-code-modal-25-dvsa-radio-failure-label']"
+      "activity-code-25": "//*[@id='activity-code-modal-25-dvsa-radio-failure-label']",
+      "licence-received-yes-label": "#prov-licence-received-yes-label",
+      "licence-received-no-label": "#prov-licence-received-no-label"
   },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
@@ -512,7 +519,9 @@
       "general-fault-comment-input": "//fault-comment//textarea",
       "assessment-report": "(//ion-col//textarea)[3]",
       "circuit-left-input": "#circuit-left",
-      "circuit-right-input": "#circuit-right"
+      "circuit-right-input": "#circuit-right",
+      "test-conducted-car-bike-input": "#mode-of-transport-cartobike",
+      "test-conducted-bike-bike-input": "#mode-of-transport-biketobike"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",
