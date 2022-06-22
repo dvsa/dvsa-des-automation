@@ -19,6 +19,10 @@ export const batch2 = [
 ];
 
 export const DESSuites = {
+  batchtests: [
+    ...batch1,
+    ...batch2,
+  ],
   desfull: [
     './src/features/des/testCentre/*.feature',
     './src/features/des/dashboard/*.feature',
