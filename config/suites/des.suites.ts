@@ -16,6 +16,7 @@ export const batch2 = [
   './src/features/des/cat-cpc/*.feature',
   './src/features/des/mod1/*.feature',
   './src/features/des/mod2/*.feature',
+  './src/features/des/cat-adi2/*.feature',
 ];
 
 export const DESSuites = {
@@ -38,6 +39,7 @@ export const DESSuites = {
     './src/features/des/cat-cpc/*.feature',
     './src/features/des/mod1/*.feature',
     './src/features/des/mod2/*.feature',
+    './src/features/des/cat-adi2/*.feature',
   ],
   successfultests: [
     './src/features/des/cat-d/SuccessfulTestWith10Faults.feature',
@@ -50,6 +52,7 @@ export const DESSuites = {
     './src/features/des/cat-cpc/SuccessfulTest.feature',
     './src/features/des/mod1/SuccessfulTestCatMod1.feature',
     './src/features/des/mod2/SuccessfulTestCatMod2.feature',
+    './src/features/des/cat-adi2/SuccessfulTestCatADI2.feature',
   ],
   unsuccessfultests: [
     './src/features/des/cat-d/UnsuccessfulTest.feature',
@@ -65,6 +68,7 @@ export const DESSuites = {
     './src/features/des/cat-cpc/UnsuccessfulTest.feature',
     './src/features/des/mod1/UnsuccessfulTestCatMod1.feature',
     './src/features/des/mod2/UnsuccessfulTestCatMod2.feature',
+    './src/features/des/cat-adi2/UnsuccessfulTestCatADI2.feature',
   ],
   terminatedtests: [
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode4.feature',

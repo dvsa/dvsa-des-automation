@@ -112,6 +112,12 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::next-page-button');
   }
 
+  get manoeuvresOneReverseRight() { return ('des-test-report-screen::manoeuvres-one-reverse-right'); }
+
+  get manoeuvresTwoReverseParkRoad() { return ('des-test-report-screen::manoeuvres-two-reverse-park-road'); }
+
+  get smtmTestRequirement() { return ('des-test-report-screen::test-requirement-sm-tm'); }
+
   selectCompetencyButton(competencyItem:string) {
     $(`competency-button='${competencyItem}'`).waitForDisplayed();
     return $(`competency-button='${competencyItem}'`).click();
@@ -186,6 +192,21 @@ class TestReportPageObject extends Page {
     await longClickElement(this.competencyButton, 500);
   }
 
+  async completeLegalRequirementsForCatADI2(): Promise<void> {
+    await longClickElement(this.firstNSLegalReqTick, 500);
+    await longClickElement(this.secondNSLegalReqTick, 500);
+    await longClickElement(this.firstASLegalReqTick, 500);
+    await longClickElement(this.uhLegalReqTick, 500);
+    await longClickElement(this.dhLegalReqTick, 500);
+    await longClickElement(this.maneuversLegalReqTick, 500);
+    await waitFor(this.manoeuvresOneReverseRight, '', false, 'be displayed');
+    await clickElement('click', 'selector', this.manoeuvresOneReverseRight);
+    await clickElement('click', 'selector', this.manoeuvresTwoReverseParkRoad);
+    await longClickElement(this.maneuversLegalReqTick, 500);
+    await longClickElement(this.ecoLegalReqTick, 500);
+    await longClickElement(this.smtmTestRequirement, 500);
+  }
+
   async completeLegalRequirements(category:string): Promise<void> {
     const cat = category.toLowerCase();
     switch (cat) {
@@ -209,6 +230,9 @@ class TestReportPageObject extends Page {
         break;
       case 'mod2':
         await this.completeLegalRequirementsForCatMod2();
+        break;
+      case 'adi2':
+        await this.completeLegalRequirementsForCatADI2();
         break;
       default:
         console.info(`${cat} does not exist`);

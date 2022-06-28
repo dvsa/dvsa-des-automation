@@ -26,7 +26,7 @@ When(
 );
 
 When(
-  /^I complete the waiting room declaration page$/,
+  /^I complete the waiting room declaration page( for a category "([^"]*)?")?$/,
   completeDeclarationPage,
 );
 

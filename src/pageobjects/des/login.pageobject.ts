@@ -105,6 +105,7 @@ class LoginMobilePageObject {
       this.waitForExist(burgerMenu),
       this.waitForExist(loginBackdrop),
       this.waitForExist(loginError),
+      this.waitForExist(nativeContinueButton),
     ]);
 
     if (await loginError.isExisting()) {
