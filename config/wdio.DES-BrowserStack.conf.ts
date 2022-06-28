@@ -8,7 +8,7 @@ import {
 } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 15;
+buildConfig.maxInstances = 10;
 
 buildConfig.specs = [
   './src/features/des/**/**/*.feature',

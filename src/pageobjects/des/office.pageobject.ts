@@ -66,7 +66,7 @@ class OfficePageObject extends Page {
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
     const {
-      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, firstShowMeQuestion, secondShowMeQuestion
+      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, firstShowMeQuestion, secondShowMeQuestion,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -184,7 +184,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment, assessment, firstShowMeQuestion, secondShowMeQuestion
+      eyesightFaultComment, assessment, firstShowMeQuestion, secondShowMeQuestion,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {

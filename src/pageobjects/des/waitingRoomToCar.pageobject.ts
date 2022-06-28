@@ -1,8 +1,8 @@
+import scroll from '@shared-boilerplate/support/action/scroll';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import clickElementWithText from '../../../shared/custom/support/action/clickElementWithText';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
 import Page from '../base/page';
-import scroll from '@shared-boilerplate/support/action/scroll';
 
 interface WaitingRoomToCarPageDataCatB {
   eyesightTest: 'pass'|'fail';
