@@ -13,3 +13,4 @@ Feature: Dashboard feature
     And I expect that element "des-dashboard::rekey-test-btn" is displayed
     And I expect that element "des-dashboard::partial-practise-mode-btn" is displayed
     And I expect that element "des-dashboard::full-practise-mode-btn" is displayed
+    And I sign out

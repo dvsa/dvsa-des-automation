@@ -17,3 +17,5 @@ Feature: Test Centre Journal
       | candidateReference | COOPE015220A99HC    |
       | testCategory       | B                   |
       | examinerName       | Test Examiner One   |
+    And I click on the button "des-my-journal::journal-back-button"
+    And I sign out

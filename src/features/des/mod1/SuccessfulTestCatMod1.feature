@@ -52,4 +52,4 @@ Feature: Cat-Mod1 Successful feature
     And I scroll to element "#activity-code-10123400"
     And I expect that element "#activity-code-10123400" matches the text "1"
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "10000000"
+    And I sign out

@@ -57,5 +57,4 @@ Feature: Cat-CM Unsuccessful feature
     And I expect that element "#activity-code-55512302" matches the text "2"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "10000014"
-
+    And I sign out

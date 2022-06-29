@@ -1,7 +1,6 @@
 Feature: Cat-ADI2 Successful feature
 
-  @test
-  Scenario:   Unsuccessful ADI2 with driving faults
+  Scenario:   Unsuccessful ADI2 with 7 driving faults
     Given I am signed in as a random "desexaminerbe" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000012"

@@ -56,4 +56,4 @@ Feature: Cat-B Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I expect that element "#activity-code-20654335" matches the text "1"
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "1234567"
+    And I sign out

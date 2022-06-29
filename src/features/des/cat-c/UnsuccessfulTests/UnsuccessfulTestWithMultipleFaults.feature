@@ -71,4 +71,4 @@ Feature: Cat-C Unsuccessful Tests
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I expect that element "#activity-code-32345600" matches the text "2"
     And I click on the button "des-my-journal::journal-back-button"
-    Then I expect that container "des-dashboard::staff-number" contains the text "28371932"
+    And I sign out

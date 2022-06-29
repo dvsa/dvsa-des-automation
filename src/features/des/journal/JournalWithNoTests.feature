@@ -11,3 +11,5 @@ Feature: Journal Feature
     And I expect that element "des-my-journal::no-journal-entry-message" matches the text "There is no journal data to display for this day"
     And I go forward 2 day and check the date is correct
     And I expect that element "des-my-journal::no-journal-entry-message" matches the text "There is no journal data to display for this day"
+    And I click on the button "des-my-journal::journal-back-button"
+    And I sign out

@@ -71,4 +71,4 @@ Feature: Cat-D Unsuccessful Tests
     And I expect that element "#activity-code-16123400" matches the text "2"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
-    Then I expect that container "des-dashboard::staff-number" contains the text "10000006"
+    And I sign out
