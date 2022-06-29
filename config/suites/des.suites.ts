@@ -1,14 +1,11 @@
 export const batch1 = [
-  './src/features/des/testCentre/*.feature',
-  './src/features/des/dashboard/*.feature',
-  './src/features/des/journal/*.feature',
   './src/features/des/cat-b/SuccessfulTests/*.feature',
   './src/features/des/cat-b/UnsuccessfulTests/*.feature',
   './src/features/des/cat-b/TerminatedTests/*.feature',
-  './src/features/des/cat-d/*.feature',
 ];
 
 export const batch2 = [
+  './src/features/des/cat-b/SuccessfulTests/*.feature',
   './src/features/des/cat-c/SuccessfulTests/*.feature',
   './src/features/des/cat-c/UnsuccessfulTests/*.feature',
   './src/features/des/cat-cm/*.feature',
@@ -17,6 +14,10 @@ export const batch2 = [
   './src/features/des/mod1/*.feature',
   './src/features/des/mod2/*.feature',
   './src/features/des/cat-adi2/*.feature',
+  './src/features/des/cat-d/*.feature',
+  './src/features/des/testCentre/*.feature',
+  './src/features/des/dashboard/*.feature',
+  './src/features/des/journal/*.feature',
 ];
 
 export const DESSuites = {
