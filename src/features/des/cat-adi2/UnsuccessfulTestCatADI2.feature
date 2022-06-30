@@ -1,4 +1,4 @@
-Feature: Cat-ADI2 Successful feature
+Feature: Cat-ADI2 Unsuccessful feature
 
   Scenario:   Unsuccessful ADI2 with 7 driving faults
     Given I am signed in as a random "desexaminerbe" user
