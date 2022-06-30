@@ -15,6 +15,9 @@ interface OfficePageData {
   circuit:'left'| 'right';
   assessment:string;
   testConducted:'car to bike'| 'bike to bike';
+  firstShowMeQuestion:string;
+  secondShowMeQuestion:string;
+
 }
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
@@ -55,11 +58,15 @@ class OfficePageObject extends Page {
 
   get testConductedBikeBikeInput() { return ('des-office-page::test-conducted-bike-bike-input'); }
 
+  get firstShowMeQuestionSelect() { return ('des-office-page::adi2-first-show-me-question'); }
+
+  get secondShowMeQuestionSelect() { return ('des-office-page::adi2-second-show-me-question'); }
+
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
     const {
-      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition,
+      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, firstShowMeQuestion, secondShowMeQuestion,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -153,6 +160,18 @@ class OfficePageObject extends Page {
                 console.log(`Could not find ${fieldInput}`);
             }
             break;
+          case 'firstshowmequestion':
+            await scroll(this.firstShowMeQuestionSelect);
+            await clickElement('click', 'selector', this.firstShowMeQuestionSelect);
+            await clickElementWithText('click', 'button', firstShowMeQuestion);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'secondshowmequestion':
+            await scroll(this.secondShowMeQuestionSelect);
+            await clickElement('click', 'selector', this.secondShowMeQuestionSelect);
+            await clickElementWithText('click', 'button', secondShowMeQuestion);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
           default:
             console.log(`Could not find ${field}`);
         }
@@ -165,7 +184,7 @@ class OfficePageObject extends Page {
   ): Promise<void> {
     const {
       routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, faultComment,
-      eyesightFaultComment, assessment,
+      eyesightFaultComment, assessment, firstShowMeQuestion, secondShowMeQuestion,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -278,6 +297,18 @@ class OfficePageObject extends Page {
               default:
                 console.log(`Could not find ${fieldInput}`);
             }
+            break;
+          case 'firstshowmequestion':
+            await scroll(this.firstShowMeQuestionSelect);
+            await clickElement('click', 'selector', this.firstShowMeQuestionSelect);
+            await clickElementWithText('click', 'button', firstShowMeQuestion);
+            await clickElementWithText('click', 'element', 'Submit');
+            break;
+          case 'secondshowmequestion':
+            await scroll(this.secondShowMeQuestionSelect);
+            await clickElement('click', 'selector', this.secondShowMeQuestionSelect);
+            await clickElementWithText('click', 'button', secondShowMeQuestion);
+            await clickElementWithText('click', 'element', 'Submit');
             break;
           default:
             console.log(`Could not find ${field}`);

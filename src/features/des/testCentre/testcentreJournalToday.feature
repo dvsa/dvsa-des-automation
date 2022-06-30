@@ -17,3 +17,5 @@ Feature: Test Centre Journal
       | candidateReference | CAMPB803120A89HC    |
       | testCategory       | B                   |
       | examinerName       | Test Examiner One   |
+    And I click on the button "des-my-journal::journal-back-button"
+    And I sign out

@@ -68,4 +68,4 @@ Feature: Cat-B Terminated with Rekey feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I expect that element "#activity-code-20654339" matches the text "25"
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "1234567"
+    And I sign out

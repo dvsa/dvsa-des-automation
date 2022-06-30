@@ -44,4 +44,4 @@ Feature: Cat-DM Successful feature
     And I scroll to element "#activity-code-55512309"
     And I expect that element "#activity-code-55512309" matches the text "1"
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "10000014"
+    And I sign out

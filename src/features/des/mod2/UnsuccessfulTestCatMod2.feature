@@ -61,4 +61,4 @@ Feature: Cat-Mod2 Unsuccessful feature
     And I scroll to element "#activity-code-10123433"
     And I expect that element "#activity-code-10123433" matches the text "2"
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "10000000"
+    And I sign out

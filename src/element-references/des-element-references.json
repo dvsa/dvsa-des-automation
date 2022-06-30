@@ -209,7 +209,12 @@
       "first-safety-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[1]",
       "second-safety-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[2]",
       "first-balance-question-fault-label": "(//label[contains(text(), 'Wrong answer')])[3]",
-      "safety-balance-questions-continue-button": "#submit-vehicle-checks"
+      "safety-balance-questions-continue-button": "#submit-vehicle-checks",
+      "ordit-trainer-yes-input": "#ordit-trained-yes",
+      "ordit-trainer-no-input": "#ordit-trained-no",
+      "trainer-prn-input": "#trainer-registration",
+      "training-records-yes-input": "#training-record-yes",
+      "training-records-no-input": "#training-record-no"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -338,7 +343,10 @@
       "mod-one-second-avoidance-stop-input": "#speedCheckAvoidanceSecondAttempt",
       "mod-one-emergency-stop-not-met": "#speedCheckEmergencyMet",
       "mod-one-avoidance-stop-not-met": "#speedCheckAvoidanceMet",
-      "mod-one-end-test-now-button": "//activity-code-4-modal//ion-button/h3[contains(text(), 'End test now')]"
+      "mod-one-end-test-now-button": "//activity-code-4-modal//ion-button/h3[contains(text(), 'End test now')]",
+      "manoeuvres-one-reverse-right": "#manoeuvres-reverse-right-radio1",
+      "manoeuvres-two-reverse-park-road": "#manoeuvres-reverse-park-road-radio2",
+      "test-requirement-sm-tm": "#sm-tm-question-tick"
   },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
@@ -521,7 +529,9 @@
       "circuit-left-input": "#circuit-left",
       "circuit-right-input": "#circuit-right",
       "test-conducted-car-bike-input": "#mode-of-transport-cartobike",
-      "test-conducted-bike-bike-input": "#mode-of-transport-biketobike"
+      "test-conducted-bike-bike-input": "#mode-of-transport-biketobike",
+      "adi2-first-show-me-question": "#show-me-question-selector_1",
+      "adi2-second-show-me-question": "#show-me-question-selector_2"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",

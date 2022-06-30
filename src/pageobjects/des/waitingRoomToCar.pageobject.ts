@@ -1,3 +1,4 @@
+import scroll from '@shared-boilerplate/support/action/scroll';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import clickElementWithText from '../../../shared/custom/support/action/clickElementWithText';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
@@ -78,6 +79,23 @@ interface WaitingRoomToCarPageDataCatMod2 {
   balanceQuestion1Fault:'correct'|'wrong answer';
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
   vehicleDetails:'school bike';
+}
+
+interface WaitingRoomToCarPageDataCatADI2 {
+  eyesightTest: 'pass'|'fail';
+  tellMeQuestion1:string;
+  tellMeQuestion2:string;
+  tellMeQuestion3:string;
+  tellMeQuestion1Fault:'correct'|'1 driving fault';
+  tellMeQuestion2Fault:'correct'|'1 driving fault';
+  tellMeQuestion3Fault:'correct'|'1 driving fault';
+  vehicleRegNum:string;
+  transmission:'manual'|'automatic';
+  accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
+  vehicleDetails:'school car'|'dual control';
+  orditTrainer:'yes'|'no';
+  trainerPRN:string;
+  trainingRecords:'yes'|'no';
 }
 
 class WaitingRoomPageToCarObject extends Page {
@@ -173,7 +191,17 @@ class WaitingRoomPageToCarObject extends Page {
 
   get firstBalanceQuestionFaultLabel() { return ('des-waiting-room-to-car::first-balance-question-fault-label'); }
 
-  get safetyBalanceQuestionsContinueButton() { return ('des-waiting-room-to-car::safety-balance-questions-continue-button'); }
+  get submitVehicleChecksButton() { return ('des-waiting-room-to-car::safety-balance-questions-continue-button'); }
+
+  get orditTrainedYesInput() { return ('des-waiting-room-to-car::ordit-trainer-yes-input'); }
+
+  get orditTrainedNoInput() { return ('des-waiting-room-to-car::ordit-trainer-no-input'); }
+
+  get trainedPRNInput() { return ('des-waiting-room-to-car::trainer-prn-input'); }
+
+  get trainingRecordsYesInput() { return ('des-waiting-room-to-car::training-records-yes-input'); }
+
+  get trainingRecordsNoInput() { return ('des-waiting-room-to-car::training-records-no-input'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -647,7 +675,7 @@ class WaitingRoomPageToCarObject extends Page {
               default:
                 console.info(`Could not find ${fieldInput}`);
             }
-            await clickElement('click', 'selector', this.safetyBalanceQuestionsContinueButton);
+            await clickElement('click', 'selector', this.submitVehicleChecksButton);
             break;
           case 'accompaniedby':
             switch (fieldInput) {
@@ -671,6 +699,160 @@ class WaitingRoomPageToCarObject extends Page {
             switch (fieldInput) {
               case 'school bike':
                 await clickElement('click', 'selector', this.vehicleDetailsSchoolBike);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
+  async completeWRTCPageForCatADI2(
+    data: Record<keyof WaitingRoomToCarPageDataCatADI2, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'eyesighttest':
+            await scroll(this.eyeSightPassLabel);
+            switch (fieldInput) {
+              case 'pass':
+                await clickElement('click', 'selector', this.eyeSightPassLabel);
+                break;
+              case 'fail':
+                await clickElement('click', 'selector', this.eyeSightFailLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestion1':
+            await clickElement('click', 'selector', this.vehicleChecksShowQuestionsButton);
+            await this.addVehicleQuestion(this.firstVehicleCheckQuestion, value);
+            break;
+          case 'tellmequestion2':
+            await this.addVehicleQuestion(this.secondVehicleCheckQuestion, value);
+            break;
+          case 'tellmequestion3':
+            await this.addVehicleQuestion(this.thirdVehicleCheckQuestion, value);
+            break;
+          case 'tellmequestion1fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.firstVehicleCheckQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.firstShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestion2fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.secondVehicleCheckQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.secondShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestion3fault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.thirdVehicleCheckQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.thirdShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            await clickElement('click', 'selector', this.submitVehicleChecksButton);
+            break;
+          case 'vehicleregnum':
+            await scroll(this.vehRegInput);
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'transmission':
+            await scroll(this.manualTransmissionLabel);
+            switch (fieldInput) {
+              case 'manual':
+                await clickElement('click', 'selector', this.manualTransmissionLabel);
+                break;
+              case 'automatic':
+                await clickElement('click', 'selector', this.automaticTransmissionLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'accompaniedby':
+            await scroll(this.accompaniedByInstructorLabel);
+            switch (fieldInput) {
+              case 'instructor':
+                await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
+                break;
+              case 'supervisor':
+                await clickElement('click', 'selector', this.accompaniedBySupervisorLabel);
+                break;
+              case 'interpreter':
+                await clickElement('click', 'selector', this.accompaniedByInterpreterLabel);
+                break;
+              case 'other':
+                await clickElement('click', 'selector', this.accompaniedByOtherLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'vehicledetails':
+            await scroll(this.vehicleDetailsSchoolCarLabel);
+            switch (fieldInput) {
+              case 'school car':
+                await clickElement('click', 'selector', this.vehicleDetailsSchoolCarLabel);
+                break;
+              case 'dual control':
+                await clickElement('click', 'selector', this.vehicleDetailsDualControlLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'ordittrainer':
+            await scroll(this.orditTrainedYesInput);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.orditTrainedYesInput);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.orditTrainedNoInput);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'trainerprn':
+            await scroll(this.trainedPRNInput);
+            await setInputField('add', fieldInput, this.trainedPRNInput);
+            break;
+          case 'trainingrecords':
+            await scroll(this.trainingRecordsYesInput);
+            switch (fieldInput) {
+              case 'yes':
+                await clickElement('click', 'selector', this.trainingRecordsYesInput);
+                break;
+              case 'no':
+                await clickElement('click', 'selector', this.trainingRecordsNoInput);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);
@@ -722,6 +904,11 @@ class WaitingRoomPageToCarObject extends Page {
       case 'mod2':
         await this.completeWRTCPageForCatMod2(
           data as Record<keyof WaitingRoomToCarPageDataCatMod2, string>,
+        );
+        break;
+      case 'adi2':
+        await this.completeWRTCPageForCatADI2(
+          data as Record<keyof WaitingRoomToCarPageDataCatADI2, string>,
         );
         break;
       default:

@@ -55,4 +55,4 @@ Feature: Cat-CPC Successful feature
     And I expect that element "#activity-code-22123466" matches the text "1"
     And I wait on element "des-my-journal::journal-back-button" to be displayed
     And I click on the button "des-my-journal::journal-back-button"
-    And I expect that container "des-dashboard::staff-number" contains the text "10000012"
+    And I sign out
