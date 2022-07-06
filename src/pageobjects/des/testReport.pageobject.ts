@@ -112,6 +112,22 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::next-page-button');
   }
 
+  get uhdhLegalReqTick() {
+    return ('des-test-report-screen::test-requirements-uh-ds-tick');
+  }
+
+  get reverseLegalReqTick() {
+    return ('des-test-report-screen::test-requirements-reverse-tick');
+  }
+
+  get highwaySafetyLegalReqTick() {
+    return ('des-test-report-screen::test-requirements-highway-safety-tick');
+  }
+
+  get controlledStopLegalReqTick() {
+    return ('des-test-report-screen::test-requirements-controlled-stop-tick');
+  }
+
   get manoeuvresOneReverseRight() { return ('des-test-report-screen::manoeuvres-one-reverse-right'); }
 
   get manoeuvresTwoReverseParkRoad() { return ('des-test-report-screen::manoeuvres-two-reverse-park-road'); }
@@ -207,6 +223,17 @@ class TestReportPageObject extends Page {
     await longClickElement(this.smtmTestRequirement, 500);
   }
 
+  async completeLegalRequirementsForCatHome(): Promise<void> {
+    await longClickElement(this.firstNSLegalReqTick, 500);
+    await longClickElement(this.secondNSLegalReqTick, 500);
+    await longClickElement(this.firstASLegalReqTick, 500);
+    await longClickElement(this.uhdhLegalReqTick, 500);
+    await longClickElement(this.reverseLegalReqTick, 500);
+    await longClickElement(this.ecoLegalReqTick, 500);
+    await longClickElement(this.highwaySafetyLegalReqTick, 500);
+    await longClickElement(this.controlledStopLegalReqTick, 500);
+  }
+
   async completeLegalRequirements(category:string): Promise<void> {
     const cat = category.toLowerCase();
     switch (cat) {
@@ -233,6 +260,9 @@ class TestReportPageObject extends Page {
         break;
       case 'adi2':
         await this.completeLegalRequirementsForCatADI2();
+        break;
+      case 'home':
+        await this.completeLegalRequirementsForCatHome();
         break;
       default:
         console.info(`${cat} does not exist`);
