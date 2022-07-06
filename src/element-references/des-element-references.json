@@ -346,7 +346,11 @@
       "mod-one-end-test-now-button": "//activity-code-4-modal//ion-button/h3[contains(text(), 'End test now')]",
       "manoeuvres-one-reverse-right": "#manoeuvres-reverse-right-radio1",
       "manoeuvres-two-reverse-park-road": "#manoeuvres-reverse-park-road-radio2",
-      "test-requirement-sm-tm": "#sm-tm-question-tick"
+      "test-requirement-sm-tm": "#sm-tm-question-tick",
+      "test-requirements-uh-ds-tick": "//*[@id=\"legal-requirements-tick-UH / DS\"]/tick-indicator/div/div/span/ion-icon",
+      "test-requirements-reverse-tick": "//*[@id=\"legal-requirements-tick-reverse\"]/tick-indicator/div/div/span/ion-icon",
+      "test-requirements-highway-safety-tick": "//*[@id=\"legal-requirements-tick-highway-safety\"]/tick-indicator/div/div/span/ion-icon",
+      "test-requirements-controlled-stop-tick": "//*[@id=\"controlled-stop-tick\"]/div/span/tick-indicator/div/div/span/ion-icon"
   },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",

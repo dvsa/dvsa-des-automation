@@ -98,6 +98,16 @@ interface WaitingRoomToCarPageDataCatADI2 {
   trainingRecords:'yes'|'no';
 }
 
+interface WaitingRoomToCarPageDataCatHome {
+  eyesightTest: 'pass'|'fail';
+  showMeQuestion:string;
+  tellMeQuestion:string;
+  showMeQuestionFault:'correct'|'1 driving fault';
+  tellMeQuestionFault:'correct'|'1 driving fault';
+  vehicleRegNum:string;
+  accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
+}
+
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
 
@@ -865,6 +875,89 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  async completeWRTCPageForCatHome(
+    data: Record<keyof WaitingRoomToCarPageDataCatHome, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'eyesighttest':
+            await scroll(this.eyeSightPassLabel);
+            switch (fieldInput) {
+              case 'pass':
+                await clickElement('click', 'selector', this.eyeSightPassLabel);
+                break;
+              case 'fail':
+                await clickElement('click', 'selector', this.eyeSightFailLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'showmequestion':
+            await clickElement('click', 'selector', this.vehicleChecksShowQuestionsButton);
+            await this.addVehicleQuestion(this.firstVehicleCheckQuestion, value);
+            break;
+          case 'tellmequestion':
+            await this.addVehicleQuestion(this.secondVehicleCheckQuestion, value);
+            break;
+          case 'showmequestionfault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.firstVehicleCheckQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.firstShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          case 'tellmequestionfault':
+            switch (fieldInput) {
+              case 'correct':
+                await clickElement('click', 'selector', this.secondVehicleCheckQuestionCorrectLabel);
+                break;
+              case '1 driving fault':
+                await clickElement('click', 'selector', this.secondShowMeQuestionFaultLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            await clickElement('click', 'selector', this.submitVehicleChecksButton);
+            break;
+          case 'vehicleregnum':
+            await scroll(this.vehRegInput);
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'accompaniedby':
+            await scroll(this.accompaniedByInstructorLabel);
+            switch (fieldInput) {
+              case 'instructor':
+                await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
+                break;
+              case 'supervisor':
+                await clickElement('click', 'selector', this.accompaniedBySupervisorLabel);
+                break;
+              case 'interpreter':
+                await clickElement('click', 'selector', this.accompaniedByInterpreterLabel);
+                break;
+              case 'other':
+                await clickElement('click', 'selector', this.accompaniedByOtherLabel);
+                break;
+              default:
+                console.info(`Could not find ${fieldInput}`);
+            }
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
   async completeWRTCPageDataTable(
     data: Record<string, string>,
     category:string,
@@ -909,6 +1002,11 @@ class WaitingRoomPageToCarObject extends Page {
       case 'adi2':
         await this.completeWRTCPageForCatADI2(
           data as Record<keyof WaitingRoomToCarPageDataCatADI2, string>,
+        );
+        break;
+      case 'home':
+        await this.completeWRTCPageForCatHome(
+          data as Record<keyof WaitingRoomToCarPageDataCatHome, string>,
         );
         break;
       default:
