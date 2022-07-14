@@ -23,6 +23,7 @@ class LoginMobilePageObject {
       (currentContext) => (currentContext.title === contextTitle
         || currentContext.id === contextTitle),
     );
+    console.log('doesContextExist:    ', doesContextExist);
     return doesContextExist;
   }
 
@@ -194,13 +195,13 @@ class LoginMobilePageObject {
       this.waitForExist(logoutTile),
     ]);
 
-    if (await logoutTile.isExisting()) {
-      const signOutSuccessful = await $('#instruction');
-      // click account sign out tile
-      await this.waitForExistAndClickable(logoutTile);
-      await this.clickElement(logoutTile);
-      await this.waitForExist(signOutSuccessful);
-    }
+    // if (await logoutTile.isExisting()) {
+    const signOutSuccessful = await $('#instruction');
+    // click account sign out tile
+    await this.waitForExistAndClickable(logoutTile);
+    await this.clickElement(logoutTile);
+    await this.waitForExist(signOutSuccessful);
+    // }
 
     const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
     await this.clickNativeButton(nativeCancelButton);
