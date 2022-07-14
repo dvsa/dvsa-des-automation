@@ -23,7 +23,6 @@ class LoginMobilePageObject {
       (currentContext) => (currentContext.title === contextTitle
         || currentContext.id === contextTitle),
     );
-    console.log('doesContextExist:    ', doesContextExist);
     return doesContextExist;
   }
 
@@ -69,7 +68,6 @@ class LoginMobilePageObject {
   async clickNativeButton(element: WebdriverIO.Element): Promise<void> {
     await this.waitForContextToExist('NATIVE_APP');
     await driver.switchContext('NATIVE_APP');
-    // await browser.pause(3000);
     await this.clickElement(element);
   }
 
