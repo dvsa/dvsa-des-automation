@@ -108,11 +108,11 @@ class LoginMobilePageObject {
       this.waitForExist(loginError),
     ]);
 
-    if (await loginError.isExisting()) {
+    if (await loginError.isDisplayed()) {
       throw new Error('log in error');
     }
 
-    if (await burgerMenu.isExisting()) {
+    if (await burgerMenu.isDisplayed()) {
       await this.logout();
     }
 
@@ -195,13 +195,13 @@ class LoginMobilePageObject {
       this.waitForExist(logoutTile),
     ]);
 
-    // if (await logoutTile.isExisting()) {
-    const signOutSuccessful = await $('#instruction');
-    // click account sign out tile
-    await this.waitForExistAndClickable(logoutTile);
-    await this.clickElement(logoutTile);
-    await this.waitForExist(signOutSuccessful);
-    // }
+    if (await logoutTile.isDisplayed()) {
+      const signOutSuccessful = await $('#instruction');
+      // click account sign out tile
+      await this.waitForExistAndClickable(logoutTile);
+      await this.clickElement(logoutTile);
+      await this.waitForExist(signOutSuccessful);
+    }
 
     const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
     await this.clickNativeButton(nativeCancelButton);
