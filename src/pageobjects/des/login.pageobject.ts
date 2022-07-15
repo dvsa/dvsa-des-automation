@@ -68,7 +68,6 @@ class LoginMobilePageObject {
   async clickNativeButton(element: WebdriverIO.Element): Promise<void> {
     await this.waitForContextToExist('NATIVE_APP');
     await driver.switchContext('NATIVE_APP');
-    await browser.pause(3000);
     await this.clickElement(element);
   }
 
@@ -107,11 +106,11 @@ class LoginMobilePageObject {
       this.waitForExist(loginError),
     ]);
 
-    if (await loginError.isExisting()) {
+    if (await loginError.isDisplayed()) {
       throw new Error('log in error');
     }
 
-    if (await burgerMenu.isExisting()) {
+    if (await burgerMenu.isDisplayed()) {
       await this.logout();
     }
 
@@ -194,7 +193,7 @@ class LoginMobilePageObject {
       this.waitForExist(logoutTile),
     ]);
 
-    if (await logoutTile.isExisting()) {
+    if (await logoutTile.isDisplayed()) {
       const signOutSuccessful = await $('#instruction');
       // click account sign out tile
       await this.waitForExistAndClickable(logoutTile);
