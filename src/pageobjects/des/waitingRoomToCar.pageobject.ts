@@ -656,7 +656,7 @@ class WaitingRoomPageToCarObject extends Page {
                 await clickElement('click', 'selector', this.firstVehicleCheckQuestionCorrectLabel);
                 break;
               case 'wrong answer':
-                await clickElement('click', 'selector', this.firstSafetyQuestionFaultLabel);
+                await clickElement('click', 'selector', this.firstShowMeQuestionFaultLabel);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);
@@ -668,7 +668,7 @@ class WaitingRoomPageToCarObject extends Page {
                 await clickElement('click', 'selector', this.secondVehicleCheckQuestionCorrectLabel);
                 break;
               case 'wrong answer':
-                await clickElement('click', 'selector', this.secondSafetyQuestionFaultLabel);
+                await clickElement('click', 'selector', this.secondShowMeQuestionFaultLabel);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);
@@ -680,7 +680,7 @@ class WaitingRoomPageToCarObject extends Page {
                 await clickElement('click', 'selector', this.thirdVehicleCheckQuestionCorrectLabel);
                 break;
               case 'wrong answer':
-                await clickElement('click', 'selector', this.firstBalanceQuestionFaultLabel);
+                await clickElement('click', 'selector', this.thirdShowMeQuestionFaultLabel);
                 break;
               default:
                 console.info(`Could not find ${fieldInput}`);

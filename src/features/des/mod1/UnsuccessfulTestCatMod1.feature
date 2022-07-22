@@ -21,6 +21,7 @@ Feature: Cat-Mod1 Unsuccessful feature
     And I click and hold on the element "des-test-report-screen::mod-one-emergency-stop-not-met" for "100"ms
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::mod-one-end-test-now-button"
+    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                           | faultCountSelector                                            | numberOfFaults      |
