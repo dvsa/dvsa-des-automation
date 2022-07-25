@@ -1,5 +1,6 @@
 Feature: Test Centre Journal
 
+  @test
   Scenario: Test centre Journal - Today Test
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-general::page-title" to be displayed
@@ -17,5 +18,5 @@ Feature: Test Centre Journal
       | candidateReference | CAMPB803120A89HC    |
       | testCategory       | B                   |
       | examinerName       | Test Examiner One   |
-    And I click on the button "des-my-journal::journal-back-button"
+    And I click on the button "des-test-centre-journal::test-centre-journal-back-button"
     And I sign out

@@ -71,7 +71,8 @@
       "examiner-selection-modal":".alert-wrapper ion-overlay-wrapper",
       "cancel-btn-examiner-select":".alert-button-role-cancel",
       "select-btn-examiner-select": "button[contains(text(), 'Select')]",
-      "default-validation-error-message": "#default-validation-error-message"
+      "default-validation-error-message": "#default-validation-error-message",
+      "test-centre-journal-back-button": "#test-centre-journal-back-button"
     },
   "des-candidate-details": {
       "page-title": "#test-details-title",
