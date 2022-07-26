@@ -1,6 +1,5 @@
 Feature: Test Centre Journal
 
-  @test
   Scenario: Test centre Journal - Today Test
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-general::page-title" to be displayed
