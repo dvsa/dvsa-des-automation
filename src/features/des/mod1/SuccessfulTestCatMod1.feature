@@ -20,6 +20,7 @@ Feature: Cat-Mod1 Successful feature
     And I add "50" to the inputfield "des-test-report-screen::mod-one-second-avoidance-stop-input"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I add "A12345X" to the inputfield "des-final-outcome-screen::pass-certificate-number-field-input"

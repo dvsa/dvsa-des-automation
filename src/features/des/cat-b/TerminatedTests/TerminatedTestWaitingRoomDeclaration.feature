@@ -1,4 +1,5 @@
 Feature: Cat-B Terminate Waiting Room Declaration feature
+
   Scenario:   Unsuccessful terminated  waiting room declaration
    Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
