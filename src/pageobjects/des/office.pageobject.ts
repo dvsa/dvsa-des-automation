@@ -62,6 +62,11 @@ class OfficePageObject extends Page {
 
   get secondShowMeQuestionSelect() { return ('des-office-page::adi2-second-show-me-question'); }
 
+  /**
+      Completes the Office Page for a Successful Test using a Data Table to select what fields to complete with what field inputs.
+      Allows the ability to not use a field by selecting "na" as a field input answer
+      @param data - gets data from a data table in the feature file
+  */
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
@@ -179,6 +184,11 @@ class OfficePageObject extends Page {
     }
   }
 
+  /**
+    Completes the Office Page for an Unsuccessful Test using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer
+    @param data - gets data from a data table in the feature file
+  */
   async completeUnsuccessfullOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
@@ -317,5 +327,4 @@ class OfficePageObject extends Page {
     }
   }
 }
-
 export default new OfficePageObject();

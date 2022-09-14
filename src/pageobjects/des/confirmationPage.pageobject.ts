@@ -23,6 +23,11 @@ class ConfirmationPageObject extends Page {
 
   get d255Value() { return ('des-final-confirmation-screen::test-d255-value'); }
 
+  /**
+    Checks details on the Confirmation Page to see if they match the given values
+    Allows the ability to not use a field by selecting "na" as a field input answer
+    @param data - gets data from a data table in the feature file
+  */
   async checkPassedConfirmationPageDetails(
     data: Record<keyof PassedConfirmationData, string>,
   ): Promise<void> {

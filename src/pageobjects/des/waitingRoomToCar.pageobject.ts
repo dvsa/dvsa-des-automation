@@ -14,6 +14,7 @@ interface WaitingRoomToCarPageDataCatB {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
   vehicleDetails:'school car'|'dual control';
 }
+
 interface WaitingRoomToCarPageDataCatManoeuvre {
   vehicleRegNum:string;
 }
@@ -213,12 +214,23 @@ class WaitingRoomPageToCarObject extends Page {
 
   get trainingRecordsNoInput() { return ('des-waiting-room-to-car::training-records-no-input'); }
 
+  /**
+    Support function that contains repetitive code used throughout other functions.
+    Opens a modal and clicks a vehicle question by text and then submits the questions.
+    @param question - gets the selector for a show/tell me question
+    @param value - gets text that would be used to click an element
+  */
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
     await clickElementWithText('click', 'button', value);
     await clickElementWithText('click', 'element', 'Submit');
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category B using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatB(
     data: Record<keyof WaitingRoomToCarPageDataCatB, any>,
   ): Promise<void> {
@@ -309,6 +321,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category D using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatD(
     data: Record<keyof WaitingRoomToCarPageDataCatC, any>,
   ): Promise<void> {
@@ -425,6 +442,11 @@ class WaitingRoomPageToCarObject extends Page {
     await clickElement('click', 'selector', this.submitVehicleChecks);
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category C using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatC(
     data: Record<keyof WaitingRoomToCarPageDataCatC, any>,
   ): Promise<void> {
@@ -538,6 +560,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category Mod1 using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatMod1(
     data: Record<keyof WaitingRoomToCarPageDataCatMod1, any>,
   ): Promise<void> {
@@ -600,6 +627,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category Mod2 using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatMod2(
     data: Record<keyof WaitingRoomToCarPageDataCatMod2, any>,
   ): Promise<void> {
@@ -721,6 +753,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category ADI2 using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatADI2(
     data: Record<keyof WaitingRoomToCarPageDataCatADI2, any>,
   ): Promise<void> {
@@ -875,6 +912,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category Home using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCatHome(
     data: Record<keyof WaitingRoomToCarPageDataCatHome, any>,
   ): Promise<void> {
@@ -958,6 +1000,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Base switch statement to choose what function to use to complete the selected fields on the Waiting Room To Car page for the correct category
+    @param data - gets data from a data table in the feature file
+    @param category -
+  */
   async completeWRTCPageDataTable(
     data: Record<string, string>,
     category:string,
@@ -1014,6 +1061,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category CPC using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForCPC(
     data: Record<keyof WaitingRoomToCarPageDataCatCPC, any>,
   ): Promise<void> {
@@ -1068,6 +1120,11 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  /**
+    Completes the Waiting Room to Car Page for a category Manoeuvre using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer.
+    @param data - gets data from a data table in the feature file
+  */
   async completeWRTCPageForManoeuvre(
     data: Record<keyof WaitingRoomToCarPageDataCatManoeuvre, any>,
   ): Promise<void> {
@@ -1075,6 +1132,10 @@ class WaitingRoomPageToCarObject extends Page {
     await setInputField('add', fieldInput, this.vehRegInput);
   }
 
+  /*
+    Completes the Waiting Room To Car Page through a failed eyesight test.
+    Clicks eyesight fail button and continues onto next page.
+  */
   async completeWRTCPageForFailEyesight(): Promise<void> {
     await clickElement('click', 'selector', this.eyeSightFailLabel);
     await clickElement('click', 'selector', this.continueToDebriefButton);

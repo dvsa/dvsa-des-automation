@@ -22,6 +22,12 @@ class RekeyReasonPageObject extends Page {
 
   get staffNumberText() { return ('des-rekey-reason-page::staff-number-text'); }
 
+  /**
+    @TODO refactor code so that I am able to select as many or as little iPad issues as I want.
+    Completes the Rekey Reason Page using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer
+    @param data - gets data from a data table in the feature file
+  */
   async completeRekeyReasonPage(
     data: Record<keyof RekeyReasonPageData, string>,
   ): Promise<void> {

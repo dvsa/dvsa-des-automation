@@ -10,6 +10,10 @@ class HealthDeclarationScreenPageobject extends Page {
 
   get healthDeclarationContinueButton() { return ('des-final-pass-declaration-screen::continue-btn'); }
 
+  /**
+    Completes the Health Declaration Page for the correct category
+    @param category - Gets the name of the category that is being tested
+  */
   async completeHealthDeclarationPage(category : string): Promise<void> {
     const cat = category.toLowerCase();
 
