@@ -139,6 +139,9 @@ class TestReportPageObject extends Page {
     return $(`competency-button='${competencyItem}'`).click();
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category B
+  */
   async completeLegalRequirementsForCatB(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
@@ -152,6 +155,10 @@ class TestReportPageObject extends Page {
     await longClickElement(this.showTellLegalReqTick, 500);
   }
 
+  /**
+    Selects all required Legal Requirements fields to complete a category CPC
+    @param status - gets the data on if the user wants a pass test or not
+  */
   async completeLegalRequirementsForCatCPC(status: string): Promise<void> {
     for (let i = 1; i <= 4; i += 1) {
       await clickElement('click', 'selector', this.answerLabelOne);
@@ -176,6 +183,9 @@ class TestReportPageObject extends Page {
     await clickElement('click', 'selector', this.answerLabelTen);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category C
+  */
   async completeLegalRequirementsForCatC(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
@@ -185,6 +195,9 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category D
+  */
   async completeLegalRequirementsForCatD(): Promise<void> {
     await longClickElement(this.NSCatD, 500);
     await longClickElement(this.NSCatD, 500);
@@ -196,6 +209,9 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category Mod2
+  */
   async completeLegalRequirementsForCatMod2(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
@@ -204,10 +220,16 @@ class TestReportPageObject extends Page {
     await longClickElement(this.ecoLegalReqTick, 500);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category C/D Manoeuvre
+  */
   async completeLegalRequirementsForCatManoeuvre(): Promise<void> {
     await longClickElement(this.competencyButton, 500);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category ADI2
+  */
   async completeLegalRequirementsForCatADI2(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
@@ -223,6 +245,9 @@ class TestReportPageObject extends Page {
     await longClickElement(this.smtmTestRequirement, 500);
   }
 
+  /*
+    Selects all required Legal Requirements fields to complete a category Home
+  */
   async completeLegalRequirementsForCatHome(): Promise<void> {
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
@@ -234,6 +259,10 @@ class TestReportPageObject extends Page {
     await longClickElement(this.controlledStopLegalReqTick, 500);
   }
 
+  /**
+    Base switch statement to choose what function to use to complete the Legal Requirements on the Test Report page for the correct category
+    @param category - chooses which is being completed
+  */
   async completeLegalRequirements(category:string): Promise<void> {
     const cat = category.toLowerCase();
     switch (cat) {
@@ -269,6 +298,13 @@ class TestReportPageObject extends Page {
     }
   }
 
+  /**
+    @TODO Redo function so that you are not able to add multiple serious/dangerous faults to a single field. I think it would break a test.
+    Adds a stated number of driving, serious or dangerous fault/s to a field.
+    @param faultCount - increases faults by given data
+    @param fault - states what fault type is being added to: 'driving' | 'serious' | 'dangerous'
+    @param selector - gets the selector for a competency
+  */
   async addingFault(faultCount:number, fault: string, selector: string): Promise<void> {
     let i:number = 0;
     while (i < faultCount) {

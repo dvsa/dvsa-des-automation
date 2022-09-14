@@ -9,6 +9,10 @@ interface CheckFaultData {
 }
 
 class DebriefScreenPageObject extends Page {
+  /**
+    Checks the faults on the debrief page to see if they match the given values
+    @param data - gets data from a data table in the feature file
+  */
   async checkCorrectFaults(
     data: Record<keyof CheckFaultData, string>[],
   ): Promise<void> {
@@ -20,12 +24,8 @@ class DebriefScreenPageObject extends Page {
     }] = data;
 
     for (let i = 0; i < data.length; i += 1) {
-      const faultName = faultSelector;
-      const expectedText = faultExpectedText;
-      const faultCount = faultCountSelector;
-      const faultNumber = numberOfFaults;
-      await checkEqualsText('element', faultName, false, expectedText);
-      await checkEqualsText('element', faultCount, false, faultNumber);
+      await checkEqualsText('element', faultSelector, false, faultExpectedText);
+      await checkEqualsText('element', faultCountSelector, false, numberOfFaults);
     }
   }
 }

@@ -32,6 +32,11 @@ class MyJournalPageObject extends Page {
 
   get candidateDetailsBackButton() { return ('des-candidate-details::close-button'); }
 
+  /**
+    Goes back or forward on the journal a number of selected days and checks the day and date element to see if the selected days are correct
+    @param direction - chooses what the direction should be taken on the journal: 'back' | 'forward'
+    @param days - data for how many to loop through
+  */
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
     await waitFor(this.dayName, '', false, 'be displayed');
     const gettingDateElementCurrentPage = await $(getElementByReference(this.dateName)).getText();
@@ -68,16 +73,26 @@ class MyJournalPageObject extends Page {
     }
   }
 
+  /*
+    Checks for and clicks the start test button for an early test
+  */
   async startEarlyTest(): Promise<void> {
     await waitFor(this.earlyStartTestModelButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.earlyStartTestModelButton);
   }
 
+  /*
+    Checks for and clicks the start test button for a Late test
+  */
   async startLateTest(): Promise<void> {
     await waitFor(this.expiredStartTestModelButton, '', false, 'be displayed');
     await clickElement('click', 'selector', this.expiredStartTestModelButton);
   }
 
+  /**
+    Function to start a test at any time of the day by calling startEarlyTest(), startLateTest() depending on what modal is shown
+    @param selector - gets the selector for a start test button
+  */
   async startTest(selector: string):Promise<void> {
     await scroll(selector);
     await waitFor(selector, '', false, 'be displayed');

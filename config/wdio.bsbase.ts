@@ -15,6 +15,7 @@ export const bscapabilities = {
   'browserstack.acceptInsecureCerts': true,
   'browserstack.appiumLogs': true,
   'browserstack.deviceLogs': true,
+  'browserstack.maskCommands': 'setValues, getValues, setCookies, getCookies',
   os_version: '10',
   resolution: '1920x1080',
   browserName: 'Chrome',

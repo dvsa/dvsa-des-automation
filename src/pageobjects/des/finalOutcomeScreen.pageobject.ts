@@ -55,6 +55,11 @@ class FinalOutcomePageObject extends Page {
 
   get licenceReceivedNoLabel() { return ('des-final-outcome-screen::licence-received-no-label'); }
 
+  /**
+    Completes the Finalise Outcome Page for a Successful Test using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer
+    @param data - gets data from a data table in the feature file
+  */
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
@@ -159,6 +164,12 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.passFinalisationContinueButton);
   }
 
+  /**
+    Completes the Finalise Outcome Page for an Unsuccessful Test using a Data Table to select what fields to complete with what field inputs.
+    Allows the ability to not use a field by selecting "na" as a field input answer
+    @param testOutcome - chooses what the test outcome should show: 'unsuccessful' | 'terminated'
+    @param data - gets data from a data table in the feature file
+  */
   async completeNonPassedFinalOutcomePage(
     testOutcome:'unsuccessful' | 'terminated',
     data: Record<keyof NonPassedFinalOutcomeData, string>,
@@ -226,6 +237,10 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 
+  /**
+    A check if the finalised outcome page test outcome should match the given value
+    @param outcome - chooses what the test outcome should show: 'unsuccessful' | 'terminated'
+  */
   async checkFinaliseOutcomeTestOutcome(outcome: 'unsuccessful' | 'terminated'): Promise<void> {
     if (outcome === 'unsuccessful') {
       await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
