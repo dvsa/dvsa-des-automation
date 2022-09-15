@@ -41,6 +41,7 @@ Feature: Cat-CPC Successful feature
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office page from a data table
       | activityCode            | NA                                          |

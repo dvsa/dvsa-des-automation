@@ -14,7 +14,7 @@ class DesInfo {
   }
 
   get platFormVersion() {
-    return '15.2'; // pass the platform version
+    return '15.5'; // pass the platform version
   }
 
   get platformName() {
@@ -22,7 +22,7 @@ class DesInfo {
   }
 
   get appName() {
-    return process.env.BROWSERSTACK_APP_ID || 'bs://7dcf671801565d5e298bea9b960c9cdc6aa05dbc';
+    return process.env.BROWSERSTACK_APP_ID || 'bs://7e2fdae5e1ac1161b6792240b66283d04639d037';
   }
 
   get localAppPath() {

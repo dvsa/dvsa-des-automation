@@ -57,6 +57,7 @@ Feature: Cat-C Unsuccessful Tests
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     When I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     When I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |

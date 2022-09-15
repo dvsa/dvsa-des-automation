@@ -491,7 +491,8 @@
     },
   "des-back-to-office-holding-page": {
       "continue-to-write-up-btn":"#continue-to-write-up",
-      "return-to-journal-btn":"#return-to-journal"
+      "return-to-journal-btn":"#return-to-journal",
+      "single-app-mode-error-modal":"(//*[@id='continue-button'])[last()]"
     },
   "des-office-page": {
       "page-title": "//ion-title[contains(text(), 'Office')]",
