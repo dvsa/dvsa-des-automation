@@ -1,4 +1,3 @@
-@test
 Feature: Cat-B Terminated feature
 
   Scenario:   Terminate Test with Code 21
