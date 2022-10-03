@@ -3,7 +3,6 @@ import { getElementByReference } from '@shared-helpers/element-reference-helper'
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import setInputField from '../../../shared/boilerplate/support/action/setInputField';
-import clickElementWithText from '../../../shared/custom/support/action/clickElementWithText';
 
 interface OfficePageData {
   routeNumber: number;
@@ -17,8 +16,8 @@ interface OfficePageData {
   testConducted:'car to bike'| 'bike to bike';
   firstShowMeQuestion:string;
   secondShowMeQuestion:string;
-
 }
+
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
 
@@ -76,101 +75,41 @@ class OfficePageObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'activitycode':
-            // @TODO: Code will need to be inputted for Unsuccesful and Terminated tests
+            // @TODO: Code will need to be inputted for Unsuccessful and Terminated tests
             break;
           case 'routenumber':
             await setInputField('add', routeNumber, this.routeNumberInput);
             break;
           case 'independentdriving':
-            switch (fieldInput) {
-              case 'sat nav':
-                await clickElement('click', 'selector', this.satNavButton);
-                break;
-              case 'traffic signs':
-                await clickElement('click', 'selector', this.trafficSignsButton);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchIndependantDriving(fieldInput);
             break;
           case 'truelikeness':
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.candidateLikenessYes);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.candidateLikenessNo);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchTrueLikeness(fieldInput);
             break;
           case 'distinguishingfeatures':
             await scroll(this.distinguishingFeatureInput);
             await setInputField('add', distinguishingFeatures, this.distinguishingFeatureInput);
             break;
           case 'identification':
-            await scroll(this.photoCardButton);
-            switch (fieldInput) {
-              case 'photo card':
-                await clickElement('click', 'selector', this.photoCardButton);
-                break;
-              case 'passport':
-                await clickElement('click', 'selector', this.passportButton);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchIdentification(fieldInput);
             break;
           case 'showmequestion':
-            await scroll(this.showMeQuestionSelector);
-            await clickElement('click', 'selector', this.showMeQuestionSelector);
-            await clickElementWithText('click', 'button', showMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.showMeQuestionSelector, showMeQuestion, 'Submit');
             break;
           case 'weathercondition':
-            await scroll(this.weatherConditionsSelector);
-            await clickElement('click', 'selector', this.weatherConditionsSelector);
-            await clickElementWithText('click', 'button', weatherCondition);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.weatherConditionsSelector, weatherCondition, 'Submit');
             break;
           case 'circuit':
-            await scroll(this.circuitLeft);
-            switch (fieldInput) {
-              case 'left':
-                await clickElement('click', 'selector', this.circuitLeft);
-                break;
-              case 'right':
-                await clickElement('click', 'selector', this.circuitRight);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchCircuit(fieldInput);
             break;
           case 'testconducted':
-            await scroll(this.testConductedCarBikeInput);
-            switch (fieldInput) {
-              case 'car to bike':
-                await clickElement('click', 'selector', this.testConductedCarBikeInput);
-                break;
-              case 'bike to bike':
-                await clickElement('click', 'selector', this.testConductedBikeBikeInput);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchTestConducted(fieldInput);
             break;
           case 'firstshowmequestion':
-            await scroll(this.firstShowMeQuestionSelect);
-            await clickElement('click', 'selector', this.firstShowMeQuestionSelect);
-            await clickElementWithText('click', 'button', firstShowMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.firstShowMeQuestionSelect, firstShowMeQuestion, 'Submit');
             break;
           case 'secondshowmequestion':
-            await scroll(this.secondShowMeQuestionSelect);
-            await clickElement('click', 'selector', this.secondShowMeQuestionSelect);
-            await clickElementWithText('click', 'button', secondShowMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.secondShowMeQuestionSelect, secondShowMeQuestion, 'Submit');
             break;
           default:
             console.log(`Could not find ${field}`);
@@ -194,37 +133,16 @@ class OfficePageObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'activitycode':
-            // Code will need to be inputted for Unsuccesful and Terminated tests
+            // Code will need to be inputted for Unsuccessful and Terminated tests
             break;
           case 'routenumber':
             await setInputField('add', routeNumber, this.routeNumberInput);
             break;
           case 'independentdriving':
-            switch (fieldInput) {
-              case 'sat nav':
-                await clickElement('click', 'selector', this.satNavButton);
-                break;
-              case 'traffic signs':
-                await clickElement('click', 'selector', this.trafficSignsButton);
-                break;
-              case 'diagram':
-                await clickElement('click', 'selector', this.diagramButton);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchIndependantDriving(fieldInput);
             break;
           case 'truelikeness':
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.candidateLikenessYes);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.candidateLikenessNo);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchTrueLikeness(fieldInput);
             break;
           case 'distinguishingfeatures':
             await scroll(this.distinguishingFeatureInput);
@@ -235,42 +153,16 @@ class OfficePageObject extends Page {
             await setInputField('add', assessment, this.assessmentReport);
             break;
           case 'identification':
-            await scroll(this.photoCardButton);
-            switch (fieldInput) {
-              case 'photo card':
-                await clickElement('click', 'selector', this.photoCardButton);
-                break;
-              case 'passport':
-                await clickElement('click', 'selector', this.passportButton);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchIdentification(fieldInput);
             break;
           case 'showmequestion':
-            await scroll(this.showMeQuestionSelector);
-            await clickElement('click', 'selector', this.showMeQuestionSelector);
-            await clickElementWithText('click', 'button', showMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.showMeQuestionSelector, showMeQuestion, 'Submit');
             break;
           case 'weathercondition':
-            await scroll(this.weatherConditionsSelector);
-            await clickElement('click', 'selector', this.weatherConditionsSelector);
-            await clickElementWithText('click', 'button', weatherCondition);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.weatherConditionsSelector, weatherCondition, 'Submit');
             break;
           case 'circuit':
-            await scroll(this.circuitLeft);
-            switch (fieldInput) {
-              case 'left':
-                await clickElement('click', 'selector', this.circuitLeft);
-                break;
-              case 'right':
-                await clickElement('click', 'selector', this.circuitRight);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchCircuit(fieldInput);
             break;
           case 'faultcomment':
             const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
@@ -286,34 +178,89 @@ class OfficePageObject extends Page {
             await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
             break;
           case 'testconducted':
-            await scroll(this.testConductedCarBikeInput);
-            switch (fieldInput) {
-              case 'car to bike':
-                await clickElement('click', 'selector', this.testConductedCarBikeInput);
-                break;
-              case 'bike to bike':
-                await clickElement('click', 'selector', this.testConductedBikeBikeInput);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchTestConducted(fieldInput);
             break;
           case 'firstshowmequestion':
-            await scroll(this.firstShowMeQuestionSelect);
-            await clickElement('click', 'selector', this.firstShowMeQuestionSelect);
-            await clickElementWithText('click', 'button', firstShowMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.firstShowMeQuestionSelect, firstShowMeQuestion, 'Submit');
             break;
           case 'secondshowmequestion':
-            await scroll(this.secondShowMeQuestionSelect);
-            await clickElement('click', 'selector', this.secondShowMeQuestionSelect);
-            await clickElementWithText('click', 'button', secondShowMeQuestion);
-            await clickElementWithText('click', 'element', 'Submit');
+            await this.selectAndCloseIonSelectByText(this.secondShowMeQuestionSelect, secondShowMeQuestion, 'Submit');
             break;
           default:
             console.log(`Could not find ${field}`);
         }
       }
+    }
+  }
+
+  async switchIndependantDriving(fieldInput:string) {
+    switch (fieldInput) {
+      case 'sat nav':
+        await clickElement('click', 'selector', this.satNavButton);
+        break;
+      case 'traffic signs':
+        await clickElement('click', 'selector', this.trafficSignsButton);
+        break;
+      case 'diagram':
+        await clickElement('click', 'selector', this.diagramButton);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async switchTrueLikeness(fieldInput:string) {
+    switch (fieldInput) {
+      case 'yes':
+        await clickElement('click', 'selector', this.candidateLikenessYes);
+        break;
+      case 'no':
+        await clickElement('click', 'selector', this.candidateLikenessNo);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async switchIdentification(fieldInput:string) {
+    await scroll(this.photoCardButton);
+    switch (fieldInput) {
+      case 'photo card':
+        await clickElement('click', 'selector', this.photoCardButton);
+        break;
+      case 'passport':
+        await clickElement('click', 'selector', this.passportButton);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async switchCircuit(fieldInput:string) {
+    await scroll(this.circuitLeft);
+    switch (fieldInput) {
+      case 'left':
+        await clickElement('click', 'selector', this.circuitLeft);
+        break;
+      case 'right':
+        await clickElement('click', 'selector', this.circuitRight);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async switchTestConducted(fieldInput:string) {
+    await scroll(this.testConductedCarBikeInput);
+    switch (fieldInput) {
+      case 'car to bike':
+        await clickElement('click', 'selector', this.testConductedCarBikeInput);
+        break;
+      case 'bike to bike':
+        await clickElement('click', 'selector', this.testConductedBikeBikeInput);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
     }
   }
 }

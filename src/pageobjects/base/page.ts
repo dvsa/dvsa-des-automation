@@ -1,4 +1,7 @@
 import { AppiumContext } from 'shared/models/appiumContext.model';
+import scroll from '@shared-boilerplate/support/action/scroll';
+import clickElement from '@shared-boilerplate/support/action/clickElement';
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 
 export default class Page {
     title;
@@ -79,5 +82,18 @@ export default class Page {
      */
     getLocalStorageAll() {
       return browser.execute('return window.localStorage;');
+    }
+
+    /**
+      * Scrolls and opens an element, Clicks and closes an element by text as well,
+     * @param elementSelector - The id/xpath/element-reference of the element selector to open
+     * @param elementText - The name of the element text to click on the modal/ion-select overlay
+     * @param modalCloseText - The name of the element text to click on the modal/ion-select overlay
+   */
+    async selectAndCloseIonSelectByText(elementSelector:string, elementText:string, modalCloseText:string) {
+      await scroll(elementSelector);
+      await clickElement('click', 'selector', elementSelector);
+      await clickElementWithText('click', 'button', elementText);
+      await clickElementWithText('click', 'element', modalCloseText);
     }
 }

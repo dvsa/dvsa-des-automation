@@ -59,7 +59,7 @@ class FinalOutcomePageObject extends Page {
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
     const { passCertNumber } = data;
-    await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
+    await this.checkFinaliseOutcomeTestOutcome('passed');
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -140,11 +140,19 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 
-  async checkFinaliseOutcomeTestOutcome(outcome: 'unsuccessful' | 'terminated'): Promise<void> {
-    if (outcome === 'unsuccessful') {
-      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
-    } else if (outcome === 'terminated') {
-      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+  async checkFinaliseOutcomeTestOutcome(outcome: 'passed' | 'unsuccessful' | 'terminated'): Promise<void> {
+    switch (outcome) {
+      case 'passed':
+        await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
+        break;
+      case 'unsuccessful':
+        await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+        break;
+      case 'terminated':
+        await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+        break;
+      default:
+        console.info(`${outcome} is not a test outcome, or ${outcome} could not be found`);
     }
   }
 

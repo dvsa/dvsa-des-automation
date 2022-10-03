@@ -37,16 +37,7 @@ class RekeyReasonPageObject extends Page {
         switch (field) {
           case 'ipad':
             await clickElement('click', 'selector', this.ipadIssueChexbox);
-            switch (fieldInput) {
-              case 'tech':
-                await clickElement('click', 'selector', this.techFaultRadio);
-                break;
-              case 'lost':
-                await clickElement('click', 'selector', this.lostRadio);
-                break;
-              default:
-                console.log(`Could not find ${fieldInput}`);
-            }
+            await this.switchIPad(fieldInput);
             break;
           case 'transfer':
             await clickElement('click', 'selector', this.transferCheckbox);
@@ -60,6 +51,19 @@ class RekeyReasonPageObject extends Page {
             console.log(`Could not find ${field}`);
         }
       }
+    }
+  }
+
+  async switchIPad(fieldInput:string) {
+    switch (fieldInput) {
+      case 'tech':
+        await clickElement('click', 'selector', this.techFaultRadio);
+        break;
+      case 'lost':
+        await clickElement('click', 'selector', this.lostRadio);
+        break;
+      default:
+        console.log(`Could not find ${fieldInput}`);
     }
   }
 }

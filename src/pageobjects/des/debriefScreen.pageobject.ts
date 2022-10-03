@@ -20,12 +20,8 @@ class DebriefScreenPageObject extends Page {
     }] = data;
 
     for (let i = 0; i < data.length; i += 1) {
-      const faultName = faultSelector;
-      const expectedText = faultExpectedText;
-      const faultCount = faultCountSelector;
-      const faultNumber = numberOfFaults;
-      await checkEqualsText('element', faultName, false, expectedText);
-      await checkEqualsText('element', faultCount, false, faultNumber);
+      await checkEqualsText('element', faultSelector, false, faultExpectedText);
+      await checkEqualsText('element', faultCountSelector, false, numberOfFaults);
     }
   }
 }
