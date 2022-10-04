@@ -77,22 +77,22 @@ class FinalOutcomePageObject extends Page {
             );
             break;
           case 'transmission':
-            await this.switchClickTransmission(fieldInput);
+            await this.setClickTransmission(fieldInput);
             break;
           case 'passcertnumber':
             await setInputField('add', passCertNumber, this.passCertificateNumberInput);
             break;
           case 'd255':
-            await this.switchD255(fieldInput);
+            await this.setD255(fieldInput);
             break;
           case 'testlanguage':
-            await this.switchTestLanguage(fieldInput);
+            await this.setTestLanguage(fieldInput);
             break;
           case 'debriefwitnessed':
-            await this.switchDebriefWitnessed(fieldInput);
+            await this.setDebriefWitnessed(fieldInput);
             break;
           case 'licencereceived':
-            await this.switchLicenceReceived(fieldInput);
+            await this.setLicenceReceived(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -123,13 +123,13 @@ class FinalOutcomePageObject extends Page {
             }
             break;
           case 'd255':
-            await this.switchD255(fieldInput);
+            await this.setD255(fieldInput);
             break;
           case 'testlanguage':
-            await this.switchTestLanguage(fieldInput);
+            await this.setTestLanguage(fieldInput);
             break;
           case 'debriefwitnessed':
-            await this.switchDebriefWitnessed(fieldInput);
+            await this.setDebriefWitnessed(fieldInput);
             await scroll(this.debriefWitnessedYes);
             break;
           default:
@@ -156,7 +156,7 @@ class FinalOutcomePageObject extends Page {
     }
   }
 
-  async switchClickTransmission(fieldInput:string) {
+  async setClickTransmission(fieldInput:string) {
     switch (fieldInput) {
       case 'manual':
         await clickElement('click', 'selector', this.transmissionManualInput);
@@ -172,7 +172,7 @@ class FinalOutcomePageObject extends Page {
     }
   }
 
-  async switchD255(fieldInput:string) {
+  async setD255(fieldInput:string) {
     await scroll(this.d255YesInput);
     switch (fieldInput) {
       case 'yes':
@@ -186,7 +186,7 @@ class FinalOutcomePageObject extends Page {
     }
   }
 
-  async switchTestLanguage(fieldInput:string) {
+  async setTestLanguage(fieldInput:string) {
     await scroll(this.languageEnglishInput);
     switch (fieldInput) {
       case 'english':
@@ -200,7 +200,7 @@ class FinalOutcomePageObject extends Page {
     }
   }
 
-  async switchDebriefWitnessed(fieldInput:string) {
+  async setDebriefWitnessed(fieldInput:string) {
     await scroll(this.debriefWitnessedYes);
     switch (fieldInput) {
       case 'yes':
@@ -214,7 +214,7 @@ class FinalOutcomePageObject extends Page {
     }
   }
 
-  async switchLicenceReceived(fieldInput:string) {
+  async setLicenceReceived(fieldInput:string) {
     await scroll(this.licenceReceivedYesLabel);
     switch (fieldInput) {
       case 'yes':

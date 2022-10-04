@@ -81,17 +81,17 @@ class OfficePageObject extends Page {
             await setInputField('add', routeNumber, this.routeNumberInput);
             break;
           case 'independentdriving':
-            await this.switchIndependantDriving(fieldInput);
+            await this.setIndependentDriving(fieldInput);
             break;
           case 'truelikeness':
-            await this.switchTrueLikeness(fieldInput);
+            await this.setTrueLikeness(fieldInput);
             break;
           case 'distinguishingfeatures':
             await scroll(this.distinguishingFeatureInput);
             await setInputField('add', distinguishingFeatures, this.distinguishingFeatureInput);
             break;
           case 'identification':
-            await this.switchIdentification(fieldInput);
+            await this.setIdentification(fieldInput);
             break;
           case 'showmequestion':
             await this.selectAndCloseIonSelectByText(this.showMeQuestionSelector, showMeQuestion, 'Submit');
@@ -100,10 +100,10 @@ class OfficePageObject extends Page {
             await this.selectAndCloseIonSelectByText(this.weatherConditionsSelector, weatherCondition, 'Submit');
             break;
           case 'circuit':
-            await this.switchCircuit(fieldInput);
+            await this.setCircuit(fieldInput);
             break;
           case 'testconducted':
-            await this.switchTestConducted(fieldInput);
+            await this.setTestConducted(fieldInput);
             break;
           case 'firstshowmequestion':
             await this.selectAndCloseIonSelectByText(this.firstShowMeQuestionSelect, firstShowMeQuestion, 'Submit');
@@ -139,10 +139,10 @@ class OfficePageObject extends Page {
             await setInputField('add', routeNumber, this.routeNumberInput);
             break;
           case 'independentdriving':
-            await this.switchIndependantDriving(fieldInput);
+            await this.setIndependentDriving(fieldInput);
             break;
           case 'truelikeness':
-            await this.switchTrueLikeness(fieldInput);
+            await this.setTrueLikeness(fieldInput);
             break;
           case 'distinguishingfeatures':
             await scroll(this.distinguishingFeatureInput);
@@ -153,7 +153,7 @@ class OfficePageObject extends Page {
             await setInputField('add', assessment, this.assessmentReport);
             break;
           case 'identification':
-            await this.switchIdentification(fieldInput);
+            await this.setIdentification(fieldInput);
             break;
           case 'showmequestion':
             await this.selectAndCloseIonSelectByText(this.showMeQuestionSelector, showMeQuestion, 'Submit');
@@ -162,7 +162,7 @@ class OfficePageObject extends Page {
             await this.selectAndCloseIonSelectByText(this.weatherConditionsSelector, weatherCondition, 'Submit');
             break;
           case 'circuit':
-            await this.switchCircuit(fieldInput);
+            await this.setCircuit(fieldInput);
             break;
           case 'faultcomment':
             const getElementRefForPage = getElementByReference(this.genericFaultCommentBox);
@@ -178,7 +178,7 @@ class OfficePageObject extends Page {
             await setInputField('add', eyesightFaultComment, this.eyesightFaultComment);
             break;
           case 'testconducted':
-            await this.switchTestConducted(fieldInput);
+            await this.setTestConducted(fieldInput);
             break;
           case 'firstshowmequestion':
             await this.selectAndCloseIonSelectByText(this.firstShowMeQuestionSelect, firstShowMeQuestion, 'Submit');
@@ -193,7 +193,7 @@ class OfficePageObject extends Page {
     }
   }
 
-  async switchIndependantDriving(fieldInput:string) {
+  async setIndependentDriving(fieldInput:string) {
     switch (fieldInput) {
       case 'sat nav':
         await clickElement('click', 'selector', this.satNavButton);
@@ -209,7 +209,7 @@ class OfficePageObject extends Page {
     }
   }
 
-  async switchTrueLikeness(fieldInput:string) {
+  async setTrueLikeness(fieldInput:string) {
     switch (fieldInput) {
       case 'yes':
         await clickElement('click', 'selector', this.candidateLikenessYes);
@@ -222,7 +222,7 @@ class OfficePageObject extends Page {
     }
   }
 
-  async switchIdentification(fieldInput:string) {
+  async setIdentification(fieldInput:string) {
     await scroll(this.photoCardButton);
     switch (fieldInput) {
       case 'photo card':
@@ -236,7 +236,7 @@ class OfficePageObject extends Page {
     }
   }
 
-  async switchCircuit(fieldInput:string) {
+  async setCircuit(fieldInput:string) {
     await scroll(this.circuitLeft);
     switch (fieldInput) {
       case 'left':
@@ -250,7 +250,7 @@ class OfficePageObject extends Page {
     }
   }
 
-  async switchTestConducted(fieldInput:string) {
+  async setTestConducted(fieldInput:string) {
     await scroll(this.testConductedCarBikeInput);
     switch (fieldInput) {
       case 'car to bike':

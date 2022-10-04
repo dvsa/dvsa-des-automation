@@ -37,7 +37,7 @@ class RekeyReasonPageObject extends Page {
         switch (field) {
           case 'ipad':
             await clickElement('click', 'selector', this.ipadIssueChexbox);
-            await this.switchIPad(fieldInput);
+            await this.setIPad(fieldInput);
             break;
           case 'transfer':
             await clickElement('click', 'selector', this.transferCheckbox);
@@ -54,7 +54,7 @@ class RekeyReasonPageObject extends Page {
     }
   }
 
-  async switchIPad(fieldInput:string) {
+  async setIPad(fieldInput:string) {
     switch (fieldInput) {
       case 'tech':
         await clickElement('click', 'selector', this.techFaultRadio);

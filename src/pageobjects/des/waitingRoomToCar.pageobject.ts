@@ -228,28 +228,28 @@ class WaitingRoomPageToCarObject extends Page {
       if (fieldInput !== 'na') {
         switch (field) {
           case 'eyesighttest':
-            await this.switchEyesightTest(fieldInput);
+            await this.setEyesightTest(fieldInput);
             break;
           case 'tellmequestion':
             await this.addVehicleQuestion(this.tellMeSeclector, value);
             break;
           case 'tellmequestionfault':
-            await this.switchTellMeQuestionFault(fieldInput);
+            await this.setTellMeQuestionFault(fieldInput);
             break;
           case 'vehicleregnum':
             await setInputField('add', fieldInput, this.vehRegInput);
             break;
           case 'transmission':
-            await this.switchTransmission(fieldInput);
+            await this.setTransmission(fieldInput);
             break;
           case 'instructorregnum':
             await setInputField('add', fieldInput, this.instructorRegNum);
             break;
           case 'accompaniedby':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           case 'vehicledetails':
-            await this.switchVehicleDetails(fieldInput);
+            await this.setVehicleDetails(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -286,22 +286,22 @@ class WaitingRoomPageToCarObject extends Page {
             await this.addVehicleQuestion(this.fifthVehicleCheckQuestion, value);
             break;
           case 'showmequestion1fault':
-            await this.switchShowMeQuestion1Fault(fieldInput);
+            await this.setShowMeQuestion1Fault(fieldInput);
             break;
           case 'showmequestion2fault':
-            await this.switchShowMeQuestion2Fault(fieldInput);
+            await this.setShowMeQuestion2Fault(fieldInput);
             break;
           case 'showmequestion3fault':
-            await this.switchShowMeQuestion3Fault(fieldInput);
+            await this.setShowMeQuestion3Fault(fieldInput);
             break;
           case 'tellmequestion1fault':
-            await this.switchTellMeQuestion1Fault(fieldInput);
+            await this.setTellMeQuestion1Fault(fieldInput);
             break;
           case 'tellmequestion2fault':
-            await this.switchTellMeQuestion2Fault(fieldInput);
+            await this.setTellMeQuestion2Fault(fieldInput);
             break;
           case 'accompaniedby':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -342,23 +342,23 @@ class WaitingRoomPageToCarObject extends Page {
             await this.addVehicleQuestion(this.fifthVehicleCheckQuestion, value);
             break;
           case 'showmequestion1fault':
-            await this.switchShowMeQuestion1Fault(fieldInput);
+            await this.setShowMeQuestion1Fault(fieldInput);
             break;
           case 'showmequestion2fault':
-            await this.switchShowMeQuestion2Fault(fieldInput);
+            await this.setShowMeQuestion2Fault(fieldInput);
             break;
           case 'showmequestion3fault':
-            await this.switchShowMeQuestion3Fault(fieldInput);
+            await this.setShowMeQuestion3Fault(fieldInput);
             break;
           case 'tellmequestion1fault':
-            await this.switchTellMeQuestion1Fault(fieldInput);
+            await this.setTellMeQuestion1Fault(fieldInput);
             break;
           case 'tellmequestion2fault':
-            await this.switchTellMeQuestion2Fault(fieldInput);
+            await this.setTellMeQuestion2Fault(fieldInput);
             await clickElement('click', 'selector', this.submitVehicleChecks);
             break;
           case 'accompaniedby':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -379,16 +379,16 @@ class WaitingRoomPageToCarObject extends Page {
             await this.selectAndCloseIonSelectByText(this.catType, value, 'Confirm');
             break;
           case 'transmission':
-            await this.switchTransmission(fieldInput);
+            await this.setTransmission(fieldInput);
             break;
           case 'vehicleregnum':
             await setInputField('add', fieldInput, this.vehRegInput);
             break;
           case 'accompaniedby':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           case 'vehicledetails':
-            await this.switchVehicleDetails(fieldInput);
+            await this.setVehicleDetails(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -409,10 +409,10 @@ class WaitingRoomPageToCarObject extends Page {
             await this.selectAndCloseIonSelectByText(this.catType, value, 'Confirm');
             break;
           case 'transmission':
-            await this.switchTransmission(fieldInput);
+            await this.setTransmission(fieldInput);
             break;
           case 'eyesighttest':
-            await this.switchEyesightTest(fieldInput);
+            await this.setEyesightTest(fieldInput);
             break;
           case 'vehicleregnum':
             await setInputField('add', fieldInput, this.vehRegInput);
@@ -450,10 +450,10 @@ class WaitingRoomPageToCarObject extends Page {
             await clickElement('click', 'selector', this.submitVehicleChecksButton);
             break;
           case 'accompaniedby':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           case 'vehicledetails':
-            await this.switchVehicleDetails(fieldInput);
+            await this.setVehicleDetails(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -472,7 +472,7 @@ class WaitingRoomPageToCarObject extends Page {
         switch (field) {
           case 'eyesighttest':
             await scroll(this.eyeSightPassLabel);
-            await this.switchEyesightTest(fieldInput);
+            await this.setEyesightTest(fieldInput);
             break;
           case 'tellmequestion1':
             await clickElement('click', 'selector', this.vehicleChecksShowQuestionsButton);
@@ -485,10 +485,10 @@ class WaitingRoomPageToCarObject extends Page {
             await this.addVehicleQuestion(this.thirdVehicleCheckQuestion, value);
             break;
           case 'tellmequestion1fault':
-            await this.switchTellMeQuestion1Fault(fieldInput, 'adi2');
+            await this.setTellMeQuestion1Fault(fieldInput, 'adi2');
             break;
           case 'tellmequestion2fault':
-            await this.switchTellMeQuestion2Fault(fieldInput, 'adi2');
+            await this.setTellMeQuestion2Fault(fieldInput, 'adi2');
             break;
           case 'tellmequestion3fault':
             await clickElement(
@@ -504,15 +504,15 @@ class WaitingRoomPageToCarObject extends Page {
             break;
           case 'transmission':
             await scroll(this.manualTransmissionLabel);
-            await this.switchTransmission(fieldInput);
+            await this.setTransmission(fieldInput);
             break;
           case 'accompaniedby':
             await scroll(this.accompaniedByInstructorLabel);
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           case 'vehicledetails':
             await scroll(this.vehicleDetailsSchoolCarLabel);
-            await this.switchVehicleDetails(fieldInput);
+            await this.setVehicleDetails(fieldInput);
             break;
           case 'ordittrainer':
             await scroll(this.orditTrainedYesInput);
@@ -551,7 +551,7 @@ class WaitingRoomPageToCarObject extends Page {
         switch (field) {
           case 'eyesighttest':
             await scroll(this.eyeSightPassLabel);
-            await this.switchEyesightTest(fieldInput);
+            await this.setEyesightTest(fieldInput);
             break;
           case 'showmequestion':
             await clickElement('click', 'selector', this.vehicleChecksShowQuestionsButton);
@@ -561,10 +561,10 @@ class WaitingRoomPageToCarObject extends Page {
             await this.addVehicleQuestion(this.secondVehicleCheckQuestion, value);
             break;
           case 'showmequestionfault':
-            await this.switchShowMeQuestion1Fault(fieldInput);
+            await this.setShowMeQuestion1Fault(fieldInput);
             break;
           case 'tellmequestionfault':
-            await this.switchTellMeQuestion2Fault(fieldInput, 'home');
+            await this.setTellMeQuestion2Fault(fieldInput, 'home');
             await clickElement('click', 'selector', this.submitVehicleChecksButton);
             break;
           case 'vehicleregnum':
@@ -573,7 +573,7 @@ class WaitingRoomPageToCarObject extends Page {
             break;
           case 'accompaniedby':
             await scroll(this.accompaniedByInstructorLabel);
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -650,10 +650,10 @@ class WaitingRoomPageToCarObject extends Page {
             await setInputField('add', fieldInput, this.vehRegInput);
             break;
           case 'details':
-            await this.switchVehicleDetails(fieldInput);
+            await this.setVehicleDetails(fieldInput);
             break;
           case 'accompanied':
-            await this.switchAccompaniedBy(fieldInput);
+            await this.setAccompaniedBy(fieldInput);
             break;
           case 'combination':
             await this.addVehicleQuestion(this.combination, value);
@@ -677,7 +677,7 @@ class WaitingRoomPageToCarObject extends Page {
     await clickElement('click', 'selector', this.continueToDebriefButton);
   }
 
-  async switchEyesightTest(fieldInput:string) {
+  async setEyesightTest(fieldInput:string) {
     switch (fieldInput) {
       case 'pass':
         await clickElement('click', 'selector', this.eyeSightPassLabel);
@@ -690,7 +690,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchTellMeQuestionFault(fieldInput:string) {
+  async setTellMeQuestionFault(fieldInput:string) {
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.tellMeAnswerCorrectLabel);
@@ -703,7 +703,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchTransmission(fieldInput:string) {
+  async setTransmission(fieldInput:string) {
     switch (fieldInput) {
       case 'manual':
         await clickElement('click', 'selector', this.manualTransmissionLabel);
@@ -716,7 +716,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchAccompaniedBy(fieldInput:string) {
+  async setAccompaniedBy(fieldInput:string) {
     switch (fieldInput) {
       case 'instructor':
         await clickElement('click', 'selector', this.accompaniedByInstructorLabel);
@@ -735,7 +735,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchVehicleDetails(fieldInput:string) {
+  async setVehicleDetails(fieldInput:string) {
     switch (fieldInput) {
       case 'school car':
         await clickElement('click', 'selector', this.vehicleDetailsSchoolCarLabel);
@@ -760,7 +760,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchShowMeQuestion1Fault(fieldInput:string) {
+  async setShowMeQuestion1Fault(fieldInput:string) {
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.firstVehicleCheckQuestionCorrectLabel);
@@ -773,7 +773,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchShowMeQuestion2Fault(fieldInput:string) {
+  async setShowMeQuestion2Fault(fieldInput:string) {
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.secondVehicleCheckQuestionCorrectLabel);
@@ -786,7 +786,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchShowMeQuestion3Fault(fieldInput:string) {
+  async setShowMeQuestion3Fault(fieldInput:string) {
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.thirdVehicleCheckQuestionCorrectLabel);
@@ -799,7 +799,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchTellMeQuestion1Fault(fieldInput:string, category?:string) {
+  async setTellMeQuestion1Fault(fieldInput:string, category?:string) {
     switch (fieldInput) {
       case 'correct':
         await clickElement(
@@ -820,7 +820,7 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
-  async switchTellMeQuestion2Fault(fieldInput:string, category:string | undefined = 'na') {
+  async setTellMeQuestion2Fault(fieldInput:string, category:string | undefined = 'na') {
     switch (fieldInput) {
       case 'correct':
         await clickElement(
