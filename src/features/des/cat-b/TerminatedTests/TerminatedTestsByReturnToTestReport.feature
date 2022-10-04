@@ -57,6 +57,7 @@ Feature: Cat-B Terminated feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::return-to-journal-btn"
+    And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I expect that element "#write-up-button-20654335" is displayed
     And I click on the button "#write-up-button-20654335"

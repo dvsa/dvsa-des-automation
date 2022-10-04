@@ -59,7 +59,7 @@ class FinalOutcomePageObject extends Page {
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
     const { passCertNumber } = data;
-    await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
+    await this.checkFinaliseOutcomeTestOutcome('passed');
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -70,86 +70,29 @@ class FinalOutcomePageObject extends Page {
             await clickElement('click', 'selector', this.code78);
             break;
           case 'provisionallicencereceived':
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.provLicencedRecievedYes);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.provLicencedRecievedNo);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.provLicencedRecievedYes : this.provLicencedRecievedNo,
+            );
             break;
           case 'transmission':
-            switch (fieldInput) {
-              case 'manual':
-                await clickElement('click', 'selector', this.transmissionManualInput);
-                break;
-              case 'automatic':
-                await clickElement('click', 'selector', this.transmissionAutomaticInput);
-                break;
-              case 'manualcatc':
-                await clickElement('click', 'selector', this.transmissionManualInputCatC);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setClickTransmission(fieldInput);
             break;
           case 'passcertnumber':
             await setInputField('add', passCertNumber, this.passCertificateNumberInput);
             break;
           case 'd255':
-            await scroll(this.d255YesInput);
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.d255YesInput);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.d255NoInput);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setD255(fieldInput);
             break;
           case 'testlanguage':
-            await scroll(this.languageEnglishInput);
-            switch (fieldInput) {
-              case 'english':
-                await clickElement('click', 'selector', this.languageEnglishInput);
-                break;
-              case 'cymraeg':
-                await clickElement('click', 'selector', this.languageCymraegInput);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setTestLanguage(fieldInput);
             break;
           case 'debriefwitnessed':
-            await scroll(this.debriefWitnessedYes);
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.debriefWitnessedYes);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.debriefWitnessedNo);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setDebriefWitnessed(fieldInput);
             break;
           case 'licencereceived':
-            await scroll(this.licenceReceivedYesLabel);
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.licenceReceivedYesLabel);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.licenceReceivedNoLabel);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setLicenceReceived(fieldInput);
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -180,43 +123,14 @@ class FinalOutcomePageObject extends Page {
             }
             break;
           case 'd255':
-            await scroll(this.d255YesInput);
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.d255YesInput);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.d255NoInput);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setD255(fieldInput);
             break;
           case 'testlanguage':
-            await scroll(this.languageEnglishInput);
-            switch (fieldInput) {
-              case 'english':
-                await clickElement('click', 'selector', this.languageEnglishInput);
-                break;
-              case 'cymraeg':
-                await clickElement('click', 'selector', this.languageCymraegInput);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
+            await this.setTestLanguage(fieldInput);
             break;
           case 'debriefwitnessed':
+            await this.setDebriefWitnessed(fieldInput);
             await scroll(this.debriefWitnessedYes);
-            switch (fieldInput) {
-              case 'yes':
-                await clickElement('click', 'selector', this.debriefWitnessedYes);
-                break;
-              case 'no':
-                await clickElement('click', 'selector', this.debriefWitnessedNo);
-                break;
-              default:
-                console.info(`Could not find ${fieldInput}`);
-            }
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -226,11 +140,91 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 
-  async checkFinaliseOutcomeTestOutcome(outcome: 'unsuccessful' | 'terminated'): Promise<void> {
-    if (outcome === 'unsuccessful') {
-      await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
-    } else if (outcome === 'terminated') {
-      await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+  async checkFinaliseOutcomeTestOutcome(outcome: 'passed' | 'unsuccessful' | 'terminated'): Promise<void> {
+    switch (outcome) {
+      case 'passed':
+        await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
+        break;
+      case 'unsuccessful':
+        await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+        break;
+      case 'terminated':
+        await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+        break;
+      default:
+        console.info(`${outcome} is not a test outcome, or ${outcome} could not be found`);
+    }
+  }
+
+  async setClickTransmission(fieldInput:string) {
+    switch (fieldInput) {
+      case 'manual':
+        await clickElement('click', 'selector', this.transmissionManualInput);
+        break;
+      case 'automatic':
+        await clickElement('click', 'selector', this.transmissionAutomaticInput);
+        break;
+      case 'manualcatc':
+        await clickElement('click', 'selector', this.transmissionManualInputCatC);
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async setD255(fieldInput:string) {
+    await scroll(this.d255YesInput);
+    switch (fieldInput) {
+      case 'yes':
+        await clickElement('click', 'selector', this.d255YesInput);
+        break;
+      case 'no':
+        await clickElement('click', 'selector', this.d255NoInput);
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async setTestLanguage(fieldInput:string) {
+    await scroll(this.languageEnglishInput);
+    switch (fieldInput) {
+      case 'english':
+        await clickElement('click', 'selector', this.languageEnglishInput);
+        break;
+      case 'cymraeg':
+        await clickElement('click', 'selector', this.languageCymraegInput);
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async setDebriefWitnessed(fieldInput:string) {
+    await scroll(this.debriefWitnessedYes);
+    switch (fieldInput) {
+      case 'yes':
+        await clickElement('click', 'selector', this.debriefWitnessedYes);
+        break;
+      case 'no':
+        await clickElement('click', 'selector', this.debriefWitnessedNo);
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async setLicenceReceived(fieldInput:string) {
+    await scroll(this.licenceReceivedYesLabel);
+    switch (fieldInput) {
+      case 'yes':
+        await clickElement('click', 'selector', this.licenceReceivedYesLabel);
+        break;
+      case 'no':
+        await clickElement('click', 'selector', this.licenceReceivedNoLabel);
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
     }
   }
 }

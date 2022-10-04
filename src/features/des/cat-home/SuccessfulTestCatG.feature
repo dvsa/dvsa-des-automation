@@ -40,6 +40,7 @@ Feature: Cat-G Home Successful feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office page from a data table
       | trueLikeness            | yes                                         |
       | distinguishingFeatures  | Tall, red shirt, brown hair. 5 foot tall    |
