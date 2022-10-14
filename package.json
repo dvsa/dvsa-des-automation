@@ -15,7 +15,8 @@
     "selenium"
   ],
   "scripts": {
-    "test": "run-s test:*",
+    "unit-test": "ts-node node_modules/jasmine/bin/jasmine --config=unit-test/jasmine.json",
+    "test-it": "nyc npm run unit-test",
     "gitSecrets": "git secrets --scan",
     "scanRepo": "git log -p -n 15 | scanrepo",
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
@@ -38,7 +39,8 @@
     "compile": "npx tsc --noEmit -p ."
   },
   "devDependencies": {
-    "@types/jest": "^26.0.21",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/jasmine": "^4.3.0",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@wdio/allure-reporter": "7.16.14",
@@ -57,32 +59,34 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-wdio": "^7.4.2",
     "exceljs": "^4.2.1",
-    "husky": "^7.0.4",
-    "jest": "^27.0.4",
+    "husky": "^8.0.0",
+    "jasmine": "^4.4.0",
     "jest-circus": "^27.0.4",
     "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "source-map-support": "^0.5.21",
     "ts-jest": "^27.0.3",
-    "ts-node": "^10.7.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.2.3",
     "wdio-appium-service": "^0.2.3",
     "wdio-chromedriver-service": "^7.2.2",
     "wdio-cucumberjs-json-reporter": "^4.1.4"
   },
   "dependencies": {
-    "date-fns": "^2.21.1",
-    "webdriverio": "^7.16.16",
-    "@wdio/cucumber-framework": "^7.18.0",
     "@cucumber/cucumber": "^7.3.2",
     "@dvsa/app-dev-automation": "0.0.27",
+    "@wdio/cucumber-framework": "^7.18.0",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",
     "appium-xcuitest-driver": "^3.46.0",
     "axios": "^0.26.1",
     "browserstack-local": "^1.4.8",
+    "date-fns": "^2.21.1",
     "json-concat": "0.0.1",
     "ms-chromium-edge-driver": "^0.4.3",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
-    "wdio-video-reporter": "^3.1.1"
+    "wdio-video-reporter": "^3.1.1",
+    "webdriverio": "^7.16.16"
   }
 }
