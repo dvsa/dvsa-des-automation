@@ -16,6 +16,7 @@ interface OfficePageData {
   testConducted:'car to bike'| 'bike to bike';
   firstShowMeQuestion:string;
   secondShowMeQuestion:string;
+  additionalInformation:string;
 }
 
 class OfficePageObject extends Page {
@@ -61,11 +62,13 @@ class OfficePageObject extends Page {
 
   get secondShowMeQuestionSelect() { return ('des-office-page::adi2-second-show-me-question'); }
 
+  get additionalInformationTextArea() { return ('des-office-page::additional-information-textarea'); }
+
   async completeOfficePage(
     data: Record<keyof OfficePageData, string>,
   ): Promise<void> {
     const {
-      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, firstShowMeQuestion, secondShowMeQuestion,
+      routeNumber, distinguishingFeatures, showMeQuestion, weatherCondition, firstShowMeQuestion, secondShowMeQuestion, additionalInformation,
     } = data;
 
     for await (const [key, value] of Object.entries(data)) {
@@ -110,6 +113,10 @@ class OfficePageObject extends Page {
             break;
           case 'secondshowmequestion':
             await this.selectAndCloseIonSelectByText(this.secondShowMeQuestionSelect, secondShowMeQuestion, 'Submit');
+            break;
+          case 'additionalinformation':
+            await scroll(this.additionalInformationTextArea);
+            await setInputField('add', additionalInformation, this.additionalInformationTextArea);
             break;
           default:
             console.log(`Could not find ${field}`);

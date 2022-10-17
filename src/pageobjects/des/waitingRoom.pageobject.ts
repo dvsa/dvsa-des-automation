@@ -19,7 +19,7 @@ class WaitingRoomPageObject extends Page {
 
   async completeDeclartionPage(category:string): Promise<void> {
     await clickElement('click', 'selector', this.insuranceDeclarationLabel);
-    if (category !== 'adi2') {
+    if (!(category === 'adi2' || category === 'adi3')) {
       await clickElement('click', 'selector', this.residencyDeclarationLabel);
     }
     await clickElement('click', 'selector', this.signatureAreaXpath);

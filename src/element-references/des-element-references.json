@@ -215,7 +215,13 @@
       "ordit-trainer-no-input": "#ordit-trained-no",
       "trainer-prn-input": "#trainer-registration",
       "training-records-yes-input": "#training-record-yes",
-      "training-records-no-input": "#training-record-no"
+      "training-records-no-input": "#training-record-no",
+      "duel-controls-yes-label": "#dual-controls-yes-label",
+      "duel-controls-no-label": "#dual-controls-no-label",
+      "pdi-logbook-yes-label": "#pdi-logbook-yes-label",
+      "pdi-logbook-no-label": "#pdi-logbook-no-label",
+      "trainee-licence-yes-label": "#trainee-licence-yes-label",
+      "trainee-licence-no-label": "#trainee-licence-no-label"
   },
   "des-test-report-screen": {
       "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -351,7 +357,47 @@
       "test-requirements-uh-ds-tick": "//*[@id=\"legal-requirements-tick-UH / DS\"]/tick-indicator/div/div/span/ion-icon",
       "test-requirements-reverse-tick": "//*[@id=\"legal-requirements-tick-reverse\"]/tick-indicator/div/div/span/ion-icon",
       "test-requirements-highway-safety-tick": "//*[@id=\"legal-requirements-tick-highway-safety\"]/tick-indicator/div/div/span/ion-icon",
-      "test-requirements-controlled-stop-tick": "//*[@id=\"controlled-stop-tick\"]/div/span/tick-indicator/div/div/span/ion-icon"
+      "test-requirements-controlled-stop-tick": "//*[@id=\"controlled-stop-tick\"]/div/span/tick-indicator/div/div/span/ion-icon",
+      "adi-dashboard-lesson-and-theme-card-heading": "#lesson-and-theme-card-header",
+      "adi-dashboard-test-report-card-heading": "#test-report-card-header",
+      "adi-review-card-feedback-textarea": "#review-card-feedback-textarea",
+      "test-outcome-text-modal": "//p[@id='test-outcome-text']/span",
+      "modal-lesson-planning-score": "#lesson-planning-score",
+      "modal-risk-management-score": "#risk-management-score",
+      "modal-teaching-and-learning-score": "#teaching-and-learning-score",
+      "modal-overall-score": "#overall-score-score",
+      "modal-adi-continue-to-debrief-button": "#continue-to-debrief-button"
+  },
+  "des-lesson-and-theme-screen": {
+      "lesson-and-theme-title": "#adi-pt3-assessment-lesson-theme-title",
+      "student-partly-trained-label": "#partlyTrainedLabel",
+      "student-trained-label": "#trainedLabel",
+      "student-flh-new-label": "#flhNewLabel",
+      "student-flh-experienced-label": "#flhExperiencedLabel",
+      "lesson-junctions-checkbox": "#junctionsCheckbox",
+      "lessons-town-city-driving-checkbox": "#townCityDrivingCheckbox",
+      "lessons-interaction-other-road-users-checkbox": "#interactionWithOtherRoadUsersCheckbox",
+      "lessons-motorways-checkbox": "#motorwaysCheckbox",
+      "lessons-defensive-driving-checkbox": "#defensiveDrivingCheckbox",
+      "lessons-effective-use-of-mirrors-checkbox": "#effectiveUseOfMirrorsCheckbox",
+      "lessons-rural-roads-checkbox": "#ruralRoadsCheckbox",
+      "lessons-independent-driving-checkbox": "#independentDrivingCheckbox",
+      "lessons-dual-carriageway-checkbox": "#dualCarriagewayFasterRoadsCheckbox",
+      "lessons-commentary-checkbox": "#commentaryCheckbox",
+      "lessons-racap-manoeuvres-checkbox": "#recapAManoeuvreCheckbox",
+      "lessons-eco-safe-driving-checkbox": "#ecoSafeDrivingCheckbox",
+      "lessons-recap-emergency-stop-checkbox": "#recapEmergencyStopCheckbox",
+      "lessons-other-textarea": "//lesson-theme//textarea",
+      "continue-button": "#adi-pt3-continue-tr-button"
+  },
+  "des-adi-test-report-screen": {
+      "test-report-title": "#adi-pt3-assessment-test-report-title",
+      "lesson-planning-score-label": "#score-lesson-planning-label",
+      "risk-management-score-label": "#score-risk-management-label",
+      "teaching-learning-strategies-score-label": "#score-teaching-&-learning-strategies-label",
+      "teaching-learning-strategies-label": "#teaching-&-learning-strategies-label",
+      "total-score-value": "#score-value",
+      "continue-button": "#adi-pt3-continue-tr-label"
   },
   "des-debrief-screen":{
       "test-outcome-container" : ".test-outcome-container",
@@ -396,7 +442,8 @@
       "reverse-observation-dangerous-text": "#reverseManoeuvreObservation-driving-text",
       "reverse-control-serious-text": "reverseManoeuvreControl-serious-text",
       "back-button": "(//ion-back-button)[last()]",
-      "speed-check-emergency-serious-text": "#speedCheckEmergency-serious-text"
+      "speed-check-emergency-serious-text": "#speedCheckEmergency-serious-text",
+      "adi-status-passed-grade": "#status-passed-grade"
     },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
@@ -445,7 +492,10 @@
       "activity-code-27": "//*[@id='activity-code-modal-27-language-issues-label']",
       "activity-code-25": "//*[@id='activity-code-modal-25-dvsa-radio-failure-label']",
       "licence-received-yes-label": "#prov-licence-received-yes-label",
-      "licence-received-no-label": "#prov-licence-received-no-label"
+      "licence-received-no-label": "#prov-licence-received-no-label",
+      "further-advice-yes-input": "#further-development-yes",
+      "further-advice-no-input": "#further-development-no"
+
   },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",
@@ -487,7 +537,13 @@
       "submit-test-modal-title": "#model-alert-title-text",
       "submit-test-result-modal":"#alert-6-msg",
       "submit-modal-cancel-btn":"button='Cancel'",
-      "submit-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Submit')]"
+      "submit-modal-submit-btn":"//*[@id='continue-button'][contains(text(), 'Submit')]",
+      "student-value": "#confirm-test-details-student-value",
+      "lesson-theme-value": "#confirm-test-details-lesson-theme-value",
+      "lesson-planning-value": "#confirm-test-details-lesson-planning-value",
+      "risk-management-value": "#confirm-test-details-risk-management-value",
+      "teaching-learning-strategies-value": "//*[@id='confirm-test-details-teaching-&-learning-strategies-value']",
+      "total-score-value": "#confirm-test-details-total-score-value"
     },
   "des-back-to-office-holding-page": {
       "continue-to-write-up-btn":"#continue-to-write-up",
@@ -537,7 +593,8 @@
       "test-conducted-car-bike-input": "#mode-of-transport-cartobike",
       "test-conducted-bike-bike-input": "#mode-of-transport-biketobike",
       "adi2-first-show-me-question": "#show-me-question-selector_1",
-      "adi2-second-show-me-question": "#show-me-question-selector_2"
+      "adi2-second-show-me-question": "#show-me-question-selector_2",
+      "additional-information-textarea": "#additional-information-text"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox":".//label[contains(text(), 'iPad Issue')]",

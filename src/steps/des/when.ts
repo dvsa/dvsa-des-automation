@@ -20,6 +20,9 @@ import changeDayCheckDate from '../../app-actions/des-action/changeDayCheckDate'
 import completeWaitingRoomToCarPageDataTable from '../../app-actions/des-action/completeWaitingRoomToCarPageDataTable';
 import startTest from '../../app-actions/des-action/startTest';
 import logOut from '../../app-actions/des-action/logOut';
+import studentOptionADI3 from '../../app-actions/des-action/studentOptionADI3';
+import lessonOptionADI3 from '../../app-actions/des-action/lessonOptionADI3';
+import testReportADI3Questions from '../../app-actions/des-action/testReportADI3Questions';
 
 When(
   /^I am signed in as a random "([^"]*)?" user$/,
@@ -124,4 +127,19 @@ When(
 When(
   /^I sign out$/,
   logOut,
+);
+
+When(
+  /^I select the student option "([^"]*)?"$/,
+  studentOptionADI3,
+);
+
+When(
+  /^I select the lesson theme options$/,
+  lessonOptionADI3,
+);
+
+When(
+  /^I score (\d+) for the (\d+)(st|nd|rd|th) question for section "([^"]*)?"$/,
+  testReportADI3Questions,
 );

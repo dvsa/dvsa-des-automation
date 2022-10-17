@@ -108,6 +108,17 @@ interface WaitingRoomToCarPageDataCatHome {
   accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
 }
 
+interface WaitingRoomToCarPageDataCatADI3 {
+  vehicleRegNum:string;
+  duelControls:'yes'|'no';
+  transmission:'manual'|'automatic';
+  pdiLogbook:'yes'|'no';
+  traineeLicence:'yes'|'no';
+  orditTrainer:'yes'|'no';
+  accompaniedBy:'instructor'|'supervisor'|'interpreter'|'other';
+  trainerPRN:string;
+}
+
 class WaitingRoomPageToCarObject extends Page {
   get eyeSightPassLabel() { return ('des-waiting-room-to-car::eyesight-pass-label'); }
 
@@ -212,6 +223,18 @@ class WaitingRoomPageToCarObject extends Page {
   get trainingRecordsYesInput() { return ('des-waiting-room-to-car::training-records-yes-input'); }
 
   get trainingRecordsNoInput() { return ('des-waiting-room-to-car::training-records-no-input'); }
+
+  get duelControlsYesLabel() { return ('des-waiting-room-to-car::duel-controls-yes-label'); }
+
+  get duelControlsNoLabel() { return ('des-waiting-room-to-car::duel-controls-no-label'); }
+
+  get pdiLogbookYesLabel() { return ('des-waiting-room-to-car::pdi-logbook-yes-label'); }
+
+  get pdiLogbookNoLabel() { return ('des-waiting-room-to-car::pdi-logbook-no-label'); }
+
+  get traineeLicenceYesLabel() { return ('des-waiting-room-to-car::trainee-licence-yes-label'); }
+
+  get traineeLicenceNoLabel() { return ('des-waiting-room-to-car::trainee-licence-no-label'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
     await clickElement('click', 'selector', question);
@@ -516,11 +539,7 @@ class WaitingRoomPageToCarObject extends Page {
             break;
           case 'ordittrainer':
             await scroll(this.orditTrainedYesInput);
-            await clickElement(
-              'click',
-              'selector',
-              fieldInput === 'yes' ? this.orditTrainedYesInput : this.orditTrainedNoInput,
-            );
+            await this.setOrditTrainer(fieldInput);
             break;
           case 'trainerprn':
             await scroll(this.trainedPRNInput);
@@ -582,6 +601,87 @@ class WaitingRoomPageToCarObject extends Page {
     }
   }
 
+  async completeWRTCPageForCPC(
+    data: Record<keyof WaitingRoomToCarPageDataCatCPC, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'vehicleregnum':
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'details':
+            await this.setVehicleDetails(fieldInput);
+            break;
+          case 'accompanied':
+            await this.setAccompaniedBy(fieldInput);
+            break;
+          case 'combination':
+            await this.addVehicleQuestion(this.combination, value);
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
+  async completeWRTCPageForCatADI3(
+    data: Record<keyof WaitingRoomToCarPageDataCatADI3, any>,
+  ): Promise<void> {
+    for await (const [key, value] of Object.entries(data)) {
+      const field = key.toLowerCase();
+      const fieldInput = value.toLowerCase();
+      if (fieldInput !== 'na') {
+        switch (field) {
+          case 'vehicleregnum':
+            await setInputField('add', fieldInput, this.vehRegInput);
+            break;
+          case 'duelcontrols':
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.duelControlsYesLabel : this.duelControlsNoLabel,
+            );
+            break;
+          case 'transmission':
+            await this.setTransmission(fieldInput);
+            break;
+          case 'pdilogbook':
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.pdiLogbookYesLabel : this.pdiLogbookNoLabel,
+            );
+            break;
+          case 'traineelicence':
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.traineeLicenceYesLabel : this.traineeLicenceNoLabel,
+            );
+            break;
+          case 'ordittrainer':
+            await scroll(this.orditTrainedYesInput);
+            await this.setOrditTrainer(fieldInput);
+            break;
+          case 'accompaniedby':
+            await scroll(this.accompaniedByInstructorLabel);
+            await this.setAccompaniedBy(fieldInput);
+            break;
+          case 'trainerprn':
+            await scroll(this.trainedPRNInput);
+            await setInputField('add', fieldInput, this.trainedPRNInput);
+            break;
+          default:
+            console.info(`Could not find ${field}`);
+        }
+      }
+    }
+  }
+
   async completeWRTCPageDataTable(
     data: Record<string, string>,
     category:string,
@@ -633,35 +733,13 @@ class WaitingRoomPageToCarObject extends Page {
           data as Record<keyof WaitingRoomToCarPageDataCatHome, string>,
         );
         break;
+      case 'adi3':
+        await this.completeWRTCPageForCatADI3(
+          data as Record<keyof WaitingRoomToCarPageDataCatADI3, string>,
+        );
+        break;
       default:
         console.info(`${cat} does not exist`);
-    }
-  }
-
-  async completeWRTCPageForCPC(
-    data: Record<keyof WaitingRoomToCarPageDataCatCPC, any>,
-  ): Promise<void> {
-    for await (const [key, value] of Object.entries(data)) {
-      const field = key.toLowerCase();
-      const fieldInput = value.toLowerCase();
-      if (fieldInput !== 'na') {
-        switch (field) {
-          case 'vehicleregnum':
-            await setInputField('add', fieldInput, this.vehRegInput);
-            break;
-          case 'details':
-            await this.setVehicleDetails(fieldInput);
-            break;
-          case 'accompanied':
-            await this.setAccompaniedBy(fieldInput);
-            break;
-          case 'combination':
-            await this.addVehicleQuestion(this.combination, value);
-            break;
-          default:
-            console.info(`Could not find ${field}`);
-        }
-      }
     }
   }
 
@@ -834,6 +912,27 @@ class WaitingRoomPageToCarObject extends Page {
           'click',
           'selector',
           category === 'na' ? this.secondTellMeQuestionFaultLabel : this.secondShowMeQuestionFaultLabel,
+        );
+        break;
+      default:
+        console.info(`Could not find ${fieldInput}`);
+    }
+  }
+
+  async setOrditTrainer(fieldInput:string) {
+    switch (fieldInput) {
+      case 'yes':
+        await clickElement(
+          'click',
+          'selector',
+          this.orditTrainedYesInput,
+        );
+        break;
+      case 'no':
+        await clickElement(
+          'click',
+          'selector',
+          this.orditTrainedNoInput,
         );
         break;
       default:

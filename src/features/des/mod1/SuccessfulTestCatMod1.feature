@@ -23,8 +23,6 @@ Feature: Cat-Mod1 Successful feature
     And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
-    And I add "A12345X" to the inputfield "des-final-outcome-screen::pass-certificate-number-field-input"
-    And I clear the inputfield "des-final-outcome-screen::pass-certificate-number-field-input"
     And I complete the successful final outcome screen from a data table
       | passCertNumber                | A12345X         |
       | transmission                  | automatic       |
