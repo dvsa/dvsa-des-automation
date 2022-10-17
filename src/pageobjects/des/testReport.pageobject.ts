@@ -1,4 +1,5 @@
 import longClickElement from '@shared-custom/support/action/longClickElement';
+import scroll from '@shared-boilerplate/support/action/scroll';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
@@ -126,6 +127,22 @@ class TestReportPageObject extends Page {
 
   get controlledStopLegalReqTick() {
     return ('des-test-report-screen::test-requirements-controlled-stop-tick');
+  }
+
+  get studentPartlyTrained() {
+    return ('des-lesson-and-theme-screen::student-partly-trained-label');
+  }
+
+  get studentTrained() {
+    return ('des-lesson-and-theme-screen::student-trained-label');
+  }
+
+  get studentFLHNew() {
+    return ('des-lesson-and-theme-screen::student-flh-new-label');
+  }
+
+  get studentFLHExperienced() {
+    return ('des-lesson-and-theme-screen::student-flh-experienced-label');
   }
 
   get manoeuvresOneReverseRight() { return ('des-test-report-screen::manoeuvres-one-reverse-right'); }
@@ -289,6 +306,29 @@ class TestReportPageObject extends Page {
       }
       i += 1;
     }
+  }
+
+  async studentOptionADI3(studentOption: 'Partly trained'|'Trained'|'FLH New'|'FLH experienced'): Promise<void> {
+    const studentSelector = `//app-test-report-cat-adi3//student-level//assessment-answer//label[contains(text(), '${studentOption}')]`;
+    await clickElement('click', 'selector', studentSelector);
+  }
+
+  async lessonOptionADI3(lessonOption:Record<string, any>): Promise<void> {
+    for (let i = 0; i < lessonOption.length; i += 1) {
+      const selector = `//app-test-report-cat-adi3//assessment-answer//div[contains(text(), '${lessonOption[i][0]}')]/../../ion-col//label`;
+      await clickElement('click', 'selector', selector);
+    }
+  }
+
+  async testReportADI3Questions(score:number, questionNumber:number, section:string): Promise<void> {
+    const sectionSelector = {
+      'lesson planning': 'lp',
+      'risk management': 'rm',
+      'teaching & learning strategies': 'tls',
+    };
+    const selector = `#${sectionSelector[section.toLowerCase()]}-${questionNumber}assessment-input-${score}`;
+    await scroll(selector);
+    await clickElement('click', 'selector', selector);
   }
 }
 

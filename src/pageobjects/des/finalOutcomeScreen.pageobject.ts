@@ -5,6 +5,7 @@ import setInputField from '../../../shared/boilerplate/support/action/setInputFi
 import scroll from '../../../shared/boilerplate/support/action/scroll';
 
 interface PassedFinalOutcomeData {
+  testOutcome:string;
   passCertNumber: string;
 }
 
@@ -55,17 +56,23 @@ class FinalOutcomePageObject extends Page {
 
   get licenceReceivedNoLabel() { return ('des-final-outcome-screen::licence-received-no-label'); }
 
+  get furtherAdviceYesInput() { return ('des-final-outcome-screen::further-advice-yes-input'); }
+
+  get furtherAdviceNoInput() { return ('des-final-outcome-screen::further-advice-no-input'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
-    const { passCertNumber } = data;
-    await this.checkFinaliseOutcomeTestOutcome('passed');
+    const { testOutcome = 'passed', passCertNumber } = data;
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
       const fieldInput = value.toLowerCase();
       if (fieldInput !== 'na') {
         switch (field) {
+          case 'testoutcome':
+            await this.checkFinaliseOutcomeTestOutcome(testOutcome);
+            break;
           case 'code78':
             await clickElement('click', 'selector', this.code78);
             break;
@@ -93,6 +100,13 @@ class FinalOutcomePageObject extends Page {
             break;
           case 'licencereceived':
             await this.setLicenceReceived(fieldInput);
+            break;
+          case 'furtheradvice':
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.furtherAdviceYesInput : this.furtherAdviceNoInput,
+            );
             break;
           default:
             console.info(`Could not find ${field}`);
@@ -140,16 +154,22 @@ class FinalOutcomePageObject extends Page {
     await clickElement('click', 'selector', this.failFinalisationContinueButton);
   }
 
-  async checkFinaliseOutcomeTestOutcome(outcome: 'passed' | 'unsuccessful' | 'terminated'): Promise<void> {
+  async checkFinaliseOutcomeTestOutcome(outcome: string): Promise<void> {
     switch (outcome) {
       case 'passed':
         await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
         break;
       case 'unsuccessful':
-        await checkEqualsText('element', this.testOutcomeFailed, true, 'Failed');
+        await checkEqualsText('element', this.testOutcomeFailed, false, 'Failed');
         break;
       case 'terminated':
         await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');
+        break;
+      case 'Passed - Grade A':
+        await checkEqualsText('element', this.testOutcomePassed, false, 'Passed - Grade A');
+        break;
+      case 'Passed - Grade B':
+        await checkEqualsText('element', this.testOutcomePassed, false, 'Passed - Grade B');
         break;
       default:
         console.info(`${outcome} is not a test outcome, or ${outcome} could not be found`);

@@ -90,7 +90,7 @@ class LoginMobilePageObject {
 
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
-    await browser.pause(2000);
+    await browser.pause(5000);
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
