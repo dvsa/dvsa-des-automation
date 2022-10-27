@@ -1,5 +1,6 @@
 import longClickElement from '@shared-custom/support/action/longClickElement';
 import scroll from '@shared-boilerplate/support/action/scroll';
+import GettingContext from '@shared-custom/support/lib/gettingContext';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
@@ -329,6 +330,28 @@ class TestReportPageObject extends Page {
     const selector = `#${sectionSelector[section.toLowerCase()]}-${questionNumber}assessment-input-${score}`;
     await scroll(selector);
     await clickElement('click', 'selector', selector);
+  }
+
+  async keyboardClickLetter(): Promise<void> {
+    await driver.switchContext('NATIVE_APP');
+    /**
+    currently not that reliable as if we switch from current device being used the size of the
+     iPad will change and may not click on the keyboard
+     */
+    driver.touchPerform([
+      {
+        action: 'press',
+        options: {
+          x: 405,
+          y: 950,
+        },
+      },
+      {
+        action: 'release',
+        options: {},
+      },
+    ]);
+    await new GettingContext().switchToDVSAAppContext();
   }
 }
 

@@ -1,5 +1,9 @@
+import clickElement from '@shared-boilerplate/support/action/clickElement';
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import { AppiumContext } from 'shared/models/appiumContext.model';
 import * as credentials from '../../../creds/credentials.json';
+import longClickElement from '@shared-custom/support/action/longClickElement';
+import closeLastOpenedWindow from '@shared-boilerplate/support/action/closeLastOpenedWindow';
 
 export interface Context {
   id: string,
@@ -88,6 +92,15 @@ class LoginMobilePageObject {
     await driver.switchContext(DESContext.id);
   }
 
+  async clickNativeButtonWithText(text: string): Promise<void> {
+    await this.waitForContextToExist('NATIVE_APP');
+    await driver.switchContext('NATIVE_APP');
+    const nativeButtonText = await $(`//XCUIElementTypeButton[@name="${text}"]`);
+    if (text==='Cancel'){console.log(nativeButtonText)}
+    await browser.pause(3000);
+    await this.clickElement(nativeButtonText);
+  }
+
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(5000);
@@ -163,47 +176,79 @@ class LoginMobilePageObject {
     await browser.pause(3000);
   }
 
+  // async logout(): Promise<void> {
+  //   const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+  //   await this.switchToDESContext();
+  //   const logout = await $('#logout');
+  //   const logOutConfirmButton = await $('button=Logout');
+  //   await this.waitForExistAndClickable(burgerMenu);
+  //   await this.clickElement(burgerMenu);
+  //   await this.waitForExistAndClickable(logout);
+  //   await this.clickElement(logout);
+  //   await this.waitForExistAndClickable(logOutConfirmButton);
+  //   await this.clickElement(logOutConfirmButton);
+  //   // click native continue
+  //   const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
+  //   await this.clickNativeButton(nativeContinueButton);
+  //   // wait for MS sign out page
+  //   await this.waitForContextToExist(this.msSignOutContextTitle);
+  //   const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
+  //   // switch to sign out page context
+  //   // @ts-ignore
+  //   await driver.switchContext(signOutContext.id);
+  //
+  //   const logOutSuccessText = await $('#login_workload_logo_text');
+  //   const logoutTile = await $('small=Signed in');
+  //   // const signOutSuccessful = await $('div=You have successfully signed out');
+  //
+  //   await Promise.race([
+  //     this.waitForExist(logOutSuccessText),
+  //     this.waitForExist(logoutTile),
+  //   ]);
+  //
+  //   if (await logoutTile.isDisplayed()) {
+  //     console.info('Start of If statement logoutTile.isDisplayed()')
+  //     // const signOutSuccessful = await $('#instruction');
+  //     // click account sign out tile
+  //     await this.waitForExistAndClickable(logoutTile);
+  //     await this.clickElement(logoutTile);
+  //     await this.waitForExist(logOutSuccessText);
+  //     console.info('After waitForExist')
+  //   }
+  //
+  //   console.info('Before clickNative cancel button')
+  //   // const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
+  //   // await this.clickNativeButton(nativeCancelButton);
+  //   await this.clickNativeButtonWithText('Cancel');
+  //   console.info('clicked Native cancel button')
+  //   await this.switchToDESContext();
+  //   console.info('Switched context')
+  //   const signInAgainButton = await $('span=Sign in');
+  //   await this.clickElement(signInAgainButton);
+  // }
+
   async logout(): Promise<void> {
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+    console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    const logout = await $('#logout');
-    const logOutConfirmButton = await $('button=Logout');
-    await this.waitForExistAndClickable(burgerMenu);
-    await this.clickElement(burgerMenu);
-    await this.waitForExistAndClickable(logout);
-    await this.clickElement(logout);
-    await this.waitForExistAndClickable(logOutConfirmButton);
-    await this.clickElement(logOutConfirmButton);
-    // click native continue
-    const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
-    await this.clickNativeButton(nativeContinueButton);
-    // wait for MS sign out page
+    await clickElement('click', 'selector', '//ion-menu-button');
+    await clickElement('click', 'selector', '#logout');
+    await clickElementWithText('click', 'button', 'Logout');
+    await this.clickNativeButtonWithText('Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);
     const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
-    // switch to sign out page context
     // @ts-ignore
     await driver.switchContext(signOutContext.id);
-
-    const logOutSuccessText = await $('#login_workload_logo_text');
     const logoutTile = await $('small=Signed in');
-    // const signOutSuccessful = await $('div=You have successfully signed out');
+    await this.waitForExistAndClickable(logoutTile);
+    await this.clickElement(logoutTile);
 
-    await Promise.race([
-      this.waitForExist(logOutSuccessText),
-      this.waitForExist(logoutTile),
-    ]);
+    console.info('Before clicking Cancel')
+    await this.clickNativeButtonWithText('Cancel');
+    console.info('After clicking Cancel')
 
-    if (await logoutTile.isDisplayed()) {
-      const signOutSuccessful = await $('#instruction');
-      // click account sign out tile
-      await this.waitForExistAndClickable(logoutTile);
-      await this.clickElement(logoutTile);
-      await this.waitForExist(signOutSuccessful);
-    }
-
-    const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
-    await this.clickNativeButton(nativeCancelButton);
+    await browser.pause(3000);
     await this.switchToDESContext();
+    console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
     const signInAgainButton = await $('span=Sign in');
     await this.clickElement(signInAgainButton);
   }

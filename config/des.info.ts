@@ -9,10 +9,6 @@ class DesInfo {
     return 'iPad 8th';
   }
 
-  get localDeviceName() {
-    return 'iPhone 12 Pro Max';
-  }
-
   get platFormVersion() {
     return '15.2'; // pass the platform version
   }
@@ -22,7 +18,7 @@ class DesInfo {
   }
 
   get appName() {
-    return process.env.BROWSERSTACK_APP_ID || 'bs://c413d01c6bbfea0044cf1285162f5c4ce7011ea9';
+    return process.env.BROWSERSTACK_APP_ID || 'bs://beb82c9b19b3677b42610f8fb56766c9f0d0f16e';
   }
 
   get localAppPath() {

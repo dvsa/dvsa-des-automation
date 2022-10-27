@@ -366,7 +366,10 @@
       "modal-risk-management-score": "#risk-management-score",
       "modal-teaching-and-learning-score": "#teaching-and-learning-score",
       "modal-overall-score": "#overall-score-score",
-      "modal-adi-continue-to-debrief-button": "#continue-to-debrief-button"
+      "modal-adi-continue-to-debrief-button": "#continue-to-debrief-button",
+      "adi-public-safety-model": "#model-alert-title-text",
+      "code-four-yes-button-model": "#code-4-yes-button",
+      "code-four-no-button-model": "#code-4-no-button"
   },
   "des-lesson-and-theme-screen": {
       "lesson-and-theme-title": "#adi-pt3-assessment-lesson-theme-title",
@@ -443,7 +446,8 @@
       "reverse-control-serious-text": "reverseManoeuvreControl-serious-text",
       "back-button": "(//ion-back-button)[last()]",
       "speed-check-emergency-serious-text": "#speedCheckEmergency-serious-text",
-      "adi-status-passed-grade": "#status-passed-grade"
+      "adi-status-passed-grade": "#status-passed-grade",
+      "adi-score-less-than-seven": "#scored-less-than-7-in-rm-text"
     },
   "des-post-debrief-screen":{
       "dvsa-logo":"#dvsa-logo",
@@ -494,8 +498,8 @@
       "licence-received-yes-label": "#prov-licence-received-yes-label",
       "licence-received-no-label": "#prov-licence-received-no-label",
       "further-advice-yes-input": "#further-development-yes",
-      "further-advice-no-input": "#further-development-no"
-
+      "further-advice-no-input": "#further-development-no",
+      "reason-for-advice-textarea": "#ordit-reason-for-advice-textarea"
   },
   "des-final-non-pass-declaration-screen":{
       "activity-code-container":"#activity-code-card",

@@ -43,8 +43,7 @@ exports.config = {
       ...appiumbase,
       platformName: DesInfo.platformName,
       platformVersion: DesInfo.platFormVersion,
-      deviceName: 'iPad (8th generation)',
-      // app: '/Users/lee/IonicProjects/dvsa-automation-boilerplate/apps/SearchMobile.app',
+      deviceName: DesInfo.deviceName,
       app: DesInfo.localAppPath,
       disableAnimations: true,
       fullReset: false, // Change this to true to reinstall the application

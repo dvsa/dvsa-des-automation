@@ -26,9 +26,6 @@ Feature: Cat-DM Successful feature
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
       | testCategory          | DM                                          |
-      | provLicenceRecieved   | na                                          |
-      | transmission          | Manual                                      |
-      | d255                  | na                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"

@@ -4,6 +4,7 @@ export const batch1 = [
   './src/features/des/cat-b/UnsuccessfulTests/*.feature',
   './src/features/des/cat-b/TerminatedTests/*.feature',
   './src/features/des/cat-adi3/SuccessfulTests/*.feature',
+  './src/features/des/cat-adi3/UnsuccessfulTests/*.feature',
 ];
 
 // 23
@@ -78,6 +79,7 @@ export const DESSuites = {
     './src/features/des/mod2/UnsuccessfulTestCatMod2.feature',
     './src/features/des/cat-adi2/UnsuccessfulTestCatADI2.feature',
     './src/features/des/cat-home/UnsuccessfulTestCatH.feature',
+    './src/features/des/cat-adi3/UnsuccessfulTests/*.feature',
   ],
   terminatedtests: [
     './src/features/des/cat-b/TerminatedTests/TerminatedTestswithCode4.feature',
