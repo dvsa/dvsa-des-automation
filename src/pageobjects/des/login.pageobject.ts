@@ -2,8 +2,6 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import { AppiumContext } from 'shared/models/appiumContext.model';
 import * as credentials from '../../../creds/credentials.json';
-import longClickElement from '@shared-custom/support/action/longClickElement';
-import closeLastOpenedWindow from '@shared-boilerplate/support/action/closeLastOpenedWindow';
 
 export interface Context {
   id: string,
@@ -96,7 +94,7 @@ class LoginMobilePageObject {
     await this.waitForContextToExist('NATIVE_APP');
     await driver.switchContext('NATIVE_APP');
     const nativeButtonText = await $(`//XCUIElementTypeButton[@name="${text}"]`);
-    if (text==='Cancel'){console.log(nativeButtonText)}
+    if (text === 'Cancel') { console.log(nativeButtonText); }
     await browser.pause(3000);
     await this.clickElement(nativeButtonText);
   }
@@ -242,9 +240,9 @@ class LoginMobilePageObject {
     await this.waitForExistAndClickable(logoutTile);
     await this.clickElement(logoutTile);
 
-    console.info('Before clicking Cancel')
+    console.info('Before clicking Cancel');
     await this.clickNativeButtonWithText('Cancel');
-    console.info('After clicking Cancel')
+    console.info('After clicking Cancel');
 
     await browser.pause(3000);
     await this.switchToDESContext();
