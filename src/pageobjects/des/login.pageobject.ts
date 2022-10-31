@@ -173,7 +173,7 @@ class LoginMobilePageObject {
     await this.switchToDESContext();
     await browser.pause(3000);
   }
-  
+
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
@@ -192,10 +192,7 @@ class LoginMobilePageObject {
     await this.clickNativeButtonWithText('Cancel');
 
     await browser.pause(3000);
-    // await this.switchToDESContext();
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
-    // const signInAgainButton = await $('span=Sign in');
-    // await this.clickElement(signInAgainButton);
   }
 }
 
