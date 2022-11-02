@@ -338,10 +338,10 @@ class TestReportPageObject extends Page {
    * This function only allows one letter to be typed.
    */
   async keyboardClickLetter(letter:string): Promise<void> {
-    const upercaseLetter = letter.toUpperCase()
+    const upercaseLetter = letter.toUpperCase();
     await driver.switchContext('NATIVE_APP');
     if (driver.isKeyboardShown()) {
-      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter)
+      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
     }
     await new GettingContext().switchToDVSAAppContext();
   }
