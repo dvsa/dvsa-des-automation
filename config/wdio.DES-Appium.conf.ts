@@ -43,7 +43,7 @@ exports.config = {
       ...appiumbase,
       platformName: DesInfo.platformName,
       platformVersion: DesInfo.platFormVersion,
-      deviceName: DesInfo.deviceName,
+      deviceName: DesInfo.localDeviceName,
       app: DesInfo.localAppPath,
       disableAnimations: true,
       fullReset: false, // Change this to true to reinstall the application

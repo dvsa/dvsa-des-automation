@@ -47,7 +47,7 @@ Feature: Cat-ADI3 Successful feature
     And the element "des-adi-test-report-screen::total-score-value" matches the text "36"
     And I click on the element "des-adi-test-report-screen::continue-button"
     And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
-    And I input text into adi3 review textbox
+    And I input the letter "v" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
     And I wait on element "des-test-report-screen::adi-public-safety-model" to be displayed
     And I click on the element "des-test-report-screen::code-four-no-button-model"

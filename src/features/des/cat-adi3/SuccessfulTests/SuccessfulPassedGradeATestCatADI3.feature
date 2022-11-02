@@ -48,7 +48,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the element "des-adi-test-report-screen::continue-button"
     And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
     And I pause for 1000ms
-    And I input text into adi3 review textbox
+    And I input the letter "a" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
     And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade A"
     And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "12"

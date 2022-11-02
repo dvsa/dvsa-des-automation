@@ -47,7 +47,7 @@ Feature: Cat-ADI3 Successful feature
     And the element "des-adi-test-report-screen::total-score-value" matches the text "31"
     And I click on the element "des-adi-test-report-screen::continue-button"
     And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
-    And I input text into adi3 review textbox
+    And I input the letter "e" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
     And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade B"
     And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "0"

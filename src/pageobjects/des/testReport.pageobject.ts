@@ -332,25 +332,17 @@ class TestReportPageObject extends Page {
     await clickElement('click', 'selector', selector);
   }
 
-  async keyboardClickLetter(): Promise<void> {
+  /**
+   * Inputs a letter from the IOS keyboard and after closes down the keyboard.
+   * To use this you will have to click on input box element bring up the keyboard.
+   * This function only allows one letter to be typed.
+   */
+  async keyboardClickLetter(letter:string): Promise<void> {
+    const upercaseLetter = letter.toUpperCase()
     await driver.switchContext('NATIVE_APP');
-    /**
-    currently not that reliable as if we switch from current device being used the size of the
-     iPad will change and may not click on the keyboard
-     */
-    driver.touchPerform([
-      {
-        action: 'press',
-        options: {
-          x: 405,
-          y: 950,
-        },
-      },
-      {
-        action: 'release',
-        options: {},
-      },
-    ]);
+    if (driver.isKeyboardShown()) {
+      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter)
+    }
     await new GettingContext().switchToDVSAAppContext();
   }
 }

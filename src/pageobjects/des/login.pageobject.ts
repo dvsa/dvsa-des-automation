@@ -15,8 +15,6 @@ class LoginMobilePageObject {
 
   private msSignOutContextTitle: string = 'Sign out';
 
-  // @TODO will be needed when log out added
-  // private _msSignOutContextTitle: string = 'Sign out';
   private desAppContextTitle: string = 'DVSA DES';
 
   async doesContextExist(contextTitle: string): Promise<boolean> {
@@ -93,8 +91,7 @@ class LoginMobilePageObject {
   async clickNativeButtonWithText(text: string): Promise<void> {
     await this.waitForContextToExist('NATIVE_APP');
     await driver.switchContext('NATIVE_APP');
-    const nativeButtonText = await $(`//XCUIElementTypeButton[@name="${text}"]`);
-    if (text === 'Cancel') { console.log(nativeButtonText); }
+    const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
     await browser.pause(3000);
     await this.clickElement(nativeButtonText);
   }
@@ -188,11 +185,11 @@ class LoginMobilePageObject {
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);
     await this.clickElement(logoutTile);
-
     await this.clickNativeButtonWithText('Cancel');
-
-    await browser.pause(3000);
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
+    await this.switchToDESContext();
+    const signInAgainButton = await $('span=Sign in');
+    await this.clickElement(signInAgainButton);
   }
 }
 

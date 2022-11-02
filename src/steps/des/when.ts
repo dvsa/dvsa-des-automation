@@ -147,6 +147,6 @@ When(
 );
 
 When(
-  /^I input text into adi3 review textbox$/,
+  /^I input the letter "([^"]*)?" into adi3 review textbox$/,
   keyboardClickLetter,
 );
