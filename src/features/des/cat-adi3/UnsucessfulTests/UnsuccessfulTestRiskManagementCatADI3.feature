@@ -1,4 +1,3 @@
-@test
 Feature: Cat-ADI3 Successful feature
 
   Scenario: Successful Grade B ADI3 test
