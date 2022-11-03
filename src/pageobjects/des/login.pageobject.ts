@@ -40,14 +40,6 @@ class LoginMobilePageObject extends Page {
     });
   }
 
-  async clickNativeButtonWithText(text: string): Promise<void> {
-    await this.waitForContextToExist('NATIVE_APP');
-    await driver.switchContext('NATIVE_APP');
-    const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
-    await browser.pause(3000);
-    await this.clickElement(nativeButtonText);
-  }
-
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(5000);
