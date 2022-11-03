@@ -1,37 +1,19 @@
 import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
-import { AppiumContext } from 'shared/models/appiumContext.model';
 import * as credentials from '../../../creds/credentials.json';
+import Page from '../base/page';
 
-export interface Context {
-  id: string,
-  title: string,
-  url: string,
-  bundleId: string,
-}
+// export interface Context {
+//   id: string,
+//   title: string,
+//   url: string,
+//   bundleId: string,
+// }
 
-class LoginMobilePageObject {
+class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
 
   private msSignOutContextTitle: string = 'Sign out';
-
-  private desAppContextTitle: string = 'DVSA DES';
-
-  async doesContextExist(contextTitle: string): Promise<boolean> {
-    const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
-    const doesContextExist: boolean = contexts.some(
-      (currentContext) => (currentContext.title === contextTitle
-        || currentContext.id === contextTitle),
-    );
-    return doesContextExist;
-  }
-
-  async waitForContextToExist(contextTitle: string): Promise<void> {
-    await driver.waitUntil(() => this.doesContextExist(contextTitle), {
-      timeout: 10000,
-      timeoutMsg: `timed out waiting for ${contextTitle} context`,
-    });
-  }
 
   async waitForExist(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
@@ -65,29 +47,6 @@ class LoginMobilePageObject {
     });
   }
 
-  async clickNativeButton(element: WebdriverIO.Element): Promise<void> {
-    await this.waitForContextToExist('NATIVE_APP');
-    await driver.switchContext('NATIVE_APP');
-    await this.clickElement(element);
-  }
-
-  async getContextByTitle(title: string): Promise<Context | null> {
-    const contexts = await driver.getContexts() as unknown as Context[];
-    return (contexts.find((context) => context.title === title) || null);
-  }
-
-  async clickElement(element: WebdriverIO.Element) {
-    await browser.pause(500);
-    await element.click();
-  }
-
-  async switchToDESContext(): Promise<void> {
-    await this.waitForContextToExist(this.desAppContextTitle);
-    const DESContext = await this.getContextByTitle(this.desAppContextTitle);
-    // @ts-ignore
-    await driver.switchContext(DESContext.id);
-  }
-
   async clickNativeButtonWithText(text: string): Promise<void> {
     await this.waitForContextToExist('NATIVE_APP');
     await driver.switchContext('NATIVE_APP');
@@ -103,7 +62,6 @@ class LoginMobilePageObject {
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
-    const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
     const loginBackdrop = await $('.backdrop-no-scroll');
     const loginError = await $('#loginSorry');
 
@@ -122,7 +80,7 @@ class LoginMobilePageObject {
       await this.logout();
     }
 
-    await this.clickNativeButton(nativeContinueButton);
+    await this.clickNativeButtonWithText('Continue');
 
     // wait for log in page
     await this.waitForContextToExist(this.msSignInContextTitle);

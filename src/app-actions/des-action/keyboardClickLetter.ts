@@ -1,7 +1,7 @@
-import TestReportPageObject from '../../pageobjects/des/testReport.pageobject';
+import Page from '../../pageobjects/base/page';
 
 export default async (
   letter:string,
 ) => {
-  await TestReportPageObject.keyboardClickLetter(letter);
+  await Page.keyboardClickLetter(letter);
 };

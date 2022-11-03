@@ -1,6 +1,5 @@
 import longClickElement from '@shared-custom/support/action/longClickElement';
 import scroll from '@shared-boilerplate/support/action/scroll';
-import GettingContext from '@shared-custom/support/lib/gettingContext';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 import waitFor from '../../../shared/boilerplate/support/action/waitFor';
@@ -330,20 +329,6 @@ class TestReportPageObject extends Page {
     const selector = `#${sectionSelector[section.toLowerCase()]}-${questionNumber}assessment-input-${score}`;
     await scroll(selector);
     await clickElement('click', 'selector', selector);
-  }
-
-  /**
-   * Inputs a letter from the IOS keyboard and after closes down the keyboard.
-   * To use this you will have to click on input box element bring up the keyboard.
-   * This function only allows one letter to be typed.
-   */
-  async keyboardClickLetter(letter:string): Promise<void> {
-    const upercaseLetter = letter.toUpperCase();
-    await driver.switchContext('NATIVE_APP');
-    if (driver.isKeyboardShown()) {
-      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
-    }
-    await new GettingContext().switchToDVSAAppContext();
   }
 }
 
