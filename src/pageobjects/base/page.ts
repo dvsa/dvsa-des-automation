@@ -50,7 +50,6 @@ export default class Page {
    * Author  : Lee Carter
    */
   async switchContextByTitleArray(titles: string[]) {
-    // let contexts = [{ title: 'context 1', id: '123' }, { title: 'context 2', id: '4321' }];
     const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
 
     for (let i = 0; i < titles.length; i += 1) {
@@ -58,7 +57,6 @@ export default class Page {
         (currentContext: AppiumContext) => (currentContext.title === titles[i]),
       );
 
-      // if (context) return context;
       if (context) {
         driver.switchContext(context.id);
         return;

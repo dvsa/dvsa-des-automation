@@ -3,13 +3,6 @@ import clickElementWithText from '@shared-custom/support/action/clickElementWith
 import * as credentials from '../../../creds/credentials.json';
 import Page from '../base/page';
 
-// export interface Context {
-//   id: string,
-//   title: string,
-//   url: string,
-//   bundleId: string,
-// }
-
 class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
 
