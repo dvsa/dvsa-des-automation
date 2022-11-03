@@ -46,8 +46,11 @@ Feature: Cat-ADI3 Successful feature
     And I scroll to element "des-adi-test-report-screen::total-score-value"
     And the element "des-adi-test-report-screen::total-score-value" matches the text "51"
     And I click on the element "des-adi-test-report-screen::continue-button"
-    And I set "Review 100, this should show!" to the inputfield "des-test-report-screen::adi-review-card-feedback-textarea"
+    And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
+    And I pause for 1000ms
+    And I input the letter "a" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
+    And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade A"
     And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "12"
     And the element "des-test-report-screen::modal-risk-management-score" matches the text "15"
     And the element "des-test-report-screen::modal-teaching-and-learning-score" matches the text "24"
@@ -62,7 +65,7 @@ Feature: Cat-ADI3 Successful feature
       | debriefWitnessed              | Yes              |
       | furtherAdvice                 | Yes              |
     And I check the confirmation page details from a data table
-      | testOutcome                 | Passed Grade - A                          |
+      | testOutcome                 | Passed - Grade A                          |
       | activityCode                | 1 - Pass                                  |
       | testCategory                | ADI3                                      |
       | student                     | Trained                                   |

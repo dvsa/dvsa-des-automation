@@ -1,37 +1,12 @@
-import { AppiumContext } from 'shared/models/appiumContext.model';
+import clickElement from '@shared-boilerplate/support/action/clickElement';
+import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import * as credentials from '../../../creds/credentials.json';
+import Page from '../base/page';
 
-export interface Context {
-  id: string,
-  title: string,
-  url: string,
-  bundleId: string,
-}
-
-class LoginMobilePageObject {
+class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
 
   private msSignOutContextTitle: string = 'Sign out';
-
-  // @TODO will be needed when log out added
-  // private _msSignOutContextTitle: string = 'Sign out';
-  private desAppContextTitle: string = 'DVSA DES';
-
-  async doesContextExist(contextTitle: string): Promise<boolean> {
-    const contexts: AppiumContext[] = await driver.getContexts() as unknown as AppiumContext[];
-    const doesContextExist: boolean = contexts.some(
-      (currentContext) => (currentContext.title === contextTitle
-        || currentContext.id === contextTitle),
-    );
-    return doesContextExist;
-  }
-
-  async waitForContextToExist(contextTitle: string): Promise<void> {
-    await driver.waitUntil(() => this.doesContextExist(contextTitle), {
-      timeout: 10000,
-      timeoutMsg: `timed out waiting for ${contextTitle} context`,
-    });
-  }
 
   async waitForExist(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
@@ -65,29 +40,6 @@ class LoginMobilePageObject {
     });
   }
 
-  async clickNativeButton(element: WebdriverIO.Element): Promise<void> {
-    await this.waitForContextToExist('NATIVE_APP');
-    await driver.switchContext('NATIVE_APP');
-    await this.clickElement(element);
-  }
-
-  async getContextByTitle(title: string): Promise<Context | null> {
-    const contexts = await driver.getContexts() as unknown as Context[];
-    return (contexts.find((context) => context.title === title) || null);
-  }
-
-  async clickElement(element: WebdriverIO.Element) {
-    await browser.pause(500);
-    await element.click();
-  }
-
-  async switchToDESContext(): Promise<void> {
-    await this.waitForContextToExist(this.desAppContextTitle);
-    const DESContext = await this.getContextByTitle(this.desAppContextTitle);
-    // @ts-ignore
-    await driver.switchContext(DESContext.id);
-  }
-
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(5000);
@@ -95,7 +47,6 @@ class LoginMobilePageObject {
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
-    const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
     const loginBackdrop = await $('.backdrop-no-scroll');
     const loginError = await $('#loginSorry');
 
@@ -114,7 +65,7 @@ class LoginMobilePageObject {
       await this.logout();
     }
 
-    await this.clickNativeButton(nativeContinueButton);
+    await this.clickNativeButtonWithText('Continue');
 
     // wait for log in page
     await this.waitForContextToExist(this.msSignInContextTitle);
@@ -164,45 +115,21 @@ class LoginMobilePageObject {
   }
 
   async logout(): Promise<void> {
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+    console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    const logout = await $('#logout');
-    const logOutConfirmButton = await $('button=Logout');
-    await this.waitForExistAndClickable(burgerMenu);
-    await this.clickElement(burgerMenu);
-    await this.waitForExistAndClickable(logout);
-    await this.clickElement(logout);
-    await this.waitForExistAndClickable(logOutConfirmButton);
-    await this.clickElement(logOutConfirmButton);
-    // click native continue
-    const nativeContinueButton = await $('//XCUIElementTypeButton[@name="Continue"]');
-    await this.clickNativeButton(nativeContinueButton);
-    // wait for MS sign out page
+    await clickElement('click', 'selector', '//ion-menu-button');
+    await clickElement('click', 'selector', '#logout');
+    await clickElementWithText('click', 'button', 'Logout');
+    await this.clickNativeButtonWithText('Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);
     const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
-    // switch to sign out page context
     // @ts-ignore
     await driver.switchContext(signOutContext.id);
-
-    const logOutSuccessText = await $('#login_workload_logo_text');
     const logoutTile = await $('small=Signed in');
-    // const signOutSuccessful = await $('div=You have successfully signed out');
-
-    await Promise.race([
-      this.waitForExist(logOutSuccessText),
-      this.waitForExist(logoutTile),
-    ]);
-
-    if (await logoutTile.isDisplayed()) {
-      const signOutSuccessful = await $('#instruction');
-      // click account sign out tile
-      await this.waitForExistAndClickable(logoutTile);
-      await this.clickElement(logoutTile);
-      await this.waitForExist(signOutSuccessful);
-    }
-
-    const nativeCancelButton = await $('//XCUIElementTypeButton[@name="Cancel"]');
-    await this.clickNativeButton(nativeCancelButton);
+    await this.waitForExistAndClickable(logoutTile);
+    await this.clickElement(logoutTile);
+    await this.clickNativeButtonWithText('Cancel');
+    console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
     await this.switchToDESContext();
     const signInAgainButton = await $('span=Sign in');
     await this.clickElement(signInAgainButton);

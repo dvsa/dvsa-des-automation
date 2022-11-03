@@ -7,10 +7,12 @@ import scroll from '../../../shared/boilerplate/support/action/scroll';
 interface PassedFinalOutcomeData {
   testOutcome:string;
   passCertNumber: string;
+  noAdviceGiven:string;
 }
 
 interface NonPassedFinalOutcomeData {
   activityCode: string;
+  noAdviceGiven:string;
 }
 
 class FinalOutcomePageObject extends Page {
@@ -60,10 +62,12 @@ class FinalOutcomePageObject extends Page {
 
   get furtherAdviceNoInput() { return ('des-final-outcome-screen::further-advice-no-input'); }
 
+  get reasonForAdviceTextArea() { return ('des-final-outcome-screen::reason-for-advice-textarea'); }
+
   async completePassedFinalOutcomePage(
     data: Record<keyof PassedFinalOutcomeData, string>,
   ): Promise<void> {
-    const { testOutcome = 'passed', passCertNumber } = data;
+    const { testOutcome = 'passed', passCertNumber, noAdviceGiven } = data;
 
     for await (const [key, value] of Object.entries(data)) {
       const field = key.toLowerCase();
@@ -108,6 +112,9 @@ class FinalOutcomePageObject extends Page {
               fieldInput === 'yes' ? this.furtherAdviceYesInput : this.furtherAdviceNoInput,
             );
             break;
+          case 'noadvicegiven':
+            await setInputField('add', noAdviceGiven, this.reasonForAdviceTextArea);
+            break;
           default:
             console.info(`Could not find ${field}`);
         }
@@ -120,7 +127,7 @@ class FinalOutcomePageObject extends Page {
     testOutcome:'unsuccessful' | 'terminated',
     data: Record<keyof NonPassedFinalOutcomeData, string>,
   ): Promise<void> {
-    const { activityCode } = data;
+    const { activityCode, noAdviceGiven } = data;
 
     await this.checkFinaliseOutcomeTestOutcome(testOutcome);
 
@@ -146,6 +153,16 @@ class FinalOutcomePageObject extends Page {
             await this.setDebriefWitnessed(fieldInput);
             await scroll(this.debriefWitnessedYes);
             break;
+          case 'furtheradvice':
+            await clickElement(
+              'click',
+              'selector',
+              fieldInput === 'yes' ? this.furtherAdviceYesInput : this.furtherAdviceNoInput,
+            );
+            break;
+          case 'noadvicegiven':
+            await setInputField('add', noAdviceGiven, this.reasonForAdviceTextArea);
+            break;
           default:
             console.info(`Could not find ${field}`);
         }
@@ -160,7 +177,7 @@ class FinalOutcomePageObject extends Page {
         await checkEqualsText('element', this.testOutcomePassed, false, 'Passed');
         break;
       case 'unsuccessful':
-        await checkEqualsText('element', this.testOutcomeFailed, false, 'Failed');
+        await checkEqualsText('element', this.testOutcomeFailed, false, 'Unsuccessful');
         break;
       case 'terminated':
         await checkEqualsText('element', this.testOutcomeTerminated, false, 'Terminated');

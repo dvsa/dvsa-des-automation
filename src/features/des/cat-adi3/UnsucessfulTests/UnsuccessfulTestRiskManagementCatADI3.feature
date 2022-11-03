@@ -26,53 +26,56 @@ Feature: Cat-ADI3 Successful feature
     And I scroll to element "des-lesson-and-theme-screen::continue-button"
     And I click on the element "des-lesson-and-theme-screen::continue-button"
     And I click on the element "des-test-report-screen::adi-dashboard-test-report-card-heading"
-    And I score 0 for the 1st question for section "Lesson Planning"
-    And I score 0 for the 2nd question for section "Lesson Planning"
-    And I score 0 for the 3rd question for section "Lesson Planning"
-    And I score 0 for the 4th question for section "Lesson Planning"
-    And I score 3 for the 1st question for section "Risk management"
-    And I score 3 for the 2nd question for section "Risk management"
-    And I score 3 for the 3rd question for section "Risk management"
-    And I score 3 for the 4th question for section "Risk management"
-    And I score 3 for the 5th question for section "Risk management"
-    And I score 0 for the 1st question for section "Teaching & learning strategies"
-    And I score 0 for the 2nd question for section "Teaching & learning strategies"
-    And I score 1 for the 3rd question for section "Teaching & learning strategies"
+    And I score 3 for the 1st question for section "Lesson Planning"
+    And I score 3 for the 2nd question for section "Lesson Planning"
+    And I score 3 for the 3rd question for section "Lesson Planning"
+    And I score 3 for the 4th question for section "Lesson Planning"
+    And I score 0 for the 1st question for section "Risk management"
+    And I score 0 for the 2nd question for section "Risk management"
+    And I score 0 for the 3rd question for section "Risk management"
+    And I score 0 for the 4th question for section "Risk management"
+    And I score 0 for the 5th question for section "Risk management"
+    And I score 3 for the 1st question for section "Teaching & learning strategies"
+    And I score 3 for the 2nd question for section "Teaching & learning strategies"
+    And I score 3 for the 3rd question for section "Teaching & learning strategies"
     And I score 3 for the 4th question for section "Teaching & learning strategies"
     And I score 3 for the 5th question for section "Teaching & learning strategies"
     And I score 3 for the 6th question for section "Teaching & learning strategies"
     And I score 3 for the 7th question for section "Teaching & learning strategies"
     And I score 3 for the 8th question for section "Teaching & learning strategies"
     And I scroll to element "des-adi-test-report-screen::total-score-value"
-    And the element "des-adi-test-report-screen::total-score-value" matches the text "31"
+    And the element "des-adi-test-report-screen::total-score-value" matches the text "36"
     And I click on the element "des-adi-test-report-screen::continue-button"
     And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
-    And I input the letter "e" into adi3 review textbox
+    And I input the letter "v" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
-    And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade B"
-    And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "0"
-    And the element "des-test-report-screen::modal-risk-management-score" matches the text "15"
-    And the element "des-test-report-screen::modal-teaching-and-learning-score" matches the text "16"
-    And the element "des-test-report-screen::modal-overall-score" matches the text "31"
+    And I wait on element "des-test-report-screen::adi-public-safety-model" to be displayed
+    And I click on the element "des-test-report-screen::code-four-no-button-model"
+    And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Unsuccessful"
+    And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "12"
+    And the element "des-test-report-screen::modal-risk-management-score" matches the text "0"
+    And the element "des-test-report-screen::modal-teaching-and-learning-score" matches the text "24"
+    And the element "des-test-report-screen::modal-overall-score" matches the text "36"
     And I click on the button "des-test-report-screen::modal-adi-continue-to-debrief-button"
-    And I wait on element "des-debrief-screen::adi-status-passed-grade" to be displayed
-    And the element "des-debrief-screen::adi-status-passed-grade" matches the text "Passed - Grade B"
+    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
+    And the element "des-debrief-screen::test-outcome-failed" matches the text "Unsuccessful"
+    And I expect that element "des-debrief-screen::adi-score-less-than-seven" matches the text "Scored 7 or less in Risk Management section"
     And I click on the button "des-debrief-screen::end-debrief-btn"
-    And I wait on element "des-final-outcome-screen::test-outcome-pass" to be displayed
-    And I complete the successful final outcome screen from a data table
-      | testOutcome                   | Passed - Grade B |
-      | debriefWitnessed              | Yes              |
-      | furtherAdvice                 | Yes              |
+    And I click on the element "#continue-to-non-pass-finalisation"
+    And I complete the unsuccessful final outcome screen from a data table
+      | debriefWitnessed              | No              |
+      | furtherAdvice                 | No              |
+      | noAdviceGiven                 | Didn't listen   |
     And I check the confirmation page details from a data table
-      | testOutcome                 | Passed - Grade B                          |
-      | activityCode                | 1 - Pass                                  |
+      | testOutcome                 | Unsuccessful                              |
+      | activityCode                | 2 - Fail                                  |
       | testCategory                | ADI3                                      |
       | student                     | Trained                                   |
       | lessonTheme                 | Junctions, Motorways                      |
-      | lessonPlanning              | 0                                         |
-      | riskManagement              | 15                                        |
-      | teachingLearningStrategies  | 16                                        |
-      | totalScore                  | 31                                        |
+      | lessonPlanning              | 12                                        |
+      | riskManagement              | 0                                         |
+      | teachingLearningStrategies  | 24                                        |
+      | totalScore                  | 36                                        |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
@@ -82,6 +85,6 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-23123428" matches the text "1"
+    And I expect that element "#activity-code-23123428" matches the text "2"
     And I click on the button "des-my-journal::journal-back-button"
     And I sign out

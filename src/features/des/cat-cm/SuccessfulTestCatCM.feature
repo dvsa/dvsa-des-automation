@@ -32,9 +32,6 @@ Feature: Cat-CM Successful feature
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
       | testCategory          | CM                                          |
-      | provLicenceRecieved   | na                                          |
-      | transmission          | Manual                                      |
-      | d255                  | na                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"

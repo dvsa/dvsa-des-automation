@@ -23,6 +23,7 @@ import logOut from '../../app-actions/des-action/logOut';
 import studentOptionADI3 from '../../app-actions/des-action/studentOptionADI3';
 import lessonOptionADI3 from '../../app-actions/des-action/lessonOptionADI3';
 import testReportADI3Questions from '../../app-actions/des-action/testReportADI3Questions';
+import keyboardClickLetter from '../../app-actions/des-action/keyboardClickLetter';
 
 When(
   /^I am signed in as a random "([^"]*)?" user$/,
@@ -126,6 +127,7 @@ When(
 
 When(
   /^I sign out$/,
+  { timeout: 120000 },
   logOut,
 );
 
@@ -142,4 +144,9 @@ When(
 When(
   /^I score (\d+) for the (\d+)(st|nd|rd|th) question for section "([^"]*)?"$/,
   testReportADI3Questions,
+);
+
+When(
+  /^I input the letter "([^"]*)?" into adi3 review textbox$/,
+  keyboardClickLetter,
 );

@@ -31,11 +31,8 @@ Feature: Cat-CM Unsuccessful feature
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Unsuccessful                                |
-      | activityCode          | 2 - Fail                                   |
+      | activityCode          | 2 - Fail                                    |
       | testCategory          | CM                                          |
-      | provLicenceRecieved   | na                                          |
-      | transmission          | Manual                                      |
-      | d255                  | na                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I wait on element "des-final-confirmation-screen::submit-test-modal-title" to be displayed
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"

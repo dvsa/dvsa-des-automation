@@ -124,7 +124,7 @@ class ConfirmationPageObject extends Page {
             await checkEqualsText('element', this.riskManagementValue, false, riskManagement);
             break;
           case 'teachinglearningstrategies':
-            scroll(this.teachingLearningStrategiesValue)
+            scroll(this.teachingLearningStrategiesValue);
             await checkEqualsText('element', this.teachingLearningStrategiesValue, false, teachingLearningStrategies);
             break;
           case 'totalscore':
