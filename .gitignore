@@ -23,12 +23,9 @@ yarn.lock
 apps/App.app
 
 #Creds
-
 creds/bscreds.ts
 creds/credentials.json
+/creds
 
 #Application
-
-apps/App.app
-
 .DS_Store
