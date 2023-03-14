@@ -29,6 +29,4 @@ creds/credentials.json
 
 #Application
 
-apps/App.app
-
 .DS_Store
