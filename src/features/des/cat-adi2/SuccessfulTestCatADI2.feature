@@ -1,5 +1,6 @@
 Feature: Cat-ADI2 Successful feature
 
+  @test
   Scenario:   Successful ADI2 with no faults
     Given I am signed in as a random "desexaminerbe" user
     When I wait on element "des-dashboard::page-title" to be displayed
