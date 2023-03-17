@@ -16,8 +16,7 @@
   ],
   "scripts": {
     "test": "run-s test:*",
-    "gitSecrets": "git secrets --scan",
-    "scanRepo": "git log -p -n 15 | scanrepo",
+    "scanRepo": "git secrets --scan && git log -p -n 15 | scanrepo",
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
     "wdio:des:ap": "npm run postinstall && wdio run ./config/wdio.DES-Appium.conf.ts",
     "wdio:des:ap:test": "npm run postinstall && wdio run ./config/wdio.DES-Appium.conf.ts --cucumberOpts.tagExpression='@test'",
