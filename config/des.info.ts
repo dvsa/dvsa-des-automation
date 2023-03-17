@@ -6,7 +6,7 @@ class DesInfo {
   }
 
   get deviceName() {
-    return 'iPad 8th';
+    return 'iPad 9th';
   }
 
   get localDeviceName() {
