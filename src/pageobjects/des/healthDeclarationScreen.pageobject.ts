@@ -17,7 +17,7 @@ class HealthDeclarationScreenPageobject extends Page {
       await clickElement('click', 'selector', this.healthDeclarationLabel);
     }
     await clickElement('click', 'selector', this.recievedPassCertDeclarationLabel);
-    await clickElement('click', 'selector', this.signatureAreaXpath);
+    await this.tapElement(this.signatureAreaXpath);
     await clickElement('click', 'selector', this.healthDeclarationContinueButton);
   }
 }

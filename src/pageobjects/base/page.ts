@@ -3,6 +3,7 @@ import scroll from '@shared-boilerplate/support/action/scroll';
 import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import GettingContext from '@shared-custom/support/lib/gettingContext';
+import { getElementByReference } from '@shared-helpers/element-reference-helper';
 
 export interface Context {
   id: string,
@@ -162,5 +163,21 @@ export default class Page {
     const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
     await browser.pause(3000);
     await this.clickElement(nativeButtonText);
+  }
+
+  async tapElement(selector: string): Promise<void> {
+    const elementSelectorForLocation: string = getElementByReference(selector);
+    const { x, y } = await (await $(elementSelectorForLocation)).getLocation();
+    await driver.switchContext('NATIVE_APP');
+    driver.touchPerform([
+      {
+        action: 'tap',
+        options: {
+          x: x + 10,
+          y: y + 10,
+        },
+      },
+    ]);
+    await new GettingContext().switchToDVSAAppContext();
   }
 }
