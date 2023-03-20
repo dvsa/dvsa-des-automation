@@ -14,6 +14,10 @@
     "boilerplate",
     "selenium"
   ],
+  "engines": {
+    "node": ">=16.11.0 <17.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "test": "run-s test:*",
     "scanRepo": "git secrets --scan && git log -p -n 15 | scanrepo",
