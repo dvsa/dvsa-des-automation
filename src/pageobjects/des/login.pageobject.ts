@@ -3,6 +3,17 @@ import clickElementWithText from '@shared-custom/support/action/clickElementWith
 import * as credentials from '../../../creds/credentials.json';
 import Page from '../base/page';
 
+interface User {
+  Name: string;
+  GivenName: string;
+  Surname: string;
+  SamAccountName: string;
+  UserPrincipalName: string;
+  EmployeeID: string;
+  DisplayName: string;
+  Password: string;
+}
+
 class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
 
@@ -42,8 +53,9 @@ class LoginMobilePageObject extends Page {
 
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
+    // eslint-disable-next-line wdio/no-pause
     await browser.pause(5000);
-    const user = credentials.Environment.Dev[typeOfUser][0];
+    const [user] = (credentials.Environment.Dev as { [key: string]: User[]; })[typeOfUser];
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
@@ -106,11 +118,13 @@ class LoginMobilePageObject extends Page {
     await this.waitForExistAndClickable(signInButton);
     await this.clickElement(signInButton);
     // click continue button
+    // eslint-disable-next-line wdio/no-pause
     await browser.pause(5000);
     await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
     await this.switchToDESContext();
+    // eslint-disable-next-line wdio/no-pause
     await browser.pause(3000);
   }
 
@@ -123,7 +137,9 @@ class LoginMobilePageObject extends Page {
     await this.clickNativeButtonWithText('Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);
     const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
-    // @ts-ignore
+    if (!signOutContext) {
+      throw new Error('Sign out context is undefined');
+    }
     await driver.switchContext(signOutContext.id);
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);

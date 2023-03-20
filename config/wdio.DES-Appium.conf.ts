@@ -1,3 +1,6 @@
+/* eslint-disable */
+/* @TODO: Re-enable ESLint - See line 43.  */
+
 import path from 'path';
 import { config as buildConfig } from './wdio.conf';
 import DesInfo from './des.info';
@@ -37,6 +40,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : [])
 
 buildConfig.port = 4723;
 
+// @TODO: Avoid this syntax `exports.config` to resolve ESLint error's
 exports.config = {
   ...buildConfig,
   capabilities: [

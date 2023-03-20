@@ -1,11 +1,12 @@
 import path from 'path';
+import { Options } from '@wdio/types';
+import { AutoCompileConfig } from '@wdio/types/build/Options';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
 
 // Uncomment to enable video reporter
 // const video = require('wdio-video-reporter');
 
-// @ts-ignore
-export const config: WebdriverIO.Config = {
+export const config: Options.Testrunner = {
   autoCompileOpts: {
     autoCompile: true,
     tsNodeOpts: {
@@ -20,7 +21,7 @@ export const config: WebdriverIO.Config = {
         '@shared-helpers/*': ['shared/helpers/*'],
       },
     },
-  },
+  } as AutoCompileConfig,
   //
   // ====================
   // Runner Configuration
@@ -57,7 +58,7 @@ export const config: WebdriverIO.Config = {
   // First, you can define how many instances should be started at the same time. Let's
   // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
   // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
-  // files and you set maxInstances to 10, all spec files will get tested at the same time
+  // files, and you set maxInstances to 10, all spec files will get tested at the same time
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
@@ -106,7 +107,7 @@ export const config: WebdriverIO.Config = {
   //     '@wdio/applitools-service': 'info'
   // },
   //
-  // If you only want to run your tests until a specific amount of tests have failed use
+  // If you only want to run your tests until a specific amount of tests has failed, use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
   //
@@ -127,7 +128,7 @@ export const config: WebdriverIO.Config = {
   connectionRetryCount: 3,
   //
   // Test runner services
-  // Services take over a specific job you don't want to take care of. They enhance
+  //  take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: ['shared-store'],
@@ -143,7 +144,7 @@ export const config: WebdriverIO.Config = {
   // The number of times to retry the entire specfile when it fails as a whole
   specFileRetries: 3,
   //
-  // Whether or not retried specfiles should be retried immediately or deferred
+  // Whether retried specfiles should be retried immediately or deferred
   // to the end of the queue specFileRetriesDeferred: false,
   //
   // Test reporter for stdout.
@@ -210,7 +211,9 @@ export const config: WebdriverIO.Config = {
 
   afterStep: (step, scenario, result) => {
     if (!result.passed) {
-      browser.takeScreenshot();
+      browser.takeScreenshot()
+        .then(() => console.log('SUCCESS screenshot taken'))
+        .catch(() => console.log('FAILED to takes screenshot take'));
     }
   },
 

@@ -19,8 +19,8 @@ export default class Page {
     this.title = 'My Page';
   }
 
-  open(path: string) {
-    browser.url(path);
+  async open(path: string) {
+    await browser.url(path);
   }
 
   /** *
@@ -127,8 +127,12 @@ export default class Page {
 
   public async switchToDESContext(): Promise<void> {
     await this.waitForContextToExist('DVSA DES');
+
     const DESContext = await this.getContextByTitle('DVSA DES');
-    // @ts-ignore
+
+    if (!DESContext) {
+      throw new Error('DESContext is not defined');
+    }
     await driver.switchContext(DESContext.id);
   }
 
@@ -139,16 +143,21 @@ export default class Page {
    *
    * @param letter - letter to be inputted into textbox
    */
-  public static async keyboardClickLetter(letter: string) {
-    const upercaseLetter = letter.toUpperCase();
+  public static async keyboardClickLetter(letter: string): Promise<void> {
+    const uppercaseLetter = letter.toUpperCase();
+
     await driver.switchContext('NATIVE_APP');
-    if (driver.isKeyboardShown()) {
-      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
+
+    const [isShown] = await Promise.all([driver.isKeyboardShown()]);
+
+    if (isShown) {
+      await driver.hideKeyboard('pressKey', uppercaseLetter, uppercaseLetter);
     }
     await new GettingContext().switchToDVSAAppContext();
   }
 
-  async clickElement(element: WebdriverIO.Element) {
+  async clickElement(element: WebdriverIO.Element): Promise<void> {
+    // eslint-disable-next-line wdio/no-pause
     await browser.pause(500);
     await element.click();
   }
@@ -159,9 +168,14 @@ export default class Page {
    */
   public async clickNativeButtonWithText(text: string): Promise<void> {
     await this.waitForContextToExist('NATIVE_APP');
+
     await driver.switchContext('NATIVE_APP');
+
     const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
+
+    // eslint-disable-next-line wdio/no-pause
     await browser.pause(3000);
+
     await this.clickElement(nativeButtonText);
   }
 
