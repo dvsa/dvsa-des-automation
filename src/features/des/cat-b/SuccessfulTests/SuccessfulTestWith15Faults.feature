@@ -9,7 +9,7 @@ Feature: Cat-B Successful feature
     And I start the test for "#start-test-button-20654334"
     And I complete the waiting room declaration page
     And I complete the candidate ID page from a data table
-      | trueLikeness            | false            |
+      | trueLikeness            | no               |
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
