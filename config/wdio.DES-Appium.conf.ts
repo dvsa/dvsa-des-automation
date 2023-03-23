@@ -8,7 +8,6 @@ import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 3;
 
 buildConfig.specs = [
   './src/features/des/**/**/*.feature',
@@ -68,6 +67,8 @@ const capabilities = [
     deviceName: DeviceName.iPadAir3rdGen,
   },
 ];
+
+buildConfig.maxInstances = capabilities.length;
 
 const ALL_SUITES: string[] = [
   ...new Set<string>( // make features distinct if mentioned in multiple suites
