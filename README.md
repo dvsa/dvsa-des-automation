@@ -29,16 +29,21 @@ This folder will contain details for all credentials. You will have to create th
 There are multiple variants on the configuration that can be used to run tests, all of which can be found inside the `package.json` with the prefix of 
 `npm run wdio:des/*`
 
-#### Run the entire suite
+#### Run all tests
 `npm run wdio:des:ap`
 
 #### Run a single feature
 `npm run wdio:des:ap --spec ./src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature`
 
-#### Generate allure report
-`npm run wdio:des:ap:report`
+#### Run a suite
+`npm run wdio:des:ap -- --suite=desfull`
 
 If wishing to run on `BrowserStack` instead of locally, then use `:bs` instead of `:ap` in the above commands.
+
+## Reports
+After running the tests you can run `npm run report` to open up the allure report page
+
+To clean down the reports then run `npm run report:clean`
 
 ## Using tags
 
