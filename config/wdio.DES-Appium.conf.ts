@@ -1,5 +1,6 @@
 import path from 'path';
 import { chunk } from 'lodash';
+import { DeviceName } from '../src/enums/device-type.enum';
 import { config as buildConfig } from './wdio.conf';
 import DesInfo from './des.info';
 
@@ -40,7 +41,6 @@ buildConfig.port = 4723;
 const baseCapability = {
   platformName: DesInfo.platformName,
   platformVersion: DesInfo.platFormVersion,
-  deviceName: DesInfo.localDeviceName,
   app: DesInfo.localAppPath,
   disableAnimations: true,
   wdaLocalPort: 8210,
@@ -50,16 +50,22 @@ const capabilities = [
   {
     ...appiumbase,
     ...baseCapability,
+    deviceName: DeviceName.iPad9thGen,
   },
   {
     ...appiumbase,
     ...baseCapability,
-    deviceName: 'iPad (8th generation)',
+    deviceName: DeviceName.iPad8thGen,
   },
   {
     ...appiumbase,
     ...baseCapability,
-    deviceName: 'iPad Pro (10.5-inch)',
+    deviceName: DeviceName.iPadPro10Point5Inch,
+  },
+  {
+    ...appiumbase,
+    ...baseCapability,
+    deviceName: DeviceName.iPadAir3rdGen,
   },
 ];
 
