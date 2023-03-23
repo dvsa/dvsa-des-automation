@@ -42,7 +42,6 @@ exports.config = {
   capabilities: [
     {
       ...appiumbase,
-      // wdaLocalPort: 8210,
       platformName: DesInfo.platformName,
       platformVersion: DesInfo.platFormVersion,
       deviceName: DesInfo.localDeviceName,
