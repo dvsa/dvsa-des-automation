@@ -22,7 +22,7 @@ class WaitingRoomPageObject extends Page {
     if (!(category === 'adi2' || category === 'adi3')) {
       await clickElement('click', 'selector', this.residencyDeclarationLabel);
     }
-    await clickElement('click', 'selector', this.signatureAreaXpath);
+    await this.tapElement(this.signatureAreaXpath);
     await clickElement('click', 'selector', this.declarationContinueButton);
   }
 

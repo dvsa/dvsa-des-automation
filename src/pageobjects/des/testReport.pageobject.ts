@@ -9,16 +9,16 @@ class TestReportPageObject extends Page {
     return ('des-test-report-screen::test-requirement-first-ns-tick');
   }
 
+  get secondNSLegalReqTick() {
+    return ('des-test-report-screen::test-requirement-second-ns-tick');
+  }
+
   get NSCatD() {
     return ('des-test-report-screen::legal-requirements-NS');
   }
 
   get BSCatD() {
     return ('des-test-report-screen::legal-requirements-BS');
-  }
-
-  get secondNSLegalReqTick() {
-    return ('des-test-report-screen::test-requirement-second-ns-tick');
   }
 
   get firstASLegalReqTick() {
@@ -157,6 +157,7 @@ class TestReportPageObject extends Page {
   }
 
   async completeLegalRequirementsForCatB(): Promise<void> {
+    await browser.pause(2000);
     await longClickElement(this.firstNSLegalReqTick, 500);
     await longClickElement(this.secondNSLegalReqTick, 500);
     await longClickElement(this.firstASLegalReqTick, 500);

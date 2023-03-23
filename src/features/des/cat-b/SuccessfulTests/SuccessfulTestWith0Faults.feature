@@ -8,6 +8,8 @@ Feature: Cat-B Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "#start-test-button-20654335"
     And I complete the waiting room declaration page
+    And I complete the candidate ID page from a data table
+      | trueLikeness            | yes              |
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
@@ -47,7 +49,6 @@ Feature: Cat-B Successful feature
       | activityCode            | NA                                          |
       | routeNumber             | 2                                           |
       | independentDriving      | sat nav                                     |
-      | trueLikeness            | yes                                         |
       | distinguishingFeatures  | Tall, red shirt, brown hair. 5 foot tall    |
       | identification          | photo card                                  |
       | showMeQuestion          | S1 - Rear windscreen                        |
@@ -56,5 +57,5 @@ Feature: Cat-B Successful feature
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I expect that element "#activity-code-20654335" matches the text "1"
-    And I click on the button "des-my-journal::journal-back-button"
+    And I click on the button "des-general::back-btn"
     And I sign out

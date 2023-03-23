@@ -24,6 +24,7 @@ import studentOptionADI3 from '../../app-actions/des-action/studentOptionADI3';
 import lessonOptionADI3 from '../../app-actions/des-action/lessonOptionADI3';
 import testReportADI3Questions from '../../app-actions/des-action/testReportADI3Questions';
 import keyboardClickLetter from '../../app-actions/des-action/keyboardClickLetter';
+import completeCandidateIDPage from '../../app-actions/des-action/completeCandidateIDPage';
 
 When(
   /^I am signed in as a random "([^"]*)?" user$/,
@@ -33,6 +34,11 @@ When(
 When(
   /^I complete the waiting room declaration page( for a category "([^"]*)?")?$/,
   completeDeclarationPage,
+);
+
+When(
+  /^I complete the candidate ID page from a data table$/,
+  completeCandidateIDPage,
 );
 
 When(
