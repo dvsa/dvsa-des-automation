@@ -1,4 +1,5 @@
 import path from 'path';
+import { chunk } from 'lodash';
 import { config as buildConfig } from './wdio.conf';
 import DesInfo from './des.info';
 
@@ -6,8 +7,7 @@ import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 1;
-// buildConfig.path = '/'
+buildConfig.maxInstances = 3;
 
 buildConfig.specs = [
   './src/features/des/**/**/*.feature',
@@ -37,16 +37,50 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : [])
 
 buildConfig.port = 4723;
 
+const baseCapability = {
+  platformName: DesInfo.platformName,
+  platformVersion: DesInfo.platFormVersion,
+  deviceName: DesInfo.localDeviceName,
+  app: DesInfo.localAppPath,
+  disableAnimations: true,
+  wdaLocalPort: 8210,
+};
+
+const capabilities = [
+  {
+    ...appiumbase,
+    ...baseCapability,
+  },
+  {
+    ...appiumbase,
+    ...baseCapability,
+    deviceName: 'iPad (8th generation)',
+  },
+  {
+    ...appiumbase,
+    ...baseCapability,
+    deviceName: 'iPad Pro (10.5-inch)',
+  },
+];
+
+const ALL_SUITES: string[] = Object.keys(DESSuites)
+  .map((key) => DESSuites[key])
+  .reduce((accumulator, value) => accumulator.concat(value), []);
+
+// Scale the chunk based upon the number of capabilities being run against
+const chunkedFeatures: string[][] = chunk(ALL_SUITES, (ALL_SUITES.length / capabilities.length));
+
 exports.config = {
-  ...buildConfig,
-  capabilities: [
-    {
-      ...appiumbase,
-      platformName: DesInfo.platformName,
-      platformVersion: DesInfo.platFormVersion,
-      deviceName: DesInfo.localDeviceName,
-      app: DesInfo.localAppPath,
-      disableAnimations: true,
-    },
-  ],
+  capabilities: capabilities.map((capability, index) => ({
+    ...capability,
+    // Increase the port by 10 on each iteration of capabilities loop
+    wdaLocalPort: (baseCapability.wdaLocalPort + (index * 10)),
+    // Only grab the index of the chunkedFeatures that correlates to this loop in the capabilities map
+    exclude: [
+      ...chunkedFeatures.filter((_, i) => i === index),
+    ].reduce(
+      // Flatten the features
+      (acc, value) => acc.concat(value), [],
+    ),
+  })),
 };
