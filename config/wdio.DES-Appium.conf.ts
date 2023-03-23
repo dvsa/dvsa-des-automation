@@ -63,9 +63,13 @@ const capabilities = [
   },
 ];
 
-const ALL_SUITES: string[] = Object.keys(DESSuites)
-  .map((key) => DESSuites[key])
-  .reduce((accumulator, value) => accumulator.concat(value), []);
+const ALL_SUITES: string[] = [
+  ...new Set<string>( // make features distinct if mentioned in multiple suites
+    Object.keys(DESSuites)
+      .map((key) => DESSuites[key])
+      .reduce((accumulator, value) => accumulator.concat(value), []),
+  ),
+];
 
 // Scale the chunk based upon the number of capabilities being run against
 const chunkedFeatures: string[][] = chunk(ALL_SUITES, (ALL_SUITES.length / capabilities.length));
