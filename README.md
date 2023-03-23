@@ -33,7 +33,7 @@ There are multiple variants on the configuration that can be used to run tests, 
 `npm run wdio:des:ap`
 
 #### Run a single feature
-`npm run wdio:des:ap --spec ./src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature`
+`npm run wdio:des:ap -- --spec ./src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature`
 
 #### Run a suite
 `npm run wdio:des:ap -- --suite=desfull`
