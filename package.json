@@ -83,6 +83,7 @@
     "axios": "^0.26.1",
     "browserstack-local": "^1.4.8",
     "json-concat": "0.0.1",
+    "lodash": "4.17.21",
     "ms-chromium-edge-driver": "^0.4.3",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
