@@ -30,7 +30,7 @@ class WaitingRoomPageObject extends Page {
     await setInputField('add', 'C123456X', this.manoeuvresPassCertNumberInput);
     await clickElement('click', 'selector', this.insuranceDeclarationLabel);
     await clickElement('click', 'selector', this.residencyDeclarationLabel);
-    await clickElement('click', 'selector', this.signatureAreaXpath);
+    await this.tapElement(this.signatureAreaXpath);
     await clickElement('click', 'selector', this.declarationContinueButton);
   }
 
