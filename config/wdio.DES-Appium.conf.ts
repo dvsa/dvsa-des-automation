@@ -8,6 +8,8 @@ import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
 
 buildConfig.baseUrl = '/';
+buildConfig.maxInstances = 1;
+// buildConfig.path = '/'
 
 buildConfig.specs = [
   './src/features/des/**/**/*.feature',
@@ -68,7 +70,7 @@ const capabilities = [
   },
 ];
 
-buildConfig.maxInstances = capabilities.length;
+buildConfig.maxInstances = 4;
 
 const ALL_SUITES: string[] = [
   ...new Set<string>( // make features distinct if mentioned in multiple suites
@@ -82,6 +84,7 @@ const ALL_SUITES: string[] = [
 const chunkedFeatures: string[][] = chunk(ALL_SUITES, (ALL_SUITES.length / capabilities.length));
 
 exports.config = {
+  ...buildConfig,
   capabilities: capabilities.map((capability, index) => ({
     ...capability,
     // Increase the port by 10 on each iteration of capabilities loop
