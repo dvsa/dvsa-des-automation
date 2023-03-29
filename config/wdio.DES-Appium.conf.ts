@@ -29,7 +29,7 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : [])
       args: {
         address: '127.0.0.1',
         commandTimeout: '7200',
-        sessionOverride: true,
+        sessionOverride: false,
         debugLogSpacing: true,
         relaxedSecurity: true,
       },
@@ -63,27 +63,22 @@ const capabilities = [
     ...baseCapability,
     deviceName: DeviceName.iPadPro10Point5Inch,
   },
-  {
-    ...appiumbase,
-    ...baseCapability,
-    deviceName: DeviceName.iPadAir3rdGen,
-  },
+  // @TODO: Enable in config service;
+  // {
+  //   ...appiumbase,
+  //   ...baseCapability,
+  //   deviceName: DeviceName.iPadAir3rdGen,
+  // },
 ];
 
-buildConfig.maxInstances = 4;
+buildConfig.maxInstances = capabilities.length;
 
-const ALL_SUITES: string[] = [
-  ...new Set<string>( // make features distinct if mentioned in multiple suites
-    Object.keys(DESSuites)
-      .map((key) => DESSuites[key])
-      .reduce((accumulator, value) => accumulator.concat(value), []),
-  ),
-];
+const ALL_SUITES: string[] = DESSuites.desfull;
 
 // Scale the chunk based upon the number of capabilities being run against
 const chunkedFeatures: string[][] = chunk(ALL_SUITES, (ALL_SUITES.length / capabilities.length));
 
-exports.config = {
+const config = {
   ...buildConfig,
   capabilities: capabilities.map((capability, index) => ({
     ...capability,
@@ -91,10 +86,12 @@ exports.config = {
     wdaLocalPort: (baseCapability.wdaLocalPort + (index * 10)),
     // Only grab the index of the chunkedFeatures that correlates to this loop in the capabilities map
     exclude: [
-      ...chunkedFeatures.filter((_, i) => i === index),
+      ...chunkedFeatures.filter((_, i) => i !== index),
     ].reduce(
       // Flatten the features
       (acc, value) => acc.concat(value), [],
     ),
   })),
 };
+
+exports.config = config;
