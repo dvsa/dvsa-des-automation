@@ -84,7 +84,7 @@ const config = {
     ...capability,
     // Increase the port by 10 on each iteration of capabilities loop
     wdaLocalPort: (baseCapability.wdaLocalPort + (index * 10)),
-    // Only grab the index of the chunkedFeatures that correlates to this loop in the capabilities map
+    // Remove every feature glob from this list except where capabilities index matches chunkedFeatures features index
     exclude: [
       ...chunkedFeatures.filter((_, i) => i !== index),
     ].reduce(
