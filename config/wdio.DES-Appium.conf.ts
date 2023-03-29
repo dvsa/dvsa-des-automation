@@ -76,7 +76,7 @@ buildConfig.maxInstances = capabilities.length;
 const ALL_SUITES: string[] = DESSuites.desfull;
 
 // Scale the chunk based upon the number of capabilities being run against
-const chunkedFeatures: string[][] = chunk(ALL_SUITES, (ALL_SUITES.length / capabilities.length));
+const chunkedFeatures: string[][] = chunk(ALL_SUITES, Math.ceil((ALL_SUITES.length / capabilities.length)));
 
 const config = {
   ...buildConfig,
