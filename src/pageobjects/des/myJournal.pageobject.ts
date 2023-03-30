@@ -82,6 +82,7 @@ class MyJournalPageObject extends Page {
     await scroll(selector);
     await waitFor(selector, '', false, 'be displayed');
     await clickElement('click', 'selector', selector);
+    await browser.pause(1000);
 
     if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
       await this.startEarlyTest();

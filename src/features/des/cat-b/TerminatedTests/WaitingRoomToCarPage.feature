@@ -12,6 +12,7 @@ Feature: Cat-B Terminated feature
     And I complete the waiting room communication page
     And I click on the button "des-waiting-room-to-car::end-test-btn"
     And I click on the button "des-waiting-room-to-car::terminate-test-btn"
+    And I pause for 1000ms
     And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-post-debrief-screen::continue-btn"
@@ -30,6 +31,7 @@ Feature: Cat-B Terminated feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |

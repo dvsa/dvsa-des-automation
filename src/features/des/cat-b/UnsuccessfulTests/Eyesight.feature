@@ -21,6 +21,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
       | des-debrief-screen::eyesight-test-serious-text                | Eyesight test                    | des-debrief-screen::driving-serious-fault-count            | 1                   |
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-debrief-screen::continue-non-pass-final-btn"
+    And I pause for 1000ms
     And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
       | testLanguage                  | na              |
@@ -35,6 +36,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |

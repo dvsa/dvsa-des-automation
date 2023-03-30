@@ -76,6 +76,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office page from a data table
       | additionalInformation             | Test went okay, will continue with out problems       |

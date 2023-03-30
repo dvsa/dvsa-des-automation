@@ -166,6 +166,7 @@ export default class Page {
   }
 
   async tapElement(selector: string): Promise<void> {
+    await browser.pause(500);
     const elementSelectorForLocation: string = getElementByReference(selector);
     const { x, y } = await (await $(elementSelectorForLocation)).getLocation();
     await driver.switchContext('NATIVE_APP');

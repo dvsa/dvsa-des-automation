@@ -4,6 +4,7 @@ Feature: Test Centre Journal
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-general::page-title" to be displayed
     When I click on the button "des-dashboard::centre-journal-btn"
+    And I pause for 1000ms
     Then I expect that element "des-test-centre-journal::test-title" matches the text "Candidate search"
     And I expect that element "des-test-centre-journal::location-text" matches the text "Example Test Centre"
     When I add "Ali Campbell" to the inputfield "des-test-centre-journal::candidate-search-input"

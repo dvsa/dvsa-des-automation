@@ -24,6 +24,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "0"
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I pause for 1000ms
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
     And I check from a data table the number of faults are correct
@@ -31,6 +32,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
       | des-debrief-screen::control-accelerator-driver-fault          | Control - Accelerator            | des-debrief-screen::dangerous-fault-count                     | 1                   |
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-debrief-screen::continue-non-pass-final-btn"
+    And I pause for 1000ms
     And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
       | testLanguage                  | na              |
@@ -45,6 +47,7 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office unsuccessful page from a data table
       | activityCode            | NA                                          |

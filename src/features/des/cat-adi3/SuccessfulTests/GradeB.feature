@@ -59,10 +59,12 @@ Feature: Cat-ADI3 Successful feature
     And the element "des-debrief-screen::adi-status-passed-grade" matches the text "Passed - Grade B"
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I wait on element "des-final-outcome-screen::test-outcome-pass" to be displayed
+    And I pause for 1000ms
     And I complete the successful final outcome screen from a data table
       | testOutcome                   | Passed - Grade B |
       | debriefWitnessed              | Yes              |
       | furtherAdvice                 | Yes              |
+    And I pause for 1000ms
     And I check the confirmation page details from a data table
       | testOutcome                 | Passed - Grade B                          |
       | activityCode                | 1 - Pass                                  |
@@ -76,6 +78,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office page from a data table
       | additionalInformation             | Test went okay, will continue with out problems       |

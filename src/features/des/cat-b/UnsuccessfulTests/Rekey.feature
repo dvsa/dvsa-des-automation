@@ -20,6 +20,7 @@ Feature: Cat-B Unsuccessful with serious faults feature Rekey
     And I add "1" serious fault to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I pause for 1000ms
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
     Then I expect that element ".counter-label" matches the text "Control - Accelerator"
@@ -39,6 +40,7 @@ Feature: Cat-B Unsuccessful with serious faults feature Rekey
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office unsuccessful page from a data table
       | routeNumber             | 8                                           |

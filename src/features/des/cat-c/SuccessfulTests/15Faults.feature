@@ -31,6 +31,7 @@ Feature: Cat-C Successful feature
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "10"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I pause for 1000ms
     And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
     And I check from a data table the number of faults are correct
@@ -57,6 +58,7 @@ Feature: Cat-C Successful feature
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     And I complete the Office page from a data table
       | activityCode            | NA                                          |

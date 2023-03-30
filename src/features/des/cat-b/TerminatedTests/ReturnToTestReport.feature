@@ -21,6 +21,7 @@ Feature: Cat-B Terminated feature
     And I select all legal requirements for a category "B"
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I pause for 1000ms
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I complete the successful final outcome screen from a data table
       | provisionalLicenceReceived    | Yes              |

@@ -30,6 +30,7 @@
     "wdio:des:bs:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts",
     "wdio:des:bs:test:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts --cucumberOpts.tagExpression='@test'",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
+    "test-full": "npm run report:clean && npm run wdio:des:ap -- --suite=desfull",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
     "copy-shared": "./copy-shared.sh",

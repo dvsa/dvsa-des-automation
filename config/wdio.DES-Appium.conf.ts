@@ -63,12 +63,11 @@ const capabilities = [
     ...baseCapability,
     deviceName: DeviceName.iPadPro10Point5Inch,
   },
-  // @TODO: Enable in config service;
-  // {
-  //   ...appiumbase,
-  //   ...baseCapability,
-  //   deviceName: DeviceName.iPadAir3rdGen,
-  // },
+  {
+    ...appiumbase,
+    ...baseCapability,
+    deviceName: DeviceName.iPadAir3rdGen,
+  },
 ];
 
 buildConfig.maxInstances = capabilities.length;

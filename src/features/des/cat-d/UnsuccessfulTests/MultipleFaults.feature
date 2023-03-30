@@ -30,6 +30,7 @@ Feature: Cat-D Unsuccessful Tests
     And I add "1" dangerous faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I click on the button "des-test-report-screen::end-test-btn"
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
+    And I pause for 1000ms
     When I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                            | numberOfFaults      |
@@ -38,6 +39,7 @@ Feature: Cat-D Unsuccessful Tests
       | des-debrief-screen::vehicle-checks-driving-fault              | Control - Accelerator            | des-debrief-screen::vehicle-checks-driving-fault-count        | 4                  |
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "des-debrief-screen::continue-non-pass-final-btn"
+    And I pause for 1000ms
     When I wait on element "des-final-outcome-screen::page-title-non-pass" to be displayed
     And I complete the unsuccessful final outcome screen from a data table
       | d255                          | na              |
@@ -56,6 +58,7 @@ Feature: Cat-D Unsuccessful Tests
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     When I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
+    And I pause for 500ms
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
     When I wait on element "des-office-page::page-title" to be displayed
     And I complete the Office unsuccessful page from a data table
