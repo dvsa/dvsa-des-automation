@@ -1,14 +1,32 @@
 import path from 'path';
 import { chunk } from 'lodash';
-import { DeviceName } from '../src/enums/device-type.enum';
+import fs from 'fs';
 import { config as buildConfig } from './wdio.conf';
 import DesInfo from './des.info';
 
 import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
+import {
+  createAutomationSimulators, deleteAllAutomationSimulators,
+  getAutomationSimulatorUDIDS,
+} from '../scripts/generate-sims';
+
+// Change this to increase / decrease number of simulators
+const numberOfParallelTests = 12;
+
+// @ts-ignore
+function getFiles(dir) {
+  const files: string[] = fs.readdirSync(dir).flatMap((item) => {
+    const filePath = `${dir}/${item}`;
+    if (fs.statSync(filePath).isDirectory()) {
+      return getFiles(filePath);
+    }
+    return filePath;
+  });
+  return files;
+}
 
 buildConfig.baseUrl = '/';
-buildConfig.maxInstances = 1;
 // buildConfig.path = '/'
 
 buildConfig.specs = [
@@ -47,39 +65,49 @@ const baseCapability = {
   wdaLocalPort: 8210,
 };
 
-const capabilities = [
-  {
-    ...appiumbase,
-    ...baseCapability,
-    deviceName: DeviceName.iPad9thGen,
-  },
-  {
-    ...appiumbase,
-    ...baseCapability,
-    deviceName: DeviceName.iPad8thGen,
-  },
-  {
-    ...appiumbase,
-    ...baseCapability,
-    deviceName: DeviceName.iPadPro10Point5Inch,
-  },
-  {
-    ...appiumbase,
-    ...baseCapability,
-    deviceName: DeviceName.iPadAir3rdGen,
-  },
-];
+const getCapabilities = () => {
+  const capabilities: any = [];
+  Array.from({ length: numberOfParallelTests }, (x, i) => {
+    capabilities.push(
+      {
+        ...appiumbase,
+        ...baseCapability,
+      },
+    );
+  });
 
-buildConfig.maxInstances = capabilities.length;
+  return capabilities;
+};
 
-const ALL_SUITES: string[] = DESSuites.desfull;
+const capabilities: any = getCapabilities();
+
+buildConfig.maxInstances = numberOfParallelTests;
+
+// const ALL_SUITES: string[] = DESSuites.desfull;
+const ALL_SUITES: string[] = getFiles('./src/features') as string[];
 
 // Scale the chunk based upon the number of capabilities being run against
 const chunkedFeatures: string[][] = chunk(ALL_SUITES, Math.ceil((ALL_SUITES.length / capabilities.length)));
 
-const config = {
+const config: WebdriverIO.Config = {
+  async onPrepare() {
+    console.log('++++++++++++++ running on prepare ++++++++++++++');
+    await deleteAllAutomationSimulators();
+    await createAutomationSimulators(numberOfParallelTests);
+    console.log('++++++++++++++ DONE running on prepare ++++++++++++++');
+  },
+  async onWorkerStart(cid, caps: any) {
+    const ids = await getAutomationSimulatorUDIDS();
+    const capIndex = parseInt(cid.split('-')[0], 10);
+    const simUDID = ids[capIndex];
+    console.log(`${cid} using sim ${simUDID} on port ${caps.wdaLocalPort}`);
+    // eslint-disable-next-line no-param-reassign
+    caps.udid = simUDID;
+    caps.derivedDataPath = `${simUDID}`;
+    // console.log(caps);
+  },
   ...buildConfig,
-  capabilities: capabilities.map((capability, index) => ({
+  capabilities: capabilities.map((capability: any, index: number) => ({
     ...capability,
     // Increase the port by 10 on each iteration of capabilities loop
     wdaLocalPort: (baseCapability.wdaLocalPort + (index * 10)),
