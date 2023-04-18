@@ -46,8 +46,7 @@ class LoginMobilePageObject extends Page {
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
-
-    const loginBackdrop = await $('.backdrop-no-scroll');
+    const loginBackdrop = await $('app-login');
     const loginError = await $('#loginSorry');
 
     // check if already logged in on app launch.
@@ -62,6 +61,7 @@ class LoginMobilePageObject extends Page {
     }
 
     if (await burgerMenu.isDisplayed()) {
+      console.log('detected already logged in.....logging out');
       await this.logout();
     }
 
@@ -77,12 +77,24 @@ class LoginMobilePageObject extends Page {
     const continueButton = await $('input[value="Continue"]');
     const useAnotherAccount = await $('#otherTileText');
     const emailTextBox = await $('#i0116');
+    const areYouTryingToSignInModal = await $('#appConfirmTitle');
+    const nextButton: WebdriverIO.Element = await $('#idSIButton9');
     // resolve as soo as either 'use another account' or email input available
     await Promise.race([
       this.waitForExistAndClickable(continueButton),
       this.waitForExistAndClickable(useAnotherAccount),
       this.waitForExistAndClickable(emailTextBox),
+      this.waitForExist(areYouTryingToSignInModal),
     ]);
+    // click continue if are you trying to access screen present
+    if (await areYouTryingToSignInModal.isExisting()) {
+      await browser.pause(3000);
+      await nextButton.click();
+      await this.waitForExist(burgerMenu);
+      await this.logout();
+      await this.login(typeOfUser);
+      return;
+    }
     // click use another account if it is available
     const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
     if (useAnotherAccountButtonPresent) {
@@ -93,10 +105,21 @@ class LoginMobilePageObject extends Page {
     await this.clickElement(emailTextBox);
     await emailTextBox.addValue(user.UserPrincipalName);
     // click next button
-    const nextButton: WebdriverIO.Element = await $('#idSIButton9');
     await this.waitForExistAndClickable(nextButton);
     await this.clickElement(nextButton);
-    // click password button
+
+    // need to check again for are you trying to sign in (password not required)
+    await browser.pause(3000);
+    const areYouTryingModal = await areYouTryingToSignInModal.isExisting();
+    console.log(areYouTryingModal);
+    if (areYouTryingModal) {
+      console.log('*********password not required....clicking continue*********');
+      await nextButton.click();
+      await this.switchToDESContext();
+      await browser.pause(2000);
+      return;
+    }
+
     const passwordBox = await $('#passwordInput');
     await this.waitForExistAndClickable(passwordBox);
     await this.clickElement(passwordBox);
@@ -106,12 +129,12 @@ class LoginMobilePageObject extends Page {
     await this.waitForExistAndClickable(signInButton);
     await this.clickElement(signInButton);
     // click continue button
-    await browser.pause(5000);
+    await browser.pause(2000);
     await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
     await this.switchToDESContext();
-    await browser.pause(3000);
+    await browser.pause(2000);
   }
 
   async logout(): Promise<void> {

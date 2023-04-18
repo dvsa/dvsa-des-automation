@@ -121,7 +121,7 @@ export const config: WebdriverIO.Config = {
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  connectionRetryTimeout: 120000,
+  connectionRetryTimeout: 2400000,
   //
   // Default request retries count
   connectionRetryCount: 3,

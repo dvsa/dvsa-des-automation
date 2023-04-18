@@ -1,16 +1,15 @@
 // @ts-ignore
 import { Simctl } from 'node-simctl';
+import { DeviceName } from '../src/enums/device-type.enum';
 
-const simulatorModel = 'iPad (9th generation)';
-
-export const createSimulator = async (model: string, num?: number) => {
+export const createSimulator = async (model: DeviceName, num?: number) => {
   const simctl = new Simctl();
   const name = `${model} Automation ${num}`;
   simctl.udid = await simctl.createDevice(name, model, '16.2');
   console.log(`${model} Automation ${num} created`);
 };
 
-export const createSimulators = async (numberOfSims: number) => {
+export const createSimulators = async (numberOfSims: number, simulatorModel: DeviceName) => {
   for (let i = 0; i < numberOfSims; i += 1) {
     await createSimulator(simulatorModel, i);
   }
@@ -40,18 +39,19 @@ export const deleteDeviceByUDID = async (udid: string) => {
 
 export const deleteAllAutomationSimulators = async () => {
   const simulators: string[] = await getAutomationSimulatorUDIDS();
+  const promiseArray = [];
   // eslint-disable-next-line no-restricted-syntax
   for (const simulator of simulators) {
-    await deleteDeviceByUDID(simulator);
+    promiseArray.push(deleteDeviceByUDID(simulator));
   }
+  await Promise.all(promiseArray);
 };
 
-export const createAutomationSimulators = async (numberOfSimulators: number) => {
-  // await deleteAllAutomationSimulators();
+export const createAutomationSimulators = async (numberOfSimulators: number, simulatorModel: DeviceName) => {
   const sims: string[] = await getAutomationSimulatorUDIDS();
   // if not enough existing automation simulators, create required additional sims
   if (sims.length < numberOfSimulators) {
     console.log(`${numberOfSimulators} simulators requested but only ${sims.length} simulators found...creating additional simulators`);
-    await createSimulators(numberOfSimulators - sims.length);
+    await createSimulators(numberOfSimulators - sims.length, simulatorModel);
   }
 };

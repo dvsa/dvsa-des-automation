@@ -7,12 +7,18 @@ import DesInfo from './des.info';
 import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
 import {
-  createAutomationSimulators, deleteAllAutomationSimulators,
+  createAutomationSimulators,
   getAutomationSimulatorUDIDS,
 } from '../scripts/generate-sims';
+import { DeviceName } from '../src/enums/device-type.enum';
 
 // Change this to increase / decrease number of simulators
-const numberOfParallelTests = 12;
+const numberOfParallelTests = 6;
+// Set sim model to use for tests
+const simulatorModel: DeviceName = DeviceName.iPad8thGen;
+
+let startTime: string;
+let endTime: string;
 
 // @ts-ignore
 function getFiles(dir) {
@@ -67,7 +73,8 @@ const baseCapability = {
 
 const getCapabilities = () => {
   const capabilities: any = [];
-  Array.from({ length: numberOfParallelTests }, (x, i) => {
+  // eslint-disable-next-line array-callback-return
+  Array.from({ length: numberOfParallelTests }, () => {
     capabilities.push(
       {
         ...appiumbase,
@@ -75,7 +82,6 @@ const getCapabilities = () => {
       },
     );
   });
-
   return capabilities;
 };
 
@@ -90,11 +96,14 @@ const ALL_SUITES: string[] = getFiles('./src/features') as string[];
 const chunkedFeatures: string[][] = chunk(ALL_SUITES, Math.ceil((ALL_SUITES.length / capabilities.length)));
 
 const config: WebdriverIO.Config = {
-  async onPrepare() {
-    console.log('++++++++++++++ running on prepare ++++++++++++++');
-    await deleteAllAutomationSimulators();
-    await createAutomationSimulators(numberOfParallelTests);
-    console.log('++++++++++++++ DONE running on prepare ++++++++++++++');
+  async onPrepare(configuration, caps) {
+    startTime = new Date().toTimeString();
+    await createAutomationSimulators(numberOfParallelTests, simulatorModel);
+    console.log(caps.length);
+  },
+  onComplete() {
+    endTime = new Date().toTimeString();
+    console.log(`*********** test run complete. START: ${startTime} END: ${endTime}`);
   },
   async onWorkerStart(cid, caps: any) {
     const ids = await getAutomationSimulatorUDIDS();
@@ -102,9 +111,9 @@ const config: WebdriverIO.Config = {
     const simUDID = ids[capIndex];
     console.log(`${cid} using sim ${simUDID} on port ${caps.wdaLocalPort}`);
     // eslint-disable-next-line no-param-reassign
-    caps.udid = simUDID;
+    caps.udid = simUDID; //  specify individual sim here if required, e.g '8E6D7AF9-D366-45E6-8947-7637E94D4B81';
+    // eslint-disable-next-line no-param-reassign
     caps.derivedDataPath = `${simUDID}`;
-    // console.log(caps);
   },
   ...buildConfig,
   capabilities: capabilities.map((capability: any, index: number) => ({
