@@ -5,7 +5,7 @@ import { DeviceName } from '../src/enums/device-type.enum';
 export const createSimulator = async (model: DeviceName, num?: number) => {
   const simctl = new Simctl();
   const name = `${model} Automation ${num}`;
-  simctl.udid = await simctl.createDevice(name, model, '16.2');
+  simctl.udid = await simctl.createDevice(name, model, '16.1');
   console.log(`${model} Automation ${num} created`);
 };
 
