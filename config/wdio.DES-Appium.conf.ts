@@ -2,20 +2,20 @@ import path from 'path';
 import { chunk } from 'lodash';
 import fs from 'fs';
 import { config as buildConfig } from './wdio.conf';
-import DesInfo from './des.info';
-
 import { appiumbase } from './appium.base';
 import { DESSuites } from './suites/des.suites';
-import {
-  createAutomationSimulators,
-  getAutomationSimulatorUDIDS,
-} from '../scripts/generate-sims';
-import { DeviceName } from '../src/enums/device-type.enum';
+import { createAutomationSimulators, getAutomationSimulatorUDIDS } from '../scripts/generate-sims';
+import { DeviceName, IOSVersion } from '../src/enums/device-type.enum';
 
-// Change this to increase / decrease number of simulators
+/**
+ * ===============================================================================
+ * Update the constants below to change the number of sims to run tests across,
+ * simulator model or iOS version (SDK for selected ios must be installed in xcode)
+ * ===============================================================================
+ */
 const numberOfParallelTests = 6;
-// Set sim model to use for tests
 const simulatorModel: DeviceName = DeviceName.iPad8thGen;
+const iosVersion: IOSVersion = IOSVersion.sixteenOne;
 
 let startTime: string;
 let endTime: string;
@@ -64,10 +64,9 @@ buildConfig.services = (buildConfig.services ? buildConfig.services : [])
 buildConfig.port = 4723;
 
 const baseCapability = {
-  platformName: DesInfo.platformName,
-  platformVersion: DesInfo.platFormVersion,
-  app: DesInfo.localAppPath,
-  disableAnimations: true,
+  platformName: 'iOS',
+  platformVersion: iosVersion,
+  app: './apps/App.app',
   wdaLocalPort: 8210,
 };
 
@@ -98,7 +97,7 @@ const chunkedFeatures: string[][] = chunk(ALL_SUITES, Math.ceil((ALL_SUITES.leng
 const config: WebdriverIO.Config = {
   async onPrepare(configuration, caps) {
     startTime = new Date().toTimeString();
-    await createAutomationSimulators(numberOfParallelTests, simulatorModel);
+    await createAutomationSimulators(numberOfParallelTests, simulatorModel, iosVersion);
     console.log(caps.length);
   },
   onComplete() {

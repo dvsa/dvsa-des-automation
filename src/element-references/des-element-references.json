@@ -107,7 +107,7 @@
     "enter-signature-err-msg": "#waiting-room-signature-validation-text",
     "insurance-declaration-unchecked-validation-error": "#waiting-room-insurance-validation-text",
     "residency-declaration-unchecked-validation-error": "#waiting-room-residency-validation-text",
-    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']/input"
+    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']//input"
   },
   "des-comms-screen": {
     "continue-btn": "//app-communication//ion-button[*[contains(text(), 'Continue')]]",
@@ -454,7 +454,7 @@
     "continue-btn": "#continue-to-non-pass-finalisation"
   },
   "des-final-outcome-screen": {
-    "manoeuvres-pass-cert-number": "//*[@id='manoeuvres-pass-cert-number']/input",
+    "manoeuvres-pass-cert-number": "//*[@id='manoeuvres-pass-cert-number']//input",
     "page-title": "#pass-finalisation-title",
     "page-title-non-pass": "#non-pass-page-title",
     "application-reference-container": "#application-reference-card",
@@ -475,7 +475,7 @@
     "transmission-manual-label": "#transmission-manual-label",
     "transmission-automatic-label": "#transmission-automatic-label",
     "automatic-license-message": "#warning_text='An automatic licence will be issued.'",
-    "pass-certificate-number-field-input": "//*[@id='pass-certificate-number']/input",
+    "pass-certificate-number-field-input": "//*[@id='pass-certificate-number']//input",
     "pass-certificate-validation-error-text": "#pass-finalisation-certificate-number-validation-text",
     "d255-container": "#d255-card",
     "d255-yes-input": "#d255-yes",
@@ -605,7 +605,7 @@
     "tech-fault-radio": "#ipadIssueTechnicalFault",
     "lost-radio": "#ipadIssueLost",
     "transfer-label": "#transfer-label",
-    "staff-number-text": "//*[@id='staffNumber']/input",
+    "staff-number-text": "//*[@id='staffNumber']//input",
     "other-reason-rekey-label": "#other-specify-reason",
     "reason-for-rekey-text": "#otherReason",
     "upload-rekey-btn": "#rekey-reason-upload-rekey-btn",
@@ -620,8 +620,8 @@
   },
   "des-rekey-search-page": {
     "page-title": "#rekey-search-page-title",
-    "application-ref-text": "//*[@id='rekey-search-application-reference']/input",
-    "staff-number-text": "//*[@id='rekey-search-staff-number']/input",
+    "application-ref-text": "//*[@id='rekey-search-application-reference']//input",
+    "staff-number-text": "//*[@id='rekey-search-staff-number']//input",
     "rekey-search-test-btn": "#rekey-search-search-tests-btn",
     "rekey-results-container": ".results-message",
     "result-time-text": "#time-12345633",

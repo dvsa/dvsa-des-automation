@@ -45,6 +45,8 @@ class LoginMobilePageObject extends Page {
     await browser.pause(5000);
     const user = credentials.Environment.Dev[typeOfUser][0];
 
+    // @TODO - may need to update this once id added?
+    // const burgerMenu: WebdriverIO.Element = await $('#dashboard-menu-button');
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
     const loginBackdrop = await $('app-login');
     const loginError = await $('#loginSorry');
