@@ -11,18 +11,19 @@ export const createSimulator = async (model: DeviceName, iosVersion: IOSVersion,
 
 export const createSimulators = async (numberOfSims: number, simulatorModel: DeviceName, iosVersion: IOSVersion) => {
   for (let i = 0; i < numberOfSims; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
     await createSimulator(simulatorModel, iosVersion, i);
   }
 };
 
-export const getAutomationSimulatorUDIDS = async (): Promise<string[]> => {
+export const getAutomationSimulatorUDIDS = async (model: DeviceName, iosVersion: IOSVersion): Promise<string[]> => {
   const udids: string[] = [];
   const simctl = new Simctl();
   const devices: any[] = await simctl.getDevices();
   const runtimes = Object.keys(devices) as string[];
   runtimes.forEach((runtime) => {
     devices[runtime].forEach((simulator: any) => {
-      if (simulator.name.indexOf('Automation') >= 0) {
+      if (simulator.name.indexOf(`${model} ${iosVersion} Automation`) >= 0) {
         udids.push(simulator.udid);
       }
     });
@@ -37,8 +38,8 @@ export const deleteDeviceByUDID = async (udid: string) => {
   console.log(`deleted device ${udid}`);
 };
 
-export const deleteAllAutomationSimulators = async () => {
-  const simulators: string[] = await getAutomationSimulatorUDIDS();
+export const deleteAllAutomationSimulators = async (model: DeviceName, iosVersion: IOSVersion) => {
+  const simulators: string[] = await getAutomationSimulatorUDIDS(model, iosVersion);
   const promiseArray = [];
   // eslint-disable-next-line no-restricted-syntax
   for (const simulator of simulators) {
@@ -48,7 +49,7 @@ export const deleteAllAutomationSimulators = async () => {
 };
 
 export const createAutomationSimulators = async (numberOfSimulators: number, simulatorModel: DeviceName, iosVersion: IOSVersion) => {
-  const sims: string[] = await getAutomationSimulatorUDIDS();
+  const sims: string[] = await getAutomationSimulatorUDIDS(simulatorModel, iosVersion);
   // if not enough existing automation simulators, create required additional sims
   if (sims.length < numberOfSimulators) {
     console.log(`${numberOfSimulators} simulators requested but only ${sims.length} simulators found...creating additional simulators`);

@@ -105,7 +105,7 @@ const config: WebdriverIO.Config = {
     console.log(`*********** test run complete. START: ${startTime} END: ${endTime}`);
   },
   async onWorkerStart(cid, caps: any) {
-    const ids = await getAutomationSimulatorUDIDS();
+    const ids = await getAutomationSimulatorUDIDS(simulatorModel, iosVersion);
     const capIndex = parseInt(cid.split('-')[0], 10);
     const simUDID = ids[capIndex];
     console.log(`${cid} using sim ${simUDID} on port ${caps.wdaLocalPort}`);
