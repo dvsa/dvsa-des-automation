@@ -47,7 +47,7 @@ class LoginMobilePageObject extends Page {
 
     // @TODO - may need to update this once id added?
     // const burgerMenu: WebdriverIO.Element = await $('#dashboard-menu-button');
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+    const burgerMenu: WebdriverIO.Element = await $('#dashboard-menu-button');
     const loginBackdrop = await $('app-login');
     const loginError = await $('#loginSorry');
 
@@ -142,7 +142,7 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    await clickElement('click', 'selector', '//ion-menu-button');
+    await clickElement('click', 'selector', '#dashboard-menu-button');
     await clickElement('click', 'selector', '#logout');
     await clickElementWithText('click', 'button', 'Logout');
     await this.clickNativeButtonWithText('Continue');
