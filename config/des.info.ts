@@ -10,11 +10,11 @@ class DesInfo {
   }
 
   get localDeviceName() {
-    return 'iPad (9th generation)';
+    return 'iPad (8th generation)';
   }
 
   get platFormVersion() {
-    return '16.4'; // pass the platform version
+    return '16.1'; // pass the platform version
   }
 
   get platformName() {

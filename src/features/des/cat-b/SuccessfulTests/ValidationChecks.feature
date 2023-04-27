@@ -1,3 +1,4 @@
+@test
 Feature: Cat-B Successful feature
 
   Scenario:   Check validation on all pages
