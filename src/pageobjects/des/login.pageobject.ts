@@ -2,11 +2,16 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import * as credentials from '../../../creds/credentials.json';
 import Page from '../base/page';
+import waitFor from '@shared-boilerplate/support/action/waitFor';
 
 class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
 
   private msSignOutContextTitle: string = 'Sign out';
+
+  get ionMenuButton() { return 'des-dashboard::menu-button-xpath'; }
+
+  get logoutButton() { return 'des-dashboard::logout-button'; }
 
   async waitForExist(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
@@ -42,7 +47,7 @@ class LoginMobilePageObject extends Page {
 
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
-    await browser.pause(5000);
+    await browser.pause(7000);
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
@@ -117,8 +122,9 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    await clickElement('click', 'selector', '//ion-menu-button');
-    await clickElement('click', 'selector', '#logout');
+    await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    await clickElement('click', 'selector', this.ionMenuButton);
+    await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
     await this.clickNativeButtonWithText('Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);

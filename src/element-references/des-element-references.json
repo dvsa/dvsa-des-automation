@@ -25,7 +25,9 @@
     "search-completed-tests-btn": "#completed-search-button",
     "rekey-test-btn": "#rekey-search-button",
     "partial-practise-mode-btn": "#practice-mode-test-report-button",
-    "full-practise-mode-btn": "#practice-mode-full-button"
+    "full-practise-mode-btn": "#practice-mode-full-button",
+    "menu-button-xpath": "//ion-menu-button",
+    "logout-button": "#logout"
   },
   "des-my-journal": {
     "page-title": "#page-title",
@@ -105,9 +107,18 @@
     "vrn-modal-cancel-btn": ".cancel-button",
     "vrn-modal-save-btn": ".save-button",
     "enter-signature-err-msg": "#waiting-room-signature-validation-text",
-    "insurance-declaration-unchecked-validation-error": "#waiting-room-insurance-validation-text",
-    "residency-declaration-unchecked-validation-error": "#waiting-room-residency-validation-text",
-    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']/input"
+    "insurance-declaration-unchecked-validation-message": "#waiting-room-insurance-validation-text",
+    "residency-declaration-unchecked-validation-message": "#waiting-room-residency-validation-text",
+    "signature-pad-validation-message": "#signature-area-validation-text",
+    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']//input"
+  },
+  "des-candidate-licence-page": {
+    "error-card": "#driver-photograph-error-header",
+    "photo-card": "#driver-photograph-img",
+    "continue-button": "#candidate-licence-continue-button",
+    "true-likeness-yes": "#true-likeness-yes",
+    "true-likeness-no": "#true-likeness-no",
+    "candidate-true-likeness-validation-message": "#true-likeness-validation-text"
   },
   "des-comms-screen": {
     "continue-btn": "//app-communication//ion-button[*[contains(text(), 'Continue')]]",
@@ -154,7 +165,7 @@
     "modal-submit-btn": "//button[contains(text(), 'Submit')]",
     "vehicle-registration-container": "#registration-card",
     "vehicle-registration-input": "#registration",
-    "vehicle-registration-input-input": "//*[@id='registration']/input",
+    "vehicle-registration-input-input": "//*[@id='registration']//input",
     "vehicle-registration-validation-error-msg": "#waiting-room-to-car-registration-validation-text",
     "transmission-type-validation-error-msg": "#transmission-validation-text",
     "transmission-type-container": "#transmission-card",
@@ -369,7 +380,16 @@
     "modal-adi-continue-to-debrief-button": "#continue-to-debrief-button",
     "adi-public-safety-model": "#model-alert-title-text",
     "code-four-yes-button-model": "#code-4-yes-button",
-    "code-four-no-button-model": "#code-4-no-button"
+    "code-four-no-button-model": "#code-4-no-button",
+    "legal-requirements-modal-list": "#legal-requirements-list",
+    "legal-requirements-modal-first-ns-list": "(//*[@id='legal-requirements-list']/li[contains(text(), 'NS (normal stop)')])[1]",
+    "legal-requirements-modal-second-ns-list": "(//*[@id='legal-requirements-list']/li[contains(text(), 'NS (normal stop)')])[2]",
+    "legal-requirements-modal-as-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'AS (angled start)')]",
+    "legal-requirements-modal-hs-ds-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'HS / DS (hill or designated start)')]",
+    "legal-requirements-modal-manoeuvres-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Manoeuvres')]",
+    "legal-requirements-modal-sm-tm-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Show me / Tell me')]",
+    "legal-requirements-modal-eco-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Eco (control and planning)')]",
+    "end-test-model-return-to-test-button": "#model-return-button"
   },
   "des-lesson-and-theme-screen": {
     "lesson-and-theme-title": "#adi-pt3-assessment-lesson-theme-title",
@@ -454,7 +474,7 @@
     "continue-btn": "#continue-to-non-pass-finalisation"
   },
   "des-final-outcome-screen": {
-    "manoeuvres-pass-cert-number": "//*[@id='manoeuvres-pass-cert-number']/input",
+    "manoeuvres-pass-cert-number": "//*[@id='manoeuvres-pass-cert-number']//input",
     "page-title": "#pass-finalisation-title",
     "page-title-non-pass": "#non-pass-page-title",
     "application-reference-container": "#application-reference-card",
@@ -475,7 +495,7 @@
     "transmission-manual-label": "#transmission-manual-label",
     "transmission-automatic-label": "#transmission-automatic-label",
     "automatic-license-message": "#warning_text='An automatic licence will be issued.'",
-    "pass-certificate-number-field-input": "//*[@id='pass-certificate-number']/input",
+    "pass-certificate-number-field-input": "//*[@id='pass-certificate-number']//input",
     "pass-certificate-validation-error-text": "#pass-finalisation-certificate-number-validation-text",
     "d255-container": "#d255-card",
     "d255-yes-input": "#d255-yes",
@@ -499,7 +519,11 @@
     "licence-received-no-label": "#prov-licence-received-no-label",
     "further-advice-yes-input": "#further-development-yes",
     "further-advice-no-input": "#further-development-no",
-    "reason-for-advice-textarea": "#ordit-reason-for-advice-textarea"
+    "reason-for-advice-textarea": "#ordit-reason-for-advice-textarea",
+    "provisional-licence-received-validation-msg": "#licence-provided-validation-text",
+    "transmission-validation-msg": "#transmission-validation-text",
+    "pass-certificate-number-validation-msg": "#pass-finalisation-certificate-number-validation-text",
+    "debrief-witnessed-validation-msg": "#debrief-witnessed-validation-text"
   },
   "des-final-non-pass-declaration-screen": {
     "activity-code-container": "#activity-code-card",
@@ -520,7 +544,9 @@
     "continue-modal-cancel-btn": "button='Cancel'",
     "continue-modal-continue-btn": "button='Continue'",
     "warning-text": "#warning_text",
-    "continue-btn": "(//*[@id='continue-button'])[3]"
+    "continue-btn": "(//*[@id='continue-button'])[3]",
+    "pass-certificate-receipt-validation-msg": "#pass-certificate-receipt-validation-text",
+    "signature-pad-validation-msg": "(//*[@id='signature-area-validation-text'])[last()]"
   },
   "des-final-confirmation-screen": {
     "page-title": "#confirm-test-details-title",
@@ -559,16 +585,16 @@
     "candidate-name": "#candidate-name",
     "test-outcome-text": "#test-outcome-text",
     "activity-code": "#activity-code-selector",
-    "route-number-input": "//*[@id='route-number-input']/input",
-    "route-number-validation": "#office-route-number-validation-text",
-    "independant-driving-sat-nav-input": "#independent-driving-satnav",
-    "independant-driving-traffice-signs-input": "#independent-driving-trafficsigns",
-    "independant-driving-diagram-input": "#independent-driving-diagram",
-    "independant-driving-validation": "#office-independent-driving-validation-text",
+    "route-number-input": "//*[@id='route-number-input']//input",
+    "route-number-validation-msg": "#route-number-validation-text",
+    "independent-driving-sat-nav-input": "#independent-driving-satnav",
+    "independent-driving-traffice-signs-input": "#independent-driving-trafficsigns",
+    "independent-driving-diagram-input": "#independent-driving-diagram",
+    "independent-driving-validation-msg": "#independent-driving-validation-text",
     "candidate-true-likeness-yes-input": "#true-likeness-yes",
     "candidate-true-likeness-no-input": "#true-likeness-no",
     "desc-of-candidate-input": "#candidate-description-text",
-    "desc-of-candidate-validation": "#office-candidate-description-validation-text",
+    "desc-of-candidate-validation-msg": "#candidate-description-validation-text",
     "remaining-char-count": ".character-count",
     "identification-photo-card-input": "#identification-license",
     "identification-passport-input": "#identification-passport",
@@ -598,14 +624,16 @@
     "test-conducted-bike-bike-input": "#mode-of-transport-biketobike",
     "adi2-first-show-me-question": "#show-me-question-selector_1",
     "adi2-second-show-me-question": "#show-me-question-selector_2",
-    "additional-information-textarea": "#additional-information-text"
+    "additional-information-textarea": "#additional-information-text",
+    "show-me-question-validation-msg": "#show-me-question-validation-text",
+    "weather-conditions-validation-msg": "#weather-conditions-validation-text"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox": ".//label[contains(text(), 'iPad Issue')]",
     "tech-fault-radio": "#ipadIssueTechnicalFault",
     "lost-radio": "#ipadIssueLost",
     "transfer-label": "#transfer-label",
-    "staff-number-text": "//*[@id='staffNumber']/input",
+    "staff-number-text": "//*[@id='staffNumber']//input",
     "other-reason-rekey-label": "#other-specify-reason",
     "reason-for-rekey-text": "#otherReason",
     "upload-rekey-btn": "#rekey-reason-upload-rekey-btn",
@@ -628,12 +656,5 @@
     "result-name-text": "#name-12345633",
     "result-category-text": "#category-12345633",
     "result-rekey-btn": "#rekey-button-12345633"
-  },
-  "des-candidate-licence-page": {
-    "error-card": "#driver-photograph-error-header",
-    "photo-card": "#driver-photograph-img",
-    "continue-button": "#candidate-licence-continue-button",
-    "true-likeness-yes": "#true-likeness-yes",
-    "true-likeness-no": "#true-likeness-no"
   }
 }
