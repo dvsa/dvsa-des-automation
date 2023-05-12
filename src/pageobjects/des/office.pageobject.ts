@@ -22,11 +22,11 @@ interface OfficePageData {
 class OfficePageObject extends Page {
   get routeNumberInput() { return ('des-office-page::route-number-input'); }
 
-  get satNavButton() { return ('des-office-page::independant-driving-sat-nav-input'); }
+  get satNavButton() { return ('des-office-page::independent-driving-sat-nav-input'); }
 
-  get trafficSignsButton() { return ('des-office-page::independant-driving-traffice-signs-input'); }
+  get trafficSignsButton() { return ('des-office-page::independent-driving-traffice-signs-input'); }
 
-  get diagramButton() { return ('des-office-page::independant-driving-diagram-input'); }
+  get diagramButton() { return ('des-office-page::independent-driving-diagram-input'); }
 
   get candidateLikenessYes() { return ('des-office-page::candidate-true-likeness-yes-input'); }
 
