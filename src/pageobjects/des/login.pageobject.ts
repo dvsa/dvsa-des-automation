@@ -1,8 +1,8 @@
 import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
+import waitFor from '@shared-boilerplate/support/action/waitFor';
 import * as credentials from '../../../creds/credentials.json';
 import Page from '../base/page';
-import waitFor from '@shared-boilerplate/support/action/waitFor';
 
 class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
