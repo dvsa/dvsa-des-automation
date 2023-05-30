@@ -208,6 +208,13 @@ export const config: WebdriverIO.Config = {
     timeout: 120000, // <number> timeout for step definitions
   } as WebdriverIO.CucumberOpts,
 
+  afterScenario: async () => {
+    // Comment out this locally if you don't want to clear storage
+    console.info('clearing local storage before scenario');
+    await browser.execute('window.localStorage.clear()');
+    await browser.reloadSession();
+  },
+
   afterStep: (step, scenario, result) => {
     if (!result.passed) {
       browser.takeScreenshot();
@@ -219,6 +226,10 @@ export const config: WebdriverIO.Config = {
   },
 
   before: async () => {
+    // Comment out this locally if you don't want to clear storage
+    console.info('clearing local storage before scenario');
+    await browser.execute('window.localStorage.clear()');
+    await browser.reloadSession();
     await CustomCommand.addCommands();
   },
 };

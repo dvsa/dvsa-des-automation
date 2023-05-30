@@ -78,4 +78,8 @@ export const DESSuites = {
   rekeysearchtests: [
     './src/features/des/SearchRekeyTests/SearchRekey.feature',
   ],
+  validationtests: [
+    'src/features/des/cat-adi3/SuccessfulTests/ValidationChecks.feature',
+    'src/features/des/cat-b/SuccessfulTests/ValidationChecks.feature',
+  ],
 };
