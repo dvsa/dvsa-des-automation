@@ -57,7 +57,7 @@ class LoginMobilePageObject extends Page {
 
     // check if already logged in on app launch.
     await Promise.race([
-      this.waitForExist(burgerMenu),
+      this.waitForExistAndClickable(burgerMenu),
       this.waitForExist(loginBackdrop),
       this.waitForExist(loginError),
     ]);
@@ -122,7 +122,7 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    await waitFor(this.ionMenuButton, '10000', false, 'be displayed');
     await clickElement('click', 'selector', this.ionMenuButton);
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');

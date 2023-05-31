@@ -232,7 +232,11 @@
     "pdi-logbook-yes-label": "#pdi-logbook-yes-label",
     "pdi-logbook-no-label": "#pdi-logbook-no-label",
     "trainee-licence-yes-label": "#trainee-licence-yes-label",
-    "trainee-licence-no-label": "#trainee-licence-no-label"
+    "trainee-licence-no-label": "#trainee-licence-no-label",
+    "dual-controls-validation-msg": "#dual-controls-validation-text",
+    "pdi-logbook-validation-msg": "#pdi-logbook-validation-text",
+    "trainee-licence-validation-msg": "#trainee-licence-validation-text",
+    "ordit-trained-validation-msg": "#waiting-room-to-car-ordit-trained-validation-text"
   },
   "des-test-report-screen": {
     "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -391,6 +395,16 @@
     "legal-requirements-modal-eco-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Eco (control and planning)')]",
     "end-test-model-return-to-test-button": "#model-return-button"
   },
+  "test-report-dashboard-screen": {
+    "complete-all-sections-end-test-modal": "#complete-all-sections-text",
+    "lesson-theme-invalid-icon": "#lesson-and-theme-invalid-icon",
+    "lesson-theme-valid-icon": "#lesson-and-theme-valid-icon",
+    "test-report-invalid-icon": "#test-report-invalid-icon",
+    "test-report-valid-icon": "#test-report-valid-icon",
+    "review-invalid-icon": "#review-invalid-icon",
+    "review-valid-icon": "#review-valid-icon",
+    "end-test-modal-return-to-test": "#return-to-test-button"
+  },
   "des-lesson-and-theme-screen": {
     "lesson-and-theme-title": "#adi-pt3-assessment-lesson-theme-title",
     "student-partly-trained-label": "#partlyTrainedLabel",
@@ -420,7 +434,24 @@
     "teaching-learning-strategies-score-label": "#score-teaching-&-learning-strategies-label",
     "teaching-learning-strategies-label": "#teaching-&-learning-strategies-label",
     "total-score-value": "#score-value",
-    "continue-button": "#adi-pt3-continue-tr-label"
+    "continue-button": "#adi-pt3-continue-tr-label",
+    "lesson-planning-one-validation-msg": "#lp-1assessment-validation-text",
+    "lesson-planning-two-validation-msg": "#lp-2assessment-validation-text",
+    "lesson-planning-three-validation-msg": "#lp-3assessment-validation-text",
+    "lesson-planning-four-validation-msg": "#lp-4assessment-validation-text",
+    "risk-management-one-validation-msg": "#rm-1assessment-validation-text",
+    "risk-management-two-validation-msg": "#rm-2assessment-validation-text",
+    "risk-management-three-validation-msg": "#rm-3assessment-validation-text",
+    "risk-management-four-validation-msg": "#rm-4assessment-validation-text",
+    "risk-management-five-validation-msg": "#rm-5assessment-validation-text",
+    "teaching-learning-strategies-one-validation-msg": "#tls-1assessment-validation-text",
+    "teaching-learning-strategies-two-validation-msg": "#tls-2assessment-validation-text",
+    "teaching-learning-strategies-three-validation-msg": "#tls-3assessment-validation-text",
+    "teaching-learning-strategies-four-validation-msg": "#tls-4assessment-validation-text",
+    "teaching-learning-strategies-five-validation-msg": "#tls-5assessment-validation-text",
+    "teaching-learning-strategies-six-validation-msg": "#tls-6assessment-validation-text",
+    "teaching-learning-strategies-seven-validation-msg": "#tls-7assessment-validation-text",
+    "teaching-learning-strategies-eight-validation-msg": "#tls-8assessment-validation-text"
   },
   "des-debrief-screen": {
     "test-outcome-container": ".test-outcome-container",
@@ -523,7 +554,9 @@
     "provisional-licence-received-validation-msg": "#licence-provided-validation-text",
     "transmission-validation-msg": "#transmission-validation-text",
     "pass-certificate-number-validation-msg": "#pass-finalisation-certificate-number-validation-text",
-    "debrief-witnessed-validation-msg": "#debrief-witnessed-validation-text"
+    "debrief-witnessed-validation-msg": "#debrief-witnessed-validation-text",
+    "ordit-trainer-validation-msg": "#further-development-validation-text",
+    "no-advice-given-validation-msg": "#reason-given-validation-text"
   },
   "des-final-non-pass-declaration-screen": {
     "activity-code-container": "#activity-code-card",
