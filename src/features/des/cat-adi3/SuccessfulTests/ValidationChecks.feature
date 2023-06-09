@@ -1,3 +1,4 @@
+@test
 Feature: Cat-ADI3 Successful feature
 
   Scenario: Check validation on all pages
