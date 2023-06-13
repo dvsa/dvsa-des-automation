@@ -84,5 +84,5 @@ export const DESSuites = {
   ],
   aditwo: [
     './src/features/des/cat-adi2/*/*.feature',
-  ]
+  ],
 };
