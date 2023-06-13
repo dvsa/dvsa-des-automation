@@ -47,6 +47,8 @@ exports.config = {
       deviceName: DesInfo.localDeviceName,
       app: DesInfo.localAppPath,
       disableAnimations: true,
+      includeSafariInWebviews: true,
+      autoAcceptAlerts: true,
     },
   ],
 };
