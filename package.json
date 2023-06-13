@@ -26,9 +26,6 @@
     "wdio:des:ap:test": "npm run copy-shared && npm run merge-element-references && wdio run ./config/wdio.DES-Appium.conf.ts --cucumberOpts.tagExpression='@test'",
     "wdio:des:ap:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-Appium.conf.ts",
     "wdio:des:ap:test:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-Appium.conf.ts --cucumberOpts.tagExpression='@test'",
-    "wdio:des:bs": "npm run copy-shared && npm run merge-element-references && wdio run ./config/wdio.DES-BrowserStack.conf.ts",
-    "wdio:des:bs:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts",
-    "wdio:des:bs:test:report": "npm run copy-shared && npm run merge-element-references && npm run report:clean && wdio run ./config/wdio.DES-BrowserStack.conf.ts --cucumberOpts.tagExpression='@test'",
     "report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report && allure open ./reports/allure-report",
     "s3report": "allure generate --clean ./reports/allure-results/ -o ./reports/allure-report",
     "report:clean": "rimraf ./reports/allure-results && rimraf ./reports/allure-report && rimraf ./reports/logs",
@@ -36,7 +33,7 @@
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint --fix . --ext .ts",
     "prepare": "husky install",
-    "postinstall": "scripts/patch-test-driver.sh && npm run copy-shared && npm run merge-element-references",
+    "postinstall": "npm run copy-shared && npm run merge-element-references",
     "merge-element-references": "json-concat shared/element-references/common-element-references.json src/element-references/des-element-references.json shared/element-references/combined-element-references.json",
     "compile": "npx tsc --noEmit -p ."
   },
@@ -72,20 +69,21 @@
     "wdio-cucumberjs-json-reporter": "^4.1.4"
   },
   "dependencies": {
-    "date-fns": "^2.21.1",
-    "webdriverio": "^7.16.16",
-    "@wdio/cucumber-framework": "^7.18.0",
     "@cucumber/cucumber": "^7.3.2",
     "@dvsa/app-dev-automation": "0.0.42",
+    "@wdio/cucumber-framework": "^7.18.0",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",
-    "appium-xcuitest-driver": "^3.46.0",
     "axios": "^0.26.1",
     "browserstack-local": "^1.4.8",
+    "date-fns": "^2.21.1",
     "json-concat": "0.0.1",
+    "lodash": "^4.17.21",
     "ms-chromium-edge-driver": "^0.4.3",
+    "node-simctl": "^7.1.12",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
-    "wdio-video-reporter": "^3.1.1"
+    "wdio-video-reporter": "^3.1.1",
+    "webdriverio": "^7.16.16"
   }
 }
