@@ -6,11 +6,16 @@ Feature: Cat-ADI2 Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "10000012"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "#start-test-button-22123400" to be displayed
     And I start the test for "#start-test-button-22123400"
+    And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page for a category "adi2"
+    And I wait on element "des-candidate-licence-page::true-likeness-yes" to be displayed
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
+    And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
+    And I wait on element "des-waiting-room-to-car::eyesight-pass-label" to be displayed
     And I complete the waiting room to car page from a data table for a category "adi2"
       | eyesightTest            | pass                     |
       | tellMeQuestion1         | T2 - Tyre pressures      |
@@ -24,14 +29,18 @@ Feature: Cat-ADI2 Successful feature
       | orditTrainer            | yes                      |
       | trainingRecords         | yes                      |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
+    And I wait on element "des-test-report-screen::test-requirement-first-ns-tick" to be displayed
     And I select all legal requirements for a category "adi2"
     And I click on the button "des-test-report-screen::end-test-btn"
+    And I wait on element "des-test-report-screen::end-test-continue-to-debrief-btn" to be displayed
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
     And I click on the button "des-debrief-screen::end-debrief-btn"
+    And I wait on element "des-final-outcome-screen::debrief-witness-yes-input" to be displayed
     And I complete the successful final outcome screen from a data table
       | debriefWitnessed              | yes              |
+    And I wait on element "des-final-confirmation-screen::test-outcome-value" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed       |
       | activityCode          | 1 - Pass     |
@@ -41,8 +50,10 @@ Feature: Cat-ADI2 Successful feature
       | d255                  | na           |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
+    And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
+    And I wait on element "des-office-page::route-number-input" to be displayed
     And I complete the Office page from a data table
       | routeNumber             | 2                                           |
       | independentDriving      | sat nav                                     |
@@ -54,7 +65,9 @@ Feature: Cat-ADI2 Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "#activity-code-22123400" to be displayed
     And I scroll to element "#activity-code-22123400"
     And I expect that element "#activity-code-22123400" matches the text "1"
     And I click on the button "des-general::back-btn"
+    When I wait on element "des-dashboard::page-title" to be displayed
     And I sign out
