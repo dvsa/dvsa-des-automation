@@ -1,7 +1,7 @@
 /* eslint-disable */
 export enum DeviceName {
-    iPad8thGen = 'iPad (8th Generation)',
-    iPad9thGen = 'iPad (9th Generation)'
+    iPad8thGen = 'com.apple.CoreSimulator.SimDeviceType.iPad--8th-generation-',
+    iPad9thGen = 'com.apple.CoreSimulator.SimDeviceType.iPad-9th-generation'
 }
 
 export enum IOSVersion {

@@ -81,6 +81,7 @@
     "lodash": "^4.17.21",
     "ms-chromium-edge-driver": "^0.4.3",
     "node-simctl": "^7.1.12",
+    "teen_process": "^2.0.2",
     "tsconfig-paths": "^3.13.0",
     "wd": "^1.14.0",
     "wdio-video-reporter": "^3.1.1",

@@ -18,7 +18,7 @@ buildConfig.maxInstances = 1;
  * simulator model or iOS version (SDK for selected ios must be installed in xcode)
  * ===============================================================================
  */
-const numberOfParallelTests = 8;
+const numberOfParallelTests = 5;
 const simulatorModel: DeviceName = DeviceName.iPad8thGen;
 const iosVersion: IOSVersion = IOSVersion.sixteenOne;
 
@@ -123,6 +123,7 @@ const config: WebdriverIO.Config = {
     const ids = await getAutomationSimulatorUDIDS(simulatorModel, iosVersion);
     const capIndex = parseInt(cid.split('-')[0], 10);
     const simUDID = ids[capIndex];
+    console.log(`***********SIM ID ${simUDID} ****************`)
     console.log(`${cid} using sim ${simUDID} on port ${caps.wdaLocalPort}`);
     // eslint-disable-next-line no-param-reassign
     caps.udid = simUDID; //  specify individual sim here if required, e.g '8E6D7AF9-D366-45E6-8947-7637E94D4B81';
