@@ -6,11 +6,16 @@ Feature: Cat-B Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "des-my-journal::todays-date-container" to be displayed
     And I start the test for "#start-test-button-20654334"
+    And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
+    And I wait on element "des-candidate-licence-page::true-likeness-yes" to be displayed
     And I complete the candidate ID page from a data table
       | trueLikeness            | no               |
+    And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
+    And I wait on element "des-waiting-room-to-car::eyesight-pass-label" to be displayed
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
@@ -18,6 +23,7 @@ Feature: Cat-B Successful feature
       | vehicleRegNum           | vehreg           |
       | transmission            | manual           |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
+    And I wait on element "des-test-report-screen::test-requirement-first-ns-tick" to be displayed
     And I select all legal requirements for a category "B"
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-accelarator" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "5"
@@ -26,6 +32,7 @@ Feature: Cat-B Successful feature
     And I add "5" driving faults to the "des-test-report-screen::competency-btn-signalling" field
     And I expect that container "des-test-report-screen::driving-fault-counter" contains the text "15"
     And I click on the button "des-test-report-screen::end-test-btn-xpath"
+    And I wait on element "des-test-report-screen::end-test-continue-to-debrief-btn" to be displayed
     And I click on the button "des-test-report-screen::end-test-continue-to-debrief-btn"
     And I wait on element "des-debrief-screen::test-outcome-passed" to be displayed
     And I expect that element "des-debrief-screen::test-outcome-passed" is displayed
@@ -35,6 +42,7 @@ Feature: Cat-B Successful feature
       | des-debrief-screen::move-off-safety-fault                     | Move off - Safety                | des-debrief-screen::move-off-safety-fault-count            | 5                   |
       | des-debrief-screen::use-of-mirrors-signalling-fault           | Use of mirrors - Signalling      | des-debrief-screen::use-of-mirrors-signalling-fault-count  | 5                   |
     And I click on the button "des-debrief-screen::end-debrief-btn"
+    And I wait on element "des-final-outcome-screen::debrief-witness-yes-input" to be displayed
     And I complete the successful final outcome screen from a data table
       | provisionalLicenceReceived    | Yes              |
       | transmission                  | Manual           |
@@ -42,7 +50,9 @@ Feature: Cat-B Successful feature
       | d255                          | NA               |
       | testLanguage                  | NA               |
       | debriefWitnessed              | Yes              |
-    And  I complete the health declaration page for a category "B"
+    And I wait on element "des-final-pass-declaration-screen::signature-area-xpath" to be displayed
+    And I complete the health declaration page for a category "B"
+    And I wait on element "des-final-confirmation-screen::test-outcome-value" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
@@ -52,8 +62,10 @@ Feature: Cat-B Successful feature
       | d255                  | No                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
+    And I wait on element "des-back-to-office-holding-page::continue-to-write-up-btn" to be displayed
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
     And I click on the button "des-back-to-office-holding-page::single-app-mode-error-modal"
+    And I wait on element "des-office-page::route-number-input" to be displayed
     And I complete the Office page from a data table
       | activityCode            | NA                                          |
       | routeNumber             | 2                                           |
@@ -65,6 +77,8 @@ Feature: Cat-B Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "#activity-code-20654334" to be displayed
     And I expect that element "#activity-code-20654334" matches the text "1"
     And I click on the button "des-general::back-btn"
+    When I wait on element "des-dashboard::page-title" to be displayed
     And I sign out

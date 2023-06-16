@@ -82,7 +82,4 @@ export const DESSuites = {
     'src/features/des/cat-adi3/SuccessfulTests/ValidationChecks.feature',
     'src/features/des/cat-b/SuccessfulTests/ValidationChecks.feature',
   ],
-  aditwo: [
-    './src/features/des/cat-adi2/*/*.feature',
-  ],
 };

@@ -1,3 +1,4 @@
+@test
 Feature: Cat-B Successful feature
 
   Scenario:   Successful Test Rekey
@@ -6,6 +7,7 @@ Feature: Cat-B Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
+    And I wait on element "des-my-journal::todays-date-container" to be displayed
     And I go back 1 day and check the date is correct
     And I start the test for "#rekey-button-20654339"
     And I complete the waiting room declaration page

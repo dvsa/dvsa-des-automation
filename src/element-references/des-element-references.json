@@ -429,6 +429,7 @@
   },
   "des-adi-test-report-screen": {
     "test-report-title": "#adi-pt3-assessment-test-report-title",
+    "lesson-planning-label": "#lesson-planning-label",
     "lesson-planning-score-label": "#score-lesson-planning-label",
     "risk-management-score-label": "#score-risk-management-label",
     "teaching-learning-strategies-score-label": "#score-teaching-&-learning-strategies-label",
