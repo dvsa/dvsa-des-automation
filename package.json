@@ -37,7 +37,7 @@
     "lint:fix": "npx eslint --fix . --ext .ts",
     "prepare": "husky install",
     "postinstall": "scripts/patch-test-driver.sh && npm run copy-shared && npm run merge-element-references",
-    "merge-element-references": "json-concat shared/element-references/common-element-references.json src/element-references/des-element-references.json shared/element-references/combined-element-references.json",
+    "merge-element-references": "npx json-concat shared/element-references/common-element-references.json src/element-references/des-element-references.json shared/element-references/combined-element-references.json",
     "compile": "npx tsc --noEmit -p ."
   },
   "devDependencies": {
@@ -72,20 +72,18 @@
     "wdio-cucumberjs-json-reporter": "^4.1.4"
   },
   "dependencies": {
-    "date-fns": "^2.21.1",
-    "webdriverio": "^7.16.16",
     "@wdio/cucumber-framework": "^7.18.0",
     "@cucumber/cucumber": "^7.3.2",
-    "@dvsa/app-dev-automation": "0.0.42",
+    "@dvsa/app-dev-automation": "0.0.43",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",
     "appium-xcuitest-driver": "^3.46.0",
-    "axios": "^0.26.1",
     "browserstack-local": "^1.4.8",
-    "json-concat": "0.0.1",
-    "ms-chromium-edge-driver": "^0.4.3",
-    "tsconfig-paths": "^3.13.0",
+    "date-fns": "^2.21.1",
+    "lodash": "4.17.21",
     "wd": "^1.14.0",
-    "wdio-video-reporter": "^3.1.1"
+    "wdio-video-reporter": "^3.1.1",
+    "webdriverio": "^7.16.16",
+    "node-simctl": "^7.1.12"
   }
 }
