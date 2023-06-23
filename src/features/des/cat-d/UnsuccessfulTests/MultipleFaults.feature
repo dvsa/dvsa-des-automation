@@ -1,4 +1,3 @@
-@test
 Feature: Cat-D Unsuccessful Tests
 
   Scenario: Unsuccessful test with multiple different faults
