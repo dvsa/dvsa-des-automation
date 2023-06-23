@@ -6,7 +6,7 @@ interface PassedConfirmationData {
   testOutcome: string;
   activityCode: string;
   testCategory: string;
-  provLicenceRecieved: string;
+  provLicenceReceived: string;
   transmission: string;
   d255: string;
   student: string;
@@ -73,7 +73,7 @@ class ConfirmationPageObject extends Page {
       testOutcome,
       activityCode,
       testCategory,
-      provLicenceRecieved,
+      provLicenceReceived,
       transmission,
       d255,
       student,
@@ -98,8 +98,8 @@ class ConfirmationPageObject extends Page {
           case 'testcategory':
             await checkEqualsText('element', this.testCategoryValue, false, testCategory);
             break;
-          case 'provisionlicence':
-            await checkEqualsText('element', this.provisionalLicencedValue, false, provLicenceRecieved);
+          case 'provlicencereceived':
+            await checkEqualsText('element', this.provisionalLicencedValue, false, provLicenceReceived);
             break;
           case 'transmission':
             await checkEqualsText('element', this.transmissionValue, false, transmission);

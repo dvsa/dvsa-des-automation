@@ -39,7 +39,7 @@ Feature: Cat-H Home Unsuccessful feature
       | testOutcome           | Unsuccessful                                |
       | activityCode          | 2 - Fail                                    |
       | testCategory          | H                                           |
-      | provLicenceRecieved   | na                                          |
+      | provLicenceReceived   | na                                          |
       | transmission          | na                                          |
       | d255                  | No                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"

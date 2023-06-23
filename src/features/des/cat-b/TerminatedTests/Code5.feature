@@ -38,7 +38,7 @@ Feature: Cat-B Terminated feature
       | testOutcome           | Unsuccessful                                               |
       | activityCode          | 5 - Fail candidate chose to stop test: Already failed      |
       | testCategory          | B                                                          |
-      | provLicenceRecieved   | na                                                         |
+      | provLicenceReceived   | na                                                         |
       | transmission          | na                                                         |
       | d255                  | No                                                         |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"

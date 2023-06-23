@@ -55,7 +55,7 @@ Feature: Cat-D Successful feature
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
       | testCategory          | D                                           |
-      | provLicenceRecieved   | Yes - Please retain the candidates licence  |
+      | provLicenceReceived   | Yes - Please retain the candidates licence  |
       | transmission          | Manual                                      |
       | d255                  | No                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
