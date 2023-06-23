@@ -37,7 +37,7 @@ Feature: Cat-B Terminated feature
       | testOutcome           | Terminated                                                |
       | activityCode          | 21 - Vehicle / gear not suitable or no vehicle for test   |
       | testCategory          | B                                                         |
-      | provLicenceRecieved   | na                                                        |
+      | provLicenceReceived   | na                                                        |
       | transmission          | na                                                        |
       | d255                  | No                                                        |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"

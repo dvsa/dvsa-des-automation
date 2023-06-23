@@ -237,6 +237,7 @@ class WaitingRoomPageToCarObject extends Page {
   get traineeLicenceNoLabel() { return ('des-waiting-room-to-car::trainee-licence-no-label'); }
 
   async addVehicleQuestion(question:string, value:string): Promise<void> {
+    await scroll(question);
     await clickElement('click', 'selector', question);
     await clickElementWithText('click', 'button', value);
     await clickElementWithText('click', 'element', 'Submit');
@@ -839,6 +840,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async setShowMeQuestion1Fault(fieldInput:string) {
+    await scroll(this.firstVehicleCheckQuestionCorrectLabel);
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.firstVehicleCheckQuestionCorrectLabel);
@@ -852,6 +854,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async setShowMeQuestion2Fault(fieldInput:string) {
+    await scroll(this.secondVehicleCheckQuestionCorrectLabel);
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.secondVehicleCheckQuestionCorrectLabel);
@@ -865,6 +868,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async setShowMeQuestion3Fault(fieldInput:string) {
+    await scroll(this.thirdVehicleCheckQuestionCorrectLabel);
     switch (fieldInput) {
       case 'correct':
         await clickElement('click', 'selector', this.thirdVehicleCheckQuestionCorrectLabel);
@@ -878,6 +882,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async setTellMeQuestion1Fault(fieldInput:string, category?:string) {
+    await scroll(category === 'adi2' ? this.firstVehicleCheckQuestionCorrectLabel : this.fourthVehicleCheckCorrectLabel);
     switch (fieldInput) {
       case 'correct':
         await clickElement(
@@ -899,6 +904,7 @@ class WaitingRoomPageToCarObject extends Page {
   }
 
   async setTellMeQuestion2Fault(fieldInput:string, category:string | undefined = 'na') {
+    await scroll(category === 'na' ? this.fifthVehicleCheckQuestionCorrectLabel : this.secondVehicleCheckQuestionCorrectLabel);
     switch (fieldInput) {
       case 'correct':
         await clickElement(

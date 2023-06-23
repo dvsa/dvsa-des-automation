@@ -29,7 +29,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
       | testOutcome           | Unsuccessful                                |
       | activityCode          | 3 - Fail due to eyesight                    |
       | testCategory          | B                                           |
-      | provLicenceRecieved   | na                                          |
+      | provLicenceReceived   | na                                          |
       | transmission          | na                                          |
       | d255                  | Yes - Please complete a D255                |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"

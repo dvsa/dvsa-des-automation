@@ -35,7 +35,7 @@ Feature: Cat-CPC Successful feature
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |
       | testCategory          | CCPC                                        |
-      | provLicenceRecieved   | na                                          |
+      | provLicenceReceived   | na                                          |
       | transmission          | na                                          |
       | d255                  | na                                          |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
