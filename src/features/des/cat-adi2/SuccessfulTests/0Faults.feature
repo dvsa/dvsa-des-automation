@@ -36,7 +36,7 @@ Feature: Cat-ADI2 Successful feature
       | testOutcome           | Passed       |
       | activityCode          | 1 - Pass     |
       | testCategory          | ADI2         |
-      | provLicenceRecieved   | na           |
+      | provLicenceReceived   | na           |
       | transmission          | na           |
       | d255                  | na           |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"

@@ -41,7 +41,7 @@ Feature: Cat-Mod2 Successful feature
       | testOutcome           | Passed                                                            |
       | activityCode          | 1 - Pass                                                          |
       | testCategory          | EUAMM2                                                            |
-      | provLicenceRecieved   | Yes - Please retain the candidates licence                        |
+      | provLicenceReceived   | Yes - Please retain the candidates licence                        |
       | transmission          | Automatic - An automatic licence issued                           |
       | d255                  | Yes - Please complete a D255                                      |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
