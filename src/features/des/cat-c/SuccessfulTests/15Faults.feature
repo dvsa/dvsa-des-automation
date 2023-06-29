@@ -12,7 +12,7 @@ Feature: Cat-C Successful feature
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "C"
-      | vehicleRegNum            | vehreg                             |
+      | vehicleRegNum            | autopck                             |
       | showMeQuestion1          | Q1 - All doors secure              |
       | showMeQuestion2          | Q2 - Air leaks                     |
       | showMeQuestion3          | Q13 - Check audible warnings       |

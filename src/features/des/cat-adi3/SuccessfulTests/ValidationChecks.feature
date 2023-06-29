@@ -22,7 +22,7 @@ Feature: Cat-ADI3 Successful feature
     And the element "des-waiting-room-to-car::trainee-licence-validation-msg" is displayed
     And the element "des-waiting-room-to-car::ordit-trained-validation-msg" is displayed
     And I complete the waiting room to car page from a data table for a category "adi3"
-      | vehicleRegNum           | vehreg                |
+      | vehicleRegNum           | autopck                |
       | duelControls            | No                    |
       | transmission            | Automatic             |
       | pdiLogbook              | No                    |
