@@ -47,7 +47,9 @@ class LoginMobilePageObject extends Page {
 
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
+    console.info('Pausing for 7000 ms');
     await browser.pause(7000);
+    console.info('7000ms pause done');
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
@@ -67,16 +69,19 @@ class LoginMobilePageObject extends Page {
     }
 
     if (await burgerMenu.isDisplayed()) {
+      console.info('logging out');
       await this.logout();
     }
 
-    await this.clickNativeButtonWithText('Continue');
+    // await this.clickNativeButtonWithText('Continue');
 
     // wait for log in page
+    console.info('Wait for log in page');
     await this.waitForContextToExist(this.msSignInContextTitle);
     const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
     // @ts-ignore
     await driver.switchContext(signInContext.id);
+    console.info('switched context');
 
     // click 'use another account if clickable
     const continueButton = await $('input[value="Continue"]');
@@ -91,8 +96,10 @@ class LoginMobilePageObject extends Page {
     // click use another account if it is available
     const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
     if (useAnotherAccountButtonPresent) {
+      console.info('Clicking use another account');
       await this.clickElement(useAnotherAccount);
     }
+    console.info('After if for Clicking use another account');
     // set email
     await this.waitForExistAndClickable(emailTextBox);
     await this.clickElement(emailTextBox);
