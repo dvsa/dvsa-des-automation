@@ -19,7 +19,7 @@ Feature: Cat-ADI2 Successful feature
       | tellMeQuestion1Fault    | correct                  |
       | tellMeQuestion2Fault    | correct                  |
       | tellMeQuestion3Fault    | correct                  |
-      | vehicleRegNum           | vehreg                   |
+      | vehicleRegNum           | autopck                   |
       | transmission            | manual                   |
       | orditTrainer            | yes                      |
       | trainingRecords         | yes                      |

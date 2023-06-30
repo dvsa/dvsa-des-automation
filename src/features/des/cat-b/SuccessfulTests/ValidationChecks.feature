@@ -31,7 +31,7 @@ Feature: Cat-B Successful feature
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestionFault     | correct          |
-      | vehicleRegNum           | vehreg           |
+      | vehicleRegNum           | autopck           |
       | transmission            | manual           |
       | accompaniedBy           | instructor       |
       | vehicleDetails          | school car       |

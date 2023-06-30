@@ -14,7 +14,7 @@ Feature: Cat-CM Successful feature
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I complete the waiting room to car page from a data table for a category "Manoeuvre"
-      | vehicleRegNum            | vehreg                             |
+      | vehicleRegNum            | autopck                             |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I select all legal requirements for a category "Manoeuvre"

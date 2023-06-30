@@ -13,7 +13,7 @@ Feature: Cat-CPC Unsuccessful feature
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "CPC"
-      | vehicleRegNum            | vehreg                             |
+      | vehicleRegNum            | autopck                             |
       | details                  | articulated                        |
       | accompanied              | interpreter                        |
       | combination              | LGV3                               |

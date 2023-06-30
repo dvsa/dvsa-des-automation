@@ -15,7 +15,7 @@ Feature: Cat-Mod2 Unsuccessful feature
       | categorytype            | AM Moped                      |
       | transmission            | Automatic                     |
       | eyesightTest            | pass                          |
-      | vehicleregnum           | vehreg                        |
+      | vehicleregnum           | autopck                        |
       | safetyQuestion1         | M1 - Oil level                |
       | safetyQuestion2         | M7 - Steering                 |
       | balanceQuestion1        | B2 - Carrying a passenger     |

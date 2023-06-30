@@ -19,7 +19,7 @@ Feature: Cat-ADI2 Unsuccessful feature
       | tellMeQuestion1Fault    | 1 driving fault          |
       | tellMeQuestion2Fault    | 1 driving fault          |
       | tellMeQuestion3Fault    | 1 driving fault          |
-      | vehicleRegNum           | vehreg                   |
+      | vehicleRegNum           | autopck                   |
       | transmission            | manual                   |
       | orditTrainer            | yes                      |
       | trainingRecords         | yes                      |

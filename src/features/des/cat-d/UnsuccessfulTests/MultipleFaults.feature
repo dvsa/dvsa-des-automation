@@ -14,7 +14,7 @@ Feature: Cat-D Unsuccessful Tests
     And I complete the waiting room communication page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I complete the waiting room to car page from a data table for a category "D"
-      | vehicleRegNum            | vehreg                             |
+      | vehicleRegNum            | autopck                             |
       | showMeQuestion1          | Q1 - All doors secure              |
       | showMeQuestion2          | Q2 - Air leaks                     |
       | showMeQuestion3          | Q13 - Check audible warnings       |

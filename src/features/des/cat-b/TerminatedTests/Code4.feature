@@ -15,7 +15,7 @@ Feature: Cat-B Terminated feature
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
       | tellMeQuestionFault     | correct          |
-      | vehicleRegNum           | vehreg           |
+      | vehicleRegNum           | autopck           |
       | transmission            | manual           |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I select all legal requirements for a category "B"
