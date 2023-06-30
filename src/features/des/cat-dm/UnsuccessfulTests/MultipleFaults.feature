@@ -12,7 +12,7 @@ Feature: Cat-DM Unsuccessful feature
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "Manoeuvre"
-      | vehicleRegNum            | vehreg                             |
+      | vehicleRegNum            | autopck                             |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I select all legal requirements for a category "Manoeuvre"
     And I add "1" serious faults to the "des-test-report-screen::reverse-manoeuvre-competency-label-Control" field

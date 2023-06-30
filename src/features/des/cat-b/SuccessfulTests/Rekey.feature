@@ -14,7 +14,7 @@ Feature: Cat-B Successful feature
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
       | tellMeQuestionFault     | correct          |
-      | vehicleRegNum           | vehreg           |
+      | vehicleRegNum           | autopck           |
       | transmission            | manual           |
       | accompaniedBy           | instructor       |
       | vehicleDetails          | school car       |
