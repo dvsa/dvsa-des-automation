@@ -15,4 +15,5 @@ export const appiumbase = {
   autoAcceptAlerts: false,
   // enable to run without simulator UI
   // isHeadless: true,
+  includeSafariInWebviews: true,
 };
