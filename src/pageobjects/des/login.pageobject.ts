@@ -50,31 +50,9 @@ class LoginMobilePageObject extends Page {
     console.info('Pausing for 7000 ms');
     await browser.pause(7000);
     console.info('7000ms pause done');
-    const user = credentials.Environment.Dev[typeOfUser][0];
-
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
-
-    const loginBackdrop = await $('.backdrop-no-scroll');
-    const loginError = await $('#loginSorry');
-
-    // check if already logged in on app launch.
-    await Promise.race([
-      this.waitForExistAndClickable(burgerMenu),
-      this.waitForExist(loginBackdrop),
-      this.waitForExist(loginError),
-    ]);
-
-    if (await loginError.isDisplayed()) {
-      throw new Error('log in error');
-    }
-
-    if (await burgerMenu.isDisplayed()) {
-      console.info('logging out');
-      await this.logout();
-    }
-
-    // await this.clickNativeButtonWithText('Continue');
-
+    console.info('driver.getContexts()');
+    console.info('---=============================---');
+    console.log(await driver.getContexts());
     // wait for log in page
     console.info('Wait for log in page');
     await this.waitForContextToExist(this.msSignInContextTitle);
@@ -83,24 +61,71 @@ class LoginMobilePageObject extends Page {
     await driver.switchContext(signInContext.id);
     console.info('switched context');
 
+    console.info('---=============================---');
+    console.info('user');
+    const user = credentials.Environment.Dev[typeOfUser][0];
+
+    console.info('!');
+    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+
+    console.info('!!');
+    // const loginBackdrop = await $('.backdrop-no-scroll');
+    console.info('!!!');
+    const loginError = await $('#loginSorry');
+
+    // check if already logged in on app launch.
+    console.info('!!!!');
+    // await Promise.race([
+    //   this.waitForExistAndClickable(burgerMenu),
+    //   this.waitForExist(loginBackdrop),
+    //   this.waitForExist(loginError),
+    // ]);
+
+    console.info('!!!!!');
+    if (await loginError.isDisplayed()) {
+      throw new Error('log in error');
+    }
+
+    console.info('!!!!!!');
+    if (await burgerMenu.isDisplayed()) {
+      console.info('logging out');
+      await this.logout();
+    }
+
+    // await this.clickNativeButtonWithText('Continue');
+
+    // wait for log in page
+    // console.info('Wait for log in page');
+    // await this.waitForContextToExist(this.msSignInContextTitle);
+    // const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
+    // // @ts-ignore
+    // await driver.switchContext(signInContext.id);
+    // console.info('switched context');
+
     // click 'use another account if clickable
     const continueButton = await $('input[value="Continue"]');
+    console.info('!!!!!!!!');
     const useAnotherAccount = await $('#otherTileText');
+    console.info('!!!!!!!!!');
     const emailTextBox = await $('#i0116');
     // resolve as soo as either 'use another account' or email input available
+    console.info('!!!!!!!!!');
     await Promise.race([
       this.waitForExistAndClickable(continueButton),
       this.waitForExistAndClickable(useAnotherAccount),
       this.waitForExistAndClickable(emailTextBox),
     ]);
     // click use another account if it is available
+    console.info('!!!!!!!!!!');
     const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
+    console.info('!!!!!!!!!!');
     if (useAnotherAccountButtonPresent) {
       console.info('Clicking use another account');
       await this.clickElement(useAnotherAccount);
+      console.info('After if for Clicking use another account');
     }
-    console.info('After if for Clicking use another account');
     // set email
+    console.info('Inputting email text box');
     await this.waitForExistAndClickable(emailTextBox);
     await this.clickElement(emailTextBox);
     await emailTextBox.addValue(user.UserPrincipalName);

@@ -213,6 +213,7 @@ export const config: WebdriverIO.Config = {
     console.info('clearing local storage before scenario');
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
+    console.info('Reloaded Session');
   },
 
   afterStep: (step, scenario, result) => {
@@ -230,6 +231,17 @@ export const config: WebdriverIO.Config = {
     console.info('clearing local storage before scenario');
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
+    browser.pause(5000);
+    browser.closeWindow();
+    browser.pause(5000);
+    console.info('9999999999');
     await CustomCommand.addCommands();
+
+    // const handles = await browser.windowHandles();
+    // console.info('Handles:   ', handles);
+    // if ((await handles).length > 1) {
+    //   browser.switchToWindow(handles[1]);
+    //   browser.closeWindow();
+    // }
   },
 };
