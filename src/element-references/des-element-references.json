@@ -236,7 +236,8 @@
     "dual-controls-validation-msg": "#dual-controls-validation-text",
     "pdi-logbook-validation-msg": "#pdi-logbook-validation-text",
     "trainee-licence-validation-msg": "#trainee-licence-validation-text",
-    "ordit-trained-validation-msg": "#waiting-room-to-car-ordit-trained-validation-text"
+    "ordit-trained-validation-msg": "#waiting-room-to-car-ordit-trained-validation-text",
+    "confirm-cat-type-validation-msg": "#waiting-room-to-car-category-type-validation-text"
   },
   "des-test-report-screen": {
     "reverse-manoeuvre-competency-label-Control": "#reverse-manoeuvre-competency-label-Control",
@@ -393,6 +394,8 @@
     "legal-requirements-modal-manoeuvres-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Manoeuvres')]",
     "legal-requirements-modal-sm-tm-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Show me / Tell me')]",
     "legal-requirements-modal-eco-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Eco (control and planning)')]",
+    "legal-requirements-modal-emergency-stop-list": "//speed-check-modal//li[contains(text(), 'Emergency stop')]",
+    "legal-requirements-modal-avoidance-stop-list": "//speed-check-modal//li[contains(text(), 'Avoidance ex. control stop')]",
     "end-test-model-return-to-test-button": "#model-return-button"
   },
   "test-report-dashboard-screen": {
@@ -659,7 +662,8 @@
     "adi2-second-show-me-question": "#show-me-question-selector_2",
     "additional-information-textarea": "#additional-information-text",
     "show-me-question-validation-msg": "#show-me-question-validation-text",
-    "weather-conditions-validation-msg": "#weather-conditions-validation-text"
+    "weather-conditions-validation-msg": "#weather-conditions-validation-text",
+    "circuit-validation-msg": "#circuit-validation-text"
   },
   "des-rekey-reason-page": {
     "ipadIssueCheckbox": ".//label[contains(text(), 'iPad Issue')]",
