@@ -32,6 +32,10 @@ class MyJournalPageObject extends Page {
 
   get candidateDetailsBackButton() { return ('des-candidate-details::close-button'); }
 
+  get baseStartTestId() { return ('des-candidate-app-refs::base-start-test-id'); }
+
+  get baseActivityId() { return ('des-my-journal::base-activity-id'); }
+
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
     await waitFor(this.dayName, '', false, 'be displayed');
     const gettingDateElementCurrentPage = await $(getElementByReference(this.dateName)).getText();
@@ -78,10 +82,11 @@ class MyJournalPageObject extends Page {
     await clickElement('click', 'selector', this.expiredStartTestModelButton);
   }
 
-  async startTest(selector: string):Promise<void> {
-    await scroll(selector);
-    await waitFor(selector, '', false, 'be displayed');
-    await clickElement('click', 'selector', selector);
+  async startTest(appRef: string):Promise<void> {
+    const startTestSelector = getElementByReference(this.baseStartTestId) + appRef;
+    await scroll(startTestSelector);
+    await waitFor(startTestSelector, '', false, 'be displayed');
+    await clickElement('click', 'selector', startTestSelector);
 
     if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
       await this.startEarlyTest();
@@ -96,7 +101,7 @@ class MyJournalPageObject extends Page {
       await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
       await waitFor(this.candidateDetailsPageTitle, '', false, 'be displayed');
       await clickElement('click', 'selector', this.candidateDetailsBackButton);
-      await clickElement('click', 'selector', selector);
+      await clickElement('click', 'selector', startTestSelector);
 
       if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
         await this.startEarlyTest();
@@ -106,6 +111,13 @@ class MyJournalPageObject extends Page {
         await this.startLateTest();
       }
     }
+  }
+
+  async checkActivityCode(appRef: string, expectedText: string): Promise<void> {
+    const activityCodeSelector = getElementByReference(this.baseActivityId) + appRef;
+    await scroll(activityCodeSelector);
+    await waitFor(activityCodeSelector, '', false, 'be displayed');
+    await checkEqualsText('element', activityCodeSelector, false, expectedText);
   }
 }
 

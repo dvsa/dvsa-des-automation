@@ -5,7 +5,7 @@ Feature: Cat-C Unsuccessful Tests
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "28371932"
     And I click on the button "des-dashboard::my-journal-btn"
-    And I start the test for "#start-test-button-32345600"
+    And I start the test for "32345600"
     And I add "A123456X" to the inputfield "des-exam-waiting-room::manoeuvres-pass-cert-num"
     And I complete the waiting room declaration page
     And I complete the candidate ID page from a data table
@@ -71,6 +71,6 @@ Feature: Cat-C Unsuccessful Tests
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-32345600" matches the text "2"
+    And I expect the activity code "32345600" matches the text "2"
     And I click on the button "des-general::back-btn"
     And I sign out

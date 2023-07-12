@@ -6,7 +6,7 @@ Feature: Cat-ADI3 Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "10000013"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I start the test for "#start-test-button-23123428"
+    And I start the test for "23123428"
     And I complete the waiting room declaration page for a category "adi3"
     And I complete the waiting room communication page
     And I complete the waiting room to car page from a data table for a category "adi3"
@@ -83,6 +83,6 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-23123428" matches the text "1"
+    And I expect the activity code "23123428" matches the text "1"
     And I click on the button "des-general::back-btn"
     And I sign out

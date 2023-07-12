@@ -5,7 +5,7 @@ Feature: Cat-CM Successful feature
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "10000014"
     And I click on the button "des-dashboard::my-journal-btn"
-    And I start the test for "#start-test-button-55512302"
+    And I start the test for "55512302"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
     And I complete the candidate ID page from a data table
@@ -50,8 +50,7 @@ Feature: Cat-CM Successful feature
     And I wait on element "des-office-page::mark-as-complete-modal-title" to be displayed
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I wait on element "#activity-code-55512302" to be displayed
-    And I expect that element "#activity-code-55512302" matches the text "1"
+    And I expect the activity code "55512302" matches the text "1"
     And I wait on element "des-general::back-btn" to be displayed
     And I click on the button "des-general::back-btn"
     And I sign out

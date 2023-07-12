@@ -6,7 +6,7 @@ Feature: Cat-Mod1 Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "10000000"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I start the test for "#start-test-button-10123400"
+    And I start the test for "10123400"
     And I click on the button "des-general::continue-btn"
     And the element "des-exam-waiting-room::insurance-declaration-unchecked-validation-message" is displayed
     And the element "des-exam-waiting-room::residency-declaration-unchecked-validation-message" is displayed
@@ -85,6 +85,6 @@ Feature: Cat-Mod1 Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-10123400" matches the text "1"
+    And I expect the activity code "10123400" matches the text "1"
     And I click on the button "des-general::back-btn"
     And I sign out

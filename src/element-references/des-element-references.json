@@ -29,6 +29,9 @@
     "menu-button-xpath": "//ion-menu-button",
     "logout-button": "#logout"
   },
+  "des-candidate-app-refs": {
+    "base-start-test-id": "#start-test-button-"
+  },
   "des-my-journal": {
     "page-title": "#page-title",
     "journal-loading-spinner": "//*[@id='journal_loading_spinner']/div",
@@ -56,7 +59,8 @@
     "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p",
     "start-test-model-time-expired-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Test time is expired')]",
     "start-test-model-time-early-title": "//h2[@id='model-alert-title-text'][contains(text(), 'This test is not due to')]",
-    "start-test-model-candidate-special-reqs-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]"
+    "start-test-model-candidate-special-reqs-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]",
+    "base-activity-id": "#activity-code-"
   },
   "des-test-centre-journal": {
     "tomorrow-message": "#candidate-no-booking-at-test-centre-tomorrow-message",

@@ -5,7 +5,7 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
     When I wait on element "des-dashboard::page-title" to be displayed
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I start the test for "#start-test-button-20654334"
+    And I start the test for "20654334"
     And I click on the button "des-general::end-test-btn"
     And I click on the button "des-general::terminate-test-btn"
     And I click on the button "des-debrief-screen::end-debrief-btn"
@@ -35,6 +35,6 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-20654334" matches the text "21"
+    And I expect the activity code "20654335" matches the text "21"
     And I click on the button "des-general::back-btn"
     And I sign out

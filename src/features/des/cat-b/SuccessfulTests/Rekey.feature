@@ -66,6 +66,6 @@ Feature: Cat-B Successful feature
     And I expect that element "des-rekey-reason-page::rekey-success-text" is displayed
     And I click on the element "des-rekey-reason-page::return-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-20654339" matches the text "1"
+    And I expect the activity code "20654339" matches the text "1"
     And I click on the button "des-general::back-btn"
     And I sign out
