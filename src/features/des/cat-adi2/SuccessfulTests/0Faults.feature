@@ -1,4 +1,3 @@
-@test
 Feature: Cat-ADI2 Successful feature
 
   Scenario:   Successful ADI2 with no faults

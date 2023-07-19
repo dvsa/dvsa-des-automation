@@ -34,6 +34,8 @@ class MyJournalPageObject extends Page {
 
   get baseStartTestId() { return ('des-candidate-app-refs::base-start-test-id'); }
 
+  get baseRekeyTestId() { return ('des-candidate-app-refs::base-rekey-test-id'); }
+
   get baseActivityId() { return ('des-my-journal::base-activity-id'); }
 
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
@@ -82,8 +84,8 @@ class MyJournalPageObject extends Page {
     await clickElement('click', 'selector', this.expiredStartTestModelButton);
   }
 
-  async startTest(appRef: string):Promise<void> {
-    const startTestSelector = getElementByReference(this.baseStartTestId) + appRef;
+  async startTest(rekeyOption: boolean, appRef: string):Promise<void> {
+    const startTestSelector = getElementByReference(rekeyOption ? this.baseRekeyTestId : this.baseStartTestId) + appRef;
     await scroll(startTestSelector);
     await waitFor(startTestSelector, '', false, 'be displayed');
     await clickElement('click', 'selector', startTestSelector);

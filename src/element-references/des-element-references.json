@@ -30,7 +30,8 @@
     "logout-button": "#logout"
   },
   "des-candidate-app-refs": {
-    "base-start-test-id": "#start-test-button-"
+    "base-start-test-id": "#start-test-button-",
+    "base-rekey-test-id": "#rekey-button-"
   },
   "des-my-journal": {
     "page-title": "#page-title",
