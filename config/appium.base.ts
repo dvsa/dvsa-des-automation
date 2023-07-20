@@ -2,8 +2,8 @@
 // https://github.com/appium/appium-xcuitest-driver/blob/master/docs/capabilities.md
 export const appiumbase = {
   maxInstances: 1,
-  fullReset: false, // Change this to true to reinstall the application
-  noReset: false, // noReset just clears the app data, such as its cache.
+  fullReset: true, // Change this to true to reinstall the application
+  noReset: true, // noReset just clears the app data, such as its cache.
   usePrebuiltWDA: false,
   autoLaunch: true,
   wdaLocalPort: 8200,
