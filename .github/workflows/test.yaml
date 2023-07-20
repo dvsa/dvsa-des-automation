@@ -15,13 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: '16.11.0'
-
-      - name: 🔑 Configuration of MGMT AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.DES_MGMT_AWS }}
-          aws-region: eu-west-1
-          role-session-name: ServiceAutoGHAMGMT
       
       - name: ⚙️ Configure Files
         run: |
