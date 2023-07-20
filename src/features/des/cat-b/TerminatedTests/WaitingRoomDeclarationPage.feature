@@ -35,6 +35,6 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect the activity code "20654335" matches the text "21"
+    And I expect the activity code "20654334" matches the text "21"
     And I click on the button "des-general::back-btn"
     And I sign out
