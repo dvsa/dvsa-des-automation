@@ -1,41 +1,93 @@
-name: Run App Automation [develop]
-run-name: "${{ github.actor }} - ${{ github.ref_name }} - ${{ github.run_id }} 🚀"
-on: [push]
+name: Reusable Workflow
+on: 
+ workflow_call:
+  inputs:
+    environment:
+      required: true
+      type: string
+    builder:
+      required: false
+      type: string
+      default: ubuntu-latest
+    retention_days:
+      required: false
+      type: number
+      default: 1
+
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
-  test:
-    name: Run DES Automation
-    runs-on: mito-2
+  setup:
+    name: Setup DES [${{ inputs.environment }}]
+    runs-on: ${{ inputs.builder }}
+    environment: ${{ inputs.environment }}
+    outputs:
+      branch: ${{ steps.extract_branch.outputs.BRANCH }}
     steps:
       - name: 📨 Get Codebase
         uses: actions/checkout@v3
         with:
           ref: develop
 
-      - name: Configure Node
+      - name: 🛸 Extract branch name
+        shell: bash
+        run: |
+          unfeature=$(echo ${GITHUB_REF_NAME#feature/})
+          branch=$(python3 -c "print('$unfeature'.lower())")
+          echo "BRANCH=$(echo $branch)" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: ⚙️ Configure Node
         uses: actions/setup-node@v3
         with: 
           node-version: '16.11.0'
       
-      - name: ⚙️ Configure Files
+      - name: 🔍 Configure Files
         run: |
           echo "${{ secrets.NPMRC }}" | base64 --decode >> .npmrc
-          mkdir creds apps
+          mkdir -p creds apps
           cp -r /Users/jenkins/GHA-TEST/App.app apps/
           echo "${{ secrets.CREDS_JSON }}" | base64 --decode > creds/credentials.json
 
+  test:
+    name: Test DES [${{ inputs.environment }}]
+    runs-on: ${{ inputs.builder }}
+    environment: ${{ inputs.environment }}
+    needs: [ setup ]
+    outputs:
+      branch: ${{ needs.setup.outputs.branch }}
+    steps:
       - name: 🛠️ Install Dependencies
         run: npm ci
 
-      - name: 🧪 Run Tests
-        run: npm run wdio:des:ap:report
-
-      - name: 🛠️ Generate Reports
-        run: npm run s3report
-
+      - name: "🛠️ Run Automation Suite"
+        run: | 
+          npm run wdio:des:ap:report
+      
       - name: "📝 Generate Report"
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: des-report-${{ github.run_id }}
+          name: report-${{ needs.setup.outputs.branch }}-${{ github.run_id }}
           path: reports
-          retention-days: 3
+          retention-days: ${{ inputs.retention_days }}
+
+  upload:
+    name: ⬆️ Upload ${{ inputs.environment }} Documents
+    runs-on: ${{ inputs.builder }}
+    environment: ${{ inputs.environment }}
+    needs: [test]
+    steps:
+      - name: ⬆️ Upload S3
+        run: |
+          zip -r reports.zip reports/
+          echo "insert upload step"
+  
+      - name: Post 🧹 Clean Workspace
+        if: always()
+        run: |
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          echo '✅ Workspace Cleared!' >> $GITHUB_STEP_SUMMARY

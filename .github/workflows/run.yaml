@@ -1,0 +1,17 @@
+name: Run App Automation [develop]
+run-name: "${{ github.actor }} - ${{ github.ref_name }} - ${{ github.run_id }} 🚀"
+on:
+  push:
+    branches:
+      - develop
+      - feature/add-workflows
+  workflow_dispatch:
+
+jobs:
+  develop:
+    name: Develop
+    uses: ./.github/workflows/test.yaml
+    with:
+      environment: develop
+      builder: mito-2
+      retention_days: 1
