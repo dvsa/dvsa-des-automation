@@ -1,6 +1,5 @@
 import path from 'path';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
-import { AppiumContext } from '../shared/models/appiumContext.model';
 
 // Uncomment to enable video reporter
 // const video = require('wdio-video-reporter');
@@ -242,6 +241,7 @@ export const config: WebdriverIO.Config = {
     console.log('After Sleep');
     console.log('context array length = ', contextArray.length);
     console.log('context array contexts = ', contextArray);
+    // eslint-disable-next-line no-plusplus
     for (let i = contextArray.length; i >= 0; --i) {
       console.info('iterator:  ', i);
       const smallArray = contextArray[i]?.bundleId;
