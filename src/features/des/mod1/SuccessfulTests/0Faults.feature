@@ -14,7 +14,7 @@ Feature: Cat-Mod1 Successful feature
     And I complete the waiting room to car page from a data table for a category "mod1"
       | categorytype            | AM Moped                      |
       | transmission            | Manual                        |
-      | vehicleregnum           | autopck                        |
+      | vehicleregnum           | autopck                       |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I add "50" to the inputfield "des-test-report-screen::mod-one-first-emergency-stop-input"
     And I add "50" to the inputfield "des-test-report-screen::mod-one-second-emergency-stop-input"

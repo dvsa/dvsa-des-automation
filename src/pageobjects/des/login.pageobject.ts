@@ -53,13 +53,13 @@ class LoginMobilePageObject extends Page {
     console.info('driver.getContexts()');
     console.info('---=============================---');
     console.log(await driver.getContexts());
-    // wait for log in page
-    console.info('Wait for log in page');
-    await this.waitForContextToExist(this.msSignInContextTitle);
-    const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
-    // @ts-ignore
-    await driver.switchContext(signInContext.id);
-    console.info('switched context');
+    // // wait for log in page
+    // console.info('Wait for log in page');
+    // await this.waitForContextToExist(this.msSignInContextTitle);
+    // const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
+    // // @ts-ignore
+    // await driver.switchContext(signInContext.id);
+    // console.info('switched context');
 
     console.info('---=============================---');
     console.info('user');
@@ -69,17 +69,17 @@ class LoginMobilePageObject extends Page {
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
     console.info('!!');
-    // const loginBackdrop = await $('.backdrop-no-scroll');
+    const loginBackdrop = await $('.backdrop-no-scroll');
     console.info('!!!');
     const loginError = await $('#loginSorry');
 
     // check if already logged in on app launch.
     console.info('!!!!');
-    // await Promise.race([
-    //   this.waitForExistAndClickable(burgerMenu),
-    //   this.waitForExist(loginBackdrop),
-    //   this.waitForExist(loginError),
-    // ]);
+    await Promise.race([
+      this.waitForExistAndClickable(burgerMenu),
+      this.waitForExist(loginBackdrop),
+      this.waitForExist(loginError),
+    ]);
 
     console.info('!!!!!');
     if (await loginError.isDisplayed()) {
@@ -94,13 +94,14 @@ class LoginMobilePageObject extends Page {
 
     // await this.clickNativeButtonWithText('Continue');
 
+    // LOOK AT THIS THIS IS IMPORTANT MAYBE
     // wait for log in page
-    // console.info('Wait for log in page');
-    // await this.waitForContextToExist(this.msSignInContextTitle);
-    // const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
-    // // @ts-ignore
-    // await driver.switchContext(signInContext.id);
-    // console.info('switched context');
+    console.info('Wait for log in page');
+    await this.waitForContextToExist(this.msSignInContextTitle);
+    const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
+    // @ts-ignore
+    await driver.switchContext(signInContext.id);
+    console.info('switched context');
 
     // click 'use another account if clickable
     const continueButton = await $('input[value="Continue"]');
@@ -154,15 +155,25 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
+    console.info('Switched to DES context');
     await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    console.info('Wait for ionMenu');
     await clickElement('click', 'selector', this.ionMenuButton);
+    console.info('Clicked ionMenu');
     await clickElement('click', 'selector', this.logoutButton);
+    console.info('Clicked logoutButton');
     await clickElementWithText('click', 'button', 'Logout');
-    await this.clickNativeButtonWithText('Continue');
+    console.info('Clicked Logout');
+    // await this.clickNativeButtonWithText('Continue');
+    // console.info('Clicked Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);
+    console.info('wait for sign out context');
     const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
+    console.info('sign out context variable');
+    console.info('signOutContext: ', signOutContext);
     // @ts-ignore
     await driver.switchContext(signOutContext.id);
+    console.info('Switched to signout context');
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);
     await this.clickElement(logoutTile);

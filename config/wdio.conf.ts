@@ -1,5 +1,6 @@
 import path from 'path';
 import CustomCommand from '../shared/custom/support/lib/addCommands';
+import { AppiumContext } from '../shared/models/appiumContext.model';
 
 // Uncomment to enable video reporter
 // const video = require('wdio-video-reporter');
@@ -74,7 +75,7 @@ export const config: WebdriverIO.Config = {
     // 5 instances get started at a time.
     maxInstances: 10,
     //
-    browserName: 'chrome',
+    browserName: 'safari',
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -231,17 +232,40 @@ export const config: WebdriverIO.Config = {
     console.info('clearing local storage before scenario');
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
-    browser.pause(5000);
-    browser.closeWindow();
-    browser.pause(5000);
-    console.info('9999999999');
+    // ------------------------------------------------------------------------------------------------
+    console.log('Before Sleep');
+    await browser.pause(2000);
+    const contextArray: any[] = await driver.getContexts();
+    console.info(await browser.getSessions());
+    console.info(await browser.getContext());
+    console.log(await browser.getContexts());
+    console.log('After Sleep');
+    console.log('context array length = ', contextArray.length);
+    console.log('context array contexts = ', contextArray);
+    for (let i = contextArray.length; i >= 0; --i) {
+      console.info('iterator:  ', i);
+      const smallArray = contextArray[i]?.bundleId;
+      if (smallArray === 'com.apple.mobilesafari') {
+        console.log('Switching and Closing window');
+        await driver.switchContext(contextArray[i]?.id);
+        console.info('browser.getContext: ', await browser.getContext());
+        console.log('driver.getContext:  ', await driver.getContext());
+        // driver.waitUntil(() => browser.getContext() === contextArray[i].id, {
+        //   timeout: 10000,
+        //   timeoutMsg: `timed out waiting for ${contextArray[i].title} context`,
+        // });
+        console.info('pausing');
+        browser.pause(5000);
+        console.info('done pausing');
+        await driver.closeWindow();
+        console.log('Closed Window');
+      }
+    }
+    console.info('------------------------------------------------------------------------------------------------');
+    console.info(contextArray);
+    await driver.switchContext(contextArray[contextArray.length - 1].id);
+    await driver.closeWindow();
+    console.info('------------------------------------------------------------------------------------------------');
     await CustomCommand.addCommands();
-
-    // const handles = await browser.windowHandles();
-    // console.info('Handles:   ', handles);
-    // if ((await handles).length > 1) {
-    //   browser.switchToWindow(handles[1]);
-    //   browser.closeWindow();
-    // }
   },
 };
