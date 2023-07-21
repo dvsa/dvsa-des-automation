@@ -3,7 +3,6 @@ import clickElementWithText from '@shared-custom/support/action/clickElementWith
 import waitFor from '@shared-boilerplate/support/action/waitFor';
 import * as credentials from '../../../creds/credentials.json';
 import Page from '../base/page';
-import logOut from '../../app-actions/des-action/logOut';
 
 class LoginMobilePageObject extends Page {
   private msSignInContextTitle: string = 'Sign in to your account';
@@ -103,7 +102,7 @@ class LoginMobilePageObject extends Page {
     if (await alreadyLoggedIn.isDisplayed()) {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
-      await logOut();
+      await this.logout();
       await this.clickNativeButtonWithText('Continue');
       // wait for log in page
       await this.switchContextBySignId(this.msSignInContextTitle);
