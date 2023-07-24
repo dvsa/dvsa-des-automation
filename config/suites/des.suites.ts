@@ -82,13 +82,4 @@ export const DESSuites = {
     'src/features/des/cat-adi3/SuccessfulTests/ValidationChecks.feature',
     'src/features/des/cat-b/SuccessfulTests/ValidationChecks.feature',
   ],
-  passingtests: [
-    './src/features/des/cat-adi2/*/*.feature',
-    './src/features/des/cat-adi3/*/*.feature',
-    './src/features/des/cat-b/*/*.feature',
-    './src/features/des/dashboard/*.feature',
-    './src/features/des/journal/*.feature',
-    './src/features/des/mod1/*/*.feature',
-    './src/features/des/mod2/*/*.feature',
-  ],
 };
