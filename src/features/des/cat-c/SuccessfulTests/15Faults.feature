@@ -6,7 +6,7 @@ Feature: Cat-C Successful feature
     And I expect that container "des-dashboard::staff-number" contains the text "28371932"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I start the test for "#start-test-button-32345633"
+    And I start the test for "32345633"
     And I complete the waiting room for vocational declaration page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
@@ -68,6 +68,6 @@ Feature: Cat-C Successful feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-32345633" matches the text "1"
+    And I expect the activity code "32345633" matches the text "1"
     And I click on the button "des-general::back-btn"
     And I sign out

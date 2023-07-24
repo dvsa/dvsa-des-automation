@@ -6,7 +6,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I start the test for "#start-test-button-20654334"
+    And I start the test for "20654334"
     And I complete the waiting room declaration page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
@@ -48,6 +48,6 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I click on the button "des-office-page::mark-as-complete"
     And I click on the button "des-office-page::mark-as-complete-modal-submit-btn"
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
-    And I expect that element "#activity-code-20654334" matches the text "3"
+    And I expect the activity code "20654334" matches the text "3"
     And I click on the button "des-general::back-btn"
     And I sign out

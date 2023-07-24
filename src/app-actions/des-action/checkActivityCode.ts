@@ -1,8 +1,8 @@
 import myJournalPageobject from '../../pageobjects/des/myJournal.pageobject';
 
 export default async (
-  rekeyOption: boolean,
   appRef: string,
+  expectedText: string,
 ) => {
-  await myJournalPageobject.startTest(rekeyOption, appRef);
+  await myJournalPageobject.checkActivityCode(appRef, expectedText);
 };

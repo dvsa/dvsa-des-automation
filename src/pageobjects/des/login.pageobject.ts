@@ -45,6 +45,15 @@ class LoginMobilePageObject extends Page {
     });
   }
 
+  async switchContextBySignId(contextTitle: string): Promise<void> {
+    // wait for log in page
+
+    await this.waitForContextToExist(contextTitle);
+    const signingContext = await this.getContextByTitle(contextTitle);
+    // @ts-ignore
+    await driver.switchContext(signingContext.id);
+  }
+
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(7000);
@@ -73,26 +82,39 @@ class LoginMobilePageObject extends Page {
     await this.clickNativeButtonWithText('Continue');
 
     // wait for log in page
-    await this.waitForContextToExist(this.msSignInContextTitle);
-    const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
-    // @ts-ignore
-    await driver.switchContext(signInContext.id);
+    await this.switchContextBySignId(this.msSignInContextTitle);
 
     // click 'use another account if clickable
     const continueButton = await $('input[value="Continue"]');
     const useAnotherAccount = await $('#otherTileText');
     const emailTextBox = await $('#i0116');
+    const alreadyLoggedIn = await $('#idSIButton9');
     // resolve as soo as either 'use another account' or email input available
     await Promise.race([
       this.waitForExistAndClickable(continueButton),
       this.waitForExistAndClickable(useAnotherAccount),
       this.waitForExistAndClickable(emailTextBox),
+      this.waitForExistAndClickable(alreadyLoggedIn),
     ]);
+
+    // If the app is already logged in after a failed logout
+    // it will login and log back out again
+    if (await alreadyLoggedIn.isDisplayed()) {
+      console.info('Fixing logout failure');
+      await this.clickElement(continueButton);
+      await this.logout();
+      await this.clickNativeButtonWithText('Continue');
+      // wait for log in page
+      await this.switchContextBySignId(this.msSignInContextTitle);
+    }
+
     // click use another account if it is available
-    const useAnotherAccountButtonPresent = await useAnotherAccount.isExisting();
+    const useAnotherAccountButtonPresent = await useAnotherAccount.isDisplayed();
     if (useAnotherAccountButtonPresent) {
+      console.info('Logging in using another account');
       await this.clickElement(useAnotherAccount);
     }
+
     // set email
     await this.waitForExistAndClickable(emailTextBox);
     await this.clickElement(emailTextBox);
@@ -127,10 +149,7 @@ class LoginMobilePageObject extends Page {
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
     await this.clickNativeButtonWithText('Continue');
-    await this.waitForContextToExist(this.msSignOutContextTitle);
-    const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
-    // @ts-ignore
-    await driver.switchContext(signOutContext.id);
+    await this.switchContextBySignId(this.msSignOutContextTitle);
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);
     await this.clickElement(logoutTile);

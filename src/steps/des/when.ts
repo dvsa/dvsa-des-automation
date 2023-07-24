@@ -127,7 +127,7 @@ When(
 );
 
 When(
-  /^I start the test for "([^"]*)?"$/,
+  /^I start the test for( rekey)* "([^"]*)?"$/,
   startTest,
 );
 
