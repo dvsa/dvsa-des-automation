@@ -36,7 +36,7 @@ There are multiple variants on the configuration that can be used to run tests, 
 `npm run wdio:des:ap -- --spec ./src/features/des/cat-b/SuccessfulTests/SuccessfulTestWith0Faults.feature`
 
 #### Run a suite
-`npm run wdio:des:ap -- --suite=desfull`ss
+`npm run wdio:des:ap -- --suite=desfull`
 
 ## Reports
 After running the tests you can run `npm run report` to open up the allure report page
