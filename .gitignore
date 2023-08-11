@@ -23,7 +23,6 @@ yarn.lock
 apps/App.app
 
 #Creds
-creds/bscreds.ts
 creds/credentials.json
 /creds
 
