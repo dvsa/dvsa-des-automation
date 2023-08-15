@@ -141,7 +141,7 @@ export const config: WebdriverIO.Config = {
   framework: 'cucumber',
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  specFileRetries: 3,
+  specFileRetries: 2,
   //
   // Whether or not retried specfiles should be retried immediately or deferred
   // to the end of the queue specFileRetriesDeferred: false,
@@ -231,41 +231,7 @@ export const config: WebdriverIO.Config = {
     console.info('clearing local storage before scenario');
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
-    // ------------------------------------------------------------------------------------------------
-    console.log('Before Sleep');
-    await browser.pause(2000);
-    const contextArray: any[] = await driver.getContexts();
-    console.info(await browser.getSessions());
-    console.info(await browser.getContext());
-    console.log(await browser.getContexts());
-    console.log('After Sleep');
-    console.log('context array length = ', contextArray.length);
-    console.log('context array contexts = ', contextArray);
-    // eslint-disable-next-line no-plusplus
-    for (let i = contextArray.length; i >= 0; --i) {
-      console.info('iterator:  ', i);
-      const smallArray = contextArray[i]?.bundleId;
-      if (smallArray === 'com.apple.mobilesafari') {
-        console.log('Switching and Closing window');
-        await driver.switchContext(contextArray[i]?.id);
-        console.info('browser.getContext: ', await browser.getContext());
-        console.log('driver.getContext:  ', await driver.getContext());
-        // driver.waitUntil(() => browser.getContext() === contextArray[i].id, {
-        //   timeout: 10000,
-        //   timeoutMsg: `timed out waiting for ${contextArray[i].title} context`,
-        // });
-        console.info('pausing');
-        browser.pause(5000);
-        console.info('done pausing');
-        await driver.closeWindow();
-        console.log('Closed Window');
-      }
-    }
-    console.info('------------------------------------------------------------------------------------------------');
-    console.info(contextArray);
-    await driver.switchContext(contextArray[contextArray.length - 1].id);
-    await driver.closeWindow();
-    console.info('------------------------------------------------------------------------------------------------');
+    console.info('Adding custom commands');
     await CustomCommand.addCommands();
   },
 };

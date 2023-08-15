@@ -6,6 +6,7 @@ Feature: Cat-B Successful feature
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
     And I click on the button "des-dashboard::my-journal-btn"
+    And I wait on element "des-dashboard::my-journal-btn" to be displayed
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "#start-test-button-20654335"
     And I complete the waiting room declaration page

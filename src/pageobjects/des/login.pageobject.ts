@@ -23,17 +23,21 @@ class LoginMobilePageObject extends Page {
   }
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
+    console.log('Start of waitForExistAndClickable()');
     const { selector } = element;
+    console.log('************************************************');
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
     });
+    console.log('************************************************');
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
+    console.log('************************************************');
   }
 
   async waitForClickable(element: WebdriverIO.Element): Promise<void> {
@@ -45,31 +49,83 @@ class LoginMobilePageObject extends Page {
     });
   }
 
+  async closeAllWindows(closeOldOnly: boolean = false): Promise<void> {
+    const browserHandlesArray = await browser.getWindowHandles();
+    await browser.switchToWindow(await browserHandlesArray[browserHandlesArray.length - 1]);
+    if (closeOldOnly) {
+      const index = browserHandlesArray.indexOf(`${await browser.getWindowHandle()}`);
+      browserHandlesArray.splice(index, 1);
+    }
+    // eslint-disable-next-line no-plusplus
+    for (let i = browserHandlesArray.length; i >= 1; --i) {
+      await browser.switchToWindow(`WEBVIEW_${browserHandlesArray[i - 1]}`);
+      await browser.closeWindow();
+    }
+    console.info('>>>>>>>>>> Closing all windows done <<<<<<<<<<');
+  }
+
+  async gettingContextAndWindowHandles(): Promise<void> {
+    console.log(await browser.getContext());
+    console.log(await browser.getContexts());
+    console.log(await browser.getWindowHandle());
+    console.log(await browser.getWindowHandles());
+  }
+
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     console.info('Pausing for 7000 ms');
     await browser.pause(7000);
     console.info('7000ms pause done');
-    console.info('driver.getContexts()');
     console.info('---=============================---');
-    console.log(await driver.getContexts());
-    // // wait for log in page
-    // console.info('Wait for log in page');
-    // await this.waitForContextToExist(this.msSignInContextTitle);
-    // const signInContext = await this.getContextByTitle(this.msSignInContextTitle);
-    // // @ts-ignore
-    // await driver.switchContext(signInContext.id);
-    // console.info('switched context');
+    // await this.closeAllWindows(true);
+    console.log('Activating App');
+    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
+    await this.gettingContextAndWindowHandles();
+    await browser.pause(5000);
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
+    await this.gettingContextAndWindowHandles();
+    await browser.pause(5000);
+    await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
+    await this.gettingContextAndWindowHandles();
+    await browser.pause(5000);
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
+    await this.gettingContextAndWindowHandles();
+    console.log('App Activated');
+    await browser.pause(10000);
 
+    console.info('---=============================---');
+
+    // console.log(await browser.getContext());
+    // console.log(await browser.getContexts());
+    // console.log(await browser.getWindowHandle());
+    // console.log(await browser.getWindowHandles());
+    await this.gettingContextAndWindowHandles();
+    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    console.info('---=============================---');
+    await this.switchToDESContext();
+    console.info('---=============================---');
+    // console.log(await browser.getContext());
+    // console.log(await browser.getContexts());
+    // console.log(await browser.getWindowHandle());
+    // console.log(await browser.getWindowHandles());
+    await this.gettingContextAndWindowHandles();
     console.info('---=============================---');
     console.info('user');
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     console.info('!');
+    // #dashboard-menu-button
     const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
 
     console.info('!!');
-    const loginBackdrop = await $('.backdrop-no-scroll');
+    const loginBackdrop = await $('.login-paginated-page');
     console.info('!!!');
     const loginError = await $('#loginSorry');
 
@@ -78,23 +134,31 @@ class LoginMobilePageObject extends Page {
     await Promise.race([
       this.waitForExistAndClickable(burgerMenu),
       this.waitForExist(loginBackdrop),
-      this.waitForExist(loginError),
+      // this.waitForExist(loginError),
     ]);
 
-    console.info('!!!!!');
+    console.info('!!!!! LoginError !!!!!');
     if (await loginError.isDisplayed()) {
       throw new Error('log in error');
     }
 
-    console.info('!!!!!!');
+    console.info('!!!!!! Logout !!!!!!');
     if (await burgerMenu.isDisplayed()) {
       console.info('logging out');
       await this.logout();
     }
+    console.info('---=============================---');
+    await this.closeAllWindows(true);
+    // await browser.pause(10000);
+    console.info('---=============================---');
+    // console.log('Terminating App');
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    // console.log('Activated App');
+    // await browser.pause(5000);
+    console.info('---=============================---');
 
-    // await this.clickNativeButtonWithText('Continue');
-
-    // LOOK AT THIS THIS IS IMPORTANT MAYBE
     // wait for log in page
     console.info('Wait for log in page');
     await this.waitForContextToExist(this.msSignInContextTitle);
@@ -126,13 +190,15 @@ class LoginMobilePageObject extends Page {
       console.info('After if for Clicking use another account');
     }
     // set email
-    console.info('Inputting email text box');
-    await this.waitForExistAndClickable(emailTextBox);
-    await this.clickElement(emailTextBox);
+    console.info('-----Inputting email text box------');
+    console.info('Adding value to email text box');
     await emailTextBox.addValue(user.UserPrincipalName);
     // click next button
+    console.info('=');
     const nextButton: WebdriverIO.Element = await $('#idSIButton9');
+    console.info('= =');
     await this.waitForExistAndClickable(nextButton);
+    console.info('= = =');
     await this.clickElement(nextButton);
     // click password button
     const passwordBox = await $('#passwordInput');
@@ -164,8 +230,6 @@ class LoginMobilePageObject extends Page {
     console.info('Clicked logoutButton');
     await clickElementWithText('click', 'button', 'Logout');
     console.info('Clicked Logout');
-    // await this.clickNativeButtonWithText('Continue');
-    // console.info('Clicked Continue');
     await this.waitForContextToExist(this.msSignOutContextTitle);
     console.info('wait for sign out context');
     const signOutContext = await this.getContextByTitle(this.msSignOutContextTitle);
@@ -177,11 +241,19 @@ class LoginMobilePageObject extends Page {
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);
     await this.clickElement(logoutTile);
-    await this.clickNativeButtonWithText('Cancel');
+    await this.closeAllWindows();
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
-    await this.switchToDESContext();
-    const signInAgainButton = await $('span=Sign in');
-    await this.clickElement(signInAgainButton);
+    console.log('>>>>>Terminating All Apps<<<<<');
+    console.log('Terminating Safari');
+    await driver.terminateApp('com.apple.mobilesafari');
+    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log('Activated App');
+
+    // await this.switchToDESContext();
+    // const signInAgainButton = await $('span=Sign in');
+    // await this.clickElement(signInAgainButton);
   }
 }
 
