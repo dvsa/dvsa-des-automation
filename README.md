@@ -38,8 +38,6 @@ There are multiple variants on the configuration that can be used to run tests, 
 #### Run a suite
 `npm run wdio:des:ap -- --suite=desfull`
 
-If wishing to run on `BrowserStack` instead of locally, then use `:bs` instead of `:ap` in the above commands.
-
 ## Reports
 After running the tests you can run `npm run report` to open up the allure report page
 

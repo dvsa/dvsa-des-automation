@@ -94,7 +94,6 @@ export const config: WebdriverIO.Config = {
   // Set specific log levels per logger
   // loggers:
   // - webdriver, webdriverio
-  // - @wdio/applitools-service, @wdio/browserstack-service,
   //   @wdio/devtools-service, @wdio/sauce-service
   // - @wdio/mocha-framework, @wdio/jasmine-framework
   // - @wdio/local-runner, @wdio/lambda-runner
