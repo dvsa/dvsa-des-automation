@@ -14,6 +14,7 @@ class LoginMobilePageObject extends Page {
   get logoutButton() { return 'des-dashboard::logout-button'; }
 
   async waitForExist(element: WebdriverIO.Element): Promise<void> {
+    console.log('Starting WaitForExist');
     const { selector } = element;
     await element.waitForExist({
       timeout: 15000,
@@ -22,22 +23,34 @@ class LoginMobilePageObject extends Page {
     });
   }
 
-  async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
-    console.log('Start of waitForExistAndClickable()');
+  async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
+    console.log('Starting WaitForDisplayed');
     const { selector } = element;
-    console.log('************************************************');
+    console.log('************************************************ WaitForDisplayed');
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
+      timeoutMsg: `Element with selector: ${selector} was not displayed on page within 15 seconds`,
     });
-    console.log('************************************************');
+  }
+
+  async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
+    console.log('Start of waitForExistAndClickable()');
+    const { selector } = element;
+    await this.gettingContextAndWindowHandles();
+    console.log('************************************************ waitForExistAndClickable');
+    await element.waitForDisplayed({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} was not displayed on page within 15 seconds`,
+    });
+    console.log('************************************************ waitForExistAndClickable');
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
-    console.log('************************************************');
+    console.log('************************************************ waitForExistAndClickable');
   }
 
   async waitForClickable(element: WebdriverIO.Element): Promise<void> {
@@ -78,44 +91,17 @@ class LoginMobilePageObject extends Page {
     console.info('7000ms pause done');
     console.info('---=============================---');
     // await this.closeAllWindows(true);
-    console.log('Activating App');
-    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
-    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
     await this.gettingContextAndWindowHandles();
-    await browser.pause(5000);
-    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
-    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
-    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
-    await this.gettingContextAndWindowHandles();
-    await browser.pause(5000);
-    await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
-    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
-    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
-    await this.gettingContextAndWindowHandles();
-    await browser.pause(5000);
-    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
-    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
-    console.log(await driver.isAppInstalled(`WEBVIEW_${browser.getWindowHandle()}`));
-    await this.gettingContextAndWindowHandles();
-    console.log('App Activated');
-    await browser.pause(10000);
-
     console.info('---=============================---');
-
-    // console.log(await browser.getContext());
-    // console.log(await browser.getContexts());
-    // console.log(await browser.getWindowHandle());
-    // console.log(await browser.getWindowHandles());
-    await this.gettingContextAndWindowHandles();
-    console.log(await driver.queryAppState(`WEBVIEW_${browser.getWindowHandle()}`));
+    // await this.switchToDESContext();
     console.info('---=============================---');
-    await this.switchToDESContext();
-    console.info('---=============================---');
-    // console.log(await browser.getContext());
-    // console.log(await browser.getContexts());
-    // console.log(await browser.getWindowHandle());
-    // console.log(await browser.getWindowHandles());
-    await this.gettingContextAndWindowHandles();
+    // await this.gettingContextAndWindowHandles();
+    // await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    // await browser.pause(5000);
+    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    // await browser.pause(5000);
+    // await this.gettingContextAndWindowHandles();
+    // await this.switchToDESContext();
     console.info('---=============================---');
     console.info('user');
     const user = credentials.Environment.Dev[typeOfUser][0];
@@ -250,6 +236,7 @@ class LoginMobilePageObject extends Page {
     await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
     await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
     console.log('Activated App');
+    console.log('Logout completed and back in DES');
 
     // await this.switchToDESContext();
     // const signInAgainButton = await $('span=Sign in');
