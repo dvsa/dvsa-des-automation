@@ -24,6 +24,12 @@ class LoginMobilePageObject extends Page {
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
+    // const elem = document.getElementById(selector as string);
+    // console.log(elem);
+    // await browser.execute(`console.log('Matt', document.getElementById(${selector}))`);
+    await browser.execute('document.querySelector("#saveData")?.shadowRoot.querySelector("button")?.click()');
+
+    // await browser.execute('document.querySelector("#saveData")?.shadowRoot.querySelector("button")?.click()');
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
@@ -59,17 +65,19 @@ class LoginMobilePageObject extends Page {
     await browser.pause(7000);
     const user = credentials.Environment.Dev[typeOfUser][0];
 
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
+    const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
 
     const loginBackdrop = await $('.backdrop-no-scroll');
     const loginError = await $('#loginSorry');
 
+    await this.waitForExistAndClickable(burgerMenu);
+
     // check if already logged in on app launch.
-    await Promise.race([
-      this.waitForExistAndClickable(burgerMenu),
-      this.waitForExist(loginBackdrop),
-      this.waitForExist(loginError),
-    ]);
+    // await Promise.race([
+    //   this.waitForExistAndClickable(burgerMenu),
+    //   this.waitForExist(loginBackdrop),
+    //   this.waitForExist(loginError),
+    // ]);
 
     if (await loginError.isDisplayed()) {
       throw new Error('log in error');
@@ -144,7 +152,13 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    console.log('>>>>>>>>>>>>>> LOGGING out of DES <<<<<<<<<<<<<');
+    await browser.execute('console.log(document);');
+    // console.log('hello there');
+    // await browser.execute('document.querySelector("#dashboard-menu-button")?.shadowRoot.querySelector("button")?.click()');
+    // console.log('Found button');
+    // await browser.execute('console.log(document.querySelector("#dashboard-menu-button"))');
+    // await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
     await clickElement('click', 'selector', this.ionMenuButton);
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
