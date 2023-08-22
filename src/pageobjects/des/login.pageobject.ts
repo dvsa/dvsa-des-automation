@@ -16,50 +16,55 @@ class LoginMobilePageObject extends Page {
   async waitForExist(element: WebdriverIO.Element): Promise<void> {
     console.log('Starting WaitForExist');
     const { selector } = element;
+    console.log(`************************************************ waitForExist ${selector}`);
     await element.waitForExist({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
     });
+    console.log('Done');
   }
 
   async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
     console.log('Starting WaitForDisplayed');
     const { selector } = element;
-    console.log('************************************************ WaitForDisplayed');
+    console.log(`************************************************ WaitForDisplayed ${selector}`);
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not displayed on page within 15 seconds`,
     });
+    console.log('Done');
   }
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     console.log('Start of waitForExistAndClickable()');
     const { selector } = element;
     await this.gettingContextAndWindowHandles();
-    console.log('************************************************ waitForExistAndClickable');
+    console.log(`************************************************ waitForExistAndClickable ${selector}`);
     await element.waitForDisplayed({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not displayed on page within 15 seconds`,
     });
-    console.log('************************************************ waitForExistAndClickable');
+    console.log(`************************************************ waitForExistAndClickable ${selector}`);
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
-    console.log('************************************************ waitForExistAndClickable');
+    console.log('Done');
   }
 
   async waitForClickable(element: WebdriverIO.Element): Promise<void> {
     const { selector } = element;
+    console.log(`************************************************ waitForClickable ${selector}`);
     await element.waitForClickable({
       timeout: 15000,
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
+    console.log('Done');
   }
 
   async closeAllWindows(closeOldOnly: boolean = false): Promise<void> {
@@ -96,25 +101,26 @@ class LoginMobilePageObject extends Page {
     // await this.switchToDESContext();
     console.info('---=============================---');
     // await this.gettingContextAndWindowHandles();
-    // await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
     // await browser.pause(5000);
-    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
     // await browser.pause(5000);
-    // await this.gettingContextAndWindowHandles();
-    // await this.switchToDESContext();
+    await this.gettingContextAndWindowHandles();
+    await this.switchToDESContext();
     console.info('---=============================---');
     console.info('user');
     const user = credentials.Environment.Dev[typeOfUser][0];
 
     console.info('!');
     // #dashboard-menu-button
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
-
+    const burgerMenu = await $('#dashboard-burger-menu-btn');
+    // (//ion-menu-button[@id="dashboard-menu-button"])[last()]
     console.info('!!');
-    const loginBackdrop = await $('.login-paginated-page');
+    const loginBackdrop = await $('#i0281');
     console.info('!!!');
     const loginError = await $('#loginSorry');
 
+    // await browser.terminateApp('com.apple.mobilesafari');
     // check if already logged in on app launch.
     console.info('!!!!');
     await Promise.race([
