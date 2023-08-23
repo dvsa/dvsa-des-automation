@@ -180,4 +180,51 @@ export default class Page {
     ]);
     await new GettingContext().switchToDVSAAppContext();
   }
+
+  async waitForExists(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    console.log(`---===================================================--- waitForExist ${selector}`);
+    await element.waitForExist({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
+    });
+  }
+
+  async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    console.log(`---===================================================--- waitForExistAndClickable ${selector} (waitforDisplayed)`);
+    await element.waitForDisplayed({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
+    });
+    console.log(`---===================================================--- waitForExistAndClickable ${selector} (waitForClickable)`);
+    await element.waitForClickable({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
+    });
+  }
+
+  async waitForClickables(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    console.log(`---===================================================--- waitForClickable ${selector}`);
+    await element.waitForClickable({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
+    });
+  }
+
+  async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    console.log(`---===================================================--- waitForClickable ${selector}`);
+    await browser.pause(1000);
+    await element.waitForDisplayed({
+      timeout: 15000,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
+    });
+  }
 }

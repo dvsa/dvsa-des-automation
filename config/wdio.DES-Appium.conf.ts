@@ -17,7 +17,7 @@ import { createAutomationSimulators, getAutomationSimulatorUDIDS } from '../scri
  */
 const numberOfParallelTests = 4;
 const simulatorModel: DeviceName = DeviceName.iPad8thGen;
-const iosVersion: IOSVersion = IOSVersion.sixteenOne;
+const iosVersion: IOSVersion = IOSVersion.sixteenFour;
 
 let startTime: string;
 let endTime: string;
