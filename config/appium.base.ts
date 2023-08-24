@@ -12,7 +12,9 @@ export const appiumbase = {
   autoWebview: true,
   useNewWDA: true, // Set this to true to reinstall the driver everytime
   automationName: 'XCUITest',
-  autoAcceptAlerts: false,
+  autoAcceptAlerts: true,
   // enable to run without simulator UI
   // isHeadless: true,
+  includeSafariInWebviews: true,
+  safariLogAllCommunication: true,
 };

@@ -74,7 +74,7 @@ export const config: WebdriverIO.Config = {
     // 5 instances get started at a time.
     maxInstances: 10,
     //
-    browserName: 'chrome',
+    browserName: 'safari',
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs

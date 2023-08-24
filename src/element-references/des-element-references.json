@@ -26,7 +26,7 @@
     "rekey-test-btn": "#rekey-search-button",
     "partial-practise-mode-btn": "#practice-mode-test-report-button",
     "full-practise-mode-btn": "#practice-mode-full-button",
-    "menu-button-xpath": "//ion-menu-button",
+    "menu-button-xpath": "(//ion-menu-button)[last()]",
     "logout-button": "#logout"
   },
   "des-candidate-app-refs": {

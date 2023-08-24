@@ -13,47 +13,8 @@ class LoginMobilePageObject extends Page {
 
   get logoutButton() { return 'des-dashboard::logout-button'; }
 
-  // async waitForExist(element: WebdriverIO.Element): Promise<void> {
-  //   const { selector } = element;
-  //   console.log(`---===================================================--- waitForExist ${selector}`);
-  //   await browser.pause(1000);
-  //   await element.waitForExist({
-  //     timeout: 15000,
-  //     reverse: false,
-  //     timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-  //   });
-  // }
-  //
-  // async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
-  //   const { selector } = element;
-  //   console.log(`---===================================================--- waitForExistAndClickable ${selector} (waitforDisplayed)`);
-  //   await browser.pause(1000);
-  //   await element.waitForDisplayed({
-  //     timeout: 15000,
-  //     reverse: false,
-  //     timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-  //   });
-  //   await browser.pause(1000);
-  //   console.log(`---===================================================--- waitForExistAndClickable ${selector} (waitForClickable)`);
-  //   await element.waitForClickable({
-  //     timeout: 15000,
-  //     reverse: false,
-  //     timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-  //   });
-  // }
-  //
-  // async waitForClickable(element: WebdriverIO.Element): Promise<void> {
-  //   const { selector } = element;
-  //   console.log(`---===================================================--- waitForClickable ${selector}`);
-  //   await browser.pause(1000);
-  //   await element.waitForClickable({
-  //     timeout: 15000,
-  //     reverse: false,
-  //     timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-  //   });
-  // }
-
   async switchContextBySignId(contextTitle: string): Promise<void> {
+    console.log('Inside switchContextBySignId');
     // wait for log in page
     await this.waitForContextToExist(contextTitle);
     const signingContext = await this.getContextByTitle(contextTitle);
@@ -63,6 +24,10 @@ class LoginMobilePageObject extends Page {
 
   async closeAllWindows(closeOldOnly: boolean = false): Promise<void> {
     const browserHandlesArray = await browser.getWindowHandles();
+    await driver.pause(5000);
+    console.log('browserHandlesArray', browserHandlesArray);
+    await this.gettingContextAndWindowHandles();
+    await browser.pause(5000);
     await browser.switchToWindow(await browserHandlesArray[browserHandlesArray.length - 1]);
     if (closeOldOnly) {
       const index = browserHandlesArray.indexOf(`${await browser.getWindowHandle()}`);
@@ -86,23 +51,53 @@ class LoginMobilePageObject extends Page {
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(7000);
+    console.log('=');
     const user = credentials.Environment.Dev[typeOfUser][0];
+    await browser.pause(7000);
 
-    const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
+    // await this.gettingContextAndWindowHandles();
+    // console.log(await browser.getContexts());
+    // await driver.terminateApp('com.apple.mobilesafari');
+    // console.log(await browser.getContexts());
+    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    // await driver.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    // console.log(await browser.getContexts());
+    // await browser.pause(7000);
+    // await this.switchContextBySignId(this.msSignInContextTitle);
+    await this.gettingContextAndWindowHandles();
 
-    const loginBackdrop = await $('#i0281');
-    const loginError = await $('#loginSorry');
+    // console.log('==');
+    // #dashboard-burger-menu-btn
+    // ion-menu-button
+    // const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
+    //
+    // console.log('===');
+    // const loginBackdrop = await $('#i0281');
+    // console.log('====');
+    // const loginError = await $('#loginSorry');
 
     await browser.pause(5000);
-    await this.gettingContextAndWindowHandles();
-    await this.switchToDESContext();
+    // await this.gettingContextAndWindowHandles();
+    // await this.switchToDESContext();
     console.log('Promise.Race At start of test');
     // check if already logged in on app launch.
     await Promise.race([
-      this.waitForExistAndClickable(burgerMenu),
-      this.waitForExists(loginBackdrop),
-      this.waitForExists(loginError),
+      await this.waitForExistAndClickable(await $('#dashboard-burger-menu-btn')),
+      await this.waitForExists(await $('#i0281')),
+      await this.waitForExistAndClickable(await $('#otherTileText')),
+      await this.waitForExists(await $('#loginSorry')),
     ]);
+
+    console.log('==');
+    // #dashboard-burger-menu-btn
+    // ion-menu-button
+    const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
+
+    console.log('===');
+    // const loginBackdrop = await $('#i0281');
+    console.log('====');
+    const loginError = await $('#loginSorry');
 
     if (await loginError.isDisplayed()) {
       throw new Error('log in error');
@@ -112,7 +107,10 @@ class LoginMobilePageObject extends Page {
       await this.logout();
     }
 
-    await this.clickNativeButtonWithText('Continue');
+    console.log('Closing All OLD windows');
+    await this.closeAllWindows(true);
+
+    // await this.clickNativeButtonWithText('Continue');
 
     // wait for log in page
     await this.switchContextBySignId(this.msSignInContextTitle);
@@ -178,17 +176,42 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
+    console.log('!!');
     await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    console.log('!!!');
     await clickElement('click', 'selector', this.ionMenuButton);
+    console.log('!!!');
     await clickElement('click', 'selector', this.logoutButton);
+    console.log('!!!!');
     await clickElementWithText('click', 'button', 'Logout');
-    await this.clickNativeButtonWithText('Continue');
+    console.log('!!!!!!!');
+    await driver.getContexts();
+    // await driver.pause(5000);
+    // await this.gettingContextAndWindowHandles();
+    // await driver.pause(5000);
+    console.log('switchContextBySignId');
+    await browser.getContexts();
     await this.switchContextBySignId(this.msSignOutContextTitle);
-    const logoutTile = await $('small=Signed in');
-    await this.waitForExistAndClickable(logoutTile);
-    await this.clickElement(logoutTile);
-    await this.clickNativeButtonWithText('Cancel');
+    console.log('!!!!!!!!');
+    // const logoutTile = await $('#tilesHolder');
+    // console.log('Pausing for 5 seconds');
+    // await browser.pause(5000);
+    // console.log('!!!!!!!!!');
+    // await this.waitForExists(logoutTile);
+    // console.log('!!!!!!!!!!');
+    // await this.clickElement(logoutTile);
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
+    await browser.pause(5000);
+    console.log('closing all windows');
+    await this.closeAllWindows();
+    console.log('>>>>>Terminating All Apps<<<<<');
+    console.log('Terminating Safari');
+    await browser.terminateApp('com.apple.mobilesafari');
+    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    await browser.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    await browser.activateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log('Activated App');
+    console.log('Logout completed and back in DES');
     await this.switchToDESContext();
     const signInAgainButton = await $('span=Sign in');
     await this.clickElement(signInAgainButton);
