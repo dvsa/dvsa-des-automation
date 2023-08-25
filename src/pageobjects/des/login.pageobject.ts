@@ -67,37 +67,28 @@ class LoginMobilePageObject extends Page {
     // await this.switchContextBySignId(this.msSignInContextTitle);
     await this.gettingContextAndWindowHandles();
 
-    // console.log('==');
-    // #dashboard-burger-menu-btn
-    // ion-menu-button
-    // const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
-    //
-    // console.log('===');
-    // const loginBackdrop = await $('#i0281');
-    // console.log('====');
-    // const loginError = await $('#loginSorry');
-
-    await browser.pause(5000);
-    // await this.gettingContextAndWindowHandles();
-    // await this.switchToDESContext();
-    console.log('Promise.Race At start of test');
-    // check if already logged in on app launch.
-    await Promise.race([
-      await this.waitForExistAndClickable(await $('#dashboard-burger-menu-btn')),
-      await this.waitForExists(await $('#i0281')),
-      await this.waitForExistAndClickable(await $('#otherTileText')),
-      await this.waitForExists(await $('#loginSorry')),
-    ]);
-
     console.log('==');
+    const loginBackdrop = await $('#i0281');
+    console.log('===');
+    const alreadyLoggedInFirst = await $('#otherTileText');
+    console.log('====');
+    const loginError = await $('#loginSorry');
+    console.log('=!=!=!');
     // #dashboard-burger-menu-btn
     // ion-menu-button
     const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
 
-    console.log('===');
-    // const loginBackdrop = await $('#i0281');
-    console.log('====');
-    const loginError = await $('#loginSorry');
+    await browser.pause(5000);
+    await this.gettingContextAndWindowHandles();
+    // await this.switchToDESContext();
+    console.log('Promise.Race At start of test');
+    // check if already logged in on app launch.
+    await Promise.race([
+      this.waitForExists(loginError),
+      this.waitForExistAndClickable(alreadyLoggedInFirst),
+      this.waitForExists(loginBackdrop),
+      this.waitForExistAndClickable(burgerMenu),
+    ]);
 
     if (await loginError.isDisplayed()) {
       throw new Error('log in error');
@@ -193,6 +184,7 @@ class LoginMobilePageObject extends Page {
     await browser.getContexts();
     await this.switchContextBySignId(this.msSignOutContextTitle);
     console.log('!!!!!!!!');
+    // LOOK HERE
     // const logoutTile = await $('#tilesHolder');
     // console.log('Pausing for 5 seconds');
     // await browser.pause(5000);
