@@ -189,6 +189,7 @@ export default class Page {
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
     });
+    console.log(`waitForExists done ${selector}`);
   }
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
@@ -205,6 +206,7 @@ export default class Page {
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
+    console.log(`waitForExistAndClickable done ${selector}`);
   }
 
   async waitForClickables(element: WebdriverIO.Element): Promise<void> {
@@ -215,6 +217,7 @@ export default class Page {
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
+    console.log(`waitForClickables done ${selector}`);
   }
 
   async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
@@ -226,5 +229,6 @@ export default class Page {
       reverse: false,
       timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
     });
+    console.log(`waitForDisplayed done ${selector}`);
   }
 }

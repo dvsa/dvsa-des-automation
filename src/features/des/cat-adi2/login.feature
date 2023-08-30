@@ -5,5 +5,5 @@ Feature: Login
     Given I am signed in as a random "mobexaminer1" user
     When I wait on element "des-dashboard::page-title" to be displayed
     And I expect that container "des-dashboard::staff-number" contains the text "1234567"
-    And I pause for 500000000ms
+    And I pause for 5000ms
     And I sign out
