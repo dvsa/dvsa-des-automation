@@ -1,5 +1,5 @@
 import path from 'path';
-import CustomCommand from '../shared/custom/support/lib/addCommands';
+// import CustomCommand from '../shared/custom/support/lib/addCommands';
 
 // Uncomment to enable video reporter
 // const video = require('wdio-video-reporter');
