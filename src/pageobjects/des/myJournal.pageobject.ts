@@ -91,10 +91,12 @@ class MyJournalPageObject extends Page {
     await clickElement('click', 'selector', startTestSelector);
 
     if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
+      console.log('In startLateTest');
       await this.startEarlyTest();
     }
 
     if (await $(getElementByReference(this.expiredStartTestModelTitle)).isExisting()) {
+      console.log('In startLateTest');
       await this.startLateTest();
     }
 

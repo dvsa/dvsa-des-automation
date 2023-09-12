@@ -22,58 +22,63 @@ class LoginMobilePageObject extends Page {
     await driver.switchContext(signingContext.id);
   }
 
-  async closeAllWindowsOLD(closeOldOnly: boolean = false): Promise<void> {
+  async closeAllWindowsWorking(closeOldOnly: boolean = false): Promise<void> {
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CLOSING ALL WINDOWS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
     const browserHandlesArray = await browser.getWindowHandles();
-    await driver.pause(5000);
-    console.log('browserHandlesArray', browserHandlesArray);
-    await this.gettingContextAndWindowHandles();
-    await browser.pause(5000);
     await browser.switchToWindow(await browserHandlesArray[browserHandlesArray.length - 1]);
     if (closeOldOnly) {
       const index = browserHandlesArray.indexOf(`${await browser.getWindowHandle()}`);
       browserHandlesArray.splice(index, 1);
     }
-    // eslint-disable-next-line no-plusplus
-    for (let i = browserHandlesArray.length; i >= 1; --i) {
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-      // await driver.getWindowHandles();
-      await this.gettingContextAndWindowHandles();
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-      console.log(`Switching to window $${browserHandlesArray[i - 1]}`);
-      console.log('Pausing for 5 seconds');
-      await browser.pause(5000);
-      console.log('Pause done');
-      await browser.switchToWindow(`WEBVIEW_${browserHandlesArray[i - 1]}`);
-      console.log('Switched Window');
-      await browser.closeWindow();
-      console.log('Window closed');
-    }
-    console.info('>>>>>>>>>> Closing all windows done <<<<<<<<<<');
-  }
 
-  async closeAllWindows(closeOldOnly: boolean = false): Promise<void> {
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CLOSING ALL WINDOWS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    const browserHandlesArray = await browser.getWindowHandles();
-    await browser.switchToWindow(await browserHandlesArray[browserHandlesArray.length - 1]);
-    if (closeOldOnly) {
-      const index = browserHandlesArray.indexOf(`${await browser.getWindowHandle()}`);
-      browserHandlesArray.splice(index, 1);
-    }
     // eslint-disable-next-line no-plusplus
     for (let i = browserHandlesArray.length; i >= 1; --i) {
       console.log('In for loop');
       if (browserHandlesArray.length !== 0) {
         console.log('In if');
+        console.log('================================================================');
         console.log('Start Windows loop', await browser.getContexts());
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+        console.log(`WEBVIEW_${browserHandlesArray[i - 1]}`);
+        console.log('================================================================');
         await browser.switchToWindow(`WEBVIEW_${browserHandlesArray[i - 1]}`);
         // LOOK AT TOMORROW
         // browser.navigateTo(url)
         console.log('Switched Window');
-        console.log('browser.getUrl():   ', await browser.getUrl());
+        // console.log('browser.getUrl():   ', await browser.getUrl());
         await browser.closeWindow();
         console.log('Window closed');
         console.log('End Windows loop', await browser.getContexts());
+      }
+    }
+    console.info('>>>>>>>>>> Closing all windows done <<<<<<<<<<');
+  }
+
+  async switchAndClose(windowID: string): Promise<void> {
+    console.log('switching window');
+    await browser.switchToWindow(`WEBVIEW_${windowID}`);
+    console.log('Closing window');
+    await browser.closeWindow();
+  }
+
+  async closeWindows(closeOldOnly: boolean = false): Promise<void> {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> CLOSING ALL WINDOWS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+    const parentWindows = await browser.getWindowHandle();
+    const windows = await browser.getWindowHandles();
+    const reversedWindows = windows.reverse();
+    console.log(await browser.getContexts());
+    console.log('Parent window: ', parentWindows);
+    console.log('reversedWindows:   ', reversedWindows);
+    if (!closeOldOnly) {
+      console.log('Closing Parent Window');
+      await this.switchAndClose(parentWindows);
+    }
+    for (const window of reversedWindows) {
+      console.log(window);
+      // eslint-disable-next-line eqeqeq
+      if (parentWindows != window) {
+        console.log('Closing non parent window');
+        await this.switchAndClose(window);
       }
     }
     console.info('>>>>>>>>>> Closing all windows done <<<<<<<<<<');
@@ -91,12 +96,14 @@ class LoginMobilePageObject extends Page {
   }
 
   async switchToWindowLastInArray(): Promise<void> {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start switchToWindowLastInArray <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
     console.log('switching windows');
     const allWindowHandles = await browser.getWindowHandles();
     console.log('allWindowHandles', allWindowHandles);
     console.log('allWindowHandles length', allWindowHandles.length);
     console.log('allWindowHandles length', allWindowHandles[allWindowHandles.length - 1]);
     await browser.switchToWindow(`WEBVIEW_${allWindowHandles[allWindowHandles.length - 1]}`);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End switchToWindowLastInArray <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
   }
 
   async login(typeOfUser: string): Promise<void> {
@@ -125,7 +132,12 @@ class LoginMobilePageObject extends Page {
     console.log('=!=!=!');
     // #dashboard-burger-menu-btn
     // ion-menu-button
+    console.log('=!=!=!=!=!=!');
     const burgerMenu: WebdriverIO.Element = await browser.$('#dashboard-burger-menu-btn');
+    console.log('=!=!=!=!=!=!=!=!=!');
+    const alreadyLoggedIn = await browser.$('#appConfirmTitle');
+    console.log('=!=!=!=!=!=!=!=!=!=!=!=!');
+    const continueButton = await browser.$('input[value="Continue"]');
 
     await browser.pause(5000);
     await this.gettingContextAndWindowHandles();
@@ -137,6 +149,7 @@ class LoginMobilePageObject extends Page {
       this.waitForExistAndClickable(alreadyLoggedInFirst),
       this.waitForExists(loginBackdrop),
       this.waitForExistAndClickable(burgerMenu),
+      this.waitForExists(alreadyLoggedIn),
     ]);
 
     if (await loginError.isDisplayed()) {
@@ -147,8 +160,20 @@ class LoginMobilePageObject extends Page {
       await this.logout();
     }
 
+    // If the app is already logged in after a failed logout
+    // it will login and log back out again
+    if (await alreadyLoggedIn.isDisplayed()) {
+      console.info('Fixing logout failure');
+      await this.clickElement(continueButton);
+      await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+      await this.logout();
+      // await this.clickNativeButtonWithText('Continue');
+      // wait for log in page
+      // await this.switchContextBySignId(this.msSignInContextTitle);
+    }
+
     console.log('Closing All OLD windows');
-    await this.closeAllWindows(true);
+    await this.closeWindows(true);
 
     // await this.clickNativeButtonWithText('Continue');
 
@@ -157,7 +182,7 @@ class LoginMobilePageObject extends Page {
 
     // click 'use another account if clickable
     console.log('+');
-    const continueButton = await browser.$('input[value="Continue"]');
+    // const continueButton = await browser.$('input[value="Continue"]');
     console.log('++');
     const useAnotherAccount = await browser.$('#otherTileText');
     console.log('+++');
@@ -224,6 +249,15 @@ class LoginMobilePageObject extends Page {
     // click continue button
     console.log('/');
     await browser.pause(5000);
+    // console.log('/');
+    // console.log('Closing down "Save password" popup');
+    // console.log('Clicking Now Now');
+    // await this.clickNativeButtonWithText('Not Now');
+    // console.log('Switching back to window context');
+    // await driver.switchContext(`WEBVIEW_${await browser.getWindowHandle()}`);
+    // console.log('Done closing down popup');
+    console.log('/');
+    await browser.pause(5000);
     console.log('/');
     await this.waitForClickables(continueButton);
     console.log('/');
@@ -247,30 +281,29 @@ class LoginMobilePageObject extends Page {
     console.log('!!!!');
     await clickElementWithText('click', 'button', 'Logout');
     console.log('!!!!!!!');
-    await this.switchToWindowLastInArray();
+    // await this.switchToWindowLastInArray();
     // await driver.pause(5000);
     await this.gettingContextAndWindowHandles();
     // await driver.pause(5000);
     console.log('switchContextBySignId');
-    await browser.getContexts();
-    await this.switchContextBySignId(this.msSignOutContextTitle);
+    console.log(await browser.getContexts());
+    await this.switchContextBySignId(this.msSignOutContextTitle); // LOOK AT THIS, COULD COME BACK WITH MULTIPLE CONTEXTS
     console.log('!!!!!!!!');
     // LOOK HERE
-    // const logoutTile = await $('#tilesHolder');
+    const logoutTile = await browser.$('#tilesHolder');
     // console.log('Pausing for 5 seconds');
     // await browser.pause(5000);
     // console.log('!!!!!!!!!');
     // await this.waitForExists(logoutTile);
     // console.log('!!!!!!!!!!');
-    // await this.clickElement(logoutTile);
+    await this.clickElement(logoutTile);
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
     await browser.pause(5000);
     console.log('closing all windows');
-    await this.closeAllWindows();
+    await this.closeWindows();
     console.log('>>>>>Terminating All Apps<<<<<');
     console.log('Terminating Safari');
     await browser.terminateApp('com.apple.mobilesafari');
-    // await driver.activateApp('uk.gov.dvsa.drivingexaminerservices');
     await browser.terminateApp('uk.gov.dvsa.drivingexaminerservices');
     await browser.activateApp('uk.gov.dvsa.drivingexaminerservices');
     console.log('Activated App');
