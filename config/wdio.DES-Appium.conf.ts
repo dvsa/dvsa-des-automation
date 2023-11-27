@@ -15,9 +15,9 @@ import { createAutomationSimulators, getAutomationSimulatorUDIDS } from '../scri
  * simulator model or iOS version (SDK for selected ios must be installed in xcode)
  * ===============================================================================
  */
-const numberOfParallelTests = 1;
+const numberOfParallelTests = 4;
 const simulatorModel: DeviceName = DeviceName.iPad9thGen;
-const iosVersion: IOSVersion = IOSVersion.sixteenFour;
+const iosVersion: IOSVersion = IOSVersion.seventeenOne;
 
 let startTime: string;
 let endTime: string;

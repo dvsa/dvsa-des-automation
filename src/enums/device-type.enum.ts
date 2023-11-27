@@ -11,4 +11,5 @@ export enum IOSVersion {
     sixteenTwo = '16.2',
     sixteenThree = '16.3',
     sixteenFour = '16.4',
+    seventeenOne = '17.0'
 }
