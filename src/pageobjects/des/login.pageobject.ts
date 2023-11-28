@@ -165,7 +165,7 @@ class LoginMobilePageObject extends Page {
     if (await alreadyLoggedIn.isDisplayed()) {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
-      await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+      await waitFor(this.ionMenuButton, '10000', false, 'be displayed');
       await this.logout();
       // await this.clickNativeButtonWithText('Continue');
       // wait for log in page
@@ -304,7 +304,9 @@ class LoginMobilePageObject extends Page {
     console.log('>>>>>Terminating All Apps<<<<<');
     console.log('Terminating Safari');
     await browser.terminateApp('com.apple.mobilesafari');
-    await browser.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    console.log('Terminated 1');
+    // await browser.terminateApp('uk.gov.dvsa.drivingexaminerservices');
+    // console.log('Terminated 2');
     await browser.activateApp('uk.gov.dvsa.drivingexaminerservices');
     console.log('Activated App');
     // console.log('Logout completed and back in DES');

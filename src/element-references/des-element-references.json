@@ -58,9 +58,9 @@
     "day-name": "//*[@id=\"date-container\"]//h1",
     "date": "//*[@id=\"date-container\"]//h3",
     "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p",
-    "start-test-model-time-expired-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Test time is expired')]",
-    "start-test-model-time-early-title": "//h2[@id='model-alert-title-text'][contains(text(), 'This test is not due to')]",
-    "start-test-model-candidate-special-reqs-title": "//h2[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]",
+    "start-test-model-time-expired-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Test time is expired')]",
+    "start-test-model-time-early-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'This test is not due to')]",
+    "start-test-model-candidate-special-reqs-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]",
     "base-activity-id": "#activity-code-"
   },
   "des-test-centre-journal": {
@@ -598,7 +598,7 @@
     "test-outcome-row": "ion-row*='Test outcome'",
     "test-activity-code-value": "#confirm-test-details-activity-code-value",
     "test-cat-value": "#confirm-test-details-test-category-value",
-    "test-prov-licence-value": "#confirm-test-details-provisional-licence-value",
+    "test-prov-licence-value": "#confirm-test-details-provisional-licence-received-value",
     "test-transmission-value": "#confirm-test-details-transmission-text",
     "test-d255-value": "#confirm-test-details-d255-value",
     "test-category-row": "ion-row*='Test Category'",

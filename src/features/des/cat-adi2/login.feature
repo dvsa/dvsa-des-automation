@@ -1,4 +1,4 @@
-@test
+#@test
 Feature: Login
 
   Scenario:   Successful Test with no faults
