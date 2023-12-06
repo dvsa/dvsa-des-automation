@@ -4,6 +4,7 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import GettingContext from '@shared-custom/support/lib/gettingContext';
 import { getElementByReference } from '@shared-helpers/element-reference-helper';
+import { Selector } from 'webdriverio';
 
 export interface Context {
   id: string,
@@ -179,5 +180,34 @@ export default class Page {
       },
     ]);
     await new GettingContext().switchToDVSAAppContext();
+  }
+
+  getFailureOpts(selector: Selector, action: 'exist' | 'displayed' | 'clickable' = 'exist', timeout: number = 15000) {
+    const timeoutMsg = `${timeout / 1000}`;
+    return {
+      timeout,
+      reverse: false,
+      timeoutMsg: `Element with selector: ${selector} did not ${action} on page within ${timeoutMsg} seconds`,
+    };
+  }
+
+  async waitForExist(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForExist(this.getFailureOpts(selector));
+  }
+
+  async waitForClickable(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForClickable(this.getFailureOpts(selector, 'clickable'));
+  }
+
+  async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForDisplayed(this.getFailureOpts(selector, 'displayed'));
+  }
+
+  async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
+    await this.waitForExist(element);
+    await this.waitForClickable(element);
   }
 }

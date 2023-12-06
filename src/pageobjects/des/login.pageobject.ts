@@ -13,38 +13,6 @@ class LoginMobilePageObject extends Page {
 
   get logoutButton() { return 'des-dashboard::logout-button'; }
 
-  async waitForExist(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForExist({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
-  }
-
-  async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForDisplayed({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
-    await element.waitForClickable({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-    });
-  }
-
-  async waitForClickable(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForClickable({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-    });
-  }
-
   async switchContextBySignId(contextTitle: string): Promise<void> {
     // wait for log in page
 
@@ -58,18 +26,8 @@ class LoginMobilePageObject extends Page {
     // pause on app launch
     await browser.pause(7000);
     const user = credentials.Environment.Dev[typeOfUser][0];
-
-    const burgerMenu: WebdriverIO.Element = await $('ion-menu-button');
-
-    const loginBackdrop = await $('.backdrop-no-scroll');
+    const burgerMenu: WebdriverIO.Element = await $('#dashboard-burger-menu-btn');
     const loginError = await $('#loginSorry');
-
-    // check if already logged in on app launch.
-    await Promise.race([
-      this.waitForExistAndClickable(burgerMenu),
-      this.waitForExist(loginBackdrop),
-      this.waitForExist(loginError),
-    ]);
 
     if (await loginError.isDisplayed()) {
       throw new Error('log in error');
@@ -80,7 +38,6 @@ class LoginMobilePageObject extends Page {
     }
 
     await this.clickNativeButtonWithText('Continue');
-
     // wait for log in page
     await this.switchContextBySignId(this.msSignInContextTitle);
 
@@ -88,7 +45,7 @@ class LoginMobilePageObject extends Page {
     const continueButton = await $('input[value="Continue"]');
     const useAnotherAccount = await $('#otherTileText');
     const emailTextBox = await $('#i0116');
-    const alreadyLoggedIn = await $('#idSIButton9');
+    const alreadyLoggedIn = await $('#appConfirmTitle');
     // resolve as soo as either 'use another account' or email input available
     await Promise.race([
       this.waitForExistAndClickable(continueButton),
@@ -98,7 +55,7 @@ class LoginMobilePageObject extends Page {
     ]);
 
     // If the app is already logged in after a failed logout
-    // it will login and log back out again
+    // it will log in and log back out again
     if (await alreadyLoggedIn.isDisplayed()) {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
@@ -156,7 +113,7 @@ class LoginMobilePageObject extends Page {
     await this.clickNativeButtonWithText('Cancel');
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
     await this.switchToDESContext();
-    const signInAgainButton = await $('span=Sign in');
+    const signInAgainButton = await $('//span[contains(text(), \'Sign in\')]');
     await this.clickElement(signInAgainButton);
   }
 }
