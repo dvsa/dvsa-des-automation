@@ -4,6 +4,7 @@ import clickElement from '@shared-boilerplate/support/action/clickElement';
 import clickElementWithText from '@shared-custom/support/action/clickElementWithText';
 import GettingContext from '@shared-custom/support/lib/gettingContext';
 import { getElementByReference } from '@shared-helpers/element-reference-helper';
+import { Selector } from 'webdriverio';
 
 export interface Context {
   id: string,
@@ -181,45 +182,32 @@ export default class Page {
     await new GettingContext().switchToDVSAAppContext();
   }
 
-  async waitForExists(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForExist({
-      timeout: 15000,
+  getFailureOpts(selector: Selector, action: 'exist' | 'displayed' | 'clickable' = 'exist', timeout: number = 15000) {
+    const timeoutMsg = `${timeout / 1000}`;
+    return {
+      timeout,
       reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
+      timeoutMsg: `Element with selector: ${selector} did not ${action} on page within ${timeoutMsg} seconds`,
+    };
+  }
+
+  async waitForExist(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForExist(this.getFailureOpts(selector));
+  }
+
+  async waitForClickable(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForClickable(this.getFailureOpts(selector, 'clickable'));
+  }
+
+  async waitForDisplayed(element: WebdriverIO.Element): Promise<void> {
+    const { selector } = element;
+    await element.waitForDisplayed(this.getFailureOpts(selector, 'displayed'));
   }
 
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForDisplayed({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} did not exist on page within 15 seconds`,
-    });
-    await element.waitForClickable({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-    });
-  }
-
-  async waitForClickables(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await element.waitForClickable({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} was not clickable on page within 15 seconds`,
-    });
-  }
-
-  async waitForDisplayeds(element: WebdriverIO.Element): Promise<void> {
-    const { selector } = element;
-    await browser.pause(1000);
-    await element.waitForDisplayed({
-      timeout: 15000,
-      reverse: false,
-      timeoutMsg: `Element with selector: ${selector} was not displayed on page within 15 seconds`,
-    });
+    await this.waitForExist(element);
+    await this.waitForClickable(element);
   }
 }

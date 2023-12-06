@@ -91,7 +91,7 @@ class LoginMobilePageObject extends Page {
     await this.clickElement(signInButton);
     // click continue button
     await browser.pause(5000);
-    await this.waitForClickables(continueButton);
+    await this.waitForClickable(continueButton);
     await this.clickElement(continueButton);
     // switch to Search app context
     await this.switchToDESContext();
