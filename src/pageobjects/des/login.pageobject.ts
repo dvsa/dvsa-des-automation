@@ -124,7 +124,7 @@ class LoginMobilePageObject extends Page {
     await this.clickNativeButtonWithText('Cancel');
     console.log('>>>>>>>>>SIGNED OUT>>>>>>>>>');
     await this.switchToDESContext();
-    const signInAgainButton = await $("//span[contains(text(), 'Sign in')]");
+    const signInAgainButton = await $('//span[contains(text(), \'Sign in\')]');
     await this.clickElement(signInAgainButton);
   }
 }
