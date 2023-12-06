@@ -22,17 +22,6 @@ class LoginMobilePageObject extends Page {
     await driver.switchContext(signingContext.id);
   }
 
-  async switchToWindowLastInArray(): Promise<void> {
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start switchToWindowLastInArray <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    console.log('switching windows');
-    const allWindowHandles = await browser.getWindowHandles();
-    console.log('allWindowHandles', allWindowHandles);
-    console.log('allWindowHandles length', allWindowHandles.length);
-    console.log('allWindowHandles length', allWindowHandles[allWindowHandles.length - 1]);
-    await browser.switchToWindow(`WEBVIEW_${allWindowHandles[allWindowHandles.length - 1]}`);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End switchToWindowLastInArray <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-  }
-
   async login(typeOfUser: string): Promise<void> {
     // pause on app launch
     await browser.pause(7000);
