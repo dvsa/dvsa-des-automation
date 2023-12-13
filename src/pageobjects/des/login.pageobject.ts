@@ -80,15 +80,17 @@ class LoginMobilePageObject extends Page {
     const nextButton: WebdriverIO.Element = await $('#idSIButton9');
     await this.waitForExistAndClickable(nextButton);
     await this.clickElement(nextButton);
-    // click password button
-    const passwordBox = await $('#passwordInput');
-    await this.waitForExistAndClickable(passwordBox);
-    await this.clickElement(passwordBox);
-    await passwordBox.setValue(user.Password);
-    // click sign in
-    const signInButton = await $('#submitButton');
-    await this.waitForExistAndClickable(signInButton);
-    await this.clickElement(signInButton);
+    if (!await continueButton.isDisplayed()) {
+      // click password button
+      const passwordBox = await $('#passwordInput');
+      await this.waitForExistAndClickable(passwordBox);
+      await this.clickElement(passwordBox);
+      await passwordBox.setValue(user.Password);
+      // click sign in
+      const signInButton = await $('#submitButton');
+      await this.waitForExistAndClickable(signInButton);
+      await this.clickElement(signInButton);
+    }
     // click continue button
     await browser.pause(5000);
     await this.waitForClickable(continueButton);

@@ -26,6 +26,8 @@ class MyJournalPageObject extends Page {
 
   get specialReqsStartTestModelTitle() { return ('des-my-journal::start-test-model-candidate-special-reqs-title'); }
 
+  get combinedStartTestModelTitle() { return ('des-my-journal::combined-start-test-model-title'); }
+
   get specialReqsStartTestModelButton() { return ('des-my-journal::start-test-modal-view-candidate-details-btn'); }
 
   get candidateDetailsPageTitle() { return ('des-candidate-details::page-title'); }
@@ -37,6 +39,8 @@ class MyJournalPageObject extends Page {
   get baseRekeyTestId() { return ('des-candidate-app-refs::base-rekey-test-id'); }
 
   get baseActivityId() { return ('des-my-journal::base-activity-id'); }
+
+  get waitingRoomPageTitleId() { return ('des-exam-waiting-room::waiting-room-page-title'); }
 
   async changeDayCheckDate(direction:'back'|'forward', days:number): Promise<void> {
     await waitFor(this.dayName, '', false, 'be displayed');
@@ -89,7 +93,16 @@ class MyJournalPageObject extends Page {
     await scroll(startTestSelector);
     await waitFor(startTestSelector, '', false, 'be displayed');
     await clickElement('click', 'selector', startTestSelector);
-
+    if (!rekeyOption) {
+      await waitFor(this.combinedStartTestModelTitle, '', false, 'be displayed');
+    }
+    if (await $(getElementByReference(this.specialReqsStartTestModelTitle)).isExisting()) {
+      await waitFor(this.specialReqsStartTestModelButton, '', false, 'be displayed');
+      await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
+      await waitFor(this.candidateDetailsPageTitle, '', false, 'be displayed');
+      await clickElement('click', 'selector', this.candidateDetailsBackButton);
+      await clickElement('click', 'selector', startTestSelector);
+    }
     if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
       await this.startEarlyTest();
     }
@@ -97,22 +110,7 @@ class MyJournalPageObject extends Page {
     if (await $(getElementByReference(this.expiredStartTestModelTitle)).isExisting()) {
       await this.startLateTest();
     }
-
-    if (await $(getElementByReference(this.specialReqsStartTestModelTitle)).isExisting()) {
-      await waitFor(this.specialReqsStartTestModelButton, '', false, 'be displayed');
-      await clickElement('click', 'selector', this.specialReqsStartTestModelButton);
-      await waitFor(this.candidateDetailsPageTitle, '', false, 'be displayed');
-      await clickElement('click', 'selector', this.candidateDetailsBackButton);
-      await clickElement('click', 'selector', startTestSelector);
-
-      if (await $(getElementByReference(this.earlyStartTestModelTitle)).isExisting()) {
-        await this.startEarlyTest();
-      }
-
-      if (await $(getElementByReference(this.expiredStartTestModelTitle)).isExisting()) {
-        await this.startLateTest();
-      }
-    }
+    await waitFor(this.waitingRoomPageTitleId, '', false, 'be displayed');
   }
 
   async checkActivityCode(appRef: string, expectedText: string): Promise<void> {

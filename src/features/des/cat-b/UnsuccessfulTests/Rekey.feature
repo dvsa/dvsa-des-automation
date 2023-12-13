@@ -35,7 +35,7 @@ Feature: Cat-B Unsuccessful with serious faults feature Rekey
       | testCategory          | B                                           |
       | provLicenceReceived   | na                                          |
       | transmission          | na                                          |
-      | d255                  | Yes - Please complete a D255                |
+      | d255                  | Yes - Please complete a D255.                |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"

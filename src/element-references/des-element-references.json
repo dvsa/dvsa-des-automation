@@ -16,7 +16,7 @@
     "date": ".date",
     "staff-number-container": "//ion-col[@class='staff-number']",
     "staff-number": "#staff-number",
-    "username-header": "//ion-row/h2[@class='name']",
+    "username-header": "#examiner-name",
     "user-classification": "//ion-col[@class='role ios hydrated']/span",
     "user-profile-icon": "//ion-icon[@id='contact-icon']",
     "my-journal-btn": "#go-to-journal-button",
@@ -55,12 +55,13 @@
     "back-to-journal-btn-on-modal": "//ion-button[contains(text(), 'Return to journal')]",
     "cancel-start-test-modal": "#rekey-cancel-button",
     "journal-back-button": "#journal-back-button",
-    "day-name": "//*[@id=\"date-container\"]//h1",
-    "date": "//*[@id=\"date-container\"]//h3",
+    "day-name": "//*[@id='date-container']//*[@id='date-today-header' or @id='date-day-header']",
+    "date": "//*[@id='date-container']//*[@id='today-date' or @id='date-subheader']",
     "no-journal-entry-message": "//*[@id=\"main-content\"]/app-journal/ion-content/div/p",
     "start-test-model-time-expired-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Test time is expired')]",
     "start-test-model-time-early-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'This test is not due to')]",
-    "start-test-model-candidate-special-reqs-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Candidate has special requirements')]",
+    "start-test-model-candidate-special-reqs-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Candidate has additional requirements')]",
+    "combined-start-test-model-title": "//ion-text[@id='model-alert-title-text'][contains(text(), 'Candidate has additional requirements') or contains(text(), 'Test time is expired') or contains(text(), 'This test is not due to')]",
     "base-activity-id": "#activity-code-"
   },
   "des-test-centre-journal": {
@@ -115,7 +116,8 @@
     "insurance-declaration-unchecked-validation-message": "#waiting-room-insurance-validation-text",
     "residency-declaration-unchecked-validation-message": "#waiting-room-residency-validation-text",
     "signature-pad-validation-message": "#signature-area-validation-text",
-    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']//input"
+    "manoeuvres-pass-cert-num": "//ion-input[@id='manoeuvres-pass-cert-number']//input",
+    "waiting-room-page-title": "#waiting-room-page-title"
   },
   "des-candidate-licence-page": {
     "error-card": "#driver-photograph-error-header",
@@ -347,7 +349,7 @@
     "competency-btn-traffic-controllers": "competency-button='Traffic controllers'",
     "competency-btn-other-road-users": "competency-button='Other road users'",
     "end-test-continue-to-debrief-btn": "#end-test-continue-button",
-    "continue-to-debrief": "//ion-button//h3[contains(text(), 'Continue to debrief')]",
+    "continue-to-debrief": "//ion-button//ion-text[contains(text(), 'Continue to debrief')]",
     "end-test-terminate-test-btn": "#end-test-terminate-button",
     "test-requirement-uh-tick": "//legal-requirement[contains(@ng-reflect-legal-requirement, \"uphillStart\")]//*[@id=\"legal-requirements-tick-UH\"]/tick-indicator",
     "test-requirement-dh-tick": "//legal-requirement[contains(@ng-reflect-legal-requirement, \"downhillStart\")]//*[@id=\"legal-requirements-tick-DH\"]/tick-indicator",
@@ -371,7 +373,7 @@
     "mod-one-second-avoidance-stop-input": "#speedCheckAvoidanceSecondAttempt",
     "mod-one-emergency-stop-not-met": "#speedCheckEmergencyMet",
     "mod-one-avoidance-stop-not-met": "#speedCheckAvoidanceMet",
-    "mod-one-end-test-now-button": "//activity-code-4-modal//ion-button/h3[contains(text(), 'End test now')]",
+    "mod-one-end-test-now-button": "//activity-code-4-modal//ion-button/ion-text[contains(text(), 'End test now')]",
     "manoeuvres-one-reverse-right": "#manoeuvres-reverse-right-radio1",
     "manoeuvres-two-reverse-park-road": "#manoeuvres-reverse-park-road-radio2",
     "test-requirement-sm-tm": "#sm-tm-question-tick",
@@ -397,7 +399,7 @@
     "legal-requirements-modal-as-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'AS (angled start)')]",
     "legal-requirements-modal-hs-ds-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'HS / DS (hill or designated start)')]",
     "legal-requirements-modal-manoeuvres-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Manoeuvres')]",
-    "legal-requirements-modal-sm-tm-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Show me / Tell me')]",
+    "legal-requirements-modal-sm-tm-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Show me / tell me')]",
     "legal-requirements-modal-eco-list": "//*[@id='legal-requirements-list']/li[contains(text(), 'Eco (control and planning)')]",
     "legal-requirements-modal-emergency-stop-list": "//speed-check-modal//li[contains(text(), 'Emergency stop')]",
     "legal-requirements-modal-avoidance-stop-list": "//speed-check-modal//li[contains(text(), 'Avoidance ex. control stop')]",
@@ -683,10 +685,10 @@
     "upload-btn": "//ion-button[contains(text(), 'Upload')]",
     "upload-spinner": ".loading-overlay",
     "outcome-page": "#rekey-upload-outcome-page",
-    "return-journal-btn": "//ion-button//h3[contains(text(), 'Return to journal')]",
+    "return-journal-btn": "//ion-button//ion-text[contains(text(), 'Return to journal')]",
     "continue-reason-rekey": "#reason-for-rekey",
     "previous-day-btn": "#previous-day",
-    "rekey-success-text": ".//h2[contains(text(), 'Rekeyed test uploaded successfully')]"
+    "rekey-success-text": ".//ion-text[contains(text(), 'Rekeyed test uploaded successfully')]"
   },
   "des-rekey-search-page": {
     "page-title": "#rekey-search-page-title",
