@@ -36,9 +36,9 @@ Feature: Cat-Mod1 Successful feature
       | testOutcome           | Passed                                                            |
       | activityCode          | 1 - Pass                                                          |
       | testCategory          | EUAMM1                                                            |
-      | provLicenceReceived   | No - Please ensure that the licence is kept by the candidate      |
+      | provLicenceReceived   | No - Please ensure that the licence is kept by the candidate.      |
       | transmission          | Automatic - An automatic licence issued                           |
-      | d255                  | Yes - Please complete a D255                                      |
+      | d255                  | Yes - Please complete a D255.                                      |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"

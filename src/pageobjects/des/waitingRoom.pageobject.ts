@@ -1,4 +1,5 @@
 import setInputField from '@shared-boilerplate/support/action/setInputField';
+import waitFor from '@shared-boilerplate/support/action/waitFor';
 import Page from '../base/page';
 import clickElement from '../../../shared/boilerplate/support/action/clickElement';
 
@@ -18,6 +19,7 @@ class WaitingRoomPageObject extends Page {
   get manoeuvresPassCertNumberInput() { return ('des-final-outcome-screen::manoeuvres-pass-cert-number'); }
 
   async completeDeclartionPage(category:string): Promise<void> {
+    await waitFor(this.insuranceDeclarationLabel, '', false, 'be clickable');
     await clickElement('click', 'selector', this.insuranceDeclarationLabel);
     if (!(category === 'adi2' || category === 'adi3')) {
       await clickElement('click', 'selector', this.residencyDeclarationLabel);

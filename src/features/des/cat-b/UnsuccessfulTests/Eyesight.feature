@@ -14,8 +14,8 @@ Feature: Cat-B Unsuccessful With Eyesight feature
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | fail             |
     And I click on the element "des-waiting-room-to-car::continue-to-debrief-btn"
-    And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
-    And I expect that element "des-debrief-screen::test-outcome-failed" is displayed
+    And I wait on element "des-debrief-screen::test-outcome-terminated" to be displayed
+    And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed
     And I check from a data table the number of faults are correct
       | faultSelector                                                 | faultExpectedText                | faultCountSelector                                         | numberOfFaults      |
       | des-debrief-screen::eyesight-test-serious-text                | Eyesight test                    | des-debrief-screen::driving-serious-fault-count            | 1                   |
@@ -31,7 +31,7 @@ Feature: Cat-B Unsuccessful With Eyesight feature
       | testCategory          | B                                           |
       | provLicenceReceived   | na                                          |
       | transmission          | na                                          |
-      | d255                  | Yes - Please complete a D255                |
+      | d255                  | Yes - Please complete a D255.                |
     And I click on the button "des-final-confirmation-screen::submit-test-results-btn"
     And I click on the button "des-final-confirmation-screen::submit-modal-submit-btn"
     And I click on the button "des-back-to-office-holding-page::continue-to-write-up-btn"
