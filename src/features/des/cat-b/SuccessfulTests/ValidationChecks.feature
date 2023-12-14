@@ -1,3 +1,4 @@
+@test
 Feature: Cat-B Successful feature
 
   Scenario:   Check validation on all pages
@@ -38,7 +39,6 @@ Feature: Cat-B Successful feature
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And I wait on element "des-test-report-screen::page-title" to be displayed
     And I click on the button "des-test-report-screen::end-test-btn"
-    And I pause for 10000ms
     And I wait on element "des-test-report-screen::legal-requirements-modal-first-ns-list" to be displayed
     And the element "des-test-report-screen::legal-requirements-modal-first-ns-list" is displayed
     And the element "des-test-report-screen::legal-requirements-modal-second-ns-list" is displayed
