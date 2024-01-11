@@ -127,10 +127,15 @@ export default class Page {
   }
 
   public async switchToDESContext(): Promise<void> {
+    console.info('at start of switchToDESContext');
+    await console.info('Contexts', await browser.getContexts());
     await this.waitForContextToExist('DVSA DES');
+    console.info('Done Waiting for context to exist');
     const DESContext = await this.getContextByTitle('DVSA DES');
+    console.info('Variable');
     // @ts-ignore
     await driver.switchContext(DESContext.id);
+    console.info('Switched context');
   }
 
   /**

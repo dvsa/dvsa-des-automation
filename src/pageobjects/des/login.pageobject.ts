@@ -59,7 +59,9 @@ class LoginMobilePageObject extends Page {
     if (await alreadyLoggedIn.isDisplayed()) {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
+      console.info('Before logout');
       await this.logout();
+      console.info('After logout');
       await this.clickNativeButtonWithText('Continue');
       // wait for log in page
       await this.switchContextBySignId(this.msSignInContextTitle);
@@ -102,9 +104,14 @@ class LoginMobilePageObject extends Page {
 
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
+    await browser.pause(5000);
     await this.switchToDESContext();
+    console.info('Switched to DES Context');
+    await browser.pause(5000);
     await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    console.info('Waiting For Menu button');
     await clickElement('click', 'selector', this.ionMenuButton);
+    console.info('clicked menu button');
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
     await this.clickNativeButtonWithText('Continue');
