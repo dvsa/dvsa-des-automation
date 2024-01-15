@@ -7,9 +7,12 @@ Feature: Cat-B Terminated feature
     And I click on the button "des-dashboard::my-journal-btn"
     And I start the test for "20654335"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | No              |
     And I complete the waiting room communication page
+    And I complete the auth page
+    And I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I click on the button "des-waiting-room-to-car::end-test-btn"
     And I click on the button "des-waiting-room-to-car::terminate-test-btn"
     And I expect that element "des-debrief-screen::test-outcome-terminated" is displayed

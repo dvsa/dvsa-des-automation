@@ -15,7 +15,7 @@ import { createAutomationSimulators, getAutomationSimulatorUDIDS } from '../scri
  * simulator model or iOS version (SDK for selected ios must be installed in xcode)
  * ===============================================================================
  */
-const numberOfParallelTests = 4;
+const numberOfParallelTests = 1;
 const simulatorModel: DeviceName = DeviceName.iPad8thGen;
 const iosVersion: IOSVersion = IOSVersion.seventeenTwo;
 

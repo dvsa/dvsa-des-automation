@@ -8,6 +8,7 @@ Feature: Cat-B Terminate Waiting Room Declaration feature
     And I start the test for "20654334"
     And I click on the button "des-general::end-test-btn"
     And I click on the button "des-general::terminate-test-btn"
+    And I complete the auth page
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the button "des-post-debrief-screen::continue-btn"
     And I complete the terminated final outcome screen from a data table

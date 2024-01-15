@@ -25,6 +25,7 @@ import lessonOptionADI3 from '../../app-actions/des-action/lessonOptionADI3';
 import testReportADI3Questions from '../../app-actions/des-action/testReportADI3Questions';
 import keyboardClickLetter from '../../app-actions/des-action/keyboardClickLetter';
 import completeCandidateIDPage from '../../app-actions/des-action/completeCandidateIDPage';
+import completeAuthPage from '../../app-actions/des-action/completeAuthPage';
 
 When(
   /^I am signed in as a random "([^"]*)?" user$/,
@@ -155,4 +156,9 @@ When(
 When(
   /^I input the letter "([^"]*)?" into adi3 review textbox$/,
   keyboardClickLetter,
+);
+
+When(
+  /^I complete the auth page$/,
+  completeAuthPage,
 );

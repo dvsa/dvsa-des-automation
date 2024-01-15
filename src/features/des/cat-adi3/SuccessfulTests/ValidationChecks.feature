@@ -14,6 +14,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-comms-screen::continue-btn"
     And the element "des-comms-screen::new-email-error-msg" is displayed
     And I complete the waiting room communication page
+    And I complete the auth page
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And the element "des-waiting-room-to-car::vehicle-registration-validation-error-msg" is displayed
     And the element "des-waiting-room-to-car::dual-controls-validation-msg" is displayed
@@ -94,6 +95,7 @@ Feature: Cat-ADI3 Successful feature
     And the element "test-report-dashboard-screen::test-report-valid-icon" is displayed
     And the element "test-report-dashboard-screen::review-valid-icon" is displayed
     And I click on the element "des-test-report-screen::end-test-btn"
+    And I wait on element "des-test-report-screen::test-outcome-text-modal" to be displayed
     And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade A"
     And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "12"
     And the element "des-test-report-screen::modal-risk-management-score" matches the text "15"
@@ -115,6 +117,7 @@ Feature: Cat-ADI3 Successful feature
       | debriefWitnessed              | Yes                                                                            |
       | noAdviceGiven                 | This is a message, with special symbols. Hope this works? And it did! :-)      |
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
+    And I wait on element "des-final-confirmation-screen::test-outcome-value" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome                 | Passed - Grade A                          |
       | activityCode                | 1 - Pass                                  |

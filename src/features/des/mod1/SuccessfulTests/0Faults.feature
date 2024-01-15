@@ -8,9 +8,11 @@ Feature: Cat-Mod1 Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "10123400"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "mod1"
       | categorytype            | AM Moped                      |
       | transmission            | Manual                        |
@@ -32,6 +34,7 @@ Feature: Cat-Mod1 Successful feature
       | d255                          | yes             |
       | debriefWitnessed              | No              |
     And I complete the health declaration page for a category "mod1"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                                            |
       | activityCode          | 1 - Pass                                                          |

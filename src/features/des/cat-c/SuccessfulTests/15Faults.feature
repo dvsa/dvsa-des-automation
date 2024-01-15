@@ -8,9 +8,11 @@ Feature: Cat-C Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "32345633"
     And I complete the waiting room for vocational declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "C"
       | vehicleRegNum            | autopck                             |
       | showMeQuestion1          | Q1 - All doors secure              |
@@ -47,6 +49,7 @@ Feature: Cat-C Successful feature
       | debriefWitnessed              | Yes              |
       | code78                        | Yes              |
     And  I complete the health declaration page for a category "C"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |

@@ -8,10 +8,12 @@ Feature: Cat-C Unsuccessful Tests
     And I start the test for "32345600"
     And I add "A123456X" to the inputfield "des-exam-waiting-room::manoeuvres-pass-cert-num"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     When I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
+    And I complete the auth page
     When I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I complete the waiting room to car page from a data table for a category "C"
       | vehicleRegNum            | autopck                             |

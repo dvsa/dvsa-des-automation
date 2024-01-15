@@ -9,6 +9,7 @@ Feature: Cat-ADI3 Successful feature
     And I start the test for "23123428"
     And I complete the waiting room declaration page for a category "adi3"
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "adi3"
       | vehicleRegNum           | autopck                |
       | duelControls            | No                    |
@@ -49,6 +50,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the element "des-test-report-screen::adi-review-card-feedback-textarea"
     And I input the letter "e" into adi3 review textbox
     And I click on the element "des-test-report-screen::end-test-btn"
+    And I wait on element "des-test-report-screen::test-outcome-text-modal" to be displayed
     And the element "des-test-report-screen::test-outcome-text-modal" matches the text "Passed - Grade B"
     And the element "des-test-report-screen::modal-lesson-planning-score" matches the text "0"
     And the element "des-test-report-screen::modal-risk-management-score" matches the text "15"
@@ -63,6 +65,7 @@ Feature: Cat-ADI3 Successful feature
       | testOutcome                   | Passed - Grade B |
       | debriefWitnessed              | Yes              |
       | furtherAdvice                 | Yes              |
+    And I wait on element "des-final-confirmation-screen::test-outcome-value" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome                 | Passed - Grade B                          |
       | activityCode                | 1 - Pass                                  |

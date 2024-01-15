@@ -8,9 +8,11 @@ Feature: Cat-B Terminated feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "20654335"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | No              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
@@ -30,6 +32,7 @@ Feature: Cat-B Terminated feature
       | testLanguage                  | NA               |
       | debriefWitnessed              | Yes              |
     And  I complete the health declaration page for a category "B"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |

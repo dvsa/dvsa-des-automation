@@ -12,6 +12,7 @@ Feature: Cat-Mod1 Successful feature
     And the element "des-exam-waiting-room::residency-declaration-unchecked-validation-message" is displayed
     And the element "des-exam-waiting-room::signature-pad-validation-message" is displayed
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I click on the button "des-candidate-licence-page::continue-button"
     And the element "des-candidate-licence-page::candidate-true-likeness-validation-message" is displayed
     And I complete the candidate ID page from a data table
@@ -20,6 +21,7 @@ Feature: Cat-Mod1 Successful feature
     And I click on the button "des-comms-screen::continue-btn"
     And the element "des-comms-screen::new-email-error-msg" is displayed
     And I complete the waiting room communication page
+    And I complete the auth page
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
     And the element "des-waiting-room-to-car::confirm-cat-type-validation-msg" is displayed
     And the element "des-waiting-room-to-car::transmission-type-validation-error-msg" is displayed
@@ -59,6 +61,7 @@ Feature: Cat-Mod1 Successful feature
     And the element "des-final-pass-declaration-screen::pass-certificate-receipt-validation-msg" is displayed
     And the element "des-final-pass-declaration-screen::signature-pad-validation-msg" is displayed
     And I complete the health declaration page for a category "mod1"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                                            |
       | activityCode          | 1 - Pass                                                          |

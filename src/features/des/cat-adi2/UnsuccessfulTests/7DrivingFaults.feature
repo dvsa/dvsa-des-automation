@@ -8,9 +8,11 @@ Feature: Cat-ADI2 Unsuccessful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "22123400"
     And I complete the waiting room declaration page for a category "adi2"
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "adi2"
       | eyesightTest            | pass                     |
       | tellMeQuestion1         | T2 - Tyre pressures      |

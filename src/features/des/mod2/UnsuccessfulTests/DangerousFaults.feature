@@ -8,9 +8,11 @@ Feature: Cat-Mod2 Unsuccessful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "10123433"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "mod2"
       | categorytype            | AM Moped                      |
       | transmission            | Automatic                     |

@@ -8,9 +8,11 @@ Feature: Cat-B Unsuccessful With Dangerous fault
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "20654334"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
