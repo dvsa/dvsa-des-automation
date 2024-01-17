@@ -1,4 +1,3 @@
-@test
 Feature: Cat-CM Successful feature
 
   Scenario:   Check validation on all pages
