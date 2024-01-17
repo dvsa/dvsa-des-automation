@@ -127,7 +127,6 @@ export default class Page {
   }
 
   public async switchToDESContext(): Promise<void> {
-    await this.waitForContextToExist('DVSA DES');
     const DESContext = await this.getContextByTitle('DVSA DES');
     // @ts-ignore
     await driver.switchContext(DESContext.id);

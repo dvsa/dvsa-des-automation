@@ -11,6 +11,8 @@ class LoginMobilePageObject extends Page {
 
   get ionMenuButton() { return 'des-dashboard::menu-button-xpath'; }
 
+  get ionMenuButtonID() { return 'des-dashboard::ion-menu-button'; }
+
   get logoutButton() { return 'des-dashboard::logout-button'; }
 
   async switchContextBySignId(contextTitle: string): Promise<void> {
@@ -103,7 +105,7 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
-    await waitFor(this.ionMenuButton, '5000', false, 'be displayed');
+    await waitFor(this.ionMenuButtonID, '10000', false, 'be clickable');
     await clickElement('click', 'selector', this.ionMenuButton);
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');

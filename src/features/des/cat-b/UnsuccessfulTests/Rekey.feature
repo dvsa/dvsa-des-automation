@@ -9,6 +9,7 @@ Feature: Cat-B Unsuccessful with serious faults feature Rekey
     And I start the test for rekey "20654339"
     And I complete the waiting room declaration page
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |

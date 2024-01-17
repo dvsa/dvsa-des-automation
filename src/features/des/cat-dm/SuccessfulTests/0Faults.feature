@@ -8,9 +8,11 @@ Feature: Cat-DM Successful feature
     And I expect that element "des-my-journal::journal-loading-spinner" is not displayed
     And I start the test for "55512309"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "Manoeuvre"
       | vehicleRegNum            | autopck                             |
     And I click on the element "des-waiting-room-to-car::continue-to-test-report-btn"
@@ -25,6 +27,7 @@ Feature: Cat-DM Successful feature
       | testLanguage                  | NA               |
       | debriefWitnessed              | No               |
     And I complete the health declaration page for a category "Manoeuvre"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |
       | activityCode          | 1 - Pass                                    |

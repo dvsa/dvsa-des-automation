@@ -9,7 +9,9 @@ Feature: Cat-B Successful feature
     And I go back 1 day and check the date is correct
     And I start the test for rekey "20654339"
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "B"
       | eyesightTest            | pass             |
       | tellMeQuestion          | T1 - Brakes      |
@@ -33,6 +35,7 @@ Feature: Cat-B Successful feature
       | testLanguage                  | cymraeg          |
       | debriefWitnessed              | Yes              |
     And I complete the health declaration page for a category "B"
+    And I complete the auth page
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                                        |
       | activityCode          | 1 - Pass                                                      |

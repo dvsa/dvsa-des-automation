@@ -9,6 +9,7 @@ Feature: Cat-ADI3 Successful feature
     And I start the test for "23123428"
     And I complete the waiting room declaration page for a category "adi3"
     And I complete the waiting room communication page
+    And I complete the auth page
     And I complete the waiting room to car page from a data table for a category "adi3"
       | vehicleRegNum           | autopck                |
       | duelControls            | No                    |

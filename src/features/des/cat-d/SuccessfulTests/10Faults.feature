@@ -8,10 +8,12 @@ Feature: Cat-D Successful feature
     And I start the test for "16123400"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room for vocational declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
+    And I complete the auth page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I complete the waiting room to car page from a data table for a category "D"
       | vehicleRegNum            | autopck                             |
@@ -50,6 +52,7 @@ Feature: Cat-D Successful feature
       | code78                        | Yes              |
     And I wait on element "des-final-pass-declaration-screen::page-title" to be displayed
     And  I complete the health declaration page for a category "D"
+    And I complete the auth page
     And I wait on element "des-final-confirmation-screen::page-title" to be displayed
     And I check the confirmation page details from a data table
       | testOutcome           | Passed                                      |

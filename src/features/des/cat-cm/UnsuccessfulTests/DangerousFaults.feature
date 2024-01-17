@@ -8,10 +8,12 @@ Feature: Cat-CM Unsuccessful feature
     And I start the test for "55512302"
     And I wait on element "des-exam-waiting-room::insurance-declaration-label" to be displayed
     And I complete the waiting room declaration page
+    And I complete the auth page
     And I complete the candidate ID page from a data table
       | trueLikeness            | yes              |
     And I wait on element "des-comms-screen::by-post-radio-btn" to be displayed
     And I complete the waiting room communication page
+    And I complete the auth page
     And I wait on element "des-waiting-room-to-car::page-title" to be displayed
     And I complete the waiting room to car page from a data table for a category "Manoeuvre"
       | vehicleRegNum            | autopck                             |
