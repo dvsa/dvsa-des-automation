@@ -66,7 +66,7 @@ export default class Page {
     }
   }
 
-  switchToNativeContext() {
+  async switchToNativeContext() {
     driver.switchContext('NATIVE_APP');
   }
 
@@ -140,11 +140,14 @@ export default class Page {
    * @param letter - letter to be inputted into textbox
    */
   public static async keyboardClickLetter(letter: string) {
-    const upercaseLetter = letter.toUpperCase();
+    const keyMap = {
+      Enter: '\uE007',
+    };
+
+    const value = keyMap[letter] || letter.toUpperCase();
+
     await driver.switchContext('NATIVE_APP');
-    if (driver.isKeyboardShown()) {
-      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
-    }
+    await browser.sendKeys(value);
     await new GettingContext().switchToDVSAAppContext();
   }
 
@@ -158,11 +161,15 @@ export default class Page {
    * @param text - text to be clicked
    */
   public async clickNativeButtonWithText(text: string): Promise<void> {
-    await this.waitForContextToExist('NATIVE_APP');
-    await driver.switchContext('NATIVE_APP');
-    const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
-    await browser.pause(3000);
-    await this.clickElement(nativeButtonText);
+    try {
+      await this.waitForContextToExist('NATIVE_APP');
+      await driver.switchContext('NATIVE_APP');
+      const nativeButtonText = await $(`(//XCUIElementTypeButton[@name="${text}"])[last()]`);
+      await browser.pause(3000);
+      await this.clickElement(nativeButtonText);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async tapElement(selector: string): Promise<void> {

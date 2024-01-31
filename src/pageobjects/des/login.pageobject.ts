@@ -39,7 +39,7 @@ class LoginMobilePageObject extends Page {
       await this.logout();
     }
 
-    await this.clickNativeButtonWithText('Continue');
+    // await this.clickNativeButtonWithText('Continue');
     // wait for log in page
     await this.switchContextBySignId(this.msSignInContextTitle);
 
@@ -62,7 +62,7 @@ class LoginMobilePageObject extends Page {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
       await this.logout();
-      await this.clickNativeButtonWithText('Continue');
+      // await this.clickNativeButtonWithText('Continue');
       // wait for log in page
       await this.switchContextBySignId(this.msSignInContextTitle);
     }
@@ -105,11 +105,11 @@ class LoginMobilePageObject extends Page {
   async logout(): Promise<void> {
     console.log('>>>>>>>>>>>>>> LOGGING OUT <<<<<<<<<<<<<');
     await this.switchToDESContext();
+    console.log('Switched to DES context');
     await waitFor(this.ionMenuButtonID, '10000', false, 'be clickable');
     await clickElement('click', 'selector', this.ionMenuButton);
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
-    await this.clickNativeButtonWithText('Continue');
     await this.switchContextBySignId(this.msSignOutContextTitle);
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);
