@@ -78,7 +78,7 @@
     "lodash": "4.17.21",
     "wd": "^1.14.0",
     "wdio-video-reporter": "^3.1.1",
-    "webdriverio": "^7.16.16",
+    "webdriverio": "^7.35.0",
     "node-simctl": "^7.1.12"
   }
 }

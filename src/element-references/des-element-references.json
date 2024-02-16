@@ -126,7 +126,8 @@
     "continue-button": "#candidate-licence-continue-button",
     "true-likeness-yes": "#true-likeness-yes",
     "true-likeness-no": "#true-likeness-no",
-    "candidate-true-likeness-validation-message": "#true-likeness-validation-text"
+    "candidate-true-likeness-validation-message": "#true-likeness-validation-text",
+    "page-title": "#candidate-licence-page-title"
   },
   "des-comms-screen": {
     "continue-btn": "//app-communication//ion-button[*[contains(text(), 'Continue')]]",

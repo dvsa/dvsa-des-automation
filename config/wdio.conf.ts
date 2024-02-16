@@ -79,6 +79,7 @@ export const config: WebdriverIO.Config = {
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
     // excludeDriverLogs: ['bugreport', 'server'],
+    allowTouchIdEnroll: true,
   }],
   //
   // ===================
@@ -230,5 +231,6 @@ export const config: WebdriverIO.Config = {
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
     await CustomCommand.addCommands();
+    driver.toggleEnrollTouchId(true);
   },
 };
