@@ -675,7 +675,7 @@
     "circuit-validation-msg": "#circuit-validation-text"
   },
   "des-rekey-reason-page": {
-    "ipadIssueCheckbox": ".//label[contains(text(), 'iPad Issue')]",
+    "ipadIssueCheckbox": ".//label[contains(text(), 'iPad issue')]",
     "tech-fault-radio": "#ipadIssueTechnicalFault",
     "lost-radio": "#ipadIssueLost",
     "transfer-label": "#transfer-label",

@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@wdio/cucumber-framework": "^7.18.0",
-    "@cucumber/cucumber": "^7.3.2",
+    "@cucumber/cucumber": "^10.3.1",
     "@dvsa/app-dev-automation": "0.0.46",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",

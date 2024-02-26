@@ -116,7 +116,7 @@ export default class Page {
 
   public async waitForContextToExist(contextTitle: string): Promise<void> {
     await driver.waitUntil(() => this.doesContextExist(contextTitle), {
-      timeout: 10000,
+      timeout: 15000,
       timeoutMsg: `timed out waiting for ${contextTitle} context`,
     });
   }
