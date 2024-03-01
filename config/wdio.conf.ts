@@ -232,5 +232,6 @@ export const config: WebdriverIO.Config = {
     await browser.reloadSession();
     await CustomCommand.addCommands();
     driver.toggleEnrollTouchId(true);
+    console.log('Completed clearing storage and toggled touch ID');
   },
 };
