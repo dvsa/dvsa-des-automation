@@ -60,7 +60,7 @@ Feature: Cat-ADI3 Successful feature
     And I click on the button "des-test-report-screen::modal-adi-continue-to-debrief-button"
     And I wait on element "des-debrief-screen::test-outcome-failed" to be displayed
     And the element "des-debrief-screen::test-outcome-failed" matches the text "Unsuccessful"
-    And I expect that element "des-debrief-screen::adi-score-less-than-seven" matches the text "Scored 7 or less in Risk Management section"
+    And I expect that element "des-debrief-screen::adi-score-less-than-seven" matches the text "Scored 7 or less in risk management section"
     And I click on the button "des-debrief-screen::end-debrief-btn"
     And I click on the element "#continue-to-non-pass-finalisation"
     And I complete the unsuccessful final outcome screen from a data table

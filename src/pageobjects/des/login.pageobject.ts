@@ -17,7 +17,6 @@ class LoginMobilePageObject extends Page {
 
   async switchContextBySignId(contextTitle: string): Promise<void> {
     // wait for log in page
-
     await this.waitForContextToExist(contextTitle);
     const signingContext = await this.getContextByTitle(contextTitle);
     // @ts-ignore
@@ -39,7 +38,7 @@ class LoginMobilePageObject extends Page {
       await this.logout();
     }
 
-    await this.clickNativeButtonWithText('Continue');
+    await this.handleNativeAlert('accept');
     // wait for log in page
     await this.switchContextBySignId(this.msSignInContextTitle);
 
@@ -62,7 +61,7 @@ class LoginMobilePageObject extends Page {
       console.info('Fixing logout failure');
       await this.clickElement(continueButton);
       await this.logout();
-      await this.clickNativeButtonWithText('Continue');
+      await this.handleNativeAlert('accept');
       // wait for log in page
       await this.switchContextBySignId(this.msSignInContextTitle);
     }
@@ -109,7 +108,7 @@ class LoginMobilePageObject extends Page {
     await clickElement('click', 'selector', this.ionMenuButton);
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
-    await this.clickNativeButtonWithText('Continue');
+    await this.handleNativeAlert('accept');
     await this.switchContextBySignId(this.msSignOutContextTitle);
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);

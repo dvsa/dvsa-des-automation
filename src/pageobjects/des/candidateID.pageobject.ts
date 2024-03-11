@@ -19,7 +19,10 @@ class CandidateIDPageObject extends Page {
 
   private get photoCard() { return `${CandidateIDPageObject.ELEMENT_REF_PREFIX}::photo-card`; }
 
+  private get candidateIDPageTitle() { return `${CandidateIDPageObject.ELEMENT_REF_PREFIX}::page-title`; }
+
   public completePage = async (data: Record<keyof CandidateIDData, string>) => {
+    await waitFor(this.candidateIDPageTitle, '', false, 'be displayed');
     // Resolve after either the error card or the photo to be displayed before completing trueLikeness field.
     await Promise.race([
       waitFor(this.errorCard, '', false, 'be displayed'),

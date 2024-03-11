@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@wdio/cucumber-framework": "^7.18.0",
-    "@cucumber/cucumber": "^7.3.2",
+    "@cucumber/cucumber": "^10.3.1",
     "@dvsa/app-dev-automation": "0.0.46",
     "allure-commandline": "^2.13.8",
     "appium": "^1.22.2",
@@ -78,7 +78,7 @@
     "lodash": "4.17.21",
     "wd": "^1.14.0",
     "wdio-video-reporter": "^3.1.1",
-    "webdriverio": "^7.16.16",
+    "webdriverio": "^7.35.0",
     "node-simctl": "^7.1.12"
   }
 }

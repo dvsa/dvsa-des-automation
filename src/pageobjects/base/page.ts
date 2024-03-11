@@ -116,7 +116,7 @@ export default class Page {
 
   public async waitForContextToExist(contextTitle: string): Promise<void> {
     await driver.waitUntil(() => this.doesContextExist(contextTitle), {
-      timeout: 10000,
+      timeout: 15000,
       timeoutMsg: `timed out waiting for ${contextTitle} context`,
     });
   }
@@ -143,7 +143,7 @@ export default class Page {
     const upercaseLetter = letter.toUpperCase();
     await driver.switchContext('NATIVE_APP');
     if (driver.isKeyboardShown()) {
-      driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
+      await driver.hideKeyboard('pressKey', upercaseLetter, upercaseLetter);
     }
     await new GettingContext().switchToDVSAAppContext();
   }
@@ -169,13 +169,23 @@ export default class Page {
     const elementSelectorForLocation: string = getElementByReference(selector);
     const { x, y } = await (await $(elementSelectorForLocation)).getLocation();
     await driver.switchContext('NATIVE_APP');
-    driver.touchPerform([
+    await driver.touchPerform([
       {
-        action: 'tap',
+        action: 'press',
         options: {
           x: x + 10,
           y: y + 10,
         },
+      },
+      {
+        action: 'wait',
+        options: {
+          ms: 1000,
+        },
+      },
+      {
+        action: 'release',
+        options: {},
       },
     ]);
     await new GettingContext().switchToDVSAAppContext();
@@ -208,5 +218,15 @@ export default class Page {
   async waitForExistAndClickable(element: WebdriverIO.Element): Promise<void> {
     await this.waitForExist(element);
     await this.waitForClickable(element);
+  }
+
+  async handleNativeAlert(alert:'accept'|'dismiss'): Promise<void> {
+    try {
+      // await browser.pause(5000);
+      const condition = alert === 'accept' ? driver.acceptAlert() : driver.dismissAlert();
+      await condition;
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

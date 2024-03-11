@@ -79,6 +79,7 @@ export const config: WebdriverIO.Config = {
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
     // excludeDriverLogs: ['bugreport', 'server'],
+    allowTouchIdEnroll: true,
   }],
   //
   // ===================
@@ -226,9 +227,11 @@ export const config: WebdriverIO.Config = {
 
   before: async () => {
     // Comment out this locally if you don't want to clear storage
-    console.info('clearing local storage before scenario');
+    console.info('clearing local storage before scenario and enrolling touch ID');
     await browser.execute('window.localStorage.clear()');
     await browser.reloadSession();
     await CustomCommand.addCommands();
+    driver.toggleEnrollTouchId(true);
+    console.log('Completed clearing storage and toggled touch ID');
   },
 };
