@@ -17,11 +17,8 @@ class LoginMobilePageObject extends Page {
 
   async switchContextBySignId(contextTitle: string): Promise<void> {
     // wait for log in page
-    // console.info('Start of switchContextBySignId');
     await this.waitForContextToExist(contextTitle);
-    // console.info('done waiting for waitForContextToExist context');
     const signingContext = await this.getContextByTitle(contextTitle);
-    console.info('signingContext', signingContext);
     // @ts-ignore
     await driver.switchContext(signingContext.id);
   }
@@ -38,7 +35,6 @@ class LoginMobilePageObject extends Page {
     }
 
     if (await burgerMenu.isDisplayed()) {
-      // console.info('Already logged in');
       await this.logout();
     }
 
@@ -113,7 +109,6 @@ class LoginMobilePageObject extends Page {
     await clickElement('click', 'selector', this.logoutButton);
     await clickElementWithText('click', 'button', 'Logout');
     await this.handleNativeAlert('accept');
-    console.info('Contexts at logout', await driver.getContexts());
     await this.switchContextBySignId(this.msSignOutContextTitle);
     const logoutTile = await $('small=Signed in');
     await this.waitForExistAndClickable(logoutTile);

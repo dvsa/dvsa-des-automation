@@ -169,15 +169,6 @@ export default class Page {
     const elementSelectorForLocation: string = getElementByReference(selector);
     const { x, y } = await (await $(elementSelectorForLocation)).getLocation();
     await driver.switchContext('NATIVE_APP');
-    // driver.touchPerform([
-    //   {
-    //     action: 'tap',
-    //     options: {
-    //       x: x + 10,
-    //       y: y + 10,
-    //     },
-    //   },
-    // ]);
     await driver.touchPerform([
       {
         action: 'press',
