@@ -7,9 +7,6 @@ export enum DeviceName {
 }
 
 export enum IOSVersion {
-    sixteenOne = '16.1',
-    sixteenTwo = '16.2',
-    sixteenThree = '16.3',
-    sixteenFour = '16.4',
     seventeenTwo = '17.2',
+    seventeenFour = '17.4'
 }
